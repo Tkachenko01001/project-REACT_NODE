@@ -1,3 +1,5 @@
+import HomePage from "pages/HomePage/HomePage";
+
 export const App = () => {
   return (
     <div
@@ -11,6 +13,7 @@ export const App = () => {
       }}
     >
       React homework template
+      <HomePage/>
     </div>
   );
 };
