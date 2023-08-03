@@ -24,6 +24,48 @@
     url(./fonts/Poppins/Poppins-SemiBold.ttf) format('truetype');
 }
 
+:root {
+  /* Fonts */
+  --font-regular: 'PoppinsRegular', sans-serif;
+  --font-medium: 'PoppinsMedium', sans-serif;
+  --font-semibold: 'PoppinsSemibold', sans-serif;
+
+  /* Dark theme */
+  --color-dark: #161616;
+  --color-hover-green: #9dc888;
+  --color-white: #ffffff;
+  --bg-color-form: #151515;
+  --bg-color-form-input: #1f1f1f;
+  --color-form-light: rgba(255, 255, 255, 0.3);
+  --color-icon-dark: #121212;
+  --color-icon-grey: rgba(255, 255, 255, 0.5);
+  --color-icon-light: rgba(255, 255, 255, 0.8);
+
+  /* Colors/label */
+  --color-blue: #8fa1d0;
+  --color-pink: #e09cb5;
+  --color-green: #bedbb0;
+  --color-light: rgba(22, 22, 22, 0.3);
+
+  /* Light theme */
+  --bg-color-light: #f6f6f7;
+  --color-text-light: rgba(22, 22, 22, 0.5);
+  --color-text-grey: rgba(22, 22, 22, 0.8);
+  --color-text-card: rgba(22, 22, 22, 0.7);
+
+  /* Violet theme */
+  --color-violet: #5255bc;
+  --bg-color-light-violet: #ecedfd;
+  --bg-color-need-help: rgba(236, 237, 253, 0.4);
+  --color-light-violet: #b8bcfd;
+
+  /* Breakpoints */
+  --mobile: 320px;
+  --mobile-adaptive: 375px;
+  --tablet: 768px;
+  --desktop: 1440px;
+}
+
 body {
   margin: 0;
   font-family: 'PoppinsRegular', 'PoppinsMedium', 'PoppinsSemibold',
@@ -38,38 +80,43 @@ code {
     monospace;
 }
 
-:root{
-  /* Dark theme */
-  --color-dark: #161616;  
-  --color-hover-green: #9DC888;  
-  --color-white: #FFFFFF;
-  --bg-color-form: #151515;
-  --bg-color-form-input: #1F1F1F;
-  --color-form-light: rgba(255, 255, 255, 0.30);
-  --color-icon-dark: #121212;
-  --color-icon-grey:rgba(255, 255, 255, 0.50);
-  --color-icon-light:rgba(255, 255, 255, 0.80);
-
-  /* Colors/label */
-  --color-blue: #8FA1D0;
-  --color-pink: #E09CB5;
-  --color-green: #BEDBB0;
-  --color-light: rgba(22, 22, 22, 0.30);
-
-  /* Light theme */
-  --bg-color-light: #F6F6F7;
-  --color-text-light: rgba(22, 22, 22, 0.50);
-  --color-text-grey: rgba(22, 22, 22, 0.80);
-  --color-text-card: rgba(22, 22, 22, 0.70);
-
-  /* Violet theme */
-  --color-violet: #5255BC;
-  --bg-color-light-violet: #ECEDFD;
-  --bg-color-need-help:rgba(236, 237, 253, 0.40);
-  --color-light-violet: #B8BCFD;
+html {
+  box-sizing: border-box;
 }
 
-/* div {
-  font-family: 'PoppinsSemibold', sans-serif;  
-  color: var(--color-dark);
-} */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
