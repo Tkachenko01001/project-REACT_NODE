@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import AuthForm from './AuthForm';
 import LinkToAuth from "./LinktoAuth";
+import ScreensPage from './screens-page';
 
 const App = () => {
   return (
@@ -23,7 +24,7 @@ const App = () => {
           <PrivateRoute redirectTo="/auth" component={<div>home</div>} />
         }
       />
-      <Route path="/home/:boardName" element={<div>Screens page</div>} />
+      <Route path="/home/:boardName" element={<ScreensPage />} />
     </Routes>
   );
 };
