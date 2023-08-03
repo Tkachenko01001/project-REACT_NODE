@@ -1,5 +1,5 @@
-import sprite from '../../../images/sprite.svg';
-import styles from './headerDashboard.module.css';
+import sprite from '../../images/sprite.svg';
+import styles from './HeaderDashboard.module.css';
 
 const HeaderDashboard = () => {
   return (
