@@ -5,12 +5,12 @@ import sprite from '../../images/sprite.svg';
 
 const WelcomePage = () => {
   return (
-    <container className={css.container}>
-      <section className={css.section}>
+    <section className={css.section}>
+      <div className={css.wrapper}>
         <img className={css.img} src="" alt="The young man at the computer" />
         <div className={css.wrap}>
           <svg className={css.svg}>
-            <use href={sprite + '#icon-plus'} />
+            <use href={sprite + '#icon-icon'} />
           </svg>
           <h1 className={css.title}>Task Pro</h1>
         </div>
@@ -24,8 +24,8 @@ const WelcomePage = () => {
         <button className={css.btn} to="/auth/login">
           Log In
         </button>
-      </section>
-    </container>
+      </div>
+    </section>
   );
 };
 

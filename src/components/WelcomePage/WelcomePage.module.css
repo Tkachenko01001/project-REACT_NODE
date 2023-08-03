@@ -1,14 +1,14 @@
-.container {
+.section {
   padding-left: 20px;
   padding-right: 20px;
   margin-left: auto;
   margin-right: auto;
   height: 100vh;
-  background-color: linear-gradient(#c4c4c400, #bedbb0);
+  background: linear-gradient(#c4c4c400, #bedbb0);
   position: relative;
 }
 
-.section {
+.wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,8 +55,8 @@
   }
 }
 
-.h1 {
-  font-family: Poppins;
+.title {
+  font-family: 'PoppinsSemibold', sans-serif;
   font-size: 28px;
   font-weight: 600;
   line-height: 21px;
@@ -70,7 +70,7 @@
 }
 
 .text {
-  font-family: Poppins;
+  font-family: 'PoppinsRegular', sans-serif;
   padding: 0 10px;
   margin-bottom: 48px;
   width: 335px;
@@ -93,21 +93,22 @@
   height: 49px;
   background-color: inherit;
   color: #161616;
-  font-family: Poppins;
+  font-family: 'PoppinsMedium', sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.02px;
   text-decoration: none;
   border-radius: 8px;
+  border: none;
   cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    width: 344px;
+  }
 
   &:hover {
     background-color: #161616;
     color: #ffffff;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 344px;
   }
 }
