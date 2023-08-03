@@ -5,7 +5,7 @@ const AuthForm = () => {
 
     return (
       <div>
-        {id === 'register' && (
+        {/* {id === 'register' && (
           <div>
             register <Link to="/auth/login">login</Link>
           </div>
@@ -14,7 +14,7 @@ const AuthForm = () => {
           <div>
             login <Link to="/auth/register">register</Link>
           </div>
-        )}
+        )} */}
       </div>
     );
 };
