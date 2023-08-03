@@ -1,13 +1,12 @@
 import React from 'react';
 import css from './WelcomePage.module.css';
-
 import sprite from '../../images/sprite.svg';
 
 const WelcomePage = () => {
   return (
     <section className={css.section}>
       <div className={css.wrapper}>
-        <img className={css.img} src="" alt="The young man at the computer" />
+        <div className={css.img}></div>
         <div className={css.wrap}>
           <svg className={css.svg}>
             <use href={sprite + '#icon-icon'} />

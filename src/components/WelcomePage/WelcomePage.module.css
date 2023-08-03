@@ -21,18 +21,23 @@
 .img {
   width: 124px;
   height: 124px;
+  background-image: url(../../images/image.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   margin-bottom: 14px;
+}
 
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .img {
     width: 162px;
     height: 162px;
     margin-bottom: 24px;
   }
+}
 
-  @media screen and (min-width: 1440px) {
+@media screen and (min-width: 1440px) {
+  .img {
     margin-bottom: 30px;
   }
 }
@@ -48,8 +53,10 @@
   width: 40px;
   height: 40px;
   fill: #ffffff;
+}
 
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .svg {
     width: 48px;
     height: 48px;
   }
@@ -62,8 +69,10 @@
   line-height: 21px;
   letter-spacing: -0.04em;
   text-align: center;
+}
 
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .title {
     font-size: 40px;
     line-height: 60px;
   }
@@ -79,8 +88,10 @@
   line-height: 18px;
   text-align: center;
   letter-spacing: -0.02px;
+}
 
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .text {
     width: 437px;
   }
 }
@@ -102,13 +113,15 @@
   border-radius: 8px;
   border: none;
   cursor: pointer;
+}
 
-  @media screen and (min-width: 768px) {
+.btn:hover {
+  background-color: #161616;
+  color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  .btn {
     width: 344px;
-  }
-
-  &:hover {
-    background-color: #161616;
-    color: #ffffff;
   }
 }
