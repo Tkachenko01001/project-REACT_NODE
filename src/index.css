@@ -33,11 +33,43 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* div {
-  font-family: 'PoppinsSemibold', sans-serif;
-} */
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root{
+  /* Dark theme */
+  --color-dark: #161616;  
+  --color-hover-green: #9DC888;  
+  --color-white: #FFFFFF;
+  --bg-color-form: #151515;
+  --bg-color-form-input: #1F1F1F;
+  --color-form-light: rgba(255, 255, 255, 0.30);
+  --color-icon-dark: #121212;
+  --color-icon-grey:rgba(255, 255, 255, 0.50);
+  --color-icon-light:rgba(255, 255, 255, 0.80);
+
+  /* Colors/label */
+  --color-blue: #8FA1D0;
+  --color-pink: #E09CB5;
+  --color-green: #BEDBB0;
+  --color-light: rgba(22, 22, 22, 0.30);
+
+  /* Light theme */
+  --bg-color-light: #F6F6F7;
+  --color-text-light: rgba(22, 22, 22, 0.50);
+  --color-text-grey: rgba(22, 22, 22, 0.80);
+  --color-text-card: rgba(22, 22, 22, 0.70);
+
+  /* Violet theme */
+  --color-violet: #5255BC;
+  --bg-color-light-violet: #ECEDFD;
+  --bg-color-need-help:rgba(236, 237, 253, 0.40);
+  --color-light-violet: #B8BCFD;
+}
+
+/* div {
+  font-family: 'PoppinsSemibold', sans-serif;  
+  color: var(--color-dark);
+} */
