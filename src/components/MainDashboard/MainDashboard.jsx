@@ -1,6 +1,6 @@
-import sprite from '../../../images/sprite.svg';
+import sprite from '../../images/sprite.svg';
 
-import styles from './maindashboard.module.css'
+import styles from './MainDashboard.module.css'
 
 const MainDashboard = () => {
     return (

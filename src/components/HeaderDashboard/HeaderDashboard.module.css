@@ -1,9 +1,9 @@
-@import '../../../index.css';
+/* @import '../../../index.css'; */
 
-.headerDashboardSection {
+/* .headerDashboardSection {
     background-color: var(--bg-color-form-input);
     height: 100vh;
-}
+} */
 
 .wrapper {
     display: flex;
