@@ -20,6 +20,8 @@
     align-items: center;
     border: none;
     border-radius: 8px;
+    fill: var(--color-white);
+    stroke: var(--color-icon-dark);    
     background: var(--color-icon-dark);
     color: var(--color-white);
     font-family: 'PoppinsMedium', sans-serif;
@@ -29,7 +31,6 @@
     line-height: normal;
     letter-spacing: -0.28px;
 }
-
 
 @media screen and (min-width: 375px) {
     .buttonText {
