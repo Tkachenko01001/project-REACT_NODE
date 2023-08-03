@@ -1,0 +1,38 @@
+@import '../../../index.css';
+
+@media screen and (max-width: 768px) {
+    .container {
+            padding: 14px 24px 0px;
+            display: flex;
+            justify-content: center;
+        }
+}
+
+.container {
+    padding: 14px 24px 0px;
+}
+
+.button {
+    display: inline-flex;
+    gap: 8px;
+    padding: 14px 78px 14px 79px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 8px;
+    background: var(--color-icon-dark);
+    color: var(--color-white);
+    font-family: 'PoppinsMedium', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.28px;
+}
+
+
+@media screen and (min-width: 375px) {
+    .buttonText {
+            width: 141px;
+        }
+}
