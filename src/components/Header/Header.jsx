@@ -1,47 +1,46 @@
 import css from './Header.module.css';
 
-import Avatar  from 'components/Avatar'
-import Icon from 'components/Icon'
+import Avatar from 'components/Avatar';
+import Icon from 'components/Icon';
 
-return (
-  <>
-    <div className={ }>
-      <div className={ }>
-        <button
-          className={ }
-          onClick={ }
-        >
-          <Icon
-            className={ }
-            name="#icon"
-            width="32px"
-            height="32px"
-          />
-        </button>
-      </div>
-
-      <div className={ }>
-        <div className={ }>
-          <button
-            className={ }
-            onClick={ }
-          >
-            <span className={ }>Theme</span>
-            <Icon name="#icon" width="16px" height="16px" color="#ffffff" />
+const Header = () => {
+  return (
+    <>
+      <div className={css.headerall}>
+        <div className={css.menuburger}>
+          <button className={css.burgerstyle}>
+            <Icon
+              className={css.burgerMenu}
+              name="#menu-icon"
+              width="32px"
+              height="32px"
+            />
           </button>
         </div>
 
-        <ul className={}>
-          <li className={}>{user.name}</li>
-          <li>
-            <Avatar
-              onClick={ 
-              }
-              size={32}
-            />
-          </li>
-        </ul>
+        <div className={css.headerTaskPro}>
+          <div className={css.outputselector}>
+            <button className={css.styleTheme}>
+              <span className={css.spantheme}>Theme</span>
+              <Icon
+                name="#icon-chevron-down-white"
+                width="16px"
+                height="16px"
+                color="#ffffff"
+              />
+            </button>
+          </div>
+
+          <ul className={css.styleUserInfo}>
+            <li className={css.styleName}>{user.name}</li>
+            <li>
+              <Avatar size={32} />
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </>
-);
+    </>
+  );
+};
+
+export default Header;
