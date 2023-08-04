@@ -1,37 +1,22 @@
-.headerTaskPro {
-  display: flex;
-  justify-content: right;
-  height: 68px;
-  align-items: center;
-  border-bottom: 0px solid rgb(57, 59, 59);
-}
-
 @media screen and (max-width: 1279px) {
-  .headerall {
+  .header {
     display: flex;
     justify-content: space-between;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .menuburger {
+  .burgerMenu {
     display: none;
   }
 }
-.iconburger {
-  width: 32px;
-  height: 32px;
-}
-.menuburger {
+
+.burgerMenu {
   margin-top: auto;
   margin-bottom: auto;
 }
-.styleTheme:hover,
-.styleTheme:focus {
-  color: var(--accent-color);
-}
 
-.burgerstyle {
+.burgerStyle {
   cursor: pointer;
   outline: 0;
   padding: 0;
@@ -43,7 +28,22 @@
   color: var(--primary-text-color);
 }
 
-.outputselector {
+.burgerIcon {
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  color: white;
+}
+
+.headerTask {
+  display: flex;
+  justify-content: right;
+  height: 68px;
+  align-items: center;
+  border-bottom: 0px solid rgb(57, 59, 59);
+}
+
+.selectorTheme {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -51,12 +51,12 @@
   z-index: 0;
 }
 
-.selectortheme {
-  position: absolute;
-  top: 33px;
-  z-index: 55;
+.theme:hover,
+.theme:focus {
+  color: var(--accent-color);
 }
-.styleTheme {
+
+.theme {
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -68,34 +68,17 @@
   font-family: inherit;
   font-size: 14px;
 }
-.styleUserInfo {
+
+.userInfo {
   list-style: none;
   margin-right: 14px;
   display: flex;
   align-items: center;
 }
 
-.styleName {
+.name {
   margin-right: 8px;
   color: var(--primary-text-color);
   background-color: transparent;
   font-size: 14px;
-}
-
-.styleAvatar {
-  padding: 0;
-  cursor: pointer;
-  width: 32px;
-  height: 32px;
-  border: none;
-  background-color: transparent;
-  background-size: cover;
-}
-
-.textuseravatar {
-  color: var(--primary-text-color);
-}
-.burgerMenu {
-  background-color: transparent;
-  color: white;
 }

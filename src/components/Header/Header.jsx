@@ -6,11 +6,11 @@ import Icon from 'components/Icon';
 const Header = () => {
   return (
     <>
-      <div className={css.headerall}>
-        <div className={css.menuburger}>
-          <button className={css.burgerstyle}>
+      <div className={css.header}>
+        <div className={css.burgerMenu}>
+          <button className={css.burgerStyle}>
             <Icon
-              className={css.burgerMenu}
+              className={css.burgerIcon}
               name="#menu-icon"
               width="32px"
               height="32px"
@@ -18,10 +18,10 @@ const Header = () => {
           </button>
         </div>
 
-        <div className={css.headerTaskPro}>
-          <div className={css.outputselector}>
-            <button className={css.styleTheme}>
-              <span className={css.spantheme}>Theme</span>
+        <div className={css.headerTask}>
+          <div className={css.selectorTheme}>
+            <button className={css.theme}>
+              <span>Theme</span>
               <Icon
                 name="#icon-chevron-down"
                 width="16px"
@@ -31,8 +31,8 @@ const Header = () => {
             </button>
           </div>
 
-          <ul className={css.styleUserInfo}>
-            <li className={css.styleName}>{user.name}</li>
+          <ul className={css.userInfo}>
+            <li className={css.name}>{user.name}</li>
             <li>
               <Avatar size={32} />
             </li>
