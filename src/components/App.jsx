@@ -16,7 +16,8 @@ const App = () => {
           </div>
         }
       />
-      <Route path="/auth" element={<LinkToAuth />} />
+      <Route path="/auth" element={<Navigate to="/auth/register" />} />
+
       <Route path="/auth/:id" element={<AuthForm />} />
       <Route
         path="/home"
