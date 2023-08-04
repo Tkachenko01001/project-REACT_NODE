@@ -28,17 +28,17 @@
   margin-bottom: 14px;
 }
 
-@media (min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
+@media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
+  screen and (min-resolution: 192dpi) and (max-width: 767px),
+  screen and (min-resolution: 2dppx) and (max-width: 767px) {
   .img {
     background-image: url(../../images/welcome-mobile@2x.png);
   }
 }
 
-@media (min-device-pixel-ratio: 3),
-  (min-resolution: 288dpi),
-  (min-resolution: 3dppx) {
+@media screen and (min-device-pixel-ratio: 3) and (max-width: 767px),
+  screen and (min-resolution: 288dpi) and (max-width: 767px),
+  screen and (min-resolution: 3dppx) and (max-width: 767px) {
   .img {
     background-image: url(../../images/welcome-mobile@3x.png);
   }
@@ -53,17 +53,17 @@
   }
 }
 
-@media (min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+  screen and (min-resolution: 192dpi) and (min-width: 768px),
+  screen and (min-resolution: 2dppx) and (min-width: 768px) {
   .img {
     background-image: url(../../images/welcome@2x.png);
   }
 }
 
-@media (min-device-pixel-ratio: 3),
-  (min-resolution: 288dpi),
-  (min-resolution: 3dppx) {
+@media screen and (min-device-pixel-ratio: 3) and (min-width: 768px),
+  screen and (min-resolution: 288dpi) and (min-width: 768px),
+  screen and (min-resolution: 3dppx) and (min-width: 768px) {
   .img {
     background-image: url(../../images/welcome@3x.png);
   }
@@ -72,6 +72,22 @@
 @media screen and (min-width: 1440px) {
   .img {
     margin-bottom: 30px;
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1440px),
+  screen and (min-resolution: 192dpi) and (min-width: 1440px),
+  screen and (min-resolution: 2dppx) and (min-width: 1440px) {
+  .img {
+    background-image: url(../../images/welcome@2x.png);
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 3) and (min-width: 1440px),
+  screen and (min-resolution: 288dpi) and (min-width: 1440px),
+  screen and (min-resolution: 3dppx) and (min-width: 1440px) {
+  .img {
+    background-image: url(../../images/welcome@3x.png);
   }
 }
 
@@ -97,9 +113,7 @@
 }
 
 .title {
-  font-family: var(--font-semibold);
   font-size: 28px;
-  /* font-weight: 600; */
   line-height: 21px;
   letter-spacing: -0.04em;
   text-align: center;
@@ -117,7 +131,6 @@
   padding: 0 10px;
   margin-bottom: 48px;
   width: 335px;
-  /* font-weight: 400; */
   font-size: 14px;
   line-height: 18px;
   text-align: center;
@@ -139,7 +152,6 @@
   background-color: inherit;
   color: var(--color-dark);
   font-family: var(--font-medium);
-  /* font-weight: 500; */
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.02px;
