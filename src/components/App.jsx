@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
-import AuthForm from './AuthForm';
-import LinkToAuth from "./LinktoAuth";
+import AuthPage from '../pages/AuthPage/AuthPage';
+import LinkToAuth from './LinktoAuth';
 import ScreensPage from './ScreensPage/ScreensPage';
 
 const App = () => {
@@ -16,8 +16,9 @@ const App = () => {
           </div>
         }
       />
-      <Route path="/auth" element={<LinkToAuth />} />
-      <Route path="/auth/:id" element={<AuthForm />} />
+      <Route path="/auth" element={<Navigate to="/auth/register" />} />
+
+      <Route path="/auth/:id" element={<AuthPage />} />
       <Route
         path="/home"
         element={
