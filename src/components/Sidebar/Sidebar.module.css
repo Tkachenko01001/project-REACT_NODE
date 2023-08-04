@@ -1,17 +1,89 @@
-.container{
-    width: 100%;
-    height: 100%;
-    padding: 0% 15px 0% 15px;
+.container {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0% 15px 0% 15px;
 
-    @media screen and (min-width: 375px) {
-    width: 375px;
-    }
+  @media screen and (min-width: var( --mobile-adaptive)) {
+    width: var(--mobile-adaptive);
+  }
 
-    @media screen and (min-width: 768px) {
-    width: 768px;
-    }
+  @media screen and (min-width: var(--tablet)) {
+    width: var(--tablet);
+  }
 
-    @media screen and (min-width: 1440px ) {
-    width: 1200px;
-    }
+  @media screen and (min-width: var( --desktop)) {
+    width: var(--desktop);
+  }
+}
+
+.sidebar {
+  width: 225px;
+  padding: 14px 14px 24px 14px;
+  background-color: var(--color-icon-dark);
+
+  @media screen and (min-width: 768px) {
+    width: 260px;
+    padding: 24px;
+  }
+
+}
+
+/* Title */
+.sidebarBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 70px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 60px;
+  }
+}
+
+.sidebarBoxTitle {
+  font-size: 16px;
+  font-family: var(--font-semibold);
+  font-weight: 600;
+  letter-spacing: -0.64px;
+
+  color: var(--color-white);
+}
+
+/* Board */
+.sidebarItem {
+  font-family: var(--font-regular);
+  font-size: 12px;
+  letter-spacing: -0.24px;
+  margin-bottom: 8px;
+
+  color: var(--color-icon-grey);
+}
+
+.sidebarBoard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 14px 4px 14px 0;
+  border-top: solid 1px var(--color-sidebar-border);
+  border-bottom: solid 1px var(--color-sidebar-border);
+
+  @media screen and (min-width: 768px) {
+    padding: 14px 0;
+  }
+}
+
+.sidebarBoardTitle {
+  font-family: var(--font-medium);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.28px;
+  color: var(--color-white);
+}
+
+.sidebarBoardSvg {
+  fill: var(--color-green);
+  stroke: var(--color-icon-dark);
 }
