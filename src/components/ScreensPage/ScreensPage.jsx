@@ -1,6 +1,6 @@
-import HeaderDashboard from './header-dashboard/headerDashboard';
-import MainDashboard from './main-dashboard/mainDashboard';
-import styles from './header-dashboard/headerDashboard.module.css';
+import HeaderDashboard from '../HeaderDashboard/HeaderDashboard';
+import MainDashboard from '../MainDashboard/MainDashboard';
+import styles from './ScreensPage.module.css';
 
 const ScreensPage = () => {
   return (

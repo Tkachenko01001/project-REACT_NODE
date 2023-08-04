@@ -1,9 +1,9 @@
-@import '../../../index.css';
+/* @import '../../../index.css'; */
 
-.headerDashboardSection {
+/* .headerDashboardSection {
     background-color: var(--bg-color-form-input);
     height: 100vh;
-}
+} */
 
 .wrapper {
     display: flex;
@@ -48,7 +48,8 @@
     font-size: 14px;
     line-height: normal;
     letter-spacing: -0.28px;
-    align-items: center;
+    align-items: center;    
+    stroke: var(--color-icon-light);
 }
 
 .filterText {
