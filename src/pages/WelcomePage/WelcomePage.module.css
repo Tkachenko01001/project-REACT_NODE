@@ -21,11 +21,27 @@
 .img {
   width: 124px;
   height: 124px;
-  background-image: url(../../images/image.png);
+  background-image: url(../../images/welcome-mobile.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   margin-bottom: 14px;
+}
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .img {
+    background-image: url(../../images/welcome-mobile@2x.png);
+  }
+}
+
+@media (min-device-pixel-ratio: 3),
+  (min-resolution: 288dpi),
+  (min-resolution: 3dppx) {
+  .img {
+    background-image: url(../../images/welcome-mobile@3x.png);
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -33,6 +49,23 @@
     width: 162px;
     height: 162px;
     margin-bottom: 24px;
+    background-image: url(../../images/welcome.png);
+  }
+}
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .img {
+    background-image: url(../../images/welcome@2x.png);
+  }
+}
+
+@media (min-device-pixel-ratio: 3),
+  (min-resolution: 288dpi),
+  (min-resolution: 3dppx) {
+  .img {
+    background-image: url(../../images/welcome@3x.png);
   }
 }
 
@@ -52,8 +85,8 @@
 .svg {
   width: 40px;
   height: 40px;
-  fill: var(--color-white);
-  stroke: var(--color-dark);
+  fill: var(--color-dark);
+  stroke: var(--color-white);
 }
 
 @media screen and (min-width: 768px) {
