@@ -52,7 +52,7 @@
 .svg {
   width: 40px;
   height: 40px;
-  fill: #ffffff;
+  fill: var(--color-white);
 }
 
 @media screen and (min-width: 768px) {
@@ -63,7 +63,7 @@
 }
 
 .title {
-  font-family: 'PoppinsSemibold', sans-serif;
+  font-family: var(--font-semibold);
   font-size: 28px;
   font-weight: 600;
   line-height: 21px;
@@ -79,7 +79,7 @@
 }
 
 .text {
-  font-family: 'PoppinsRegular', sans-serif;
+  font-family: var(--font-regular);
   padding: 0 10px;
   margin-bottom: 48px;
   width: 335px;
@@ -103,8 +103,8 @@
   width: 335px;
   height: 49px;
   background-color: inherit;
-  color: #161616;
-  font-family: 'PoppinsMedium', sans-serif;
+  color: var(--color-dark);
+  font-family: var(--font-medium);
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
@@ -116,8 +116,8 @@
 }
 
 .btn:hover {
-  background-color: #161616;
-  color: #ffffff;
+  background-color: var(--color-dark);
+  color: var(--color-white);
 }
 
 @media screen and (min-width: 768px) {
