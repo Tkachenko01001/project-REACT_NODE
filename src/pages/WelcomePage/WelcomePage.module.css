@@ -99,7 +99,7 @@
 .title {
   font-family: var(--font-semibold);
   font-size: 28px;
-  font-weight: 600;
+  /* font-weight: 600; */
   line-height: 21px;
   letter-spacing: -0.04em;
   text-align: center;
@@ -117,7 +117,7 @@
   padding: 0 10px;
   margin-bottom: 48px;
   width: 335px;
-  font-weight: 400;
+  /* font-weight: 400; */
   font-size: 14px;
   line-height: 18px;
   text-align: center;
@@ -139,7 +139,7 @@
   background-color: inherit;
   color: var(--color-dark);
   font-family: var(--font-medium);
-  font-weight: 500;
+  /* font-weight: 500; */
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.02px;
