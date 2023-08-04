@@ -81,10 +81,6 @@
 
   transition: opacity 250ms linear;
 
-  &:last-child {
-    margin-bottom: 24px;
-  }
-
   &::placeholder {
     color: var(--color-white);
   }
@@ -111,6 +107,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin-top: 24px;
   height: 49px;
   background-color: var(--color-green);
   color: var(--color-dark);
@@ -129,7 +126,7 @@
   transition: background-color 250ms linear, box-shadow 250ms linear;
 
   &:hover {
-    background-color: #9dc888;
+    background-color: var(--color-hover-green);
   }
 }
 
@@ -149,4 +146,13 @@
   text-align: center;
   cursor: pointer;
   border: 0px;
+}
+
+.error {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-family: var(--font-regular);
+  font-size: 10px;
+  color: rgba(255, 0, 0, 0.664);
 }

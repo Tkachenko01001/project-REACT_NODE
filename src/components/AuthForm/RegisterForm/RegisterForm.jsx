@@ -33,6 +33,15 @@ export const RegisterForm = () => {
     );
   };
 
+  const FormError = ({ name }) => {
+    return (
+      <ErrorMessage
+        name={name}
+        render={message => <p className={styles.error}>{message}</p>}
+      />
+    );
+  };
+
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
     resetForm();
@@ -45,25 +54,29 @@ export const RegisterForm = () => {
       validationSchema={registerSchema}
     >
       <Form autoComplete="off" className={styles.form}>
-        <Field
-          className={styles.input}
-          type="text"
-          name="name"
-          placeholder="Enter your name"
-          // value={email}
-          // onChange={handleChange}
-        />
-        <ErrorMessage name="name" component="p" />
+        <div className={styles.wrap}>
+          <Field
+            className={styles.input}
+            type="text"
+            name="name"
+            placeholder="Enter your name"
+            // value={email}
+            // onChange={handleChange}
+          />
+          <FormError name="name" />
+        </div>
 
-        <Field
-          className={styles.input}
-          type="email"
-          name="email"
-          placeholder="Enter your email"
-          // value={email}
-          // onChange={handleChange}
-        />
-        <ErrorMessage name="email" component="p" />
+        <div className={styles.wrap}>
+          <Field
+            className={styles.input}
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            // value={email}
+            // onChange={handleChange}
+          />
+          <FormError name="email" />
+        </div>
 
         <div className={styles.wrap}>
           <Field
@@ -78,9 +91,8 @@ export const RegisterForm = () => {
           <span className={styles.yey_icon} onClick={togglPassword}>
             {passwordIcon}
           </span>
+          <FormError name="password" />
         </div>
-
-        <ErrorMessage name="password" component="p" />
 
         <button className={styles.btn} type="submit">
           Register Now
