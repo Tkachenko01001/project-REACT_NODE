@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/project-REACT_NODE/static/css/main.db4b27a6.css",
-    "main.js": "/project-REACT_NODE/static/js/main.2c0214e7.js",
+    "main.css": "/project-REACT_NODE/static/css/main.2f2c60ab.css",
+    "main.js": "/project-REACT_NODE/static/js/main.ac8d356d.js",
     "static/media/Poppins-Regular.ttf": "/project-REACT_NODE/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/Poppins-Medium.ttf": "/project-REACT_NODE/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
     "static/media/Poppins-SemiBold.ttf": "/project-REACT_NODE/static/media/Poppins-SemiBold.ac8d04b620e54be9b0f0.ttf",
     "static/media/sprite.svg": "/project-REACT_NODE/static/media/sprite.27a4e65e6a2a4bc9b7433de2fe8490a2.svg",
     "index.html": "/project-REACT_NODE/index.html",
-    "main.db4b27a6.css.map": "/project-REACT_NODE/static/css/main.db4b27a6.css.map",
-    "main.2c0214e7.js.map": "/project-REACT_NODE/static/js/main.2c0214e7.js.map"
+    "main.2f2c60ab.css.map": "/project-REACT_NODE/static/css/main.2f2c60ab.css.map",
+    "main.ac8d356d.js.map": "/project-REACT_NODE/static/js/main.ac8d356d.js.map"
   },
   "entrypoints": [
-    "static/css/main.db4b27a6.css",
-    "static/js/main.2c0214e7.js"
+    "static/css/main.2f2c60ab.css",
+    "static/js/main.ac8d356d.js"
   ]
 }
