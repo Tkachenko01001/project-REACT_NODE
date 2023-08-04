@@ -127,7 +127,6 @@
 .text {
   font-family: var(--font-regular);
   margin-bottom: 48px;
-  width: 335px;
   font-size: 14px;
   line-height: 18px;
   text-align: center;
