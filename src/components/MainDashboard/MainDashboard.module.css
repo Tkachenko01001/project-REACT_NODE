@@ -8,8 +8,42 @@
         }
 }
 
+@media screen and (max-width: 768px) {
+    .mainDashboardContainerMobile {
+        padding: 0px 20px 0px 20px;
+    }
+}
+
 .container {
     padding: 14px 24px 0px;
+}
+
+.dashboardDefault {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.dashboardDefaultParagraph {
+    max-width: 468px;
+    text-align: center;
+    color: var(--color-icon-grey);
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.28px;
+}
+
+@media screen and (max-width: 768px) {
+    .dashboardDefaultParagraph {
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: -0.24px;
+    }
+}
+
+.createBoard {
+    color: var(--color-green);
 }
 
 .button {
