@@ -1,32 +1,44 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import styles from './AuthForm.module.css';
 import { RegisterForm } from './RegisterForm/RegisterForm';
 import { LogInForm } from './LogInForm/LogInForm';
-import { Layout, AuthLink, RegisterFormWindow, Text } from './AuthForm.styled';
 
 const AuthForm = () => {
   const { id } = useParams();
 
   return (
-    <Layout>
-      {id === 'login' && (
-        <RegisterFormWindow>
-          <div>
-            <AuthLink to="/auth/register">Registration</AuthLink>
-            <Text>Log In</Text>
+    <section className={styles.section}>
+      <div className={styles.wrapper}>
+        {id === 'login' && (
+          <div className={styles.register_form_window}>
+            <div>
+              <Link
+                to="/auth/register"
+                className={(styles.form_title, styles.active)}
+              >
+                Registration
+              </Link>
+              <span className={styles.form_title}>Log In</span>
+            </div>
+            <LogInForm />
           </div>
-          <LogInForm />
-        </RegisterFormWindow>
-      )}
-      {id === 'register' && (
-        <RegisterFormWindow>
-          <div>
-            <Text>Registration</Text>
-            <AuthLink to="/auth/login">Log In</AuthLink>
+        )}
+        {id === 'register' && (
+          <div className={styles.register_form_window}>
+            <div>
+              <span className={styles.form_title}>Registration</span>
+              <Link
+                to="/auth/login"
+                className={(styles.form_title, styles.active)}
+              >
+                Log In
+              </Link>
+            </div>
+            <RegisterForm />
           </div>
-          <RegisterForm />
-        </RegisterFormWindow>
-      )}
-    </Layout>
+        )}
+      </div>
+    </section>
   );
 };
 

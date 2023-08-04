@@ -1,8 +1,8 @@
+import { useState } from 'react';
 import { object, string } from 'yup';
-import { Button } from './LogInForm.styled';
-import { FormikForm } from './LogInForm.styled';
-import { Formik, ErrorMessage } from 'formik';
-import { Input } from './LogInForm.styled';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import styles from '../AuthForm.module.css';
+import { BiSolidShow, BiSolidHide } from 'react-icons/bi';
 
 const registerSchema = object({
   email: string().email().required(),
@@ -15,6 +15,22 @@ const initialValues = {
 };
 
 export const LogInForm = () => {
+  const [passwordShown, setPasswordShown] = useState(false);
+  const [passwordIcon, setpasswordIcon] = useState(
+    <BiSolidHide color="#FFFFFF" size="18" />
+  );
+
+  const togglPassword = () => {
+    setPasswordShown(!passwordShown);
+    setpasswordIcon(
+      !passwordShown ? (
+        <BiSolidShow color="#FFFFFF" size="18" />
+      ) : (
+        <BiSolidHide color="#FFFFFF" size="18" />
+      )
+    );
+  };
+
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
     resetForm();
@@ -26,8 +42,9 @@ export const LogInForm = () => {
       onSubmit={handleSubmit}
       validationSchema={registerSchema}
     >
-      <FormikForm autoComplete="off">
-        <Input
+      <Form autoComplete="off" className={styles.form}>
+        <Field
+          className={styles.input}
           type="email"
           name="email"
           placeholder="Enter your email"
@@ -36,17 +53,27 @@ export const LogInForm = () => {
         />
         <ErrorMessage name="email" />
 
-        <Input
-          type="password"
-          name="password"
-          placeholder="Create a password"
-          // value={password}
-          // onChange={handleChange}
-        />
+        <div className={styles.wrap}>
+          <Field
+            className={styles.input}
+            type={passwordShown ? 'text' : 'password'}
+            name="password"
+            placeholder="Create a password"
+            // value={password}
+            // onChange={handleChange}
+          />
+
+          <span className={styles.yey_icon} onClick={togglPassword}>
+            {passwordIcon}
+          </span>
+        </div>
+
         <ErrorMessage name="password" />
 
-        <Button type="submit">Register Now</Button>
-      </FormikForm>
+        <button className={styles.btn} type="submit">
+          Log In Now
+        </button>
+      </Form>
     </Formik>
   );
 };

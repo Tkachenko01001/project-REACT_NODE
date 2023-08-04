@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import { object, string } from 'yup';
-import Notiflix from 'notiflix';
-import { Button } from './RegisterForm.styled';
-import { FormikForm } from './RegisterForm.styled';
-import { Formik, ErrorMessage } from 'formik';
-import { Input, ShowHidePass, Password } from './RegisterForm.styled';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import styles from '../AuthForm.module.css';
 import { BiSolidShow, BiSolidHide } from 'react-icons/bi';
 
 const registerSchema = object({
@@ -47,8 +44,9 @@ export const RegisterForm = () => {
       onSubmit={handleSubmit}
       validationSchema={registerSchema}
     >
-      <FormikForm autoComplete="off">
-        <Input
+      <Form autoComplete="off" className={styles.form}>
+        <Field
+          className={styles.input}
           type="text"
           name="name"
           placeholder="Enter your name"
@@ -57,7 +55,8 @@ export const RegisterForm = () => {
         />
         <ErrorMessage name="name" component="p" />
 
-        <Input
+        <Field
+          className={styles.input}
           type="email"
           name="email"
           placeholder="Enter your email"
@@ -66,8 +65,9 @@ export const RegisterForm = () => {
         />
         <ErrorMessage name="email" component="p" />
 
-        <Password>
-          <Input
+        <div className={styles.wrap}>
+          <Field
+            className={styles.input}
             type={passwordShown ? 'text' : 'password'}
             name="password"
             placeholder="Create a password"
@@ -75,13 +75,17 @@ export const RegisterForm = () => {
             // onChange={handleChange}
           />
 
-          <ShowHidePass onClick={togglPassword}>{passwordIcon}</ShowHidePass>
-        </Password>
+          <span className={styles.yey_icon} onClick={togglPassword}>
+            {passwordIcon}
+          </span>
+        </div>
 
         <ErrorMessage name="password" component="p" />
 
-        <Button type="submit">Register Now</Button>
-      </FormikForm>
+        <button className={styles.btn} type="submit">
+          Register Now
+        </button>
+      </Form>
     </Formik>
   );
 };

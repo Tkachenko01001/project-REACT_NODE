@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
-import AuthForm from './AuthForm';
+import AuthForm from './AuthForm/AuthForm';
 import LinkToAuth from './LinktoAuth';
 import ScreensPage from './ScreensPage/ScreensPage';
 
