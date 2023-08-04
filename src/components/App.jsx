@@ -1,8 +1,8 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import AuthForm from './AuthForm';
-import WelcomePage from './WelcomePage/WelcomePage';
-import LinkToAuth from "./LinktoAuth";
+import WelcomePage from '../pages/WelcomePage/WelcomePage';
+import LinkToAuth from './LinktoAuth';
 import ScreensPage from './ScreensPage/ScreensPage';
 
 const App = () => {
