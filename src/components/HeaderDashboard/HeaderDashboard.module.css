@@ -11,6 +11,7 @@
     align-items: center;
     padding: 14px 24px 0px;
     margin-bottom: 39px;
+    flex-direction: row-reverse;
 }
 
 @media screen and (min-width: 768px) {
