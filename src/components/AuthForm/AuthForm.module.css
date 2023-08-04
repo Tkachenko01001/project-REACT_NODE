@@ -86,26 +86,26 @@
   letter-spacing: -0.28px;
 
   transition: opacity 250ms linear;
+}
 
-  &::placeholder {
-    color: var(--color-white);
-  }
+.input:active,
+.input:hover,
+.input:focus {
+  outline: 0;
+  outline-offset: 0;
+  opacity: 1;
+}
 
-  &:active,
-  &:hover,
-  &:focus {
-    outline: 0;
-    outline-offset: 0;
-    opacity: 1;
-  }
+.input::placeholder {
+  color: var(--color-white);
+}
 
-  &:-webkit-autofill,
-  &:-webkit-autofill:hover,
-  &:-webkit-autofill:focus,
-  &:-webkit-autofill:active {
-    -webkit-text-fill-color: var(--color-white);
-    box-shadow: 0 0 0 30px var(--bg-color-form-input) inset !important;
-  }
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus,
+.input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--color-white);
+  box-shadow: 0 0 0 30px var(--bg-color-form-input) inset !important;
 }
 
 .btn {
@@ -130,10 +130,10 @@
   border-radius: 8px;
 
   transition: background-color 250ms linear, box-shadow 250ms linear;
+}
 
-  &:hover {
-    background-color: var(--color-hover-green);
-  }
+.btn:hover {
+  background-color: var(--color-hover-green);
 }
 
 .wrap {
