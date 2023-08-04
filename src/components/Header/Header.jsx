@@ -23,7 +23,7 @@ const Header = () => {
             <button className={css.styleTheme}>
               <span className={css.spantheme}>Theme</span>
               <Icon
-                name="#icon-chevron-down-white"
+                name="#icon-chevron-down"
                 width="16px"
                 height="16px"
                 color="#ffffff"
