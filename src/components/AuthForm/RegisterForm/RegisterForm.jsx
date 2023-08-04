@@ -3,6 +3,8 @@ import { object, string } from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import styles from '../AuthForm.module.css';
 import sprite from '../../../images/sprite.svg';
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/operations';
 
 const registerSchema = object({
   name: string().required(),
@@ -49,8 +51,15 @@ const YeyClose = () => {
 };
 
 export const RegisterForm = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  
   const [passwordShown, setPasswordShown] = useState(false);
   const [passwordIcon, setpasswordIcon] = useState(<YeyClose />);
+
+  const dispatch = useDispatch();
+  
 
   const togglPassword = () => {
     setPasswordShown(!passwordShown);
@@ -66,16 +75,24 @@ export const RegisterForm = () => {
     );
   };
 
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
+  const handleSubmit = ({ resetForm }) => {
+    dispatch(
+        register({
+          name: name,
+          email: email,
+          password: password,
+        })
+      );
     resetForm();
   };
+
+  
 
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
-      validationSchema={registerSchema}
+      // validationSchema={registerSchema}
     >
       <Form autoComplete="off" className={styles.form}>
         <div className={styles.wrap}>
@@ -84,8 +101,8 @@ export const RegisterForm = () => {
             type="text"
             name="name"
             placeholder="Enter your name"
-            // value={email}
-            // onChange={handleChange}
+            value={name}
+            onChange={e => {console.log ("name=", e.target.value);  setName(e.target.value)}}
           />
           <FormError name="name" />
         </div>
@@ -96,8 +113,8 @@ export const RegisterForm = () => {
             type="email"
             name="email"
             placeholder="Enter your email"
-            // value={email}
-            // onChange={handleChange}
+            value={email}
+            onChange={e => {console.log ("email=", e.target.value);  setEmail(e.target.value)}}
           />
           <FormError name="email" />
         </div>
@@ -108,8 +125,8 @@ export const RegisterForm = () => {
             type={passwordShown ? 'text' : 'password'}
             name="password"
             placeholder="Create a password"
-            // value={password}
-            // onChange={handleChange}
+            value={password}
+            onChange={e => {console.log ("pass=", e.target.value);  setPassword(e.target.value)}}
           />
 
           <span className={styles.yey_icon} onClick={togglPassword}>
