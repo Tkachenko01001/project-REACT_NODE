@@ -1,29 +1,66 @@
 import css from '../Sidebar/Sidebar.module.css';
 import sprite from '../../images/sprite.svg';
+import cactus from '../../images/cactus.png';
+import cactus2x from '../../images/cactus@2x.png';
+import cactus3x from '../../images/cactus@3x.png';
 
-const Sidebar = () => {
+const Sidebar = ({ boards }) => {
+  const handleClickButton = () => {
+    console.log('Click');
+  };
+
   return (
     <div>
       <div className={css.container}>
-        <div className={css.sidebar}>
+        <aside className={css.sidebar}>
           <div className={css.sidebarBox}>
-            <svg width={32} height={32}>
-              <use href={sprite + '#icon-icon'}></use>
+            <svg className={css.sidebarBoxIcon}>
+              <use href={sprite + '#icon-icon-dark'}></use>
             </svg>
             <h2 className={css.sidebarBoxTitle}>Task Pro</h2>
           </div>
-          <p className={css.sidebarItem}>My boards</p>
+          <div className={css.sidebarItem}>
+            <p className={css.sidebarItemTitle}>My boards</p>
+          </div>
           <div className={css.sidebarBoard}>
-            <h3 className={css.sidebarBoardTitle}>
-              Create a<br /> new board
-            </h3>
-            <button type="button">
-              <svg className={css.sidebarBoardSvg} width={20} height={20}>
-                <use href={sprite + '#icon-plus1'}></use>
+            <p className={css.sidebarBoardItem}>Create a new board</p>
+            <button
+              onClick={handleClickButton}
+              className={css.sidebarBoardButton}
+              type="button"
+            >
+              <svg className={css.sidebarBoardIcon}>
+                <use href={sprite + '#icon-plus'}></use>
               </svg>
             </button>
           </div>
-        </div>
+          <ul className={css.sidebarNewBoard}>
+            <li className={css.sidebarNewBoardList}>
+              <svg className={css.sidebarNewBoardSvg}>
+                <use href={sprite + '#icon-project'}></use>
+              </svg>
+              <p className={css.sidebarNewBoardItem}>Project office</p>
+              <button className={css.sidebarNewBoardButton} type="button">
+                <svg className={css.sidebarNewBoardIcon}>
+                  <use href={sprite + '#icon-pencil'}></use>
+                </svg>
+              </button>
+              <button
+                className={css.sidebarNewBoardButtonCurrent}
+                type="button"
+              >
+                <svg className={css.sidebarNewBoardIcon}>
+                  <use href={sprite + '#icon-trash'}></use>
+                </svg>
+              </button>
+            </li>
+          </ul>
+          <div>
+            <picture>
+              <source srcSet={(cactus, cactus2x, cactus3x)} type="image/png" />
+            </picture>
+          </div>
+        </aside>
       </div>
     </div>
   );
