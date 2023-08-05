@@ -2,7 +2,6 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import AuthPage from '../pages/AuthPage/AuthPage';
 import WelcomePage from '../pages/WelcomePage/WelcomePage';
-import LinkToAuth from './LinktoAuth';
 import ScreensPage from './ScreensPage/ScreensPage';
 
 const App = () => {
@@ -10,7 +9,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Navigate to="/welcome" />} />
       <Route path="/welcome" element={<WelcomePage />} />
-      <Route path="/auth" element={<LinkToAuth />} />
+      <Route path="/auth" element={<Navigate to="/auth/register" />} />
       <Route path="/auth/:id" element={<AuthPage />} />
       <Route
         path="/home"
