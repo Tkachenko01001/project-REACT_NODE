@@ -105,7 +105,7 @@ export const RegisterForm = () => {
             name="name"
             placeholder="Enter your name"
             value={name}
-            onChange={e => {console.log ("name=", e.target.value);  setName(e.target.value)}}
+            onChange={e =>  setName(e.target.value)}
           />
           <FormError name="name" />
         </div>
@@ -117,7 +117,7 @@ export const RegisterForm = () => {
             name="email"
             placeholder="Enter your email"
             value={email}
-            onChange={e => {console.log ("email=", e.target.value);  setEmail(e.target.value)}}
+            onChange={e => setEmail(e.target.value)}
           />
           <FormError name="email" />
         </div>
@@ -129,7 +129,7 @@ export const RegisterForm = () => {
             name="password"
             placeholder="Create a password"
             value={password}
-            onChange={e => {console.log ("pass=", e.target.value);  setPassword(e.target.value)}}
+            onChange={e => setPassword(e.target.value)}
           />
 
           <span className={styles.yey_icon} onClick={togglPassword}>
