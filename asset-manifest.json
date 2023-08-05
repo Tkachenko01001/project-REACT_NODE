@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/project-REACT_NODE/static/css/main.4d16fae9.css",
-    "main.js": "/project-REACT_NODE/static/js/main.edb037e6.js",
+    "main.js": "/project-REACT_NODE/static/js/main.3d4d0e5a.js",
     "static/media/Poppins-Regular.ttf": "/project-REACT_NODE/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/Poppins-Medium.ttf": "/project-REACT_NODE/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
     "static/media/Poppins-SemiBold.ttf": "/project-REACT_NODE/static/media/Poppins-SemiBold.ac8d04b620e54be9b0f0.ttf",
@@ -14,10 +14,10 @@
     "static/media/welcome-mobile.png": "/project-REACT_NODE/static/media/welcome-mobile.6b48f2104b769f0cc784.png",
     "index.html": "/project-REACT_NODE/index.html",
     "main.4d16fae9.css.map": "/project-REACT_NODE/static/css/main.4d16fae9.css.map",
-    "main.edb037e6.js.map": "/project-REACT_NODE/static/js/main.edb037e6.js.map"
+    "main.3d4d0e5a.js.map": "/project-REACT_NODE/static/js/main.3d4d0e5a.js.map"
   },
   "entrypoints": [
     "static/css/main.4d16fae9.css",
-    "static/js/main.edb037e6.js"
+    "static/js/main.3d4d0e5a.js"
   ]
 }
