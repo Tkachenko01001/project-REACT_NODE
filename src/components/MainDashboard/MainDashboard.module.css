@@ -1,6 +1,4 @@
-/* @import '../../../index.css'; */
-
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
     .container {
             padding: 14px 24px 0px;
             display: flex;
@@ -9,7 +7,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .mainDashboardContainerMobile {
+    .mainDashboardContainer {
         padding: 0px 20px 0px 20px;
     }
 }
@@ -38,7 +36,7 @@
     .dashboardDefaultParagraph {
         font-size: 12px;
         line-height: 16px;
-        letter-spacing: -0.24px;
+        letter-spacing: -0.02px;
     }
 }
 

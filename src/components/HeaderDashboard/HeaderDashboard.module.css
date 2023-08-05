@@ -9,7 +9,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 24px 0px;
+    padding: 14px 20px 0px;
     margin-bottom: 39px;
     flex-direction: row-reverse;
 }
@@ -17,6 +17,7 @@
 @media screen and (min-width: 768px) {
     .wrapper {
        margin-bottom: 26px;
+       padding: 14px 32px 0px
     }
 }
 
@@ -32,6 +33,7 @@
 @media screen and (min-width: 1440px) {
     .wrapper {
         margin-bottom: 10px;
+        padding: 14px 24px 0px;
     }
 
     .title {
