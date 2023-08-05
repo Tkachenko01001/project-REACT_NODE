@@ -3,22 +3,25 @@ import styles from './Card.module.css';
 
 const Card = () => {
   return (
-    <div className={styles.container}>
-      <h4>Card Title</h4>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa beatae
-        dolores facilis dignissimos consequatur maxime enim dolor corporis
-        excepturi doloribus accusamus odit sed, iure totam autem recusandae
-        tempora quisquam? Provident!
+    <div className={styles.card}>
+      <div className={styles.textWrapper}>
+      <h4 className={styles.title}>Card Title</h4>
+      <p className={styles.description}>
+        Conduct in-depth research and analysis on the project's topic, gather
+        relevant data, and identify key insights to inform decision-making and
+        project planning.
       </p>
-      <div>
-        <h5>Priority</h5>
-        <div></div>
-        <p>Low</p>
       </div>
-      <div>
-        <h5>Deadline</h5>
-        <p>14.08.2023</p>
+      
+      <div className={styles.wrapper}>
+      <div className={styles.priority}>
+        <h5 className={styles.subTitle}>Priority</h5>
+        <div className={styles.priorityCircle}></div>
+        <p className={styles.priorityText}>Low</p>
+      </div>
+      <div className={styles.deadline}>
+        <h5 className={styles.subTitle}>Deadline</h5>
+        <p className={styles.deadlineText}>14/08/2023</p>
       </div>
       {/* <h4>{card.title}</h4>
       <p>{card.description}</p>
@@ -31,9 +34,9 @@ const Card = () => {
         <h5>Deadline</h5>
         <p>{card.deadline}</p>
       </div> */}
-      <ul>
-        <li>
-          <button className={styles.button}>
+      <ul className={styles.cardIcons}>
+        <li className={styles.cardIcon}>
+          <button className={styles.cardButton}>
             <svg
               width={16}
               height={16}
@@ -45,8 +48,8 @@ const Card = () => {
             </svg>
           </button>
         </li>
-        <li>
-          <button className={styles.button}>
+        <li className={styles.cardIcon}>
+          <button className={styles.cardButton}>
             <svg
               width={16}
               height={16}
@@ -58,8 +61,8 @@ const Card = () => {
             </svg>
           </button>
         </li>
-        <li>
-          <button className={styles.button}>
+        <li className={styles.cardIcon}>
+          <button className={styles.cardButton}>
             <svg
               width={16}
               height={16}
@@ -71,8 +74,8 @@ const Card = () => {
             </svg>
           </button>
         </li>
-        <li>
-          <button className={styles.button}>
+        <li className={styles.cardIcon}>
+          <button className={styles.cardButton}>
             <svg
               width={16}
               height={16}
@@ -85,6 +88,8 @@ const Card = () => {
           </button>
         </li>
       </ul>
+      </div>
+      
     </div>
   );
 };

@@ -1,0 +1,117 @@
+.card {
+  width: 334px;
+  height: 154px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #121212;
+  position: relative;
+}
+
+.card::before {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 100%;
+  background-color: blue;
+  border-radius: 4px 0px 0px 4px;
+  position: absolute;
+}
+
+.textWrapper {
+  padding: 14px 20px 14px 24px;
+}
+
+.title {
+  color: #fff;
+  font-family: 'PoppinsSemibold';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.28px;
+  margin-bottom: 8px;
+}
+
+.description {
+  width: 290px;
+  height: 38px;
+  flex-shrink: 0;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.5);
+  text-overflow: ellipsis;
+  /* white-space: nowrap; */
+  font-family: 'PoppinsRegular';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 133.333% */
+  letter-spacing: -0.24px;
+}
+
+.subTitle {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'PoppinsRegular';
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.16px;
+}
+
+.deadlineText,
+.priorityText {
+  color: #fff;
+  font-family: 'PoppinsRegular';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.2px;
+}
+
+.priorityText::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: blue;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+.cardButton {
+  stroke: rgba(255, 255, 255, 0.5);
+  background-color: #121212;
+  border: none;
+}
+
+.wrapper {
+  display: flex;
+  position: relative;
+  padding: 14px 14px 14px 24px;
+}
+
+.wrapper::before {
+  content: '';
+  display: block;
+  width: 290px;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);  
+  position: absolute;
+  top: 0; 
+}
+
+.cardIcons {
+  display: flex; 
+  margin-left: auto;
+}
+
+.priority {
+  margin-right: 14px;
+}
+
+.subTitle {
+  margin-bottom: 4px;
+}
+
+
