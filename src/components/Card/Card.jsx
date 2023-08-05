@@ -18,7 +18,7 @@ const Card = () => {
       <div className={styles.wrapper}>
         <div className={styles.priority}>
           <h5 className={styles.subTitle}>Priority</h5>          
-          <p className={styles.priorityText}>Low</p>
+          <p className={styles.priorityText}>Medium</p>
         </div>
         <div className={styles.deadline}>
           <h5 className={styles.subTitle}>Deadline</h5>
@@ -31,7 +31,7 @@ const Card = () => {
                 width={16}
                 height={16}
                 aria-label="icon-bell"
-                className={styles.svg}
+                className={styles.bell}
               >
                 <title>Bell Icon</title>
                 <use href={sprite + '#icon-bell'} />

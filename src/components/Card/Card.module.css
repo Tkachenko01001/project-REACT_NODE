@@ -1,8 +1,8 @@
 .card {
   width: 334px;
   border-radius: 8px;
-  background: #121212;
-  position: relative;
+  background-color: var(--color-icon-dark);
+  position: relative;  
 }
 
 .card::before {
@@ -10,7 +10,7 @@
   display: block;
   width: 4px;
   height: 100%;
-  background-color: blue;
+  background-color: var(--color-pink);
   border-radius: 4px 0px 0px 4px;
   position: absolute;
 }
@@ -20,8 +20,8 @@
 }
 
 .title {
-  color: #fff;
-  font-family: 'PoppinsSemibold';
+  color: var(--color-white);
+  font-family: var(--font-semibold);
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -31,15 +31,13 @@
 }
 
 .description {
-  width: 290px;
-  flex-shrink: 0;
-  overflow: hidden;
-  color: rgba(255, 255, 255, 0.5);
-  font-family: 'PoppinsRegular';
+  width: 290px;   
+  color: var(--color-icon-grey);
+  font-family: var(--font-regular);
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
-  line-height: 16px; /* 133.333% */
+  line-height: 1.33;
   letter-spacing: -0.24px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -49,8 +47,8 @@
 }
 
 .subTitle {
-  color: rgba(255, 255, 255, 0.5);
-  font-family: 'PoppinsRegular';
+  color: var(--color-icon-grey);
+  font-family: var(--font-regular);
   font-size: 8px;
   font-style: normal;
   font-weight: 400;
@@ -60,18 +58,18 @@
 
 .deadlineText,
 .priorityText {
-  color: #fff;
-  font-family: 'PoppinsRegular';
+  color: var(--color-white);
+  font-family: var(--font-regular);
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  letter-spacing: -0.2px;
-  position: relative;
+  letter-spacing: -0.2px;  
 }
 
 .priorityText {
   margin-left: 16px;
+  position: relative;
 }
 
 .priorityText::before {
@@ -79,17 +77,17 @@
   display: inline-block;
   width: 12px;
   height: 12px;
-  background-color: blue;
+  background-color: var(--color-pink);
   border-radius: 50%;
   position: absolute;
-  right: 22px;
+  left: -16px;
 }
 
 .cardButton {
   height: 16px;
   width: 16px;
-  stroke: rgba(255, 255, 255, 0.5);
-  background-color: #121212;
+  stroke:  var(--color-icon-grey);
+  background-color: var(--color-icon-dark);
   border: none;
   padding: 0;
 }
@@ -106,7 +104,7 @@
   display: block;
   width: 290px;
   height: 1px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--color-bg-light);
   position: absolute;
   top: 0;
 }
@@ -133,4 +131,8 @@
 
 .cardIcon:first-child {
   margin-right: 12px;
+}
+
+.bell {
+  stroke: var(--color-green);
 }
