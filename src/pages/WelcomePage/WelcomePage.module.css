@@ -1,0 +1,170 @@
+.section {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100vh;
+  background: linear-gradient(#c4c4c400, #bedbb0);
+  position: relative;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+}
+
+.img {
+  width: 124px;
+  height: 124px;
+  background-image: url(../../images/welcome-mobile.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-bottom: 14px;
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
+  screen and (min-resolution: 192dpi) and (max-width: 767px),
+  screen and (min-resolution: 2dppx) and (max-width: 767px) {
+  .img {
+    background-image: url(../../images/welcome-mobile@2x.png);
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 3) and (max-width: 767px),
+  screen and (min-resolution: 288dpi) and (max-width: 767px),
+  screen and (min-resolution: 3dppx) and (max-width: 767px) {
+  .img {
+    background-image: url(../../images/welcome-mobile@3x.png);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .img {
+    width: 162px;
+    height: 162px;
+    margin-bottom: 24px;
+    background-image: url(../../images/welcome.png);
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+  screen and (min-resolution: 192dpi) and (min-width: 768px),
+  screen and (min-resolution: 2dppx) and (min-width: 768px) {
+  .img {
+    background-image: url(../../images/welcome@2x.png);
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 3) and (min-width: 768px),
+  screen and (min-resolution: 288dpi) and (min-width: 768px),
+  screen and (min-resolution: 3dppx) and (min-width: 768px) {
+  .img {
+    background-image: url(../../images/welcome@3x.png);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .img {
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1440px),
+  screen and (min-resolution: 192dpi) and (min-width: 1440px),
+  screen and (min-resolution: 2dppx) and (min-width: 1440px) {
+  .img {
+    background-image: url(../../images/welcome@2x.png);
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 3) and (min-width: 1440px),
+  screen and (min-resolution: 288dpi) and (min-width: 1440px),
+  screen and (min-resolution: 3dppx) and (min-width: 1440px) {
+  .img {
+    background-image: url(../../images/welcome@3x.png);
+  }
+}
+
+.wrap {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.svg {
+  width: 40px;
+  height: 40px;
+  fill: var(--color-dark);
+  stroke: var(--color-white);
+}
+
+@media screen and (min-width: 768px) {
+  .svg {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.title {
+  font-size: 28px;
+  line-height: 21px;
+  letter-spacing: -0.04em;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 40px;
+    line-height: 60px;
+  }
+}
+
+.text {
+  font-family: var(--font-regular);
+  margin-bottom: 48px;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: -0.2px;
+}
+
+@media screen and (min-width: 768px) {
+  .text {
+    width: 473px;
+    letter-spacing: -0.28px;
+  }
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 335px;
+  height: 49px;
+  background-color: inherit;
+  color: var(--color-dark);
+  font-family: var(--font-medium);
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.02px;
+  text-decoration: none;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+}
+
+@media screen and (min-width: 768px) {
+  .btn {
+    width: 344px;
+  }
+}

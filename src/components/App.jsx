@@ -1,23 +1,15 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import AuthPage from '../pages/AuthPage/AuthPage';
-import LinkToAuth from './LinktoAuth';
+import WelcomePage from '../pages/WelcomePage/WelcomePage';
 import ScreensPage from './ScreensPage/ScreensPage';
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/welcome" />} />
-      <Route
-        path="/welcome"
-        element={
-          <div>
-            welcome page <LinkToAuth />
-          </div>
-        }
-      />
+      <Route path="/welcome" element={<WelcomePage />} />
       <Route path="/auth" element={<Navigate to="/auth/register" />} />
-
       <Route path="/auth/:id" element={<AuthPage />} />
       <Route
         path="/home"
