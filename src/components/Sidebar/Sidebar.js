@@ -55,10 +55,39 @@ const Sidebar = ({ boards }) => {
               </button>
             </li>
           </ul>
-          <div>
-            <picture>
-              <source srcSet={(cactus, cactus2x, cactus3x)} type="image/png" />
-            </picture>
+          <div className={css.sidebarHelp}>
+            <div>
+              <picture>
+                <source
+                  srcSet={`${cactus} 1x, ${cactus2x} 2x,${cactus3x} 3x`}
+                />
+                <img srcSet={`${cactus} 1x`} alt="cactus" />
+              </picture>
+            </div>
+            <div className={css.sidebarHelpBox}>
+              <p className={css.sidebarHelpBoxItem}>
+                If you need help with{' '}
+                <a className={css.sidebarHelpBoxLink} href="/#">
+                  TaskPro
+                </a>
+                , check out our support resources or reach out to our customer
+                support team.
+              </p>
+            </div>
+            <div className={css.sidebarHelpWrap}>
+              <svg className={css.sidebarHelpIcon}>
+                <use href={sprite + '#icon-help-circle'}></use>
+              </svg>
+              <p className={css.sidebarHelpNeedHelp}>Need help?</p>
+            </div>
+          </div>
+          <div className={css.sidebarLogout}>
+            <button className={css.sidebarLogoutButton} type="button">
+              <svg className={css.sidebarLogoutIcon} width={32} height={32}>
+                <use href={sprite + '#icon-logout'}></use>
+              </svg>
+              Log out
+            </button>
           </div>
         </aside>
       </div>
