@@ -130,12 +130,13 @@
   font-size: 14px;
   line-height: 18px;
   text-align: center;
-  letter-spacing: -0.02px;
+  letter-spacing: -0.2px;
 }
 
 @media screen and (min-width: 768px) {
   .text {
     width: 473px;
+    letter-spacing: -0.28px;
   }
 }
 
