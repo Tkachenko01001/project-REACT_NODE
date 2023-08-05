@@ -75,7 +75,7 @@ export const RegisterForm = () => {
     );
   };
 
-  const handleSubmit = ({ resetForm }) => {
+  const handleSubmit = () => {
     dispatch(
         register({
           name: name,
@@ -83,7 +83,10 @@ export const RegisterForm = () => {
           password: password,
         })
       );
-    resetForm();
+    // resetForm();
+    setEmail('');
+    setName('');
+    setPassword('');
   };
 
   
