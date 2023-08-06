@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import { object, string } from 'yup';
+// import { object, string } from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import styles from '../AuthForm.module.css';
 import sprite from '../../../images/sprite.svg';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 
-const registerSchema = object({
-  name: string().required(),
-  email: string().email().required(),
-  password: string().required(),
-});
+// const registerSchema = object({
+//   name: string().required(),
+//   email: string().email().required(),
+//   password: string().required(),
+// });
 
 const initialValues = {
   name: '',
