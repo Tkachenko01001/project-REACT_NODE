@@ -1,13 +1,15 @@
 import { useState } from 'react';
-import { object, string } from 'yup';
+// import { object, string } from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import styles from '../AuthForm.module.css';
 import sprite from '../../../images/sprite.svg';
+import { useDispatch } from 'react-redux';
+import { logIn } from 'redux/auth/operations';
 
-const registerSchema = object({
-  email: string().email().required(),
-  password: string().required(),
-});
+// const registerSchema = object({
+//   email: string().email().required(),
+//   password: string().required(),
+// });
 
 const initialValues = {
   email: '',
@@ -47,6 +49,11 @@ const YeyClose = () => {
 };
 
 export const LogInForm = () => {
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+
   const [passwordShown, setPasswordShown] = useState(false);
   const [passwordIcon, setpasswordIcon] = useState(<YeyClose />);
 
@@ -64,16 +71,27 @@ export const LogInForm = () => {
     );
   };
 
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
-    resetForm();
+  // const handleSubmit = (values, { resetForm }) => {
+  //   console.log(values);
+  //   resetForm();
+  // };
+
+  const handleSubmit = () => {
+    dispatch(
+        logIn({
+          email: email,
+          password: password,
+        })
+      );
+    setEmail('');
+    setPassword('');
   };
 
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
-      validationSchema={registerSchema}
+      // validationSchema={registerSchema}
     >
       <Form autoComplete="off" className={styles.form}>
         <div className={styles.wrap}>
@@ -82,8 +100,8 @@ export const LogInForm = () => {
             type="email"
             name="email"
             placeholder="Enter your email"
-            // value={email}
-            // onChange={handleChange}
+            value={email}
+            onChange={e => setEmail(e.target.value)}
           />
           <FormError name="email" />
         </div>
@@ -94,8 +112,8 @@ export const LogInForm = () => {
             type={passwordShown ? 'text' : 'password'}
             name="password"
             placeholder="Create a password"
-            // value={password}
-            // onChange={handleChange}
+            value={password}
+            onChange={e => setPassword(e.target.value)}
           />
 
           <span className={styles.yey_icon} onClick={togglPassword}>
