@@ -1,5 +1,4 @@
 import styles from './Modal.module.css';
-import * as React from 'react';
 import { useEffect } from 'react';
 import sprite from '../../images/sprite.svg';
 
