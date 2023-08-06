@@ -60,6 +60,9 @@
   --bg-color-need-help: rgba(236, 237, 253, 0.4);
   --color-light-violet: #b8bcfd;
 
+  --color-red: rgba(255, 0, 0, 0.664);
+  --color-shadow: rgba(22, 22, 22, 0.08);
+
   /* Breakpoints */
   --mobile: 320px;
   --mobile-adaptive: 375px;
