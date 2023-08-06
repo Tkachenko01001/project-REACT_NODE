@@ -13,7 +13,7 @@
   margin-bottom: 14px;
   background-color: var(--bg-color-form-input);
   color: var(--color-white);
-  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
+  box-shadow: 0px 4px 16px 0px var(--color-shadow);
 
   font-family: var(--font-regular);
   font-size: 14px;
@@ -75,7 +75,7 @@
   position: relative;
 }
 
-.yey_icon {
+.eye_icon {
   position: absolute;
   top: 45%;
   right: 18px;
@@ -95,11 +95,5 @@
   right: 8px;
   font-family: var(--font-regular);
   font-size: 10px;
-  color: rgba(255, 0, 0, 0.664);
-}
-
-.svg {
-  width: 18px;
-  height: 18px;
-  fill: var(--color-white);
+  color: var(--color-red);
 }

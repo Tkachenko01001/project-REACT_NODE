@@ -4,11 +4,11 @@
   "private": true,
   "homepage": "https://Tkachenko01001.github.io/project-REACT_NODE/",
   "dependencies": {
-    "@reduxjs/toolkit": "^1.9.5",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.3",
     "@mui/styled-engine-sc": "^5.12.0",
+    "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
