@@ -1,0 +1,67 @@
+.modal {
+  padding: 24px;
+  width: 350px;
+  /* height: 221px; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #151515;
+  border-radius: 8px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgba(0, 0, 0, 0.05); */
+  background-color: rgba(255, 255, 255, 0.05);
+  z-index: 1200;
+}
+.close_Button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 18px;
+  height: 18px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  -webkit-transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  stroke: var(--color-white);
+}
+/* Стилі для children - title, input, button */
+/* .title {
+  color: var(--color-white);
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.28px;
+}
+.button {
+  display: inline-flex;
+  gap: 8px;
+  padding: 14px 78px 14px 79px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 8px;
+  fill: var(--color-white);
+  stroke: var(--color-icon-dark);
+  background: var(--color-green);
+  color: var(--color-dark);
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.28px;
+} */
