@@ -1,5 +1,5 @@
 .card {
-  width: 334px;
+  max-width: 334px;
   border-radius: 8px;
   background-color: var(--color-icon-dark);
   position: relative;  
@@ -31,7 +31,7 @@
 }
 
 .description {
-  width: 290px;   
+  max-width: 290px;   
   color: var(--color-icon-grey);
   font-family: var(--font-regular);
   font-size: 12px;

@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { object, string } from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { EyeOpen } from '../EyeOpen/EyeOpen';
+import { EyeClose } from '../EyeClose/EyeClose';
 import styles from './LoginForm.module.css';
-import sprite from '../../../images/sprite.svg';
 
 const registerSchema = object({
   email: string().email().required(),
@@ -12,26 +13,6 @@ const registerSchema = object({
 const initialValues = {
   email: '',
   password: '',
-};
-
-const EyeOpen = () => {
-  return (
-    <>
-      <svg className={styles.svg}>
-        <use href={sprite + '#icon-eye'} />
-      </svg>
-    </>
-  );
-};
-
-const EyeClose = () => {
-  return (
-    <>
-      <svg className={styles.svg}>
-        <use href={sprite + '#icon-eye-blocked'} />
-      </svg>
-    </>
-  );
 };
 
 export const LogInForm = () => {
@@ -86,7 +67,7 @@ export const LogInForm = () => {
             // onChange={handleChange}
           />
 
-          <span className={styles.yey_icon} onClick={togglPassword}>
+          <span className={styles.eye_icon} onClick={togglPassword}>
             {passwordIcon}
           </span>
           <FormError name="password" />

@@ -75,7 +75,7 @@
   position: relative;
 }
 
-.yey_icon {
+.eye_icon {
   position: absolute;
   top: 45%;
   right: 18px;
@@ -96,10 +96,4 @@
   font-family: var(--font-regular);
   font-size: 10px;
   color: var(--color-red);
-}
-
-.svg {
-  width: 18px;
-  height: 18px;
-  fill: var(--color-white);
 }
