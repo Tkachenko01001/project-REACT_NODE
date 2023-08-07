@@ -35,7 +35,8 @@ export const LogInForm = () => {
     );
   };
 
-  const handleChange = ({ target: { name, value } }) => {
+  const handleChange = ({ target: { name, value } }, setFieldValue) => {
+    setFieldValue(name, value);
     switch (name) {
       case 'email':
         return setEmail(value);
@@ -71,7 +72,7 @@ export const LogInForm = () => {
               name="email"
               placeholder="Enter your email"
               value={email}
-              onChange={handleChange}
+              onChange={e => handleChange(e, setFieldValue)}
             />
             {errors.email && <FormError name="email" />}
           </div>
@@ -83,7 +84,7 @@ export const LogInForm = () => {
               name="password"
               placeholder="Create a password"
               value={password}
-              onChange={handleChange}
+              onChange={e => handleChange(e, setFieldValue)}
             />
 
             <span className={styles.eye_icon} onClick={togglPassword}>
