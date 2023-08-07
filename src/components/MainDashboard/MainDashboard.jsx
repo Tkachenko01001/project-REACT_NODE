@@ -13,7 +13,7 @@ const MainDashboard = () => {
       //     <span className={styles.buttonText}>Add another column</span>
       //   </button>
       // </div>
-      <div className={styles.mainDashboardContainerMobile}>
+      <div className={styles.mainDashboardContainer}>
         <div className={styles.dashboardDefault}>
           <p className={styles.dashboardDefaultParagraph}>
             Before starting your project, it is essential
