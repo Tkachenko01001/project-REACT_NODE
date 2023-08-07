@@ -5,6 +5,7 @@ import { logInSchema } from '../LogInSchema/LogInSchema';
 import { EyeOpen } from '../EyeOpen/EyeOpen';
 import { EyeClose } from '../EyeClose/EyeClose';
 import { logIn } from 'redux/auth/operations';
+import { Loader } from '../../Loader/Loader';
 import styles from './LoginForm.module.css';
 
 const initialValues = {
@@ -99,7 +100,10 @@ export const LogInForm = () => {
               setFieldValue('password', password);
             }}
           >
-            Log In Now
+            <div className={styles.wrap}>
+              <span>Log In Now</span>
+              <Loader />
+            </div>
           </button>
         </Form>
       )}

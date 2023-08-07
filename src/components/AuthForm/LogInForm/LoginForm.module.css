@@ -44,8 +44,8 @@
 }
 
 .btn {
-  display: block;
-  justify-content: space-between;
+  display: flex;
+  justify-content: center;
   align-items: center;
   width: 100%;
   margin-top: 24px;

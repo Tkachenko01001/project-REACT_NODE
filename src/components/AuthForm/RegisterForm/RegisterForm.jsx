@@ -5,6 +5,7 @@ import { registerSchema } from '../RegisterSchema/RegisterSchema';
 import { EyeOpen } from '../EyeOpen/EyeOpen';
 import { EyeClose } from '../EyeClose/EyeClose';
 import { register } from 'redux/auth/operations';
+import { Loader } from '../../Loader/Loader';
 import styles from './RegisterForm.module.css';
 
 const initialValues = {
@@ -118,7 +119,10 @@ export const RegisterForm = () => {
               setFieldValue('password', password);
             }}
           >
-            Register Now
+            <div className={styles.wrap}>
+              <span>Register Now</span>
+              <Loader />
+            </div>
           </button>
         </Form>
       )}
