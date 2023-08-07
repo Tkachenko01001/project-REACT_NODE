@@ -9,6 +9,10 @@ const Sidebar = ({ boards }) => {
     console.log('Click');
   };
 
+  const handleClickLogout = () => {
+    console.log('click');
+  };
+
   return (
     <div>
       <div className={css.container}>
@@ -82,7 +86,11 @@ const Sidebar = ({ boards }) => {
             </div>
           </div>
           <div className={css.sidebarLogout}>
-            <button className={css.sidebarLogoutButton} type="button">
+            <button
+              onClick={handleClickLogout}
+              className={css.sidebarLogoutButton}
+              type="button"
+            >
               <svg className={css.sidebarLogoutIcon} width={32} height={32}>
                 <use href={sprite + '#icon-logout'}></use>
               </svg>
