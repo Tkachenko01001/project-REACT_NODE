@@ -1,30 +1,42 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, logIn, logOut, fetchCurrentUser } from './operations';
-import { object, string } from 'yup';
-
-export const registerSchema = object({
-  name: string().required(),
-  email: string().email().required(),
-  password: string().required(),
-});
+import { register, logIn, logOut, refreshUser } from './operations';
 
 const initialState = {
   user: { name: null, email: null },
   token: null,
   isLoggedIn: false,
-  isFetchingCurrentUser: false,
+  isRefreshing: false,
+  isLoading: false,
 };
 
-const signUpFulfilled = (state, action) => {
-  state.user = action.payload.user;
+const registerPending = (state, action) => {
+  state.isLoading = true;
+};
+
+const registerFulfilled = (state, action) => {
+  state.user = action.payload;
   state.token = action.payload.token;
   state.isLoggedIn = true;
+  state.isLoading = false;
+};
+
+const registerRejected = (state, action) => {
+  state.isLoading = false;
+};
+
+const signInPending = (state, action) => {
+  state.isLoading = true;
 };
 
 const signInFulfilled = (state, action) => {
-  state.user = action.payload.user;
+  state.user = action.payload;
   state.token = action.payload.token;
   state.isLoggedIn = true;
+  state.isLoading = false;
+};
+
+const signInRejected = (state, action) => {
+  state.isLoading = false;
 };
 
 const logOutFulfilled = (state, action) => {
@@ -33,30 +45,34 @@ const logOutFulfilled = (state, action) => {
   state.isLoggedIn = false;
 };
 
-const fetchCurrentUserPending = (state, action) => {
-  state.isFetchingCurrentUser = true;
+const refreshUserPending = (state, action) => {
+  state.isRefreshing = true;
 };
 
-const fetchCurrentUserFulfilled = (state, action) => {
+const refreshUserFulfilled = (state, action) => {
   state.user = action.payload;
   state.isLoggedIn = true;
-  state.isFetchingCurrentUser = false;
+  state.isRefreshing = false;
 };
 
-const fetchCurrentUserRejected = (state, action) => {
-  state.isFetchingCurrentUser = false;
+const refreshUserRejected = (state, action) => {
+  state.isRefreshing = false;
 };
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: builder => {
-    builder.addCase(register.fulfilled, signUpFulfilled);
+    builder.addCase(register.pending, registerPending);
+    builder.addCase(register.fulfilled, registerFulfilled);
+    builder.addCase(register.rejected, registerRejected);
+    builder.addCase(logIn.pending, signInPending);
     builder.addCase(logIn.fulfilled, signInFulfilled);
+    builder.addCase(logIn.rejected, signInRejected);
     builder.addCase(logOut.fulfilled, logOutFulfilled);
-    builder.addCase(fetchCurrentUser.pending, fetchCurrentUserPending);
-    builder.addCase(fetchCurrentUser.fulfilled, fetchCurrentUserFulfilled);
-    builder.addCase(fetchCurrentUser.rejected, fetchCurrentUserRejected);
+    builder.addCase(refreshUser.pending, refreshUserPending);
+    builder.addCase(refreshUser.fulfilled, refreshUserFulfilled);
+    builder.addCase(refreshUser.rejected, refreshUserRejected);
   },
 });
 export const authReducer = authSlice.reducer;
