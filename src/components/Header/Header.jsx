@@ -2,8 +2,15 @@ import css from './Header.module.css';
 
 import Avatar from 'components/Avatar';
 import Icon from 'components/Icon';
+// import { useDispatch } from 'react-redux';
 
 const Header = () => {
+  // const dispatch = useDispatch();
+
+  // const handleUpdateProfile = () => {
+  //   dispatch(updateProfile(value));
+  // };
+
   return (
     <>
       <div className={css.header}>
