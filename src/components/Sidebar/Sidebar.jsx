@@ -37,24 +37,29 @@ const Sidebar = ({ boards }) => {
             </svg>
           </button>
         </section>
-        <ul className={css.sidebarNewBoard}>
-          <li className={css.sidebarNewBoardList}>
-            <svg className={css.sidebarNewBoardSvg}>
-              <use href={sprite + '#icon-project'}></use>
-            </svg>
-            <p className={css.sidebarNewBoardItem}>Project office</p>
-            <button className={css.sidebarNewBoardButton} type="button">
-              <svg className={css.sidebarNewBoardIcon}>
-                <use href={sprite + '#icon-pencil'}></use>
+        {boards && (
+          <ul className={css.sidebarNewBoard}>
+            <li className={css.sidebarNewBoardList}>
+              <svg className={css.sidebarNewBoardSvg}>
+                <use href={sprite + '#icon-project'}></use>
               </svg>
-            </button>
-            <button className={css.sidebarNewBoardButtonCurrent} type="button">
-              <svg className={css.sidebarNewBoardIcon}>
-                <use href={sprite + '#icon-trash'}></use>
-              </svg>
-            </button>
-          </li>
-        </ul>
+              <p className={css.sidebarNewBoardItem}>Project office</p>
+              <button className={css.sidebarNewBoardButton} type="button">
+                <svg className={css.sidebarNewBoardIcon}>
+                  <use href={sprite + '#icon-pencil'}></use>
+                </svg>
+              </button>
+              <button
+                className={css.sidebarNewBoardButtonCurrent}
+                type="button"
+              >
+                <svg className={css.sidebarNewBoardIcon}>
+                  <use href={sprite + '#icon-trash'}></use>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        )}
         <section className={css.sidebarHelp}>
           <div>
             <picture>

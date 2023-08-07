@@ -25,6 +25,8 @@ const App = () => {
       />
 
       <Route path="/home/:boardName" element={<HomePage />} />
+
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 };
