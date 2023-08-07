@@ -90,7 +90,7 @@ export const RegisterForm = () => {
               value={email}
               onChange={handleChange}
             />
-            <FormError name="email" />
+            {errors.email && <FormError name="email" />}
           </div>
 
           <div className={styles.wrap}>
@@ -106,7 +106,7 @@ export const RegisterForm = () => {
             <span className={styles.eye_icon} onClick={togglPassword}>
               {passwordIcon}
             </span>
-            <FormError name="password" />
+            {errors.password && <FormError name="password" />}
           </div>
 
           <button
