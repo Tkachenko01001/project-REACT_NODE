@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.css": "/project-REACT_NODE/static/css/main.7dde265d.css",
-    "main.js": "/project-REACT_NODE/static/js/main.75ae02cb.js",
+    "main.css": "/project-REACT_NODE/static/css/main.995636c3.css",
+    "main.js": "/project-REACT_NODE/static/js/main.13c1f3cc.js",
+    "static/media/background.png": "/project-REACT_NODE/static/media/background.16973259c4dd2e6b62c5.png",
     "static/media/Poppins-Regular.ttf": "/project-REACT_NODE/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/Poppins-Medium.ttf": "/project-REACT_NODE/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
     "static/media/Poppins-SemiBold.ttf": "/project-REACT_NODE/static/media/Poppins-SemiBold.ac8d04b620e54be9b0f0.ttf",
@@ -13,11 +14,11 @@
     "static/media/welcome.png": "/project-REACT_NODE/static/media/welcome.2c5138a3d9e1f7da3468.png",
     "static/media/welcome-mobile.png": "/project-REACT_NODE/static/media/welcome-mobile.6b48f2104b769f0cc784.png",
     "index.html": "/project-REACT_NODE/index.html",
-    "main.7dde265d.css.map": "/project-REACT_NODE/static/css/main.7dde265d.css.map",
-    "main.75ae02cb.js.map": "/project-REACT_NODE/static/js/main.75ae02cb.js.map"
+    "main.995636c3.css.map": "/project-REACT_NODE/static/css/main.995636c3.css.map",
+    "main.13c1f3cc.js.map": "/project-REACT_NODE/static/js/main.13c1f3cc.js.map"
   },
   "entrypoints": [
-    "static/css/main.7dde265d.css",
-    "static/js/main.75ae02cb.js"
+    "static/css/main.995636c3.css",
+    "static/js/main.13c1f3cc.js"
   ]
 }
