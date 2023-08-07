@@ -40,6 +40,7 @@
   --color-icon-dark: #121212;
   --color-icon-grey: rgba(255, 255, 255, 0.5);
   --color-icon-light: rgba(255, 255, 255, 0.8);
+  --color-bg-light: rgba(255, 255, 255, 0.1);
 
   /* Colors/label */
   --color-blue: #8fa1d0;
@@ -58,6 +59,9 @@
   --bg-color-light-violet: #ecedfd;
   --bg-color-need-help: rgba(236, 237, 253, 0.4);
   --color-light-violet: #b8bcfd;
+
+  --color-red: rgba(255, 0, 0, 0.664);
+  --color-shadow: rgba(22, 22, 22, 0.08);
 
   /* Breakpoints */
   --mobile: 320px;
