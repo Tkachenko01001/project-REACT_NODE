@@ -19,8 +19,7 @@
 .dashboardDefault {
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
+    justify-content: center;   
 }
 
 .dashboardDefaultParagraph {

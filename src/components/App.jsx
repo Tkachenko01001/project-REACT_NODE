@@ -4,7 +4,6 @@ import RestrictedRoute from '../Router/RestrictedRoute';
 import AuthPage from '../pages/AuthPage/AuthPage';
 import WelcomePage from '../pages/WelcomePage/WelcomePage';
 import HomePage from 'pages/HomePage/HomePage';
-import ScreensPage from './ScreensPage/ScreensPage';
 
 const App = () => {
   return (
@@ -22,9 +21,7 @@ const App = () => {
 
       <Route
         path="/home"
-        element={
-          <PrivateRoute redirectTo="/auth" component={<ScreensPage />} />
-        }
+        element={<PrivateRoute redirectTo="/auth" component={<HomePage />} />}
       />
 
       <Route path="/home/:boardName" element={<HomePage />} />
