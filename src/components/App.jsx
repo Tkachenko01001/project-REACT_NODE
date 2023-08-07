@@ -20,7 +20,6 @@ const App = () => {
           <RestrictedRoute redirectTo="/home" component={<AuthPage />} />
         }
       />
-      <Route path="home" element={<Home />} />
 
       <Route
         path="/home"
@@ -29,6 +28,7 @@ const App = () => {
         }
       />
       <Route path="/home/:boardName" element={<ScreensPage />} />
+      <Route path="home" element={<Home />} />
     </Routes>
   );
 };
