@@ -1,18 +1,11 @@
 import { useState } from 'react';
-// import { object, string } from 'yup';
+import { useDispatch } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { registerSchema } from '../RegisterSchema/RegisterSchema';
 import { EyeOpen } from '../EyeOpen/EyeOpen';
 import { EyeClose } from '../EyeClose/EyeClose';
-import styles from './RegisterForm.module.css';
-
-import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
-
-// const registerSchema = object({
-//   name: string().required(),
-//   email: string().email().required(),
-//   password: string().required(),
-// });
+import styles from './RegisterForm.module.css';
 
 const initialValues = {
   name: '',
@@ -21,14 +14,13 @@ const initialValues = {
 };
 
 export const RegisterForm = () => {
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const [passwordShown, setPasswordShown] = useState(false);
   const [passwordIcon, setpasswordIcon] = useState(<EyeClose />);
-
-  const dispatch = useDispatch();
 
   const togglPassword = () => {
     setPasswordShown(!passwordShown);
@@ -44,71 +36,92 @@ export const RegisterForm = () => {
     );
   };
 
-  const handleSubmit = () => {
-    dispatch(
-      register({
-        name: name,
-        email: email,
-        password: password,
-      })
-    );
-    // resetForm();
-    setEmail('');
-    setName('');
-    setPassword('');
+  const handleChange = ({ target: { name, value } }) => {
+    switch (name) {
+      case 'name':
+        return setName(value);
+      case 'email':
+        return setEmail(value);
+      case 'password':
+        return setPassword(value);
+      default:
+        return;
+    }
   };
 
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={handleSubmit}
-      // validationSchema={registerSchema}
+      validationSchema={registerSchema}
+      onSubmit={(values, { setSubmitting }) => {
+        dispatch(
+          register({
+            name: name,
+            email: email,
+            password: password,
+          })
+        );
+        setEmail('');
+        setName('');
+        setPassword('');
+        setSubmitting(false);
+      }}
     >
-      <Form autoComplete="off" className={styles.form}>
-        <div className={styles.wrap}>
-          <Field
-            className={styles.input}
-            type="text"
-            name="name"
-            placeholder="Enter your name"
-            value={name}
-            onChange={e => setName(e.target.value)}
-          />
-          <FormError name="name" />
-        </div>
+      {({ errors, setFieldValue }) => (
+        <Form autoComplete="off" className={styles.form}>
+          <div className={styles.wrap}>
+            <Field
+              className={styles.input}
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              value={name}
+              onChange={handleChange}
+            />
+            {errors.name && <FormError name="name" />}
+          </div>
 
-        <div className={styles.wrap}>
-          <Field
-            className={styles.input}
-            type="email"
-            name="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-          />
-          <FormError name="email" />
-        </div>
+          <div className={styles.wrap}>
+            <Field
+              className={styles.input}
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={handleChange}
+            />
+            <FormError name="email" />
+          </div>
 
-        <div className={styles.wrap}>
-          <Field
-            className={styles.input}
-            type={passwordShown ? 'text' : 'password'}
-            name="password"
-            placeholder="Create a password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-          />
+          <div className={styles.wrap}>
+            <Field
+              className={styles.input}
+              type={passwordShown ? 'text' : 'password'}
+              name="password"
+              placeholder="Create a password"
+              value={password}
+              onChange={handleChange}
+            />
 
-          <span className={styles.eye_icon} onClick={togglPassword}>
-            {passwordIcon}
-          </span>
-          <FormError name="password" />
-        </div>
+            <span className={styles.eye_icon} onClick={togglPassword}>
+              {passwordIcon}
+            </span>
+            <FormError name="password" />
+          </div>
 
-        <button className={styles.btn} type="submit">
-          Register Now
-        </button>
-      </Form>
+          <button
+            className={styles.btn}
+            type="submit"
+            onClick={() => {
+              setFieldValue('name', name);
+              setFieldValue('email', email);
+              setFieldValue('password', password);
+            }}
+          >
+            Register Now
+          </button>
+        </Form>
+      )}
     </Formik>
   );
 };

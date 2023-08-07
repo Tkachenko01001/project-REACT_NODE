@@ -53,21 +53,24 @@ export const logIn = createAsyncThunk(
  * POST @ /users/logout
  * headers: Authorization: Bearer token
  */
-export const logOut = createAsyncThunk('/api/auth/logout', async (_, thunkAPI) => {
-  try {
-    await axios.post('/api/users/logout');
-    // After a successful logout, remove the token from the HTTP header
-    clearAuthHeader();
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+export const logOut = createAsyncThunk(
+  '/api/auth/logout',
+  async (_, thunkAPI) => {
+    try {
+      await axios.post('/api/users/logout');
+      // After a successful logout, remove the token from the HTTP header
+      clearAuthHeader();
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
-});
+);
 
 /*
  * GET @ /users/current
  * headers: Authorization: Bearer token
  */
-export const refreshUser = createAsyncThunk(
+export const fetchCurrentUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
     // Reading the token from the state via getState()
