@@ -2,15 +2,8 @@ import css from './Header.module.css';
 
 import Avatar from 'components/Avatar';
 import Icon from 'components/Icon';
-// import { useDispatch } from 'react-redux';
 
 const Header = () => {
-  // const dispatch = useDispatch();
-
-  // const handleUpdateProfile = () => {
-  //   dispatch(updateProfile(value));
-  // };
-
   return (
     <>
       <div className={css.header}>
@@ -39,7 +32,7 @@ const Header = () => {
           </div>
 
           <ul className={css.userInfo}>
-            <li className={css.name}>{user.name}</li>
+            <li className={css.name}>sname</li>
             <li>
               <Avatar size={32} />
             </li>
