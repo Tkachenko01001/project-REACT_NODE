@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import { object, string } from 'yup';
+import { object, string } from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { EyeOpen } from '../EyeOpen/EyeOpen';
 import { EyeClose } from '../EyeClose/EyeClose';
@@ -8,10 +8,18 @@ import styles from './LoginForm.module.css';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 
-// const registerSchema = object({
-//   email: string().email().required(),
-//   password: string().required(),
-// });
+const registerSchema = object({
+  email: string()
+    .email()
+    .matches(/^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}$/, 'Invalid email format')
+    .required(),
+  password: string()
+    .matches(
+      /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]+$/,
+      'Invalid password format'
+    )
+    .required(),
+});
 
 const initialValues = {
   email: '',
@@ -22,7 +30,6 @@ export const LogInForm = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
 
   const [passwordShown, setPasswordShown] = useState(false);
   const [passwordIcon, setpasswordIcon] = useState(<EyeClose />);
@@ -46,22 +53,24 @@ export const LogInForm = () => {
   //   resetForm();
   // };
 
-  const handleSubmit = () => {
+  const handleSubmit = (values, { resetForm }) => {
     dispatch(
-        logIn({
-          email: email,
-          password: password,
-        })
-      );
+      logIn({
+        email: email,
+        password: password,
+      })
+    );
     setEmail('');
     setPassword('');
+    console.log(values);
+    resetForm();
   };
 
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
-      // validationSchema={registerSchema}
+      validationSchema={registerSchema}
     >
       <Form autoComplete="off" className={styles.form}>
         <div className={styles.wrap}>
