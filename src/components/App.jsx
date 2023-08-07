@@ -4,6 +4,9 @@ import RestrictedRoute from '../Router/RestrictedRoute';
 import AuthPage from '../pages/AuthPage/AuthPage';
 import WelcomePage from '../pages/WelcomePage/WelcomePage';
 import ScreensPage from './ScreensPage/ScreensPage';
+import { lazy } from 'react';
+
+const Home = lazy(() => import('../pages/HomePage/HomePage'));
 
 const App = () => {
   return (
@@ -17,6 +20,7 @@ const App = () => {
           <RestrictedRoute redirectTo="/home" component={<AuthPage />} />
         }
       />
+
       <Route
         path="/home"
         element={
@@ -24,6 +28,7 @@ const App = () => {
         }
       />
       <Route path="/home/:boardName" element={<ScreensPage />} />
+      <Route path="home" element={<Home />} />
     </Routes>
   );
 };

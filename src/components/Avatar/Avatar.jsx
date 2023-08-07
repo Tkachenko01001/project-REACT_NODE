@@ -1,9 +1,11 @@
+import { useAuth } from 'hooks/useAuth';
 import avaDark from '../../images/user_dark.svg';
 import avaLight from '../../images/user_light.svg';
 import avaViolet from '../../images/user_violet.svg';
 import { Puff } from 'react-loader-spinner';
 
 const Avatar = ({ size, onClick, isLoading, preload }) => {
+  const { user } = useAuth();
   const defaultAvatar = {
     dark: avaDark,
     light: avaLight,

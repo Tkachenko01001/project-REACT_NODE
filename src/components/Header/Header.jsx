@@ -32,7 +32,7 @@ const Header = () => {
           </div>
 
           <ul className={css.userInfo}>
-            <li className={css.name}>{user.name}</li>
+            <li className={css.name}>sname</li>
             <li>
               <Avatar size={32} />
             </li>
