@@ -5,16 +5,19 @@
   margin-right: auto;
   padding: 0% 15px 0% 15px;
 
-  @media screen and (min-width: var( --mobile-adaptive)) {
-    width: var(--mobile-adaptive);
+  @media screen and (min-width:  375px) {
+    width: 375px;
   }
 
-  @media screen and (min-width: var(--tablet)) {
-    width: var(--tablet);
+  @media screen and (min-width: 768px) {
+    width: 768px;
   }
 
-  @media screen and (min-width: var( --desktop)) {
-    width: var(--desktop);
+  @media screen and (min-width: 1440px) {
+    display: none;
+    width: 1440px;
+    padding: 0;
+    margin: 0;
   }
 }
 
@@ -250,3 +253,4 @@
 .sidebarLogoutIcon {
   stroke: var(--color-green);
 }
+

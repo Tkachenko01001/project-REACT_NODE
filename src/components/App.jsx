@@ -1,55 +1,33 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import PrivateRoute from './PrivateRoute';
-
-import Layout from './Layout/Layout';
-
+import PrivateRoute from '../Router/PrivateRoute';
+import RestrictedRoute from '../Router/RestrictedRoute';
 import AuthPage from '../pages/AuthPage/AuthPage';
-import LinkToAuth from './LinktoAuth';
+import WelcomePage from '../pages/WelcomePage/WelcomePage';
+import HomePage from 'pages/HomePage/HomePage';
 import ScreensPage from './ScreensPage/ScreensPage';
 
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Navigate to="/welcome" />} />
-        <Route
-          path="/welcome"
-          element={
-            <div>
-              welcome page <LinkToAuth />
-            </div>
-          }
-        />
-        <Route path="/auth" element={<LinkToAuth />} />
-
-        <Route
-          path="/home"
-          element={
-            <PrivateRoute redirectTo="/auth" component={<div>home</div>} />
-          }
-        />
-
-        <Route path="/home/:boardName" element={<div>Screens page</div>} />
-      </Route>
       <Route path="/" element={<Navigate to="/welcome" />} />
+      <Route path="/welcome" element={<WelcomePage />} />
+
+      <Route path="/auth" element={<Navigate to="/auth/login" />} />
       <Route
-        path="/welcome"
+        path="/auth/:id"
         element={
-          <div>
-            welcome page <LinkToAuth />
-          </div>
+          <RestrictedRoute redirectTo="/home" component={<AuthPage />} />
         }
       />
-      <Route path="/auth" element={<Navigate to="/auth/register" />} />
 
-      <Route path="/auth/:id" element={<AuthPage />} />
       <Route
         path="/home"
         element={
-          <PrivateRoute redirectTo="/auth" component={<div>home</div>} />
+          <PrivateRoute redirectTo="/auth" component={<ScreensPage />} />
         }
       />
-      <Route path="/home/:boardName" element={<ScreensPage />} />
+
+      <Route path="/home/:boardName" element={<HomePage />} />
     </Routes>
   );
 };

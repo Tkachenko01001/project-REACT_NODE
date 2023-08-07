@@ -14,19 +14,19 @@ const Sidebar = ({ boards }) => {
   };
 
   return (
-    <div>
-      <div className={css.container}>
+    <>
+      <div>
         <aside className={css.sidebar}>
-          <div className={css.sidebarBox}>
+          <section className={css.sidebarBox}>
             <svg className={css.sidebarBoxIcon}>
               <use href={sprite + '#icon-icon-dark'}></use>
             </svg>
             <h2 className={css.sidebarBoxTitle}>Task Pro</h2>
-          </div>
+          </section>
           <div className={css.sidebarItem}>
             <p className={css.sidebarItemTitle}>My boards</p>
           </div>
-          <div className={css.sidebarBoard}>
+          <section className={css.sidebarBoard}>
             <p className={css.sidebarBoardItem}>Create a new board</p>
             <button
               onClick={handleClickButton}
@@ -37,7 +37,7 @@ const Sidebar = ({ boards }) => {
                 <use href={sprite + '#icon-plus'}></use>
               </svg>
             </button>
-          </div>
+          </section>
           <ul className={css.sidebarNewBoard}>
             <li className={css.sidebarNewBoardList}>
               <svg className={css.sidebarNewBoardSvg}>
@@ -59,7 +59,7 @@ const Sidebar = ({ boards }) => {
               </button>
             </li>
           </ul>
-          <div className={css.sidebarHelp}>
+          <section className={css.sidebarHelp}>
             <div>
               <picture>
                 <source
@@ -84,8 +84,8 @@ const Sidebar = ({ boards }) => {
               </svg>
               <p className={css.sidebarHelpNeedHelp}>Need help?</p>
             </div>
-          </div>
-          <div className={css.sidebarLogout}>
+          </section>
+          <section className={css.sidebarLogout}>
             <button
               onClick={handleClickLogout}
               className={css.sidebarLogoutButton}
@@ -96,10 +96,10 @@ const Sidebar = ({ boards }) => {
               </svg>
               Log out
             </button>
-          </div>
+          </section>
         </aside>
       </div>
-    </div>
+    </>
   );
 };
 
