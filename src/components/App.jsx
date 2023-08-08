@@ -3,7 +3,6 @@ import PrivateRoute from '../Router/PrivateRoute';
 import RestrictedRoute from '../Router/RestrictedRoute';
 import AuthPage from '../pages/AuthPage/AuthPage';
 import WelcomePage from '../pages/WelcomePage/WelcomePage';
-import ScreensPage from './ScreensPage/ScreensPage';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshUser } from 'redux/auth/operations';
