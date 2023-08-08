@@ -180,13 +180,13 @@ const NewBoard = ({ onClose }) => {
               <use></use>
             </svg>
           </label>
-          {'backgrounds'.map(bg => {
+          {/* {'backgrounds'.map(bg => {
             return (
               <>
                 <item key={bg._id} bg={bg} _id={bg._id} />
               </>
             );
-          })}
+          })} */}
         </fieldset>
       </div>
 
