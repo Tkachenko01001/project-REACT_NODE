@@ -24,7 +24,7 @@ const App = () => {
   ) :(
     <Routes>
       <Route path="/" element={<Navigate to="/welcome" />} />
-      <Route path="/welcome" element={<WelcomePage />} />
+        <Route path="/welcome" element={<RestrictedRoute redirectTo="/home" component={<WelcomePage />} />} />
 
       <Route path="/auth" element={<Navigate to="/auth/login" />} />
       <Route
