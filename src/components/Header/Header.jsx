@@ -2,8 +2,11 @@ import css from './Header.module.css';
 
 import Avatar from 'components/Avatar';
 import Icon from 'components/Icon';
+import { useAuth } from 'hooks/useAuth';
 
 const Header = () => {
+  const { user } = useAuth();
+
   return (
     <>
       <div className={css.header}>
@@ -32,7 +35,7 @@ const Header = () => {
           </div>
 
           <ul className={css.userInfo}>
-            <li className={css.name}>sname</li>
+            <li className={css.name}>{user.name}</li>
             <li>
               <Avatar size={32} />
             </li>
