@@ -5,7 +5,7 @@
   align-items: center;
 }
 .icon:hover {
-  color: var(--accent-color);
+  color: var(--color-hover-green);
 }
 .tip {
   position: absolute;
@@ -15,7 +15,7 @@
   background-color: #6d6d6d;
   padding: 0px 6px;
   border-radius: 3px;
-  color: white;
+  color: var(--color-white);
   font-family: Poppins;
   font-weight: 500;
   font-size: 12px;

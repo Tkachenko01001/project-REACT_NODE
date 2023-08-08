@@ -1,11 +1,15 @@
 import css from './Header.module.css';
 
-import Avatar from 'components/Avatar';
-import Icon from 'components/Icon';
-import { useAuth } from 'hooks/useAuth';
+import { useSelector } from 'react-redux';
+
+import { selectUser } from 'redux/auth/selectors';
+
+import ThemeSelector from 'components/ThemeSelector/ThemeSelector';
+import Avatar from 'components/Avatar/Avatar';
+import Icon from 'components/Icon/Icon';
 
 const Header = () => {
-  const { user } = useAuth();
+  const user = useSelector(selectUser);
 
   return (
     <>
@@ -21,21 +25,19 @@ const Header = () => {
           </button>
         </div>
 
-        <div className={css.headerTask}>
-          <div className={css.selectorTheme}>
-            <button className={css.theme}>
+        <div className={css.headerSelect}>
+          <div
+            className={css.selectorTheme}
+            onClick={() => getPopover(<ThemeSelector onClose={killPopover} />)}
+          >
+            <button className={css.styleTheme}>
               <span>Theme</span>
-              <Icon
-                name="#icon-chevron-down"
-                width="16px"
-                height="16px"
-                color="#ffffff"
-              />
+              <Icon name="#icon-chevron-down" width="16px" height="16px" />
             </button>
           </div>
 
           <ul className={css.userInfo}>
-            <li className={css.name}>{user.name}</li>
+            <li className={css.styleName}>{user.name}</li>
             <li>
               <Avatar size={32} />
             </li>

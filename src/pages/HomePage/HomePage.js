@@ -1,4 +1,5 @@
 import css from '../HomePage/HomePage.module.css';
+import Header from 'components/Header/Header';
 import Sidebar from 'components/Sidebar/Sidebar';
 import ScreensPage from 'components/ScreensPage/ScreensPage';
 
@@ -7,7 +8,9 @@ export default function HomePage() {
     <div className={css.home}>
       <Sidebar />
       <div className={css.homeWrap}>
-        <div className={css.headerBox}>Header</div>
+        <div className={css.headerBox}>
+          <Header />
+        </div>
         <ScreensPage />
       </div>
     </div>

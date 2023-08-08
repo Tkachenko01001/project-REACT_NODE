@@ -11,8 +11,13 @@
 }
 
 .headerBox {
-  width: 100%;
-  height: 60px;
-  padding: 14px 20px;
-  border: solid 2px #000000;
+  background-color: var(--color-dark);
+  height: 68px;
+  border: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .headerBox {
+    height: 60px;
+  }
 }
