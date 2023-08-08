@@ -72,7 +72,6 @@
   align-items: center;
 
   padding: 14px 18px 14px 14px;
-  margin-bottom: 186px;
   /* margin-bottom: 40px; */
   border-top: solid 1px var(--color-sidebar-border);
   border-bottom: solid 1px var(--color-sidebar-border);
@@ -117,6 +116,7 @@
 
 /* New board */
 .sidebarNewBoard {
+  margin-top: 40px;
   padding: 20px 0 20px 14px;
   border-right: 4px solid var(--color-green);
   border-radius: 4px 0px 0px 4px;
