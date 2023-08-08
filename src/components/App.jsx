@@ -20,11 +20,24 @@ const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <Loader/>
-  ) :(
+    <Loader />
+  ) : (
     <Routes>
-        <Route path="/" element={<RestrictedRoute redirectTo="/home" component={<Navigate to="/welcome" />} />} />
-        <Route path="/welcome" element={<RestrictedRoute redirectTo="/home" component={<WelcomePage />} />} />
+      <Route
+        path="/"
+        element={
+          <RestrictedRoute
+            redirectTo="/home"
+            component={<Navigate to="/welcome" />}
+          />
+        }
+      />
+      <Route
+        path="/welcome"
+        element={
+          <RestrictedRoute redirectTo="/home" component={<WelcomePage />} />
+        }
+      />
 
       <Route path="/auth" element={<Navigate to="/auth/login" />} />
       <Route
@@ -39,7 +52,10 @@ const App = () => {
         element={<PrivateRoute redirectTo="/auth" component={<HomePage />} />}
       />
 
-      <Route path="/home/:boardName" element={<HomePage />} />
+      <Route
+        path="/home/:boardName"
+        element={<PrivateRoute redirectTo="/auth" component={<HomePage />} />}
+      />
 
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
