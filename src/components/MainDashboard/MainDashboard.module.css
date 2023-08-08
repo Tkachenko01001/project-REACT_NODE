@@ -1,71 +1,75 @@
 @media screen and (min-width: 768px) {
-    .container {
-            padding: 14px 24px 0px;
-            display: flex;
-            justify-content: center;
-        }
+  .container {
+    padding: 14px 24px 0px;
+    display: flex;
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .mainDashboardContainer {
-        padding: 0px 20px 0px 20px;
-    }
+  .mainDashboardContainer {
+    padding: 0px 20px 0px 20px;
+  }
 }
 
 .container {
-    padding: 14px 24px 0px;
+  padding: 14px 24px 0px;
 }
 
-.dashboardDefault {
+/* .dashboardDefault {
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
+    justify-content: center;     
+} */
 
 .dashboardDefaultParagraph {
-    max-width: 468px;
-    text-align: center;
-    color: var(--color-icon-grey);
-    font-size: 14px;
-    line-height: 18px;
-    letter-spacing: -0.28px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  max-width: 468px;
+  text-align: center;
+  color: var(--color-icon-grey);
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.28px;
 }
 
 @media screen and (max-width: 768px) {
-    .dashboardDefaultParagraph {
-        font-size: 12px;
-        line-height: 16px;
-        letter-spacing: -0.02px;
-    }
+  .dashboardDefaultParagraph {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.02px;
+  }
 }
 
 .createBoard {
-    color: var(--color-green);
+  color: var(--color-green);
 }
 
 .button {
-    display: inline-flex;
-    gap: 8px;
-    padding: 14px 78px 14px 79px;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    border-radius: 8px;
-    fill: var(--color-white);
-    stroke: var(--color-icon-dark);    
-    background: var(--color-icon-dark);
-    color: var(--color-white);
-    font-family: 'PoppinsMedium', sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    letter-spacing: -0.28px;
+  display: inline-flex;
+  gap: 8px;
+  padding: 14px 78px 14px 79px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 8px;
+  fill: var(--color-white);
+  stroke: var(--color-icon-dark);
+  background: var(--color-icon-dark);
+  color: var(--color-white);
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.28px;
 }
 
 @media screen and (min-width: 375px) {
-    .buttonText {
-            width: 141px;
-        }
+  .buttonText {
+    width: 141px;
+  }
 }
