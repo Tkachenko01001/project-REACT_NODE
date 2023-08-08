@@ -59,7 +59,7 @@ export const RegisterForm = () => {
         dispatch(
           register({
             name: name,
-            email: email,
+            email: email.toLowerCase(),
             password: password,
           })
         );

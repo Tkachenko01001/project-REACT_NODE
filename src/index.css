@@ -36,6 +36,7 @@
   --color-white: #ffffff;
   --bg-color-form: #151515;
   --bg-color-form-input: #1f1f1f;
+  --color-sidebar-border: rgba(255, 255, 255, 0.1);
   --color-form-light: rgba(255, 255, 255, 0.3);
   --color-icon-dark: #121212;
   --color-icon-grey: rgba(255, 255, 255, 0.5);
