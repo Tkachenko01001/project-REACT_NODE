@@ -69,6 +69,22 @@ export const logOut = createAsyncThunk(
  * GET @ /users/current
  * headers: Authorization: Bearer token
  */
+
+export const changeTheme = createAsyncThunk(
+  'auth/updTheme',
+  async (theme, thunkAPI) => {
+    try {
+      const { data } = await axios.patch('user/theme', {
+        theme,
+      });
+      console.log(data);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const refreshUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {

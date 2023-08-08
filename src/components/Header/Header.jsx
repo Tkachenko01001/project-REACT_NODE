@@ -1,9 +1,12 @@
 import css from './Header.module.css';
 
+import { useSelector } from 'react-redux';
+
+import { selectUser } from 'redux/auth/selectors';
+
+import ThemeSelector from 'components/ThemeSelector/ThemeSelector';
 import Avatar from 'components/Avatar/Avatar';
 import Icon from 'components/Icon/Icon';
-import { useSelector } from 'react-redux';
-import { selectUser } from 'redux/auth/selectors';
 
 const Header = () => {
   const user = useSelector(selectUser);
@@ -25,7 +28,7 @@ const Header = () => {
         <div className={css.headerSelect}>
           <div
             className={css.selectorTheme}
-            // onClick={() => getPopover(<ThemeSelector onClose={killPopover} />)}
+            onClick={() => getPopover(<ThemeSelector onClose={killPopover} />)}
           >
             <button className={css.styleTheme}>
               <span>Theme</span>
