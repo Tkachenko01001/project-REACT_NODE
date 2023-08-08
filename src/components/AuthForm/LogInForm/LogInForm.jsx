@@ -54,7 +54,7 @@ export const LogInForm = () => {
       onSubmit={(values, { setSubmitting }) => {
         dispatch(
           logIn({
-            email: email,
+            email: email.toLowerCase(),
             password: password,
           })
         );
