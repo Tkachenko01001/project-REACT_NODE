@@ -8,22 +8,30 @@ import sprite from '../../images/sprite.svg';
 const initialValues = {
   title: '',
   description: '',
-  picked: '',
+  color: '',
 };
 
 const registerSchema = object({
   title: string().required(),
-  picked: string().required(),
+  color: string().required(),
   description: string().required(),
 });
 
 export const AddCard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
+
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
     resetForm();
   };
+
+  const radioOptions = [
+    { color: '#8fa1d0', label: '#8fa1d0' },
+    { color: '#e09cb5', label: '#e09cb5' },
+    { color: '#bedbb0', label: '#bedbb0' },
+    { color: 'rgba(255, 255, 255, 0.3)', label: 'rgba(255, 255, 255, 0.3)' },
+  ];
 
   return (
     <div>
@@ -50,28 +58,24 @@ export const AddCard = () => {
                 name="description"
                 placeholder="Description"
               />
-              {/* <textarea
-                className={styles.textarea}
-                name="description"
-                placeholder="Description"
-              /> */}
-
-              <div id="my-radio-group" className={styles.label}>
-                Label color
-              </div>
-              <div role="group" aria-labelledby="my-radio-group">
-                <label className={styles.radio}>
-                  <Field type="radio" name="picked" value="One" />
-                </label>
-                <label className={styles.radio}>
-                  <Field type="radio" name="picked" value="Two" />
-                </label>
-                <label className={styles.radio}>
-                  <Field type="radio" name="picked" value="3" />
-                </label>
-                <label className={styles.radio}>
-                  <Field type="radio" name="picked" value="4" />
-                </label>
+              <div className="wrap">
+                <span className={styles.label}>Label color</span>
+                <div>
+                  {radioOptions.map((option, index) => (
+                    <label key={index} className={styles.radioLabel}>
+                      <Field
+                        type="radio"
+                        name="color"
+                        value={`${option.color}`}
+                        className={styles.radioInput}
+                      />
+                      <span
+                        className={styles.radioButton}
+                        style={{ backgroundColor: option.color }}
+                      ></span>
+                    </label>
+                  ))}
+                </div>
               </div>
 
               <button className={styles.btn} type="submit">
@@ -82,13 +86,6 @@ export const AddCard = () => {
               </button>
             </Form>
           </Formik>
-
-          {/* <input type="radio" />
-          <input type="radio" />
-          <input type="radio" />
-          <input type="radio" chacked="true" />
-
-          <span>Deadline</span> */}
         </Modal>
       )}
     </div>
