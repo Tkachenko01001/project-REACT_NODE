@@ -23,7 +23,10 @@ const Header = () => {
         </div>
 
         <div className={css.headerSelect}>
-          <div className={css.selectorTheme}>
+          <div
+            className={css.selectorTheme}
+            // onClick={() => getPopover(<ThemeSelector onClose={killPopover} />)}
+          >
             <button className={css.styleTheme}>
               <span>Theme</span>
               <Icon name="#icon-chevron-down" width="16px" height="16px" />

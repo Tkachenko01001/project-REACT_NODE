@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
+import { selectIsLoading } from 'redux/auth/selectors';
 
 import avaDark from '../../images/user_dark.svg';
 import avaLight from '../../images/user_light.svg';
@@ -7,8 +8,10 @@ import avaViolet from '../../images/user_violet.svg';
 
 import { Puff } from 'react-loader-spinner';
 
-const Avatar = ({ size, onClick, isLoading, preload }) => {
+const Avatar = ({ size, onClick, preload }) => {
   const user = useSelector(selectUser);
+  const isLoading = useSelector(selectIsLoading);
+
   const defaultAvatar = {
     dark: avaDark,
     light: avaLight,
