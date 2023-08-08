@@ -1,15 +1,18 @@
-import MainDashboard from 'components/MainDashboard/MainDashboard';
-import { Outlet } from 'react-router-dom';
-import { Suspense } from 'react';
+import css from '../HomePage/HomePage.module.css';
+import Header from 'components/Header/Header';
+import Sidebar from 'components/Sidebar/Sidebar';
+import ScreensPage from 'components/ScreensPage/ScreensPage';
 
-const HomePage = () => {
+export default function HomePage() {
   return (
-    <Suspense fallback={<p>Loading...</p>}>
-      <MainDashboard>
-        <Outlet />
-      </MainDashboard>
-    </Suspense>
+    <div className={css.home}>
+      <Sidebar />
+      <div className={css.homeWrap}>
+        <div className={css.headerBox}>
+          <Header />
+        </div>
+        <ScreensPage />
+      </div>
+    </div>
   );
-};
-
-export default HomePage;
+}

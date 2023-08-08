@@ -1,6 +1,5 @@
 // import sprite from '../../images/sprite.svg';
 import styles from './MainDashboard.module.css';
-import Header from 'components/Header/Header';
 
 const MainDashboard = () => {
   return (
@@ -15,9 +14,6 @@ const MainDashboard = () => {
     // </div>
 
     <div className={styles.mainDashboardContainer}>
-      <div className={styles.header}>
-        <Header />
-      </div>
       <div className={styles.dashboardDefault}>
         <p className={styles.dashboardDefaultParagraph}>
           Before starting your project, it is essential
