@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 // import { useDispatch } from 'react-redux';
 // import newBoards from '';
 import sprite from '../../images/sprite.svg';
-import styles from './NewBoard.module.css';
+import styles from './EditBoard.module.css';
 
-const NewBoard = ({ onClose }) => {
+const EditBoard = ({ onClose }) => {
   const [value, setValue] = useState('icon-project');
   //   const [background, setBackground] = useState('');
   //   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const NewBoard = ({ onClose }) => {
     //   background: background,
     // };
 
-    // dispatch(newBoards(task));
+    // dispatch(editBoards(task));
     onClose();
   };
 
@@ -206,4 +206,4 @@ const NewBoard = ({ onClose }) => {
   );
 };
 
-export default NewBoard;
+export default EditBoard;

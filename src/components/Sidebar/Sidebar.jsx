@@ -7,15 +7,43 @@ import { logOut } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
 import Modal from 'components/Modal/Modal';
 import NewBoard from 'components/NewBoard/NewBoard';
+import EditBoard from 'components/EditBoard/EditBoard';
 import { useState } from 'react';
 
 const Sidebar = ({ boards }) => {
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const toggleModal = () => setIsModalOpen(state => !state);
+  const [isEditModal, setIsEditModal] = useState(false);
+  // const toggleModal = () => {
+  //   setIsModalOpen(state => !state);
+  //   setIsEditModal(false);
+  // };
+
+  // const toggleEditModal = () => {
+  //   setIsEditModal(state => !state);
+  // };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+    setIsEditModal(false);
+  };
+
+  const openEditModal = () => {
+    setIsEditModal(true);
+    setIsModalOpen(false);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setIsEditModal(false);
+  };
 
   const handleClickButton = () => {
-    toggleModal();
+    openModal();
+  };
+
+  const handleEditButtonClick = () => {
+    openEditModal();
   };
 
   const handleClickLogout = () => {
@@ -45,6 +73,13 @@ const Sidebar = ({ boards }) => {
               <svg className={css.sidebarBoardIcon}>
                 <use href={sprite + '#icon-plus'}></use>
               </svg>
+            </button>
+            <button
+              onClick={handleEditButtonClick}
+              className={css.sidebarBoardButton}
+              type="button"
+            >
+              Edit Board
             </button>
           </section>
           {boards && (
@@ -113,8 +148,13 @@ const Sidebar = ({ boards }) => {
         </div>
       </aside>
       {isModalOpen && (
-        <Modal onClose={toggleModal}>
-          <NewBoard />
+        <Modal onClose={closeModal}>
+          <NewBoard onClose={closeModal} />
+        </Modal>
+      )}
+      {isEditModal && (
+        <Modal onClose={closeModal}>
+          <EditBoard onClose={closeModal} />
         </Modal>
       )}
     </div>
