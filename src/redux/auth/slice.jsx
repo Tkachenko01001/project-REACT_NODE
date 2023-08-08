@@ -15,7 +15,7 @@ const registerPending = (state, action) => {
 
 const registerFulfilled = (state, action) => {
   state.user = action.payload;
-  state.token = action.payload.token;
+  state.token = action.payload.accessToken;
   state.isLoggedIn = true;
   state.isLoading = false;
 };
@@ -30,7 +30,7 @@ const signInPending = (state, action) => {
 
 const signInFulfilled = (state, action) => {
   state.user = action.payload;
-  state.token = action.payload.token;
+  state.token = action.payload.accessToken;
   state.isLoggedIn = true;
   state.isLoading = false;
 };
