@@ -3,14 +3,18 @@ import sprite from '../../images/sprite.svg';
 import cactus from '../../images/cactus.png';
 import cactus2x from '../../images/cactus@2x.png';
 import cactus3x from '../../images/cactus@3x.png';
+import { logOut } from 'redux/auth/operations';
+import { useDispatch } from 'react-redux';
 
 const Sidebar = ({ boards }) => {
+  const dispatch = useDispatch();
+
   const handleClickButton = () => {
     console.log('Click');
   };
 
   const handleClickLogout = () => {
-    console.log('click');
+    dispatch(logOut());    
   };
 
   return (
