@@ -15,6 +15,9 @@ const MainDashboard = () => {
     // </div>
 
     <div className={styles.mainDashboardContainer}>
+      <div className={styles.header}>
+        <Header />
+      </div>
       <div className={styles.dashboardDefault}>
         <p className={styles.dashboardDefaultParagraph}>
           Before starting your project, it is essential
@@ -23,9 +26,6 @@ const MainDashboard = () => {
           serves as a powerful tool to organize the workflow and ensure
           effective collaboration among team members.
         </p>
-      </div>
-      <div className={styles.header}>
-        <Header />
       </div>
     </div>
   );

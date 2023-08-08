@@ -20,6 +20,7 @@ const App = () => {
           <RestrictedRoute redirectTo="/home" component={<AuthPage />} />
         }
       />
+      <Route path="home" element={<Home />} />
 
       <Route
         path="/home"
