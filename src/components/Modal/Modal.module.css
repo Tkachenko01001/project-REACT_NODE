@@ -1,6 +1,6 @@
 .modal {
   padding: 24px;
-  width: 350px;
+  width: 90vw;
   /* height: 221px; */
   position: absolute;
   top: 50%;
@@ -9,7 +9,14 @@
   background-color: var(--bg-color-form);
   border-radius: 8px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(190, 219, 176, 0.5);
 }
+@media screen and (min-width: 375px) {
+  .modal {
+    width: 350px;
+  }
+}
+
 .overlay {
   position: fixed;
   top: 0;

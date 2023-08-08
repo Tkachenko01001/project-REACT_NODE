@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './WelcomePage.module.css';
 import sprite from '../../images/sprite.svg';
 import { NavLink } from 'react-router-dom';
+import { AddCard } from 'components/AddCard//AddCard';
 
 const WelcomePage = () => {
   return (
@@ -18,6 +19,7 @@ const WelcomePage = () => {
           Supercharge your productivity and take control of your tasks with Task
           Pro - Don't wait, start achieving your goals now!
         </p>
+        <AddCard />
         <NavLink className={styles.btn} to="/auth/register">
           Registration
         </NavLink>
