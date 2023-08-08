@@ -25,22 +25,23 @@
   width: 32px;
   height: 32px;
   margin-left: 32px;
-  color: var(--primary-text-color);
+  color: var(--color-white);
 }
 
 .burgerIcon {
   width: 32px;
   height: 32px;
   background-color: transparent;
-  color: white;
+  color: var(--color-white);
 }
 
-.headerTask {
+.headerSelect {
   display: flex;
   justify-content: right;
-  height: 68px;
   align-items: center;
   border-bottom: 0px solid rgb(57, 59, 59);
+  background-color: var(--color-dark);
+  padding: 14px 20px;
 }
 
 .selectorTheme {
@@ -49,20 +50,21 @@
   gap: 4px;
   position: relative;
   z-index: 0;
+  color: var(--color-white);
 }
 
 .theme:hover,
 .theme:focus {
-  color: var(--accent-color);
+  color: var(--color-hover-green);
 }
 
-.theme {
+.styleTheme {
   display: flex;
   align-items: center;
   cursor: pointer;
   gap: 4px;
   margin-right: 14px;
-  color: var(--primary-text-color);
+  color: var(--color-whiter);
   background-color: transparent;
   border: none;
   font-family: inherit;
@@ -76,9 +78,9 @@
   align-items: center;
 }
 
-.name {
+.styleName {
   margin-right: 8px;
-  color: var(--primary-text-color);
+  color: var(--color-white);
   background-color: transparent;
   font-size: 14px;
 }

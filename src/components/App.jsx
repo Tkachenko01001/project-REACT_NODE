@@ -3,16 +3,14 @@ import PrivateRoute from '../Router/PrivateRoute';
 import RestrictedRoute from '../Router/RestrictedRoute';
 import AuthPage from '../pages/AuthPage/AuthPage';
 import WelcomePage from '../pages/WelcomePage/WelcomePage';
-import ScreensPage from './ScreensPage/ScreensPage';
-import { lazy } from 'react';
-
-const Home = lazy(() => import('../pages/HomePage/HomePage'));
+import HomePage from 'pages/HomePage/HomePage';
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/welcome" />} />
       <Route path="/welcome" element={<WelcomePage />} />
+
       <Route path="/auth" element={<Navigate to="/auth/login" />} />
       <Route
         path="/auth/:id"
@@ -20,16 +18,15 @@ const App = () => {
           <RestrictedRoute redirectTo="/home" component={<AuthPage />} />
         }
       />
-      <Route path="home" element={<Home />} />
 
       <Route
         path="/home"
-        element={
-          <PrivateRoute redirectTo="/auth" component={<ScreensPage />} />
-        }
+        element={<PrivateRoute redirectTo="/auth" component={<HomePage />} />}
       />
-      <Route path="/home/:boardName" element={<ScreensPage />} />
-      <Route path="home" element={<Home />} />
+
+      <Route path="/home/:boardName" element={<HomePage />} />
+
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 };

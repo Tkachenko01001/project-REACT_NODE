@@ -69,14 +69,3 @@
     width: 141px;
   }
 }
-
-.header {
-  background-color: var(--header-bg-color);
-  height: 68px;
-  border: 0;
-}
-@media screen and (max-width: 768px) {
-  .header {
-    height: 60px;
-  }
-}
