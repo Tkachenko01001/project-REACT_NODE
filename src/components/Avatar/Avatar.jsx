@@ -43,7 +43,11 @@ const Avatar = ({ size, onClick, isLoading, preload }) => {
           width={size}
           height={size}
           onClick={onClick}
-          style={{ borderRadius: '5px', cursor: 'pointer' }}
+          style={{
+            borderRadius: '5px',
+            cursor: 'pointer',
+            border: '1px solid #9dc888',
+          }}
         />
       )}
     </>

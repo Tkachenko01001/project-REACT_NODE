@@ -1,7 +1,7 @@
 import css from './Header.module.css';
 
-import Avatar from 'components/Avatar';
-import Icon from 'components/Icon';
+import Avatar from 'components/Avatar/Avatar';
+import Icon from 'components/Icon/Icon';
 import { useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
 
