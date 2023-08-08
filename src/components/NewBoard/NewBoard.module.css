@@ -128,6 +128,6 @@
 
 .icon {
   border-radius: 8px;
-  fill: #ffffff80;
+  fill: var(--color-dark);
   stroke: var(--color-white);
 }
