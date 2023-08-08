@@ -213,8 +213,10 @@
 
 .sidebarHelpBoxLink {
   font-family: var(--font-regular);
-
+  padding: 0;
+border: none;
   color: var(--color-green);
+  background-color: var(--bg-color-form-input);
 }
 
 .sidebarHelpWrap {

@@ -5,16 +5,20 @@ import cactus2x from '../../images/cactus@2x.png';
 import cactus3x from '../../images/cactus@3x.png';
 import { logOut } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { HelpForm } from 'components/Help/HelpForm/Help';
+import Modal from 'components/Modal/Modal';
 
 const Sidebar = ({ boards }) => {
   const dispatch = useDispatch();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleClickButton = () => {
     console.log('Click');
   };
 
   const handleClickLogout = () => {
-    dispatch(logOut());    
+    dispatch(logOut());
   };
 
   return (
@@ -79,9 +83,19 @@ const Sidebar = ({ boards }) => {
             <div className={css.sidebarHelpBox}>
               <p className={css.sidebarHelpBoxItem}>
                 If you need help with{' '}
-                <a className={css.sidebarHelpBoxLink} href="/#">
+                {/* <span
+                  className={css.sidebarHelpBoxLink}
+                  onClick={() => setIsModalOpen(true)}
+                >
                   TaskPro
-                </a>
+                </span> */}
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className={css.sidebarHelpBoxLink}
+                  type="button"
+                >
+                  TaskPro
+                </button>
                 , check out our support resources or reach out to our customer
                 support team.
               </p>
@@ -107,6 +121,11 @@ const Sidebar = ({ boards }) => {
           </section>
         </div>
       </aside>
+      {isModalOpen && (
+        <Modal onClose={() => setIsModalOpen(false)}>
+          <HelpForm />
+        </Modal>
+      )}
     </div>
   );
 };
