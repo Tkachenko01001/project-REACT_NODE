@@ -17,7 +17,7 @@ const registerSchema = object({
   description: string().required(),
 });
 
-export const EditCard = () => {
+export const EditTaskCard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
 
