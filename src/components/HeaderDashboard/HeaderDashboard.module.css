@@ -52,3 +52,96 @@
 .filterText {
     height: 20px;
 }
+
+.modalFilterWrapper {
+    display: block;
+}
+
+.modalFilter {
+    color: var(--color-white);
+    font-family: 'PoppinsMedium', sans-serif;
+    font-size: 18px;
+    letter-spacing: -0.36px;
+}
+
+.modalBoard {
+    height: 1px;
+    background-color: var(--color-sidebar-border);
+    margin-top: 14px;
+}
+
+.modalLabel {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14px;
+}
+
+.modalLabelHeader {
+    color: var(--color-white);
+    font-family: 'PoppinsMedium', sans-serif;
+    font-size: 14px;
+    letter-spacing: -0.28px;
+}
+
+.modalShowAll {
+    border: none;
+    background: none;
+    color: var(--color-icon-grey);
+    font-family: 'PoppinsRegular', sans-serif;
+    font-size: 12px;
+    letter-spacing: -0.24px;
+    text-decoration-line: underline;
+}
+
+.modalCheckbox {
+    display: flex;
+    gap: 8px;
+    color: var(--color-icon-grey);
+    font-family: 'PoppinsRegular', sans-serif;
+    font-size: 12px;
+    letter-spacing: -0.24px;
+}
+
+.modalCheckbox:hover {
+    cursor: pointer;
+}
+
+.modalListOptions {
+    margin-top: 14px;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.modalListOptionsElement {
+    display: none;
+}
+
+.customCheckbox {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.customBall {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid black;
+    opacity: 0;
+    color: black;
+    transition: opacity 0.3s;
+}
+
+.modalListOptionsElement:checked + .checkboxText {
+    color: var(--color-white);
+}
+
+.modalListOptionsElement:checked + .customBall:checked {
+    opacity: 1;
+}
