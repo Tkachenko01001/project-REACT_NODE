@@ -24,7 +24,7 @@ export const AddCard = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [priority, setPriority] = useState('');
-  const [column, setColumn] = useState('_id-djasfkjsbfwefi');
+  const [column, setColumn] = useState('64d0d5ff12156380132f910a');
   const addLoading = useSelector(selectTaskIsLoading);
   const dispatch = useDispatch();
 
