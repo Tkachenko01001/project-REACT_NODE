@@ -14,7 +14,7 @@ const EditBoard = () => {
   //   const dispatch = useDispatch();
 
   const handleSubmit = event => {
-    // event.preventDefault();
+    event.preventDefault();
     // const task = {
     //   title: event.currentTarget.elements.title.value,
     //   icon: value,
