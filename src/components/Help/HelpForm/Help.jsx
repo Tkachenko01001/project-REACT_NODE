@@ -53,7 +53,7 @@ export const HelpForm = () => {
 
           <div className={styles.wrap}>
             <Field
-              className={styles.input}
+              className={styles.inputComment}
               type="text"
               name="comment"
               placeholder="Comment"
