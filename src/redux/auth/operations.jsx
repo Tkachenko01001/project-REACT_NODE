@@ -71,12 +71,12 @@ export const changeTheme = createAsyncThunk(
   'auth/changeTheme',
   async (theme, thunkAPI) => {
     try {
-      const res = await axios.patch('/api/users/theme', {
+      const { data } = await axios.patch('/api/users/theme', {
         theme,
       });
-      setAuthHeader(res.data.accessToken);
-      console.log(res);
-      return res.data;
+
+      console.log(data);
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
