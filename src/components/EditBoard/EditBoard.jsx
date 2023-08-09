@@ -1,26 +1,16 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
-// import { useDispatch } from 'react-redux';
-// import newBoards from '';
 import sprite from '../../images/sprite.svg';
 import styles from './EditBoard.module.css';
-// import css from '../Sidebar/Sidebar.module.css';
+import css from '../Sidebar/Sidebar.module.css';
 
 const EditBoard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
   const [value, setValue] = useState('icon-project');
-  //   const [background, setBackground] = useState('');
-  //   const dispatch = useDispatch();
 
   const handleSubmit = event => {
     event.preventDefault();
-    // const task = {
-    //   title: event.currentTarget.elements.title.value,
-    //   icon: value,
-    //   background: background,
-    // };
-    // dispatch(editBoards(task));
   };
 
   const changeValue = event => {
@@ -29,15 +19,15 @@ const EditBoard = () => {
 
   return (
     <div>
-      {/* <button
+      <button
         onClick={toggleModal}
         className={css.sidebarBoardButton}
         type="button"
       >
-        <svg className={css.sidebarBoardIcon}>
+        {/* <svg className={css.sidebarBoardIcon}>
           <use href={sprite + '#icon-plus'}></use>
-        </svg>
-      </button> */}
+        </svg> */}
+      </button>
       {isModalOpen && (
         <Modal onClose={toggleModal}>
           <form onSubmit={handleSubmit}>
@@ -208,11 +198,6 @@ const EditBoard = () => {
               </svg>
               Edit
             </button>
-            {/* <button>
-          <svg width="18" height="18">
-            <use href={sprite + '#icon-x-close'}></use>
-          </svg>
-        </button> */}
           </form>
         </Modal>
       )}

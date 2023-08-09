@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
-// import { useDispatch } from 'react-redux';
-// import newBoards from '';
 import sprite from '../../images/sprite.svg';
 import styles from './NewBoard.module.css';
 import css from '../Sidebar/Sidebar.module.css';
@@ -10,17 +8,9 @@ const NewBoard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
   const [value, setValue] = useState('icon-project');
-  //   const [background, setBackground] = useState('');
-  //   const dispatch = useDispatch();
 
   const handleSubmit = event => {
     event.preventDefault();
-    // const task = {
-    //   title: event.currentTarget.elements.title.value,
-    //   icon: value,
-    //   background: background,
-    // };
-    // dispatch(newBoards(task));
   };
 
   const changeValue = event => {
@@ -29,7 +19,6 @@ const NewBoard = () => {
 
   return (
     <div>
-      {/* <button onClick={toggleModal}>Відкрити модалку</button> */}
       <button
         onClick={toggleModal}
         className={css.sidebarBoardButton}
@@ -209,11 +198,6 @@ const NewBoard = () => {
               </svg>
               Create
             </button>
-            {/* <button>
-          <svg width="18" height="18">
-            <use href={sprite + '#icon-x-close'}></use>
-          </svg>
-        </button> */}
           </form>
         </Modal>
       )}

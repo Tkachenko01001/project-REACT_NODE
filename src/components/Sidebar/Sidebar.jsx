@@ -5,47 +5,12 @@ import cactus2x from '../../images/cactus@2x.png';
 import cactus3x from '../../images/cactus@3x.png';
 import { logOut } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
-// import Modal from 'components/Modal/Modal';
 import NewBoard from 'components/NewBoard/NewBoard';
 import EditBoard from 'components/EditBoard/EditBoard';
 // import EditBoard from 'components/EditBoard/EditBoard';
-// import { useState } from 'react';
 
 const Sidebar = ({ boards }) => {
   const dispatch = useDispatch();
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [isEditModal, setIsEditModal] = useState(false);
-  // const toggleModal = () => {
-  //   setIsModalOpen(state => !state);
-  //   setIsEditModal(false);
-  // };
-
-  // const toggleEditModal = () => {
-  //   setIsEditModal(state => !state);
-  // };
-
-  // const openModal = () => {
-  //   setIsModalOpen(true);
-  //   setIsEditModal(false);
-  // };
-
-  // const openEditModal = () => {
-  //   setIsEditModal(true);
-  //   setIsModalOpen(false);
-  // };
-
-  // const closeModal = () => {
-  //   setIsModalOpen(false);
-  //   setIsEditModal(false);
-  // };
-
-  // const handleClickButton = () => {
-  //   openModal();
-  // };
-
-  // const handleEditButtonClick = () => {
-  //   openEditModal();
-  // };
 
   const handleClickLogout = () => {
     dispatch(logOut());
@@ -66,23 +31,7 @@ const Sidebar = ({ boards }) => {
           </div>
           <section className={css.sidebarBoard}>
             <p className={css.sidebarBoardItem}>Create a new board</p>
-            {/* <button
-              onClick={handleClickButton}
-              className={css.sidebarBoardButton}
-              type="button"
-            >
-              <svg className={css.sidebarBoardIcon}>
-                <use href={sprite + '#icon-plus'}></use>
-              </svg>
-            </button> */}
             <NewBoard />
-            {/* <button
-              onClick={handleEditButtonClick}
-              className={css.sidebarBoardButton}
-              type="button"
-            >
-              Edit Board
-            </button> */}
             <EditBoard />
           </section>
           {boards && (
@@ -150,16 +99,6 @@ const Sidebar = ({ boards }) => {
           </section>
         </div>
       </aside>
-      {/* {isModalOpen && (
-        <Modal onClose={closeModal}>
-          <NewBoard onClose={closeModal} />
-        </Modal>
-      )}
-      {isEditModal && (
-        <Modal onClose={closeModal}>
-          <EditBoard onClose={closeModal} />
-        </Modal> */}
-      {/* )} */}
     </div>
   );
 };
