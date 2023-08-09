@@ -14,7 +14,7 @@ const Header = () => {
   const { getPopup, closePopup } = usePopup();
 
   return (
-    <>
+    
       <div className={css.header}>
         <div className={css.burgerMenu}>
           <button className={css.burgerStyle}>
@@ -46,7 +46,7 @@ const Header = () => {
           </ul>
         </div>
       </div>
-    </>
+    
   );
 };
 
