@@ -71,7 +71,7 @@ export const logOut = createAsyncThunk(
  */
 
 export const changeTheme = createAsyncThunk(
-  'auth/updTheme',
+  'auth/changeTheme',
   async (theme, thunkAPI) => {
     try {
       const { data } = await axios.patch('user/theme', {
