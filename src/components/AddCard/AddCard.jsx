@@ -8,12 +8,12 @@ import sprite from '../../images/sprite.svg';
 const initialValues = {
   title: '',
   description: '',
-  color: '',
+  priority: '',
 };
 
 const registerSchema = object({
   title: string().required(),
-  color: string().required(),
+  priority: string().required(),
   description: string().required(),
 });
 
@@ -27,10 +27,10 @@ export const AddCard = () => {
   };
 
   const radioOptions = [
-    { color: '#8fa1d0', label: '#8fa1d0' },
-    { color: '#e09cb5', label: '#e09cb5' },
-    { color: '#bedbb0', label: '#bedbb0' },
-    { color: 'rgba(255, 255, 255, 0.3)', label: 'rgba(255, 255, 255, 0.3)' },
+    { color: '#8fa1d0', priority: 'low' },
+    { color: '#e09cb5', priority: 'medium' },
+    { color: '#bedbb0', priority: 'high' },
+    { color: 'rgba(255, 255, 255, 0.3)', priority: 'without' },
   ];
 
   return (
@@ -65,8 +65,8 @@ export const AddCard = () => {
                     <label key={index} className={styles.radioLabel}>
                       <Field
                         type="radio"
-                        name="color"
-                        value={`${option.color}`}
+                        name="priority"
+                        value={`${option.priority}`}
                         className={styles.radioInput}
                       />
                       <span
