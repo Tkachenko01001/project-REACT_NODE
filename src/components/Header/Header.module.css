@@ -1,3 +1,8 @@
+.headerContainer {
+  background-color: var(--color-dark);
+  height: 68px;
+}
+
 @media screen and (max-width: 770px) {
   .header {
     display: flex;
@@ -53,8 +58,8 @@
   color: var(--color-white);
 }
 
-.theme:hover,
-.theme:focus {
+.selectorTheme:hover,
+.selectorTheme:focus {
   color: var(--color-hover-green);
 }
 
