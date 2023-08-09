@@ -8,7 +8,7 @@ import ThemeSelector from 'components/ThemeSelector/ThemeSelector';
 import Avatar from 'components/Avatar/Avatar';
 import Icon from 'components/Icon/Icon';
 
-const Header = toggleSidebar => {
+const Header = () => {
   const user = useSelector(selectUser);
 
   const { getPopup, closePopup } = usePopup();
@@ -17,10 +17,7 @@ const Header = toggleSidebar => {
     <>
       <div className={css.header}>
         <div className={css.burgerMenu}>
-          <button
-            className={css.burgerStyle}
-            onClick={() => toggleSidebar(c => !c)}
-          >
+          <button className={css.burgerStyle}>
             <Icon
               className={css.burgerIcon}
               name="#menu-icon"
