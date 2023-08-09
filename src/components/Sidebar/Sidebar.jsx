@@ -32,7 +32,6 @@ const Sidebar = ({ boards }) => {
             <p className={css.sidebarItemTitle}>My boards</p>
           </div>
           <section className={css.sidebarBoard}>
-            <AddCard />
             <p className={css.sidebarBoardItem}>Create a new board</p>
             <button
               onClick={handleClickButton}
