@@ -1,11 +1,11 @@
-/* .home{
+.home{
     display: flex;
-} */
+}
 
-/* .homeWrap{
-    display: block;
-    width: 100%;
-} */
+.homeWrap{
+    flex :1;
+   
+}
 
 .headerBox {
   width: 375px;
