@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/project-REACT_NODE/static/css/main.0b3c3f1e.css",
-    "main.js": "/project-REACT_NODE/static/js/main.9c3f5c2b.js",
+    "main.css": "/project-REACT_NODE/static/css/main.ba17d8f1.css",
+    "main.js": "/project-REACT_NODE/static/js/main.46347814.js",
     "static/media/background.png": "/project-REACT_NODE/static/media/background.16973259c4dd2e6b62c5.png",
     "static/media/Poppins-Regular.ttf": "/project-REACT_NODE/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/Poppins-Medium.ttf": "/project-REACT_NODE/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
@@ -16,11 +16,11 @@
     "static/media/cactus@2x.png": "/project-REACT_NODE/static/media/cactus@2x.7e113c606f1493767af7.png",
     "static/media/welcome-mobile.png": "/project-REACT_NODE/static/media/welcome-mobile.6b48f2104b769f0cc784.png",
     "index.html": "/project-REACT_NODE/index.html",
-    "main.0b3c3f1e.css.map": "/project-REACT_NODE/static/css/main.0b3c3f1e.css.map",
-    "main.9c3f5c2b.js.map": "/project-REACT_NODE/static/js/main.9c3f5c2b.js.map"
+    "main.ba17d8f1.css.map": "/project-REACT_NODE/static/css/main.ba17d8f1.css.map",
+    "main.46347814.js.map": "/project-REACT_NODE/static/js/main.46347814.js.map"
   },
   "entrypoints": [
-    "static/css/main.0b3c3f1e.css",
-    "static/js/main.9c3f5c2b.js"
+    "static/css/main.ba17d8f1.css",
+    "static/js/main.46347814.js"
   ]
 }
