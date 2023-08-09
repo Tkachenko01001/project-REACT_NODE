@@ -11,6 +11,8 @@
 }
 
 .headerBox {
+  background-color: var(--color-dark);
+  height: 68px;
   border: 0;
 }
 
