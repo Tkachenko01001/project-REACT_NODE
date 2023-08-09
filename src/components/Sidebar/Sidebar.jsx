@@ -5,13 +5,12 @@ import cactus2x from '../../images/cactus@2x.png';
 import cactus3x from '../../images/cactus@3x.png';
 import { logOut } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
+import NewBoard from 'components/NewBoard/NewBoard';
+import EditBoard from 'components/EditBoard/EditBoard';
+// import EditBoard from 'components/EditBoard/EditBoard';
 
 const Sidebar = ({ boards }) => {
   const dispatch = useDispatch();
-
-  const handleClickButton = () => {
-    console.log('Click');
-  };
 
   const handleClickLogout = () => {
     dispatch(logOut());
@@ -32,15 +31,8 @@ const Sidebar = ({ boards }) => {
           </div>
           <section className={css.sidebarBoard}>
             <p className={css.sidebarBoardItem}>Create a new board</p>
-            <button
-              onClick={handleClickButton}
-              className={css.sidebarBoardButton}
-              type="button"
-            >
-              <svg className={css.sidebarBoardIcon}>
-                <use href={sprite + '#icon-plus'}></use>
-              </svg>
-            </button>
+            <NewBoard />
+            <EditBoard />
           </section>
           {boards && (
             <ul className={css.sidebarNewBoard}>

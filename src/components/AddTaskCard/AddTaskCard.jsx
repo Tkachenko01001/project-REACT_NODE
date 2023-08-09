@@ -5,7 +5,7 @@ import { addTask } from 'redux/tasks/operations';
 import Modal from '../Modal/Modal';
 import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
-import styles from '../AddCard/AddCard.module.css';
+import styles from '../AddCard/AddTaskCard.module.css';
 import sprite from '../../images/sprite.svg';
 
 const initialValues = {
@@ -20,7 +20,7 @@ const registerSchema = object({
   description: string().required(),
 });
 
-export const AddCard = () => {
+export const AddTaskCard = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [priority, setPriority] = useState('');
