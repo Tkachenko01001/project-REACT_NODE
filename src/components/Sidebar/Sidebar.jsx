@@ -14,7 +14,7 @@ const Sidebar = ({ boards }) => {
   };
 
   const handleClickLogout = () => {
-    dispatch(logOut());    
+    dispatch(logOut());
   };
 
   return (
