@@ -60,8 +60,8 @@
   color: var(--color-white);
 }
 
-.theme:hover,
-.theme:focus {
+.selectorTheme:hover,
+.selectorTheme:focus {
   color: var(--color-hover-green);
 }
 

@@ -22,7 +22,7 @@ export const register = createAsyncThunk(
     try {
       const res = await axios.post('/api/users/register', credentials);
       // After successful registration, add the token to the HTTP header
-      setAuthHeader(res.data.token);
+      setAuthHeader(res.data.accessToken);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -40,7 +40,7 @@ export const logIn = createAsyncThunk(
     try {
       const res = await axios.post('/api/users/login', credentials);
       // After successful login, add the token to the HTTP header
-      setAuthHeader(res.data.token);
+      setAuthHeader(res.data.accessToken);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -49,34 +49,18 @@ export const logIn = createAsyncThunk(
 );
 
 /*
- * POST @ /users/logout
- * headers: Authorization: Bearer token
- */
-export const logOut = createAsyncThunk(
-  '/api/auth/logout',
-  async (_, thunkAPI) => {
-    try {
-      await axios.post('/api/users/logout');
-      // After a successful logout, remove the token from the HTTP header
-      clearAuthHeader();
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-/*
- * GET @ /users/current
+ * PATCH @ /user/theme
  * headers: Authorization: Bearer token
  */
 
 export const changeTheme = createAsyncThunk(
-  'auth/updTheme',
+  'auth/changeTheme',
   async (theme, thunkAPI) => {
     try {
-      const { data } = await axios.patch('user/theme', {
+      const { data } = await axios.patch('/api/users/theme', {
         theme,
       });
+
       console.log(data);
       return data;
     } catch (error) {
@@ -84,6 +68,24 @@ export const changeTheme = createAsyncThunk(
     }
   }
 );
+/*
+ * POST @ /users/logout
+ * headers: Authorization: Bearer token
+ */
+export const logOut = createAsyncThunk('/auth/logout', async (_, thunkAPI) => {
+  try {
+    await axios.post('/api/users/logout');
+    // After a successful logout, remove the token from the HTTP header
+    clearAuthHeader();
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+/*
+ * GET @ /users/current
+ * headers: Authorization: Bearer token
+ */
 
 export const refreshUser = createAsyncThunk(
   'auth/refresh',
