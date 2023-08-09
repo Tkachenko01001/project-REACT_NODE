@@ -49,7 +49,7 @@ const HeaderDashboard = () => {
                     <span className={styles.customBall}></span>
                   </span>
                   <input
-                    type="checkbox"
+                    type="radio"
                     className={styles.modalListOptionsElement}
                     name="priority"
                     value={`${option.priority}`}
