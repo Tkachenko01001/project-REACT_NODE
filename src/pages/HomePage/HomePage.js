@@ -8,9 +8,9 @@ export default function HomePage() {
     <div className={css.home}>
       <Sidebar />
       <div className={css.homeWrap}>
-        <div className={css.headerBox}>
+        {/* <div className={css.headerBox}> */}
           <Header />
-        </div>
+        {/* </div> */}
         <ScreensPage />
       </div>
     </div>

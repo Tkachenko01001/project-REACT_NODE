@@ -1,20 +1,26 @@
-@media screen and (max-width: 1279px) {
-  .header {
-    display: flex;
-    justify-content: space-between;
-  }
+/* @media screen and (max-width: 767px) { */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+    background-color: var(--color-dark);
+    /* height: 68px; */
+    border: 0;
+ 
 }
+/* } */
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 768px) {
   .burgerMenu {
     display: none;
   }
 }
 
-.burgerMenu {
+/* .burgerMenu {
   margin-top: auto;
   margin-bottom: auto;
-}
+} */
 
 .burgerStyle {
   cursor: pointer;
@@ -37,11 +43,12 @@
 
 .headerSelect {
   display: flex;
-  justify-content: right;
+  /* justify-content: right; */
   align-items: center;
   border-bottom: 0px solid rgb(57, 59, 59);
   background-color: var(--color-dark);
   padding: 14px 20px;
+  margin-left: auto;
 }
 
 .selectorTheme {

@@ -12,7 +12,7 @@ const Header = () => {
   const user = useSelector(selectUser);
 
   return (
-    <>
+    
       <div className={css.header}>
         <div className={css.burgerMenu}>
           <button className={css.burgerStyle}>
@@ -28,7 +28,7 @@ const Header = () => {
         <div className={css.headerSelect}>
           <div
             className={css.selectorTheme}
-            onClick={() => getPopover(<ThemeSelector onClose={killPopover} />)}
+            // onClick={() => getPopover(<ThemeSelector onClose={killPopover} />)}
           >
             <button className={css.styleTheme}>
               <span>Theme</span>
@@ -44,7 +44,7 @@ const Header = () => {
           </ul>
         </div>
       </div>
-    </>
+    
   );
 };
 

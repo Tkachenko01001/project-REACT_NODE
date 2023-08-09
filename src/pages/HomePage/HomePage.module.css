@@ -10,11 +10,11 @@
   width: 100%;
 }
 
-.headerBox {
+/* .headerBox {
   background-color: var(--color-dark);
   height: 68px;
   border: 0;
-}
+} */
 
 @media screen and (max-width: 768px) {
   .headerBox {
