@@ -3,8 +3,8 @@ import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/slice';
 
 import {
-    persistStore,
-    persistReducer,
+  persistStore,
+  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -12,7 +12,6 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-
 
 const authPersistConfig = {
   key: 'auth',
@@ -32,7 +31,5 @@ export const store = configureStore({
     }),
   devTools: process.env.NODE_ENV === 'development',
 });
-
-
 
 export const persistor = persistStore(store);

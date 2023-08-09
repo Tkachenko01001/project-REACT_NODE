@@ -1,32 +1,13 @@
-.container {
-  width: 100%;
-  height: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0% 15px 0% 15px;
-
-  @media screen and (min-width:  375px) {
-    width: 375px;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 768px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    display: none;
-    width: 1440px;
-    padding: 0;
-    margin: 0;
-  }
+.sidebar {
+  display: none;
 }
 
-.sidebar {
-  width: 225px;
-  /* padding: 14px 14px 24px 14px; */
-  background-color: var(--color-icon-dark);
-
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color-icon-dark);
     width: 260px;
   }
 }
@@ -38,8 +19,10 @@
   gap: 8px;
   padding: 14px 0 0 14px;
   margin-bottom: 70px;
+}
 
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .sidebarBox {
     padding: 24px 0 0 24px;
     margin-bottom: 60px;
   }
@@ -65,9 +48,11 @@
 .sidebarItem {
   padding-left: 14px;
   margin-bottom: 8px;
+}
 
-  @media screen and (min-width: 768px) {
-    padding: 24px 0 0 24px;
+@media screen and (min-width: 768px) {
+  .sidebarItem {
+    padding-left: 24px;
   }
 }
 
@@ -85,11 +70,13 @@
   align-items: center;
 
   padding: 14px 18px 14px 14px;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
   border-top: solid 1px var(--color-sidebar-border);
   border-bottom: solid 1px var(--color-sidebar-border);
+}
 
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .sidebarBoard {
     padding: 14px 24px;
   }
 }
@@ -102,8 +89,10 @@
 
   margin-right: 77px;
   color: var(--color-white);
+}
 
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .sidebarBoardItem {
     margin-right: 96px;
   }
 }
@@ -125,11 +114,14 @@
 
 /* New board */
 .sidebarNewBoard {
+  margin-top: 40px;
   padding: 20px 0 20px 14px;
   border-right: 4px solid var(--color-green);
   border-radius: 4px 0px 0px 4px;
+}
 
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .sidebarNewBoard {
     padding: 20px 0 20px 24px;
   }
 }
@@ -144,8 +136,10 @@
   height: 18px;
   margin-right: 4px;
   stroke: var(--color-white);
+}
 
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .sidebarNewBoardSvg {
     margin-right: 8px;
   }
 }
@@ -173,8 +167,10 @@
   padding: 0;
   margin-right: 14px;
   background-color: var(--color-icon-dark);
+}
 
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .sidebarNewBoardButtonCurrent {
     margin-right: 20px;
   }
 }
@@ -191,8 +187,10 @@
   padding: 14px 14px 15px 15px;
   border-radius: 8px;
   background-color: var(--bg-color-form-input);
+}
 
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .sidebarHelp {
     margin: 0 24px 24px 24px;
     padding: 20px 20px 21px 20px;
   }
@@ -203,9 +201,10 @@
 }
 
 .sidebarHelpBoxItem {
-  font-size: 12px;
-  line-height: 1.3;
-  letter-spacing: -0.24px;
+  font-family: var(--font-regular);
+  font-size: 14px;
+  line-height: 1.42;
+  letter-spacing: -0.28px;
 
   color: var(--color-white);
 }
@@ -216,10 +215,12 @@
   color: var(--color-green);
 }
 
-.sidebarHelpWrap {
+.sidebarHelpbutton {
   display: flex;
   align-items: center;
   gap: 8px;
+  background-color: var(--bg-color-form-input);
+  border: none;
 }
 
 .sidebarHelpIcon {
@@ -243,14 +244,17 @@
 .sidebarLogoutButton {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   border: none;
-  padding: 0 7px 0 0;
+  /* padding: 0 7px 0 0; */
   color: var(--color-white);
   background-color: var(--color-icon-dark);
+  font-family: var(--font-medium);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .sidebarLogoutIcon {
   stroke: var(--color-green);
 }
-

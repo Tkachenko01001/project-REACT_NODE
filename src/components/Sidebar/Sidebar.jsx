@@ -3,20 +3,28 @@ import sprite from '../../images/sprite.svg';
 import cactus from '../../images/cactus.png';
 import cactus2x from '../../images/cactus@2x.png';
 import cactus3x from '../../images/cactus@3x.png';
+import { logOut } from 'redux/auth/operations';
+import { useDispatch } from 'react-redux';
 
 const Sidebar = ({ boards }) => {
-  const handleClickButton = () => {
+  const dispatch = useDispatch();
+
+  const handleClickBoard = () => {
     console.log('Click');
   };
 
+  const handleClickHelp = () => {
+  console.log('click');
+}
+
   const handleClickLogout = () => {
-    console.log('click');
+    dispatch(logOut());    
   };
 
   return (
-    <>
-      <div>
-        <aside className={css.sidebar}>
+    <div>
+      <aside className={css.sidebar}>
+        <div>
           <section className={css.sidebarBox}>
             <svg className={css.sidebarBoxIcon}>
               <use href={sprite + '#icon-icon-dark'}></use>
@@ -29,7 +37,7 @@ const Sidebar = ({ boards }) => {
           <section className={css.sidebarBoard}>
             <p className={css.sidebarBoardItem}>Create a new board</p>
             <button
-              onClick={handleClickButton}
+              onClick={handleClickBoard}
               className={css.sidebarBoardButton}
               type="button"
             >
@@ -38,27 +46,31 @@ const Sidebar = ({ boards }) => {
               </svg>
             </button>
           </section>
-          <ul className={css.sidebarNewBoard}>
-            <li className={css.sidebarNewBoardList}>
-              <svg className={css.sidebarNewBoardSvg}>
-                <use href={sprite + '#icon-project'}></use>
-              </svg>
-              <p className={css.sidebarNewBoardItem}>Project office</p>
-              <button className={css.sidebarNewBoardButton} type="button">
-                <svg className={css.sidebarNewBoardIcon}>
-                  <use href={sprite + '#icon-pencil'}></use>
+          {boards && (
+            <ul className={css.sidebarNewBoard}>
+              <li className={css.sidebarNewBoardList}>
+                <svg className={css.sidebarNewBoardSvg}>
+                  <use href={sprite + '#icon-project'}></use>
                 </svg>
-              </button>
-              <button
-                className={css.sidebarNewBoardButtonCurrent}
-                type="button"
-              >
-                <svg className={css.sidebarNewBoardIcon}>
-                  <use href={sprite + '#icon-trash'}></use>
-                </svg>
-              </button>
-            </li>
-          </ul>
+                <p className={css.sidebarNewBoardItem}>Project office</p>
+                <button className={css.sidebarNewBoardButton} type="button">
+                  <svg className={css.sidebarNewBoardIcon}>
+                    <use href={sprite + '#icon-pencil'}></use>
+                  </svg>
+                </button>
+                <button
+                  className={css.sidebarNewBoardButtonCurrent}
+                  type="button"
+                >
+                  <svg className={css.sidebarNewBoardIcon}>
+                    <use href={sprite + '#icon-trash'}></use>
+                  </svg>
+                </button>
+              </li>
+            </ul>
+          )}
+        </div>
+        <div>
           <section className={css.sidebarHelp}>
             <div>
               <picture>
@@ -78,12 +90,12 @@ const Sidebar = ({ boards }) => {
                 support team.
               </p>
             </div>
-            <div className={css.sidebarHelpWrap}>
+            <button onClick={handleClickHelp} className={css.sidebarHelpbutton}>
               <svg className={css.sidebarHelpIcon}>
                 <use href={sprite + '#icon-help-circle'}></use>
               </svg>
               <p className={css.sidebarHelpNeedHelp}>Need help?</p>
-            </div>
+            </button>
           </section>
           <section className={css.sidebarLogout}>
             <button
@@ -97,9 +109,9 @@ const Sidebar = ({ boards }) => {
               Log out
             </button>
           </section>
-        </aside>
-      </div>
-    </>
+        </div>
+      </aside>
+    </div>
   );
 };
 
