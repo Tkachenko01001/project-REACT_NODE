@@ -1,21 +1,23 @@
 import css from './Header.module.css';
 
 import { useSelector } from 'react-redux';
-
 import { selectUser } from 'redux/auth/selectors';
 
 import ThemeSelector from 'components/ThemeSelector/ThemeSelector';
 import Avatar from 'components/Avatar/Avatar';
 import Icon from 'components/Icon/Icon';
 
-const Header = () => {
+const Header = toggleSidebar => {
   const user = useSelector(selectUser);
 
   return (
     <>
       <div className={css.header}>
         <div className={css.burgerMenu}>
-          <button className={css.burgerStyle}>
+          <button
+            className={css.burgerStyle}
+            onClick={() => toggleSidebar(c => !c)}
+          >
             <Icon
               className={css.burgerIcon}
               name="#menu-icon"
@@ -28,7 +30,7 @@ const Header = () => {
         <div className={css.headerSelect}>
           <div
             className={css.selectorTheme}
-            onClick={() => getPopover(<ThemeSelector onClose={killPopover} />)}
+            // onClick={() => getPopover(<ThemeSelector onClose={killPopover} />)}
           >
             <button className={css.styleTheme}>
               <span>Theme</span>
