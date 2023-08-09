@@ -5,6 +5,7 @@ import cactus2x from '../../images/cactus@2x.png';
 import cactus3x from '../../images/cactus@3x.png';
 import { logOut } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
+import { AddCard } from 'components/AddCard/AddCard';
 
 const Sidebar = ({ boards }) => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const Sidebar = ({ boards }) => {
   };
 
   const handleClickLogout = () => {
-    dispatch(logOut());    
+    dispatch(logOut());
   };
 
   return (
@@ -31,6 +32,7 @@ const Sidebar = ({ boards }) => {
             <p className={css.sidebarItemTitle}>My boards</p>
           </div>
           <section className={css.sidebarBoard}>
+            <AddCard />
             <p className={css.sidebarBoardItem}>Create a new board</p>
             <button
               onClick={handleClickButton}
