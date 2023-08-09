@@ -5,15 +5,15 @@ import cactus2x from '../../images/cactus@2x.png';
 import cactus3x from '../../images/cactus@3x.png';
 import { logOut } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
-import Modal from 'components/Modal/Modal';
+// import Modal from 'components/Modal/Modal';
 import NewBoard from 'components/NewBoard/NewBoard';
-import EditBoard from 'components/EditBoard/EditBoard';
-import { useState } from 'react';
+// import EditBoard from 'components/EditBoard/EditBoard';
+// import { useState } from 'react';
 
 const Sidebar = ({ boards }) => {
   const dispatch = useDispatch();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isEditModal, setIsEditModal] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isEditModal, setIsEditModal] = useState(false);
   // const toggleModal = () => {
   //   setIsModalOpen(state => !state);
   //   setIsEditModal(false);
@@ -23,28 +23,28 @@ const Sidebar = ({ boards }) => {
   //   setIsEditModal(state => !state);
   // };
 
-  const openModal = () => {
-    setIsModalOpen(true);
-    setIsEditModal(false);
-  };
+  // const openModal = () => {
+  //   setIsModalOpen(true);
+  //   setIsEditModal(false);
+  // };
 
-  const openEditModal = () => {
-    setIsEditModal(true);
-    setIsModalOpen(false);
-  };
+  // const openEditModal = () => {
+  //   setIsEditModal(true);
+  //   setIsModalOpen(false);
+  // };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setIsEditModal(false);
-  };
+  // const closeModal = () => {
+  //   setIsModalOpen(false);
+  //   setIsEditModal(false);
+  // };
 
-  const handleClickButton = () => {
-    openModal();
-  };
+  // const handleClickButton = () => {
+  //   openModal();
+  // };
 
-  const handleEditButtonClick = () => {
-    openEditModal();
-  };
+  // const handleEditButtonClick = () => {
+  //   openEditModal();
+  // };
 
   const handleClickLogout = () => {
     dispatch(logOut());
@@ -65,7 +65,7 @@ const Sidebar = ({ boards }) => {
           </div>
           <section className={css.sidebarBoard}>
             <p className={css.sidebarBoardItem}>Create a new board</p>
-            <button
+            {/* <button
               onClick={handleClickButton}
               className={css.sidebarBoardButton}
               type="button"
@@ -73,14 +73,15 @@ const Sidebar = ({ boards }) => {
               <svg className={css.sidebarBoardIcon}>
                 <use href={sprite + '#icon-plus'}></use>
               </svg>
-            </button>
-            <button
+            </button> */}
+            <NewBoard />
+            {/* <button
               onClick={handleEditButtonClick}
               className={css.sidebarBoardButton}
               type="button"
             >
               Edit Board
-            </button>
+            </button> */}
           </section>
           {boards && (
             <ul className={css.sidebarNewBoard}>
@@ -147,7 +148,7 @@ const Sidebar = ({ boards }) => {
           </section>
         </div>
       </aside>
-      {isModalOpen && (
+      {/* {isModalOpen && (
         <Modal onClose={closeModal}>
           <NewBoard onClose={closeModal} />
         </Modal>
@@ -155,8 +156,8 @@ const Sidebar = ({ boards }) => {
       {isEditModal && (
         <Modal onClose={closeModal}>
           <EditBoard onClose={closeModal} />
-        </Modal>
-      )}
+        </Modal> */}
+      {/* )} */}
     </div>
   );
 };
