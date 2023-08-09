@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { changeTheme } from 'redux/auth/operations';
 import { selectUser } from 'redux/auth/selectors';
 
-import css from './ThemeSelector.modul.css';
+import css from './ThemeSelector.module.css';
 
 const ThemeSelector = ({ onClose }) => {
   const dispatch = useDispatch();

@@ -1,5 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, logIn, logOut, refreshUser } from './operations';
+import {
+  register,
+  logIn,
+  logOut,
+  refreshUser,
+  changeTheme,
+} from './operations';
 
 const initialState = {
   user: { name: null, email: null },
@@ -7,6 +13,7 @@ const initialState = {
   isLoggedIn: false,
   isRefreshing: false,
   isLoading: false,
+  theme: 'dark',
 };
 
 const registerPending = (state, action) => {
@@ -30,6 +37,7 @@ const signInPending = (state, action) => {
 
 const signInFulfilled = (state, action) => {
   state.user = action.payload;
+  state.user.theme = action.payload.theme;
   state.token = action.payload.accessToken;
   state.isLoggedIn = true;
   state.isLoading = false;
@@ -59,6 +67,18 @@ const refreshUserRejected = (state, action) => {
   state.isRefreshing = false;
 };
 
+const changeThemePending = (state, action) => {
+  state.isRefreshing = true;
+  state.error = null;
+};
+const changeThemeFulfilled = (state, action) => {
+  state.user.theme = action.payload.theme;
+};
+const changeThemeRejected = (state, action) => {
+  state.error = action.payload;
+  state.isRefreshing = false;
+};
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -73,6 +93,10 @@ const authSlice = createSlice({
     builder.addCase(refreshUser.pending, refreshUserPending);
     builder.addCase(refreshUser.fulfilled, refreshUserFulfilled);
     builder.addCase(refreshUser.rejected, refreshUserRejected);
+    builder.addCase(changeTheme.pending, changeThemePending);
+    builder.addCase(changeTheme.fulfilled, changeThemeFulfilled);
+    builder.addCase(changeTheme.rejected, changeThemeRejected);
   },
 });
+
 export const authReducer = authSlice.reducer;

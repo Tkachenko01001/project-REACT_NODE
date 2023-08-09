@@ -52,13 +52,31 @@ export const logIn = createAsyncThunk(
  * POST @ /users/logout
  * headers: Authorization: Bearer token
  */
-export const logOut = createAsyncThunk(
-  '/auth/logout',
-  async (_, thunkAPI) => {
+export const logOut = createAsyncThunk('/auth/logout', async (_, thunkAPI) => {
+  try {
+    await axios.post('/api/users/logout');
+    // After a successful logout, remove the token from the HTTP header
+    clearAuthHeader();
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+/*
+ * PATCH @ /user/theme
+ * headers: Authorization: Bearer token
+ */
+
+export const changeTheme = createAsyncThunk(
+  'auth/changeTheme',
+  async (theme, thunkAPI) => {
     try {
-      await axios.post('/api/users/logout');
-      // After a successful logout, remove the token from the HTTP header
-      clearAuthHeader();
+      const res = await axios.patch('/api/users/theme', {
+        theme,
+      });
+      setAuthHeader(res.data.accessToken);
+      console.log(res);
+      return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -69,21 +87,6 @@ export const logOut = createAsyncThunk(
  * GET @ /users/current
  * headers: Authorization: Bearer token
  */
-
-export const changeTheme = createAsyncThunk(
-  'auth/changeTheme',
-  async (theme, thunkAPI) => {
-    try {
-      const { data } = await axios.patch('user/theme', {
-        theme,
-      });
-      console.log(data);
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
 
 export const refreshUser = createAsyncThunk(
   'auth/refresh',
