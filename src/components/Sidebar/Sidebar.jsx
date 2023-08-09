@@ -7,6 +7,7 @@ import { logOut } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
 // import Modal from 'components/Modal/Modal';
 import NewBoard from 'components/NewBoard/NewBoard';
+import EditBoard from 'components/EditBoard/EditBoard';
 // import EditBoard from 'components/EditBoard/EditBoard';
 // import { useState } from 'react';
 
@@ -82,6 +83,7 @@ const Sidebar = ({ boards }) => {
             >
               Edit Board
             </button> */}
+            <EditBoard />
           </section>
           {boards && (
             <ul className={css.sidebarNewBoard}>

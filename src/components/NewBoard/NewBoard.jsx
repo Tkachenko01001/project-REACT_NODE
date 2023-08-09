@@ -6,7 +6,7 @@ import sprite from '../../images/sprite.svg';
 import styles from './NewBoard.module.css';
 import css from '../Sidebar/Sidebar.module.css';
 
-const NewBoard = ({ onClose }) => {
+const NewBoard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
   const [value, setValue] = useState('icon-project');
@@ -14,7 +14,7 @@ const NewBoard = ({ onClose }) => {
   //   const dispatch = useDispatch();
 
   const handleSubmit = event => {
-    // event.preventDefault;
+    event.preventDefault();
 
     // const task = {
     //   title: event.currentTarget.elements.title.value,
@@ -23,7 +23,6 @@ const NewBoard = ({ onClose }) => {
     // };
 
     // dispatch(newBoards(task));
-    onClose();
   };
 
   const changeValue = event => {
@@ -41,7 +40,7 @@ const NewBoard = ({ onClose }) => {
         <svg className={css.sidebarBoardIcon}>
           <use href={sprite + '#icon-plus'}></use>
         </svg>
-      </button>{' '}
+      </button>
       {isModalOpen && (
         <Modal onClose={toggleModal}>
           <form onSubmit={handleSubmit}>
