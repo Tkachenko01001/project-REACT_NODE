@@ -13,12 +13,12 @@ const NewBoard = () => {
   const backgroundImg = [
     {
       value: 'bg1',
-      image: require('../../images/blue-mobile-1x.jpg'),
+      image: ' ../../images/blue-mobile-1x.jpg',
       alt: '',
     },
     {
       value: 'bg2',
-      image: require('../../images/blue-mobile-2x.jpg'),
+      image: '../../images/blue-mobile-2x.jpg',
       alt: '',
     },
   ];
