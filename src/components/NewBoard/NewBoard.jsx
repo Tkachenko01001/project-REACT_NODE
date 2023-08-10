@@ -8,6 +8,20 @@ const NewBoard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
   const [value, setValue] = useState('icon-project');
+  const [background, setBackground] = useState('background');
+
+  const backgroundImg = [
+    {
+      value: 'bg1',
+      image: require('../../images/blue-mobile-1x.jpg'),
+      alt: '',
+    },
+    {
+      value: 'bg2',
+      image: require('../../images/blue-mobile-2x.jpg'),
+      alt: '',
+    },
+  ];
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -15,6 +29,10 @@ const NewBoard = () => {
 
   const changeValue = event => {
     setValue(event.target.value);
+  };
+
+  const onClickBg = value => {
+    setBackground(value);
   };
 
   return (
@@ -176,19 +194,27 @@ const NewBoard = () => {
                 role="group"
                 aria-labelledby="group-label-image"
               >
-                <label htmlFor="block">
-                  <input type="radio" name="radio" value="" />
-                  <svg className={styles.svg} width="28" height="28">
-                    <use></use>
-                  </svg>
-                </label>
-                {/* {'backgrounds'.map(bg => {
-            return (
-              <>
-                <item key={bg._id} bg={bg} _id={bg._id} />
-              </>
-            );
-          })} */}
+                <svg className={styles.svg} width="28" height="28">
+                  <use href={sprite + '#icon-image-05'}></use>
+                </svg>
+                {backgroundImg.map(background => (
+                  <label key={background.value} htmlFor={background.value}>
+                    <input
+                      id=""
+                      type="radio"
+                      name="background"
+                      value={background.value}
+                      checked={background === background.value}
+                      onClick={onClickBg}
+                    />
+
+                    <img
+                      src={background.image.default}
+                      alt={background.alt}
+                      className={styles.backgroundImg}
+                    />
+                  </label>
+                ))}
               </fieldset>
             </div>
 

@@ -7,7 +7,6 @@ import { logOut } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
 import NewBoard from 'components/NewBoard/NewBoard';
 import EditBoard from 'components/EditBoard/EditBoard';
-// import EditBoard from 'components/EditBoard/EditBoard';
 
 const Sidebar = ({ boards }) => {
   const dispatch = useDispatch();
