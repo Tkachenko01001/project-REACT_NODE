@@ -8,20 +8,12 @@ const NewBoard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
   const [value, setValue] = useState('icon-project');
-  const [background, setBackground] = useState('background');
 
-  const backgroundImg = [
-    {
-      value: 'bg1',
-      image: ' ../../images/blue-mobile-1x.jpg',
-      alt: '',
-    },
-    {
-      value: 'bg2',
-      image: '../../images/blue-mobile-2x.jpg',
-      alt: '',
-    },
-  ];
+  const backgrounds = Array.from(
+    { length: 15 },
+    (_, i) => `backgrounds/image${i + 1}.jpg`
+  );
+  const [currentBackground, setCurrentBackground] = useState(backgrounds[0]);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -31,8 +23,8 @@ const NewBoard = () => {
     setValue(event.target.value);
   };
 
-  const onClickBg = value => {
-    setBackground(value);
+  const onClickBg = background => {
+    setCurrentBackground(background);
   };
 
   return (
@@ -189,7 +181,7 @@ const NewBoard = () => {
 
             <div className={styles.label} id="group-label-image">
               Background
-              <fieldset
+              <div
                 className={styles.bg_priority}
                 role="group"
                 aria-labelledby="group-label-image"
@@ -197,25 +189,30 @@ const NewBoard = () => {
                 <svg className={styles.svg} width="28" height="28">
                   <use href={sprite + '#icon-image-05'}></use>
                 </svg>
-                {backgroundImg.map(background => (
-                  <label key={background.value} htmlFor={background.value}>
+                {backgrounds.map((background, index) => (
+                  <label
+                    key={index}
+                    className="priority"
+                    style={{ backgroundImage: `url(${background})` }}
+                    onClick={() => onClickBg(background)}
+                    htmlFor={`background_${index}`}
+                  >
                     <input
-                      id=""
                       type="radio"
-                      name="background"
-                      value={background.value}
-                      checked={background === background.value}
-                      onClick={onClickBg}
-                    />
-
-                    <img
-                      src={background.image.default}
-                      alt={background.alt}
-                      className={styles.backgroundImg}
+                      name="radio"
+                      value="background"
+                      id={`background_${index}`}
+                      onClick={() => onClickBg(background)}
                     />
                   </label>
                 ))}
-              </fieldset>
+              </div>
+              <div
+                className="main-content"
+                style={{
+                  backgroundImage: `url(${currentBackground})`,
+                }}
+              ></div>
             </div>
 
             <button className={styles.btn} type="submit">
