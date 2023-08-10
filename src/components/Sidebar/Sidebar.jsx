@@ -1,18 +1,19 @@
-import css from '../Sidebar/Sidebar.module.css';
-import sprite from '../../images/sprite.svg';
+import DeleteBoard from 'components/DeleteBoard/DeleteBoard';
+import EditBoard from 'components/EditBoard/EditBoard';
+import NewBoard from 'components/NewBoard/NewBoard';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { logOut } from 'redux/auth/operations';
+import { getAllBoards } from 'redux/boards/operations';
+import { selectBoardsList } from 'redux/boards/selectors';
 import cactus from '../../images/cactus.png';
 import cactus2x from '../../images/cactus@2x.png';
 import cactus3x from '../../images/cactus@3x.png';
-import { logOut } from 'redux/auth/operations';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectBoardsList } from 'redux/boards/selectors';
-import NewBoard from 'components/NewBoard/NewBoard';
-import EditBoard from 'components/EditBoard/EditBoard';
-import { useEffect } from 'react';
-import { getAllBoards } from 'redux/boards/operations';
-// import EditBoard from 'components/EditBoard/EditBoard';
+import sprite from '../../images/sprite.svg';
+import css from '../Sidebar/Sidebar.module.css';
 
-const Sidebar = ({ boards }) => {
+const Sidebar = () => {
   const dispatch = useDispatch();
   const allBoards = useSelector(selectBoardsList);
 
@@ -40,30 +41,27 @@ const Sidebar = ({ boards }) => {
           <section className={css.sidebarBoard}>
             <p className={css.sidebarBoardItem}>Create a new board</p>
             <NewBoard />
-            <EditBoard />
           </section>
           {allBoards && (
             <ul className={css.sidebarNewBoard}>
               {allBoards.map(board => (
-                <li className={css.sidebarNewBoardList} key={board.id}>
+                <Link
+                  to={`/home/${board._id}`}
+                  className={`${css.sidebarNewBoardList} ${css.sidebarNewBoardItem}`}
+                  key={board._id}
+                >
                   <svg className={css.sidebarNewBoardSvg}>
                     <use href={sprite + `#${board.icon}`} />
                   </svg>
                   <p className={css.sidebarNewBoardItem}>{board.title}</p>
-                  <button className={css.sidebarNewBoardButton} type="button">
-                    <svg className={css.sidebarNewBoardIcon}>
-                      <use href={sprite + '#icon-pencil'} />
-                    </svg>
-                  </button>
-                  <button
-                    className={css.sidebarNewBoardButtonCurrent}
-                    type="button"
-                  >
-                    <svg className={css.sidebarNewBoardIcon}>
-                      <use href={sprite + '#icon-trash'} />
-                    </svg>
-                  </button>
-                </li>
+                  <EditBoard
+                    id={board._id}
+                    title={board.title}
+                    icon={board.icon}
+                    background={board.background}
+                  />
+                  <DeleteBoard id={board._id} columns={board.columnOrder} />
+                </Link>
               ))}
             </ul>
           )}
