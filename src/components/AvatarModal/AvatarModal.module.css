@@ -1,0 +1,48 @@
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+.thumbsContainer {
+  width: 68px;
+  height: 68px;
+  background-color: rgb(62, 62, 62);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.thumb {
+  display: inline-flex;
+  border-radius: 8px;
+
+  width: 68px;
+  height: 68px;
+
+  box-sizing: border-box;
+}
+
+.imageG {
+  display: block;
+
+  width: 68px;
+  height: 68px;
+  border-radius: 8px;
+}
+
+.btn {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: var(--color-green);
+  border-radius: 4px;
+
+  cursor: pointer;
+}

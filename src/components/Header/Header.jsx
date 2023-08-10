@@ -24,8 +24,7 @@ const Header = () => {
       </div>
 
       <div className={css.headerSelect}>
-        {/* <ThemeMenu /> */}
-
+        <ThemeMenu />
         <ul className={css.userInfo}>
           <li className={css.styleName}>{user.name}</li>
           <li>
