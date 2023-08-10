@@ -90,11 +90,12 @@
 
 .bg_priority {
   display: flex;
+  /* flex-shrink: 0; */
   flex-direction: row;
   flex-wrap: wrap;
   gap: 4px;
   margin-top: 14px;
-  width: 260px;
+  /* width: 260px; */
   cursor: pointer;
   border: none;
 }
@@ -130,4 +131,25 @@
   border-radius: 8px;
   fill: var(--color-dark);
   stroke: var(--color-white);
+}
+
+/* .img_bg {
+  cursor: pointer;
+}
+
+.item {
+  display: none;
+} */
+
+.item:checked + img {
+  border: var(--color-white);
+}
+
+.img {
+  border-radius: 6px;
+  transition: transform 0.25s ease;
+}
+
+.img:hover {
+  transform: scale(1.4);
 }

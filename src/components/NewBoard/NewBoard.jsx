@@ -5,6 +5,22 @@ import styles from './NewBoard.module.css';
 import css from '../Sidebar/Sidebar.module.css';
 import { addBoard } from 'redux/boards/operations';
 import { useDispatch } from 'react-redux';
+import defaultImgMob from '../../images/defaultImg-mobile-1x.png';
+import airBallonMob from '../../images/airBalloon-mobile-1x.jpg';
+import blueMob from '../../images/blue-mobile-1x.jpg';
+import cappadociaMob from '../../images/cappadocia-mobile-1x.jpg';
+import flowersMob from '../../images/flowers-mobile-1x.jpg';
+import gorgeMob from '../../images/gorge-mobile-1x.jpg';
+import greensMob from '../../images/greens-mobile-1x.jpg';
+import moonMob from '../../images/moon-mobile-1x.jpg';
+import mountainsMob from '../../images/mountains-mobile-1x.jpg';
+import rocksAndSeaMob from '../../images/rocksAndSea-mobile-1x.jpg';
+import seaMob from '../../images/sea-mobile-1x.jpg';
+import semiMoonMob from '../../images/semiMoon-mobile-1x.jpg';
+import trailerMob from '../../images/trailer-mobile-1x.jpg';
+import treeMob from '../../images/tree-mobile-1x.jpg';
+import violetSphereMob from '../../images/violetSphere-mobile-1x.jpg';
+import yachtMob from '../../images/yacht-mobile-1x.jpg';
 
 const NewBoard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -188,11 +204,11 @@ const NewBoard = () => {
             <div className={styles.label} id="group-label-image">
               Background
               <fieldset
-                className={styles.priority}
+                className={styles.bg_priority}
                 role="group"
                 aria-labelledby="group-label-icon"
               >
-                <input
+                {/* <input
                   className={styles.input_svg}
                   id="image-05"
                   type="radio"
@@ -205,13 +221,151 @@ const NewBoard = () => {
                   <svg className={styles.svg} width="18" height="18">
                     <use href={sprite + '#icon-image-05'}></use>
                   </svg>
-                </label>
+                </label> */}
+                {/* <ul className={styles.img_bg}> */}
+                {/* <li className={styles.item}> */}
                 <img
-                  src="../images/airBalloon-mobile-1x.jpg"
+                  className={styles.img}
+                  src={`${defaultImgMob}`}
                   alt=""
-                  width=""
-                  height=""
+                  width="28"
+                  height="28"
                 />
+                <img
+                  className={styles.img}
+                  src={`${airBallonMob}`}
+                  alt=""
+                  width="28"
+                  height="28"
+                />
+                {/* </li> */}
+                {/* <li className={styles.item}> */}
+                <img
+                  className={styles.img}
+                  src={`${blueMob}`}
+                  alt=""
+                  width="28"
+                  height="28"
+                />
+                {/* </li> */}
+                {/* <li className={styles.item}> */}
+                <img
+                  className={styles.img}
+                  src={`${cappadociaMob}`}
+                  alt=""
+                  width="28"
+                  height="28"
+                />
+                {/* </li> */}
+                {/* <li className={styles.item}> */}
+                <img
+                  className={styles.img}
+                  src={`${flowersMob}`}
+                  alt=""
+                  width="28"
+                  height="28"
+                />
+                {/* </li> */}
+                {/* <li className={styles.item}> */}
+                <img
+                  className={styles.img}
+                  src={`${gorgeMob}`}
+                  alt=""
+                  width="28"
+                  height="28"
+                />
+                {/* </li> */}
+                {/* <li className={styles.item}> */}
+                <img
+                  className={styles.img}
+                  src={`${greensMob}`}
+                  alt=""
+                  width="28"
+                  height="28"
+                />
+                {/* </li> */}
+                {/* <li className={styles.item}> */}
+                <img
+                  className={styles.img}
+                  src={`${moonMob}`}
+                  alt=""
+                  width="28"
+                  height="28"
+                />
+                {/* </li> */}
+                {/* <li className={styles.item}> */}
+                <img
+                  className={styles.img}
+                  src={`${mountainsMob}`}
+                  alt=""
+                  width="28"
+                  height="28"
+                />
+                {/* </li> */}
+                {/* <li className={styles.item}> */}
+                <img
+                  className={styles.img}
+                  src={`${rocksAndSeaMob}`}
+                  alt=""
+                  width="28"
+                  height="28"
+                />
+                {/* </li> */}
+                {/* <li className={styles.item}> */}
+                <img
+                  className={styles.img}
+                  src={`${seaMob}`}
+                  alt=""
+                  width="28"
+                  height="28"
+                />
+                {/* </li> */}
+                {/* <li className={styles.item}> */}
+                <img
+                  className={styles.img}
+                  src={`${semiMoonMob}`}
+                  alt=""
+                  width="28"
+                  height="28"
+                />
+                {/* </li> */}
+                {/* <li className={styles.item}> */}
+                <img
+                  className={styles.img}
+                  src={`${trailerMob}`}
+                  alt=""
+                  width="28"
+                  height="28"
+                />
+                {/* </li> */}
+                {/* <li className={styles.item}> */}
+                <img
+                  className={styles.img}
+                  src={`${treeMob}`}
+                  alt=""
+                  width="28"
+                  height="28"
+                />
+                {/* </li> */}
+                {/* <li className={styles.item}> */}
+                <img
+                  className={styles.img}
+                  src={`${violetSphereMob}`}
+                  alt=""
+                  width="28"
+                  height="28"
+                />
+                {/* </li> */}
+                {/* <li className={styles.item}> */}
+                <img
+                  className={styles.img}
+                  src={`${yachtMob}`}
+                  alt=""
+                  width="28"
+                  height="28"
+                />
+                {/* </li> */}
+                {/* </ul> */}
               </fieldset>
             </div>
 
