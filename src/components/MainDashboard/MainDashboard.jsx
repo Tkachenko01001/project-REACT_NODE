@@ -5,8 +5,8 @@ import { useState } from 'react';
 import styles from './MainDashboard.module.css';
 
 const MainDashboard = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const toggleModal = () => setIsModalOpen(state => !state);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModal = () => setIsModalOpen(state => !state);
 
   return (
     // <div className={styles.container}>
@@ -21,7 +21,11 @@ const MainDashboard = () => {
     <div className={styles.mainDashboardContainer}>
       <p className={styles.dashboardDefaultParagraph}>
         Before starting your project, it is essential
-        <button type="button" className={styles.createBoard} onClick={toggleModal}>
+        <button
+          type="button"
+          className={styles.createBoard}
+          onClick={toggleModal}
+        >
           to create a board
         </button>
         to visualize and track all the necessary tasks and milestones. This
