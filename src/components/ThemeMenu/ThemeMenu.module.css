@@ -2,8 +2,8 @@
   width: 68px;
   height: 21px;
   position: relative;
-  background-color: #161616;
-  color: rgba(255, 255, 255, 0.8);
+  /* background-color: var(--color-dark); */
+  color: var(--color-icon-light);
   cursor: pointer;
   z-index: 1000; 
   margin-right: 14px;
@@ -20,8 +20,8 @@
   line-height: 1.5; 
   font-size: 14px;
   font-family: var(--font-medium);  
-  
-  color: var(--color-whiter);
+  color:inherit;
+  /* color: var(--color-white); */
   background-color: transparent;
   border: none;  
 
@@ -36,7 +36,7 @@
   margin: 0;
   margin-top: 10px;
   position: fixed;
-  background-color: #161616;
+  /* background-color: var(--color-dark); */
   transform: scaleY(0); 
   transform-origin: top;
   transition: transform 0.3s ease, opacity 0.3s ease; 
@@ -51,7 +51,7 @@
   margin: 0;
   margin-top: 10px;
   position: fixed;
-  background-color: #161616;
+  /* background-color: var(--color-dark); */
   transform: scaleY(1);
   transform-origin: top;
   transition: transform 0.3s ease, opacity 0.3s ease; 
@@ -65,8 +65,25 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.5);}
+  color: var(--color-icon-grey);
+}
 
   .themeItem:hover {
-    color: #bedbb0;
+    color: var(--color-green);
   }
+
+  .dark { 
+    background-color: var(--color-dark);
+    color: var(--color-white); 
+  }
+  
+  .light {    
+    background-color: #FCFCFC;
+    color: #161616;
+  }
+
+  .violet {
+    background-color: #FCFCFC;
+    color: #161616;  
+  }
+  
