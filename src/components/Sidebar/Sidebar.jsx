@@ -3,6 +3,7 @@ import EditBoard from 'components/EditBoard/EditBoard';
 import NewBoard from 'components/NewBoard/NewBoard';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { logOut } from 'redux/auth/operations';
 import { getAllBoards } from 'redux/boards/operations';
 import { selectBoardsList } from 'redux/boards/selectors';
@@ -44,7 +45,8 @@ const Sidebar = () => {
           {allBoards && (
             <ul className={css.sidebarNewBoard}>
               {allBoards.map(board => (
-                <li
+                <Link
+                  to={`/home/${board._id}`}
                   className={`${css.sidebarNewBoardList} ${css.sidebarNewBoardItem}`}
                   key={board._id}
                 >
@@ -59,7 +61,7 @@ const Sidebar = () => {
                     background={board.background}
                   />
                   <DeleteBoard id={board._id} columns={board.columnOrder} />
-                </li>
+                </Link>
               ))}
             </ul>
           )}
