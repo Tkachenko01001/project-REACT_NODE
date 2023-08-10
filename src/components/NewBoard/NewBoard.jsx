@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
 import sprite from '../../images/sprite.svg';
-import bgk from '../../images/bg1x.jpg';
+// import bgk from '../../images/bg1x.jpg';
 import styles from './NewBoard.module.css';
 import css from '../Sidebar/Sidebar.module.css';
 
