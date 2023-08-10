@@ -82,7 +82,7 @@ export const LogInForm = () => {
               className={styles.input}
               type={passwordShown ? 'text' : 'password'}
               name="password"
-              placeholder="Create a password"
+              placeholder="Confirm a password"
               value={password}
               onChange={e => handleChange(e, setFieldValue)}
             />

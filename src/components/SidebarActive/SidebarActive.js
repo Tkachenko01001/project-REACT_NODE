@@ -1,19 +1,15 @@
-import css from '../Sidebar/Sidebar.module.css';
+import css from '../SidebarActive/SidebarActive.module.css';
 import sprite from '../../images/sprite.svg';
 import cactus from '../../images/cactus.png';
 import cactus2x from '../../images/cactus@2x.png';
 import cactus3x from '../../images/cactus@3x.png';
 import { logOut } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
+
 import NewBoard from 'components/NewBoard/NewBoard';
 import EditBoard from 'components/EditBoard/EditBoard';
-// import SidebarActive from 'components/SidebarActive/SidebarActive';
-// import { useState } from 'react';
 
-// import EditBoard from 'components/EditBoard/EditBoard';
-
-const Sidebar = ({ boards }) => {
-  // const [menuActive, setMenuActive] = useState(false);
+const SidebarActive = ({ boards, header, items, active, setActive }) => {
   const dispatch = useDispatch();
 
   const handleClickBoard = () => {
@@ -30,7 +26,7 @@ const Sidebar = ({ boards }) => {
 
   return (
     <div>
-      <aside className={css.sidebar}>
+      <aside className={active ? 'sidebar active' : 'sidebar'}>
         <div>
           <section className={css.sidebarBox}>
             <svg className={css.sidebarBoxIcon}>
@@ -120,9 +116,8 @@ const Sidebar = ({ boards }) => {
           </section>
         </div>
       </aside>
-      {/* <SidebarActive active={menuActive} setActive={setMenuActive} /> */}
     </div>
   );
 };
 
-export default Sidebar;
+export default SidebarActive;

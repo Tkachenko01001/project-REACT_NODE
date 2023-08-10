@@ -1,0 +1,211 @@
+.sidebar {
+  position: fixed;
+  display: block;
+  z-index: 1;
+  width: 225px;
+  height: 100vh;
+  background-color: var(--color-icon-dark);
+  transform: translateX(-100%);
+}
+
+.sidebar.active {
+    transform: translateX(0);
+}
+
+.sidebarBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 0 0 14px;
+  margin-bottom: 70px;
+}
+
+.sidebarBoxIcon {
+  width: 32px;
+  height: 32px;
+  fill: var(--color-white);
+  stroke: var(--bg-color-form-input);
+}
+
+.sidebarBoxTitle {
+  font-size: 16px;
+  font-family: var(--font-semibold);
+
+  letter-spacing: -0.64px;
+
+  color: var(--color-white);
+}
+
+/* Board */
+.sidebarItem {
+  padding-left: 14px;
+  margin-bottom: 8px;
+}
+
+.sidebarItemTitle {
+  font-family: var(--font-regular);
+  font-size: 12px;
+  letter-spacing: -0.24px;
+
+  color: var(--color-icon-grey);
+}
+
+.sidebarBoard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 14px 18px 14px 14px;
+  /* margin-bottom: 40px; */
+  border-top: solid 1px var(--color-sidebar-border);
+  border-bottom: solid 1px var(--color-sidebar-border);
+}
+
+.sidebarBoardItem {
+  font-family: var(--font-medium);
+  font-size: 14px;
+
+  letter-spacing: -0.28px;
+
+  margin-right: 77px;
+  color: var(--color-white);
+}
+
+.sidebarBoardButton {
+  display: flex;
+  padding: 0;
+  border: none;
+  background: var(--color-icon-dark);
+}
+
+.sidebarBoardIcon {
+  width: 40px;
+  height: 36px;
+
+  fill: var(--color-green);
+  stroke: var(--color-icon-dark);
+}
+
+/* New board */
+.sidebarNewBoard {
+  margin-top: 40px;
+  padding: 20px 0 20px 14px;
+  border-right: 4px solid var(--color-green);
+  border-radius: 4px 0px 0px 4px;
+}
+
+.sidebarNewBoardList {
+  display: flex;
+  align-items: center;
+}
+
+.sidebarNewBoardSvg {
+  width: 18px;
+  height: 18px;
+  margin-right: 4px;
+  stroke: var(--color-white);
+}
+
+.sidebarNewBoardItem {
+  font-family: var(--font-medium);
+  font-size: 14px;
+  letter-spacing: -0.28px;
+  margin-right: auto;
+
+  color: var(--color-white);
+}
+
+.sidebarNewBoardButton {
+  height: 16px;
+  border: none;
+  padding: 0;
+  margin-right: 8px;
+  background-color: var(--color-icon-dark);
+}
+
+.sidebarNewBoardButtonCurrent {
+  height: 16px;
+  border: none;
+  padding: 0;
+  margin-right: 14px;
+  background-color: var(--color-icon-dark);
+}
+
+.sidebarNewBoardIcon {
+  width: 16px;
+  height: 16px;
+  stroke: var(--color-icon-grey);
+}
+
+/* Sidebar Help */
+.sidebarHelp {
+  margin: 0 14px 24px 14px;
+  padding: 14px 14px 15px 15px;
+  border-radius: 8px;
+  background-color: var(--bg-color-form-input);
+}
+
+.sidebarHelpBox {
+  margin: 14px 0 19px 0;
+}
+
+.sidebarHelpBoxItem {
+  font-family: var(--font-regular);
+  font-size: 14px;
+  line-height: 1.42;
+  letter-spacing: -0.28px;
+
+  color: var(--color-white);
+}
+
+.sidebarHelpBoxLink {
+  font-family: var(--font-regular);
+
+  color: var(--color-green);
+}
+
+.sidebarHelpbutton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--bg-color-form-input);
+  border: none;
+}
+
+.sidebarHelpIcon {
+  width: 20px;
+  height: 20px;
+  stroke: var(--color-white);
+}
+
+.sidebarHelpNeedHelp {
+  font-family: var(--font-medium);
+  font-size: 12px;
+  letter-spacing: -0.24px;
+
+  color: var(--color-white);
+}
+
+.sidebarLogout {
+  padding: 0 0 24px 24px;
+}
+
+.sidebarLogoutButton {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: none;
+  /* padding: 0 7px 0 0; */
+  color: var(--color-white);
+  background-color: var(--color-icon-dark);
+  font-family: var(--font-medium);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.sidebarLogoutIcon {
+  stroke: var(--color-green);
+}
+
+
