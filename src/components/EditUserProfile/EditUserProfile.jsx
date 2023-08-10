@@ -127,6 +127,7 @@ export const EditUserProfile = () => {
             {({ errors, values, setFieldValue }) => (
               <Form autoComplete="off" className={styles.form}>
                 <div className={styles.wrap}>
+                  <p className={styles.title}>Add card</p>
                   <Previews />
                   <Field
                     className={styles.input}
