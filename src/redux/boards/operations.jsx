@@ -68,8 +68,8 @@ export const addColumn = createAsyncThunk(
   'boards/addColumn',
   async (data, thunkAPI) => {
     try {
-      await axios.post('/api/columns', data);
-      thunkAPI.dispatch(getActiveBoard(data.board));
+      const res = await axios.post('/api/columns', data);
+      thunkAPI.dispatch(getActiveBoard(res.data.board));
       return;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -81,8 +81,8 @@ export const updateColumn = createAsyncThunk(
   'boards/updateColumn',
   async ([id, data], thunkAPI) => {
     try {
-      await axios.put(`/api/columns/${id}`, data);
-      thunkAPI.dispatch(getActiveBoard(data.board));
+      const res = await axios.put(`/api/columns/${id}`, data);
+      thunkAPI.dispatch(getActiveBoard(res.data.board));
       return;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -94,8 +94,8 @@ export const deleteColumn = createAsyncThunk(
   'boards/deleteColumn',
   async (id, thunkAPI) => {
     try {
-      await axios.delete(`/api/columns/${id}`);
-      thunkAPI.dispatch(getActiveBoard());
+      const res = await axios.delete(`/api/columns/${id}`);
+      thunkAPI.dispatch(getActiveBoard(res.data.data.board));
       return;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -107,8 +107,8 @@ export const addTask = createAsyncThunk(
   'boards/addTask',
   async (data, thunkAPI) => {
     try {
-      await axios.post('/api/tasks', data);
-      thunkAPI.dispatch(getActiveBoard());
+       const res = await axios.post('/api/tasks', data);
+      thunkAPI.dispatch(getActiveBoard(res.data.board));
       return;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -120,8 +120,8 @@ export const updateTask = createAsyncThunk(
   'boards/updateTask',
   async ([id, data], thunkAPI) => {
     try {
-      await axios.put(`/api/tasks/${id}`, data);
-      thunkAPI.dispatch(getActiveBoard());
+      const res = await axios.put(`/api/tasks/${id}`, data);
+      thunkAPI.dispatch(getActiveBoard(res.data.board));
       return;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -133,8 +133,8 @@ export const deleteTask = createAsyncThunk(
   'boards/deleteTask',
   async (id, thunkAPI) => {
     try {
-      await axios.delete(`/api/tasks/${id}`);
-      thunkAPI.dispatch(getActiveBoard());
+      const res = await axios.delete(`/api/tasks/${id}`);
+      thunkAPI.dispatch(getActiveBoard(res.data.data.board));
       return;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
