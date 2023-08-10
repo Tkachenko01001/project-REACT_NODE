@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/project-REACT_NODE/static/css/main.4069e410.css",
-    "main.js": "/project-REACT_NODE/static/js/main.fdd3bb32.js",
+    "main.css": "/project-REACT_NODE/static/css/main.e622ee08.css",
+    "main.js": "/project-REACT_NODE/static/js/main.75237293.js",
     "static/media/background.png": "/project-REACT_NODE/static/media/background.16973259c4dd2e6b62c5.png",
     "static/media/Poppins-Regular.ttf": "/project-REACT_NODE/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/Poppins-Medium.ttf": "/project-REACT_NODE/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
@@ -19,11 +19,11 @@
     "static/media/user_dark.svg": "/project-REACT_NODE/static/media/user_dark.05066aa8a7a77e1a6c1c27f575ad29a8.svg",
     "static/media/user_light.svg": "/project-REACT_NODE/static/media/user_light.38be126dda7ead2a3958f320945c2042.svg",
     "static/media/user_violet.svg": "/project-REACT_NODE/static/media/user_violet.c65c268bc0a034362a25f19c9f578b51.svg",
-    "main.4069e410.css.map": "/project-REACT_NODE/static/css/main.4069e410.css.map",
-    "main.fdd3bb32.js.map": "/project-REACT_NODE/static/js/main.fdd3bb32.js.map"
+    "main.e622ee08.css.map": "/project-REACT_NODE/static/css/main.e622ee08.css.map",
+    "main.75237293.js.map": "/project-REACT_NODE/static/js/main.75237293.js.map"
   },
   "entrypoints": [
-    "static/css/main.4069e410.css",
-    "static/js/main.fdd3bb32.js"
+    "static/css/main.e622ee08.css",
+    "static/js/main.75237293.js"
   ]
 }
