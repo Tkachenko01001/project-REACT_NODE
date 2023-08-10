@@ -77,6 +77,7 @@ export const HelpForm = () => {
               type="email"
               name="email"
               placeholder="Email address"
+              autocomplete="off"
               required
               value={email}
               onChange={handleChange}
@@ -86,6 +87,7 @@ export const HelpForm = () => {
               type="text"
               name="comment"
               placeholder="Comment"
+              autocomplete="off"
               required
               value={comment}
               onChange={handleChange}
