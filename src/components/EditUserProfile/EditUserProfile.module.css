@@ -1,6 +1,6 @@
 .title {
   font-family: var(--font-medium);
-  color: #fff;
+  color: var(--color-white);
   font-size: 18px;
   line-height: normal;
   letter-spacing: -0.36px;
