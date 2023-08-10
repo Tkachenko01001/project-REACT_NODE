@@ -39,12 +39,10 @@ export const ThemeMenu = () => {
 
   return (
     <div
-      className={
-        // css.light
-        // css.violet
-        // (theme === 'dark' && css.dark) ||
-        // (theme === 'light' && css.light) ||
-        // (theme === 'violet' && css.violet) ||
+      className={        
+        (theme === 'dark' && css.dark) ||
+        (theme === 'light' && css.light) ||
+        (theme === 'violet' && css.violet) ||
         css.dark
       }
     >

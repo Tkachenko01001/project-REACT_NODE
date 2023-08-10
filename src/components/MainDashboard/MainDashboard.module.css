@@ -24,7 +24,7 @@
 
   max-width: 468px;
   text-align: center;
-  color: var(--color-icon-grey);
+  /* color: var(--color-icon-grey); */
   font-size: 14px;
   line-height: 18px;
   letter-spacing: -0.28px;

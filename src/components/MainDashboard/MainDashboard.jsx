@@ -1,4 +1,4 @@
-// import sprite from '../../images/sprite.svg';
+import sprite from '../../images/sprite.svg';
 import MainButtonNewBoard from './MainButtonNewBoard/MainButtonNewBoard';
 import { useState } from 'react';
 

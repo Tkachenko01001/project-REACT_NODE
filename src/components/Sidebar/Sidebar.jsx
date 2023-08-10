@@ -1,13 +1,10 @@
 import css from '../Sidebar/Sidebar.module.css';
 import sprite from '../../images/sprite.svg';
-import cactus from '../../images/cactus.png';
-import cactus2x from '../../images/cactus@2x.png';
-import cactus3x from '../../images/cactus@3x.png';
 import { logOut } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
 import NewBoard from 'components/NewBoard/NewBoard';
 import EditBoard from 'components/EditBoard/EditBoard';
-// import EditBoard from 'components/EditBoard/EditBoard';
+import { NeedHelp } from 'components/NeedHelp/NeedHelp';
 
 const Sidebar = ({ boards }) => {
   const dispatch = useDispatch();
@@ -17,12 +14,19 @@ const Sidebar = ({ boards }) => {
   };
 
   return (
-    <div>
+    <div
+      className={
+        // (theme === 'dark' && css.dark) ||
+        // (theme === 'light' && css.light) ||
+        // (theme === 'violet' && css.violet) ||
+        css.dark
+      }
+    >
       <aside className={css.sidebar}>
         <div>
           <section className={css.sidebarBox}>
             <svg className={css.sidebarBoxIcon}>
-              <use href={sprite + '#icon-icon-dark'}></use>
+              <use href={sprite + '#icon-icon-min'}></use>
             </svg>
             <h2 className={css.sidebarBoxTitle}>Task Pro</h2>
           </section>
@@ -60,30 +64,7 @@ const Sidebar = ({ boards }) => {
         </div>
         <div>
           <section className={css.sidebarHelp}>
-            <div>
-              <picture>
-                <source
-                  srcSet={`${cactus} 1x, ${cactus2x} 2x,${cactus3x} 3x`}
-                />
-                <img srcSet={`${cactus} 1x`} alt="cactus" />
-              </picture>
-            </div>
-            <div className={css.sidebarHelpBox}>
-              <p className={css.sidebarHelpBoxItem}>
-                If you need help with{' '}
-                <a className={css.sidebarHelpBoxLink} href="/#">
-                  TaskPro
-                </a>
-                , check out our support resources or reach out to our customer
-                support team.
-              </p>
-            </div>
-            <div className={css.sidebarHelpWrap}>
-              <svg className={css.sidebarHelpIcon}>
-                <use href={sprite + '#icon-help-circle'}></use>
-              </svg>
-              <p className={css.sidebarHelpNeedHelp}>Need help?</p>
-            </div>
+            <NeedHelp />
           </section>
           <section className={css.sidebarLogout}>
             <button

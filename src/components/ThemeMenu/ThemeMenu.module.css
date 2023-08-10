@@ -3,9 +3,9 @@
   height: 21px;
   position: relative;
   /* background-color: var(--color-dark); */
-  color: var(--color-icon-light);
+  /* color: var(--color-icon-light); */
   cursor: pointer;
-  z-index: 1000; 
+  z-index: 1000;
   margin-right: 14px;
 }
 
@@ -15,18 +15,18 @@
   gap: 4px;
 
   width: 68px;
-  height: 21px;  
+  height: 21px;
   font-weight: 500;
-  line-height: 1.5; 
+  line-height: 1.5;
   font-size: 14px;
-  font-family: var(--font-medium);  
-  color:inherit;
+  font-family: var(--font-medium);
+  color: inherit;
   /* color: var(--color-white); */
   background-color: transparent;
-  border: none;  
+  border: none;
 
   cursor: pointer;
-}  
+}
 
 .themeMenu {
   width: 82px;
@@ -37,10 +37,10 @@
   margin-top: 10px;
   position: fixed;
   /* background-color: var(--color-dark); */
-  transform: scaleY(0); 
+  transform: scaleY(0);
   transform-origin: top;
-  transition: transform 0.3s ease, opacity 0.3s ease; 
-  opacity: 0; 
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
 }
 
 .themeMenuOpen {
@@ -54,7 +54,7 @@
   /* background-color: var(--color-dark); */
   transform: scaleY(1);
   transform-origin: top;
-  transition: transform 0.3s ease, opacity 0.3s ease; 
+  transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 1;
 }
 
@@ -65,25 +65,25 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 1.5;
-  color: var(--color-icon-grey);
+  /* color: var(--color-icon-grey); */
 }
 
-  .themeItem:hover {
-    color: var(--color-green);
-  }
+.themeItem:hover,
+.themeButton:hover {
+  color: var(--color-green);
+}
 
-  .dark { 
-    background-color: var(--color-dark);
-    color: var(--color-white); 
-  }
-  
-  .light {    
-    background-color: #FCFCFC;
-    color: #161616;
-  }
+.dark {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+}
 
-  .violet {
-    background-color: #FCFCFC;
-    color: #161616;  
-  }
-  
+.light {
+  background-color: #fcfcfc;
+  color: #161616;
+}
+
+.violet {
+  background-color: #fcfcfc;
+  color: #161616;
+}

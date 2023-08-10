@@ -1,4 +1,20 @@
 .headerDashboardSection {
-  background-color: var(--bg-color-form-input);
+  /* background-color: var(--bg-color-form-input); */
   height: calc(100vh - 60px);
+}
+
+.dark {
+  background-color: var(--bg-color-form-input);
+  color: var(--color-white);
+  stroke: var(--color-icon-light);
+}
+
+.light {
+  background-color: #F6F6F7;
+  color: #161616;
+}
+
+.violet {
+  background-color: #ECEDFD;
+  color: #161616;
 }
