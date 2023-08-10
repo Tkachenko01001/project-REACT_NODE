@@ -1,106 +1,141 @@
-// import { useState } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { HelpSchema } from '../HelpSchema/HelpSchema';
-import { Loader } from '../../Loader/Loader';
+import { useState } from 'react';
 import styles from './Help.module.css';
 import axios from 'axios';
+import css from '../../Sidebar/Sidebar.module.css';
+import Modal from '../../Modal/Modal';
 
 axios.defaults.baseURL = 'https://project-react-node-back.onrender.com';
 
-export const FormError = ({ name, message }) => (
-  <ErrorMessage
-    name={name}
-    render={() => <p className={styles.error}>{message}</p>}
-  />
-);
-
 export const HelpForm = () => {
-  const initialValues = {
-    email: '',
-    comment: '',
+  const [email, setEmail] = useState('');
+  const [comment, setComment] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => setIsModalOpen(state => !state);
+
+  const handleChange = event => {
+    const { name, value } = event.target;
+
+    switch (name) {
+      case 'email':
+        setEmail(value);
+        break;
+
+      case 'comment':
+        setComment(value);
+        break;
+
+      default:
+        return;
+    }
   };
 
-  const handleSubmit = async (values, { setSubmitting }) => {
+  const reset = () => {
+    setEmail('');
+    setComment('');
+  };
+
+  const handleSubmit = async event => {
+    event.preventDefault();
+
     try {
-      const { email, comment } = values;
-      const res = await axios.post('/api/help', { email, comment });
-      setSubmitting(false);
-      console.log(res.data);
-      return res.data;
+      if (email !== '' && comment !== '') {
+        const res = await axios.post('/api/users/help', { email, comment });
+        console.log(res.data.message);
+        alert(res.data.message);
+        reset();
+        toggleModal();
+        return res.data;
+      }
     } catch (error) {
       console.log('Error submitting form:', error.message);
-      setSubmitting(false);
+      alert('Error submitting form:', error.message);
     }
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={HelpSchema}
-      onSubmit={handleSubmit}
-    >
-      {({ errors, values, setFieldValue }) => (
-        <Form autoComplete="off" className={styles.form}>
-          <div className={styles.wrap}>
-            <Field
-              className={styles.input}
+    <div>
+      <p className={css.sidebarHelpBoxItem}>
+        If you need help with{' '}
+        <button
+          onClick={toggleModal}
+          className={css.sidebarHelpBoxLink}
+          type="button"
+          aria-label="Open Help Modal for TaskPro"
+        >
+          TaskPro
+        </button>
+        , check out our support resources or reach out to our customer support
+        team.
+      </p>
+      {isModalOpen && (
+        <Modal onClose={toggleModal}>
+          <form onSubmit={handleSubmit}>
+            <h1 className={styles.title}>Need help</h1>
+            <input
+              className={styles.inputEmail}
               type="email"
               name="email"
               placeholder="Email address"
+              required
+              value={email}
+              onChange={handleChange}
             />
-            {errors.email && <FormError name="email" message={errors.email} />}
-          </div>
-
-          <div className={styles.wrap}>
-            <Field
+            <input
               className={styles.inputComment}
               type="text"
               name="comment"
               placeholder="Comment"
+              required
+              value={comment}
+              onChange={handleChange}
             />
-            {errors.comment && (
-              <FormError name="comment" message={errors.comment} />
-            )}
-          </div>
-
-          <button className={styles.btn} type="submit">
-            <div className={styles.wrap}>
-              <span>Send</span>
-              <Loader />
-            </div>
-          </button>
-        </Form>
+            <button className={styles.btn} type="submit">
+              Send
+            </button>
+          </form>
+        </Modal>
       )}
-    </Formik>
+    </div>
   );
 };
+// <Formik
+//   initialValues={initialValues}
+//   validationSchema={HelpSchema}
+//   onSubmit={handleSubmit}
+// >
+//   {({ errors, values, setFieldValue }) => (
+//     <Form autoComplete="off" className={styles.form}>
+//       <div className={styles.wrap}>
+//         <Field
+//           className={styles.input}
+//           type="email"
+//           name="email"
+//           placeholder="Email address"
+//         />
+//         {errors.email && <FormError name="email" message={errors.email} />}
+//       </div>
 
-// import sprite from '../../images/sprite.svg';
-// import styles from './Help.module.css';
-// import { NavLink } from 'react-router-dom';
+//       <div className={styles.wrap}>
+//         <Field
+//           className={styles.inputComment}
+//           type="text"
+//           name="comment"
+//           placeholder="Comment"
+//         />
+//         {errors.comment && (
+//           <FormError name="comment" message={errors.comment} />
+//         )}
+//       </div>
 
-// const Help = () => {
-//   return (
-//     <div className={styles.wrapper}>
-//       <p className={styles.description}>
-//         If you need help with <span className={styles.taskPro}>TaskPro</span>,
-//         check out our support resources or reach out to our customer support
-//         team.
-//       </p>
-//       <NavLink className={styles.btn} to="/help">
-//         <svg
-//           className={styles.icon}
-//           width={20}
-//           height={20}
-//           aria-label="icon-question-mark"
-//         >
-//           <title>Help-circle Icon</title>
-//           <use href={sprite + '#icon-help-circle'} />
-//         </svg>
-//         <p className={styles.text}>Need help?</p>
-//       </NavLink>
-//     </div>
+//       <button className={styles.btn} type="submit">
+//         <div className={styles.wrap}>
+//           <span>Send</span>
+//           <Loader />
+//         </div>
+//       </button>
+//     </Form>
+//   )}
+// </Formik>
 //   );
 // };
-
-// export default Help;

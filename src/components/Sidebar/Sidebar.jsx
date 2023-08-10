@@ -5,16 +5,12 @@ import cactus2x from '../../images/cactus@2x.png';
 import cactus3x from '../../images/cactus@3x.png';
 import { logOut } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
 import { HelpForm } from 'components/Help/HelpForm/Help';
-import Modal from 'components/Modal/Modal';
 import NewBoard from 'components/NewBoard/NewBoard';
 import EditBoard from 'components/EditBoard/EditBoard';
-// import EditBoard from 'components/EditBoard/EditBoard';
 
 const Sidebar = ({ boards }) => {
   const dispatch = useDispatch();
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleClickLogout = () => {
     dispatch(logOut());
@@ -73,24 +69,7 @@ const Sidebar = ({ boards }) => {
               </picture>
             </div>
             <div className={css.sidebarHelpBox}>
-              <p className={css.sidebarHelpBoxItem}>
-                If you need help with{' '}
-                {/* <span
-                  className={css.sidebarHelpBoxLink}
-                  onClick={() => setIsModalOpen(true)}
-                >
-                  TaskPro
-                </span> */}
-                <button
-                  onClick={() => setIsModalOpen(true)}
-                  className={css.sidebarHelpBoxLink}
-                  type="button"
-                >
-                  TaskPro
-                </button>
-                , check out our support resources or reach out to our customer
-                support team.
-              </p>
+              <HelpForm />
             </div>
             <div className={css.sidebarHelpWrap}>
               <svg className={css.sidebarHelpIcon}>
@@ -113,11 +92,6 @@ const Sidebar = ({ boards }) => {
           </section>
         </div>
       </aside>
-      {isModalOpen && (
-        <Modal onClose={() => setIsModalOpen(false)}>
-          <HelpForm />
-        </Modal>
-      )}
     </div>
   );
 };

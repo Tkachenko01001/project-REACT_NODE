@@ -1,22 +1,35 @@
-.form {
+/* .form {
   display: flex;
   flex-direction: column;
   margin-top: 24px;
+} */
+
+.title {
+  color: var(--color-white);
+  font-family: var(--font-medium);
+  font-size: 18px;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.36px;
+  margin-bottom: 24px;
+  margin-right: auto;
 }
 
-.input {
+.inputEmail {
   width: 100%;
-  border-radius: 8px;
+  height: 49px;
   padding: 18px 14px;
-  border: 1px solid var(--color-green);
-  opacity: 0.4;
   margin-bottom: 14px;
-  background-color: var(--bg-color-form-input);
+  align-items: center;
+  border: 1px solid var(--color-green);
+  border-radius: 8px;
+  opacity: 0.4;
   color: var(--color-white);
+  background-color: var(--bg-color-form-input);
   box-shadow: 0px 4px 16px 0px var(--color-shadow);
-
   font-family: var(--font-regular);
   font-size: 14px;
+  font-style: normal;
   line-height: normal;
   letter-spacing: -0.28px;
 
@@ -26,11 +39,12 @@
 .inputComment {
   width: 100%;
   height: 120px;
-  border-radius: 8px;
   padding: 18px 14px;
+  margin-bottom: 24px;
+  align-items: center;
   border: 1px solid var(--color-green);
+  border-radius: 8px;
   opacity: 0.4;
-  margin-bottom: 14px;
   background-color: var(--bg-color-form-input);
   color: var(--color-white);
   box-shadow: 0px 4px 16px 0px var(--color-shadow);
@@ -41,30 +55,24 @@
   letter-spacing: -0.28px;
 
   transition: opacity 250ms linear;
+
+  white-space: pre-wrap;
 }
 
 .inputComment:active,
 .inputComment:hover,
 .inputComment:focus,
-.input:active,
-.input:hover,
-.input:focus {
+.inputEmail:active,
+.inputEmail:hover,
+.inputEmail:focus {
   outline: 0;
   outline-offset: 0;
   opacity: 1;
 }
 
 .inputCommentt::placeholder,
-.input::placeholder {
+.inputEmail::placeholder {
   color: var(--color-white);
-}
-
-.input:-webkit-autofill,
-.input:-webkit-autofill:hover,
-.input:-webkit-autofill:focus,
-.input:-webkit-autofill:active {
-  -webkit-text-fill-color: var(--color-white);
-  box-shadow: 0 0 0 30px var(--bg-color-form-input) inset !important;
 }
 
 .btn {
@@ -72,7 +80,6 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 24px;
   height: 49px;
   background-color: var(--color-green);
   color: var(--color-dark);
@@ -93,17 +100,4 @@
 
 .btn:hover {
   background-color: var(--color-hover-green);
-}
-
-.wrap {
-  position: relative;
-}
-
-.error {
-  position: absolute;
-  top: 4px;
-  right: 8px;
-  font-family: var(--font-regular);
-  font-size: 10px;
-  color: var(--color-red);
 }
