@@ -13,13 +13,6 @@ const registerPending = (state, action) => {
   state.isLoading = true;
 };
 
-const registerFulfilled = (state, action) => {
-  state.user = action.payload;
-  state.token = action.payload.accessToken;
-  state.isLoggedIn = true;
-  state.isLoading = false;
-};
-
 const registerRejected = (state, action) => {
   state.isLoading = false;
 };
@@ -64,7 +57,6 @@ const authSlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder.addCase(register.pending, registerPending);
-    builder.addCase(register.fulfilled, registerFulfilled);
     builder.addCase(register.rejected, registerRejected);
     builder.addCase(logIn.pending, signInPending);
     builder.addCase(logIn.fulfilled, signInFulfilled);
@@ -75,4 +67,4 @@ const authSlice = createSlice({
     builder.addCase(refreshUser.rejected, refreshUserRejected);
   },
 });
-export const authReducer = authSlice.reducer;
+export default authSlice.reducer;
