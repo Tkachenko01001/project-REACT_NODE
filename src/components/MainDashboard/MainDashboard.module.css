@@ -16,12 +16,6 @@
   padding: 14px 24px 0px;
 }
 
-/* .dashboardDefault {
-    display: flex;
-    align-items: center;
-    justify-content: center;     
-} */
-
 .dashboardDefaultParagraph {
   position: absolute;
   top: 50%;
@@ -45,6 +39,8 @@
 }
 
 .createBoard {
+  border: none;
+  background: none;
   color: var(--color-green);
 }
 

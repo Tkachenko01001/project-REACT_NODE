@@ -1,6 +1,7 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/slice';
+import { tasksReducer } from './tasks/slice';
 
 import {
   persistStore,
@@ -19,10 +20,13 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
+const reducers = combineReducers({
+  auth: persistReducer(authPersistConfig, authReducer),
+  tasks: tasksReducer,
+});
+
 export const store = configureStore({
-  reducer: {
-    auth: persistReducer(authPersistConfig, authReducer),
-  },
+  reducer: reducers,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {

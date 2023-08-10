@@ -1,8 +1,13 @@
 // import sprite from '../../images/sprite.svg';
+import MainButtonNewBoard from './MainButtonNewBoard/MainButtonNewBoard';
+import { useState } from 'react';
 
 import styles from './MainDashboard.module.css';
 
 const MainDashboard = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModal = () => setIsModalOpen(state => !state);
+
   return (
     // <div className={styles.container}>
     //   <button className={styles.button}>
@@ -14,15 +19,20 @@ const MainDashboard = () => {
     //   </button>
     // </div>
     <div className={styles.mainDashboardContainer}>
-      {/* <div className={styles.dashboardDefault}> */}
       <p className={styles.dashboardDefaultParagraph}>
         Before starting your project, it is essential
-        <span className={styles.createBoard}> to create a board </span> to
-        visualize and track all the necessary tasks and milestones. This board
-        serves as a powerful tool to organize the workflow and ensure effective
-        collaboration among team members.
+        <button
+          type="button"
+          className={styles.createBoard}
+          onClick={toggleModal}
+        >
+          to create a board
+        </button>
+        to visualize and track all the necessary tasks and milestones. This
+        board serves as a powerful tool to organize the workflow and ensure
+        effective collaboration among team members.
       </p>
-      {/* </div> */}
+      <MainButtonNewBoard isModalOpen={isModalOpen} toggleModal={toggleModal} />
     </div>
   );
 };
