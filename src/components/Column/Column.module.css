@@ -46,3 +46,8 @@
     var(--color-icon-dark) 100%
   );
 }
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
