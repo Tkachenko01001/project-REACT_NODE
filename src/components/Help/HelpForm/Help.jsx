@@ -48,8 +48,13 @@ export const HelpForm = () => {
         return res.data;
       }
     } catch (error) {
-      console.log('Error submitting form:', error.message);
-      alert('Error submitting form:', error.message);
+      if (error.response) {
+        const { status, data } = error.response;
+        console.log(`Status Code: ${status}`);
+        console.log(`Error Message: ${data.message}`);
+      } else {
+        console.log('Network Error');
+      }
     }
   };
 
