@@ -1,10 +1,35 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useSearchParams, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import styles from './AuthPage.module.css';
 import { RegisterForm } from '../../components/AuthForm/RegisterForm/RegisterForm';
 import { LogInForm } from '../../components/AuthForm/LogInForm/LogInForm';
+import { useEffect } from 'react';
+import { logInWithGoogle } from 'redux/auth/operations';
 
 const AuthForm = () => {
   const { id } = useParams();
+  const [searchParams] = useSearchParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (id.length > 100) {
+      const name = searchParams.get("name");
+      const email = searchParams.get("email");
+      const theme = searchParams.get("theme");
+      const avatarURL = searchParams.get("avatarURL");
+
+      dispatch(logInWithGoogle({
+        accessToken: id,
+        name,
+        email,
+        theme,
+        avatarURL,
+      }));
+
+      navigate("/home", { replace: true });
+    };
+  });
 
   return (
     <section className={styles.section}>
