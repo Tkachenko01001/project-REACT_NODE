@@ -1,0 +1,20 @@
+.button {
+  display: inline-flex;
+  width: 100%;
+  gap: 8px;
+  padding: 14px 0;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 8px;
+  fill: var(--color-icon-dark);
+  stroke: var(--color-white);
+  background: var(--color-green);
+  color: var(--color-dark);
+  font-family: var(--font-medium);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.28px;
+}
