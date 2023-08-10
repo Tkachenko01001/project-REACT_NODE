@@ -3,16 +3,18 @@ import cactus from '../../images/cactus.png';
 import cactus2x from '../../images/cactus@2x.png';
 import cactus3x from '../../images/cactus@3x.png';
 import css from './NeedHelp.module.css';
+import { useSelector } from 'react-redux';
+import { selectTheme } from 'redux/auth/selectors';
 
 export const NeedHelp = () => {
+  const theme = useSelector(selectTheme);
   return (
     <section className={css.sidebarHelp}>
       <div
         className={
-          // (theme === 'dark' && css.dark) ||
-          // (theme === 'light' && css.light) ||
-          // (theme === 'violet' && css.violet) ||
-          css.dark
+          (theme === 'dark' && css.dark) ||
+          (theme === 'light' && css.light) ||
+          (theme === 'violet' && css.violet)
         }
       >
         <div>

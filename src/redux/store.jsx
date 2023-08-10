@@ -1,7 +1,7 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
-import { authReducer } from './auth/slice';
-import { tasksReducer } from './tasks/slice';
+import authReducer from './auth/slice';
+import boardsReducer from './boards/slice';
 
 import {
   persistStore,
@@ -22,7 +22,7 @@ const authPersistConfig = {
 
 const reducers = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
-  tasks: tasksReducer,
+  boards: boardsReducer,
 });
 
 export const store = configureStore({

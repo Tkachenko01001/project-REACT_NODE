@@ -1,23 +1,24 @@
-import React, { useEffect, useState, useContext } from 'react';
-// import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import css from './ThemeMenu.module.css';
 import Icon from 'components/Icon/Icon';
-// import { ThemeContext } from '../../context/ThemeContext';
 import { useSelector } from 'react-redux';
-import { selectUser } from 'redux/auth/selectors';
+import { selectTheme } from 'redux/auth/selectors';
+import { changeTheme } from 'redux/auth/operations';
 
 export const ThemeMenu = () => {
-  // const { theme, checkTheme } = useContext(ThemeContext);
   const [themeOption, setThemeOption] = useState('');
   const [isOpen, setIsOpen] = useState(false);
-  const theme = useSelector(selectUser).theme;
+  const [theme, setTheme] = useState(useSelector(selectTheme));
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleThemeChange = event => {
     event.stopPropagation();
     setThemeOption(event.target.innerText);
     setIsOpen(false);
+    dispatch(changeTheme({ theme: event.target.innerText }));
+    setTheme(event.target.innerText);
   };
 
   const handleClick = event => {
@@ -35,15 +36,14 @@ export const ThemeMenu = () => {
     return () => {
       window.removeEventListener('click', closeMenuOnClickOutside);
     };
-  }, []);
+  }, []);  
 
   return (
     <div
-      className={        
+      className={
         (theme === 'dark' && css.dark) ||
         (theme === 'light' && css.light) ||
-        (theme === 'violet' && css.violet) ||
-        css.dark
+        (theme === 'violet' && css.violet)
       }
     >
       <div className={css.themeWrapper}>

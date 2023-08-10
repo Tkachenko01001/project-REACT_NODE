@@ -3,14 +3,25 @@ import Modal from '../Modal/Modal';
 import sprite from '../../images/sprite.svg';
 import styles from './NewBoard.module.css';
 import css from '../Sidebar/Sidebar.module.css';
+import { addBoard } from 'redux/boards/operations';
+import { useDispatch } from 'react-redux';
 
 const NewBoard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
   const [value, setValue] = useState('icon-project');
 
+  const dispatch = useDispatch();
+
   const handleSubmit = event => {
     event.preventDefault();
+    console.log(event.target.value);
+    dispatch(
+      addBoard({
+        title: event.target[0].value,
+        icon: event.target.value,
+      })
+    );
   };
 
   const changeValue = event => {

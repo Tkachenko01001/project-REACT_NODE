@@ -20,10 +20,12 @@ export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post('/api/users/register', credentials);
-      // After successful registration, add the token to the HTTP header
-      setAuthHeader(res.data.accessToken);
-      return res.data;
+      await axios.post('/api/users/register', credentials);
+      // After successful registration, perform login.
+      thunkAPI.dispatch(
+        logIn({ email: credentials.email, password: credentials.password })
+      );
+      return;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -52,18 +54,15 @@ export const logIn = createAsyncThunk(
  * POST @ /users/logout
  * headers: Authorization: Bearer token
  */
-export const logOut = createAsyncThunk(
-  '/auth/logout',
-  async (_, thunkAPI) => {
-    try {
-      await axios.post('/api/users/logout');
-      // After a successful logout, remove the token from the HTTP header
-      clearAuthHeader();
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
+export const logOut = createAsyncThunk('/auth/logout', async (_, thunkAPI) => {
+  try {
+    await axios.post('/api/users/logout');
+    // After a successful logout, remove the token from the HTTP header
+    clearAuthHeader();
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
   }
-);
+});
 
 /*
  * GET @ /users/current
@@ -86,6 +85,18 @@ export const refreshUser = createAsyncThunk(
       setAuthHeader(persistedToken);
       const res = await axios.get('/api/users/current');
 
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const changeTheme = createAsyncThunk(
+  'auth/theme',
+  async (credentials, thunkAPI) => {
+    try {
+      const res = await axios.patch('/api/users/theme', credentials);     
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
