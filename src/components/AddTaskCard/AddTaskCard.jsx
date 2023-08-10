@@ -4,7 +4,7 @@ import { addTask } from 'redux/tasks/operations';
 import Modal from '../Modal/Modal';
 import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
-import styles from '../AddCard/AddTaskCard.module.css';
+import styles from './AddTaskCard.module.css';
 import sprite from '../../images/sprite.svg';
 
 const initialValues = {
