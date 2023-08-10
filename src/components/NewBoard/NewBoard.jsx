@@ -1,20 +1,15 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
 import sprite from '../../images/sprite.svg';
-// import bgk from '../../images/bg1x.jpg';
 import styles from './NewBoard.module.css';
 import css from '../Sidebar/Sidebar.module.css';
+import { addBoard } from 'redux/boards/operations';
+import { useDispatch } from 'react-redux';
 
 const NewBoard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
   const [value, setValue] = useState('icon-project');
-
-  const backgrounds = Array.from(
-    { length: 15 },
-    (_, i) => `backgrounds/image${i + 1}.jpg`
-  );
-  const [currentBackground, setCurrentBackground] = useState(backgrounds[0]);
 
   const handleSubmit = (event, { resetForm }) => {
     event.preventDefault();
@@ -25,9 +20,9 @@ const NewBoard = () => {
     setValue(event.target.value);
   };
 
-  const onClickBg = background => {
-    setCurrentBackground(background);
-  };
+  // const onClickBg = background => {
+  //   setCurrentBackground(background);
+  // };
 
   return (
     <div>
@@ -183,38 +178,32 @@ const NewBoard = () => {
 
             <div className={styles.label} id="group-label-image">
               Background
-              <div
-                className={styles.bg_priority}
+              <fieldset
+                className={styles.priority}
                 role="group"
-                aria-labelledby="group-label-image"
+                aria-labelledby="group-label-icon"
               >
-                <svg className={styles.svg} width="28" height="28">
-                  <use href={sprite + '#icon-image-05'}></use>
-                </svg>
-                {backgrounds.map((background, index) => (
-                  <label
-                    key={index}
-                    className="priority"
-                    style={{ backgroundImage: `url(${background})` }}
-                    onClick={() => onClickBg(background)}
-                    htmlFor={`background_${index}`}
-                  >
-                    <input
-                      type="radio"
-                      name="radio"
-                      value="background"
-                      id={`background_${index}`}
-                      onClick={() => onClickBg(background)}
-                    />
-                  </label>
-                ))}
-              </div>
-              <div
-                className="main-content"
-                style={{
-                  backgroundImage: `url(${currentBackground})`,
-                }}
-              ></div>
+                <input
+                  className={styles.input_svg}
+                  id="image-05"
+                  type="radio"
+                  name="radio"
+                  value="image-05"
+                  checked={value === 'image-05' ? true : false}
+                  onChange={changeValue}
+                />
+                <label className={styles.label_svg} htmlFor="image-05">
+                  <svg className={styles.svg} width="18" height="18">
+                    <use href={sprite + '#icon-image-05'}></use>
+                  </svg>
+                </label>
+                <img
+                  src="../images/airBalloon-mobile-1x.jpg"
+                  alt=""
+                  width=""
+                  height=""
+                />
+              </fieldset>
             </div>
 
             <button className={styles.btn} type="submit">
