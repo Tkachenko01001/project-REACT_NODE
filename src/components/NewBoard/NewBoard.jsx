@@ -11,8 +11,17 @@ const NewBoard = () => {
   const toggleModal = () => setIsModalOpen(state => !state);
   const [value, setValue] = useState('icon-project');
 
+  const dispatch = useDispatch();
+
   const handleSubmit = (event, { resetForm }) => {
     event.preventDefault();
+    console.log(event.target.value);
+    dispatch(
+      addBoard({
+        title: event.target[0].value,
+        icon: event.target.value,
+      })
+    );
     resetForm();
   };
 

@@ -8,14 +8,26 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectBoardsList } from 'redux/boards/selectors';
 import NewBoard from 'components/NewBoard/NewBoard';
 import EditBoard from 'components/EditBoard/EditBoard';
+<<<<<<< HEAD
+=======
+import { useEffect } from 'react';
+import { getAllBoards } from 'redux/boards/operations';
+// import EditBoard from 'components/EditBoard/EditBoard';
+>>>>>>> main
 
 const Sidebar = ({ boards }) => {
   const dispatch = useDispatch();
   const allBoards = useSelector(selectBoardsList);
 
+<<<<<<< HEAD
   // useEffect(() => {
   //   dispatch(getAllBoards());
   // }, [dispatch]);
+=======
+  useEffect(() => {
+    dispatch(getAllBoards());
+  }, [dispatch]);
+>>>>>>> main
 
   const handleClickLogout = () => {
     dispatch(logOut());
