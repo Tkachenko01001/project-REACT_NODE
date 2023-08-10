@@ -9,8 +9,9 @@ const EditBoard = () => {
   const toggleModal = () => setIsModalOpen(state => !state);
   const [value, setValue] = useState('icon-project');
 
-  const handleSubmit = event => {
+  const handleSubmit = (event, { resetForm }) => {
     event.preventDefault();
+    resetForm();
   };
 
   const changeValue = event => {

@@ -16,8 +16,9 @@ const NewBoard = () => {
   );
   const [currentBackground, setCurrentBackground] = useState(backgrounds[0]);
 
-  const handleSubmit = event => {
+  const handleSubmit = (event, { resetForm }) => {
     event.preventDefault();
+    resetForm();
   };
 
   const changeValue = event => {
