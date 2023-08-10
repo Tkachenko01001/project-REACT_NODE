@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectTaskIsLoading } from '../../redux/tasks/selectors';
+import { useDispatch } from 'react-redux';
 import { addTask } from 'redux/tasks/operations';
 import Modal from '../Modal/Modal';
 import { Formik, Form, Field } from 'formik';
@@ -24,8 +23,8 @@ export const AddTaskCard = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [priority, setPriority] = useState('');
-  const [column, setColumn] = useState('64d0d5ff12156380132f910a');
-  const addLoading = useSelector(selectTaskIsLoading);
+  const [column] = useState('64d0d5ff12156380132f910a');
+  // const addLoading = useSelector(selectTaskIsLoading);
   const dispatch = useDispatch();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
