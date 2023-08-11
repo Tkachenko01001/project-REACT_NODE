@@ -4,11 +4,21 @@ import css from './ScreensPage.module.css';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/auth/selectors';
 import { selectActiveBoard } from 'redux/boards/selectors';
+import { useEffect, useState } from 'react';
 
 const ScreensPage = () => {
+  const [activeBg, setActiveBg] = useState(null);
+
   const theme = useSelector(selectTheme);
   const activeBoard = useSelector(selectActiveBoard);
-  console.log(activeBoard);
+  
+  useEffect(() => {
+    if (activeBoard && activeBoard.background) {
+      setActiveBg(activeBoard.background);
+    }
+  }, [activeBoard]);
+
+  console.log(activeBg);
   
   return (
     <div
@@ -19,23 +29,9 @@ const ScreensPage = () => {
       }
     >
       <section
-        className={`${css.headerDashboardSection} 
-        ${
-          (activeBoard.background === 'flowers' && css.bgFlowers) ||
-          (activeBoard.background === 'airBalloon' && css.bgAirBallon) ||
-          (activeBoard.background === 'blue' && css.bgBlue) ||
-          (activeBoard.background === 'cappadocia' && css.bgCappadocia) ||
-          (activeBoard.background === 'gorge' && css.bgGorge) ||
-          (activeBoard.background === 'greens' && css.bgGreens) ||
-          (activeBoard.background === 'moon' && css.bgMoon) ||
-          (activeBoard.background === 'mountains' && css.bgMountains) ||
-          (activeBoard.background === 'rocksAndSea' && css.bgRocksAndSea) ||
-          (activeBoard.background === 'sea' && css.bgSea) ||
-          (activeBoard.background === 'semiMoon' && css.bgSemiMoon) ||
-          (activeBoard.background === 'trailer' && css.bgTrailer) ||
-          (activeBoard.background === 'tree' && css.bgTree) ||
-          (activeBoard.background === 'violetSphere' && css.bgVioletSphere) ||
-          (activeBoard.background === 'yacht' && css.bgYacht)
+        className={`${css.headerDashboardSection} ${
+          activeBg &&
+          (css[`bg${activeBg.charAt(0).toUpperCase() + activeBg.slice(1)}`] || '')
         }`}
       >
         <HeaderDashboard />

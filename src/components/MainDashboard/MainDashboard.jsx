@@ -8,6 +8,7 @@ import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
 import AddColumn from 'components/PopUps/AddColumn/AddColumn';
 import Modal from 'components/Modal/Modal';
 import { getActiveBoard } from 'redux/boards/operations';
+import { useNavigate } from 'react-router-dom';
 
 const MainDashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,11 +16,17 @@ const MainDashboard = () => {
 
   const allBoards = useSelector(selectBoardsList);
   const activeBoard = useSelector(selectActiveBoard);
-  const dispatch = useDispatch();
+ 
 
-  useEffect(() => {
-    allBoards.length > 0 && dispatch(getActiveBoard(allBoards[0]._id));
-  }, [dispatch, allBoards]);
+  // useEffect(() => {
+  //   allBoards.length > 0 && dispatch(getActiveBoard(allBoards[0]._id));
+  // }, [dispatch, allBoards]);
+
+  // useEffect(() => {
+  //   if (activeBoard && allBoards.length > 0) {
+  //     navigate(`/home/${activeBoard._id}`);
+  //   }
+  // }, [navigate, activeBoard, allBoards]);
 
   const columns =
     activeBoard &&
