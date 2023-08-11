@@ -9,7 +9,7 @@ import { changeTheme } from 'redux/auth/operations';
 export const ThemeMenu = () => {
   const [themeOption, setThemeOption] = useState('');
   const [isOpen, setIsOpen] = useState(false);
-  const [theme, setTheme] = useState(useSelector(selectTheme));
+  const theme = useSelector(selectTheme);
 
   const dispatch = useDispatch();
 
@@ -18,7 +18,6 @@ export const ThemeMenu = () => {
     setThemeOption(event.target.innerText);
     setIsOpen(false);
     dispatch(changeTheme({ theme: event.target.innerText.toLowerCase() }));
-    setTheme(event.target.innerText.toLowCase);
   };
 
   const handleClick = event => {
