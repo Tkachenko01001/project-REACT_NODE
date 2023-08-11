@@ -103,3 +103,15 @@ export const changeTheme = createAsyncThunk(
     }
   }
 );
+
+export const updateUser = createAsyncThunk(
+  'auth/update',
+  async (credentials, thunkAPI) => {
+    try {
+      await axios.put('/api/users/update', credentials);
+      // return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
