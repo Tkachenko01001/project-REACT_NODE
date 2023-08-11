@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 import NewBoard from 'components/NewBoard/NewBoard';
 import EditBoard from 'components/EditBoard/EditBoard';
 
-const SidebarActive = ({ boards, header, items, active, setActive }) => {
+const SidebarActive = ({ boards}) => {
   const dispatch = useDispatch();
 
   const handleClickBoard = () => {
@@ -26,7 +26,7 @@ const SidebarActive = ({ boards, header, items, active, setActive }) => {
 
   return (
     <div>
-      <aside className={active ? 'sidebar active' : 'sidebar'}>
+      <aside className={css.sidebar}>
         <div>
           <section className={css.sidebarBox}>
             <svg className={css.sidebarBoxIcon}>

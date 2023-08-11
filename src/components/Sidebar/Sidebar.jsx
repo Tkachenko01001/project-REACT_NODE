@@ -12,7 +12,7 @@ import EditBoard from 'components/EditBoard/EditBoard';
 
 // import EditBoard from 'components/EditBoard/EditBoard';
 
-const Sidebar = ({ boards }) => {
+const Sidebar = ({ boards, active, setActive }) => {
   // const [menuActive, setMenuActive] = useState(false);
   const dispatch = useDispatch();
 
@@ -30,8 +30,13 @@ const Sidebar = ({ boards }) => {
 
   return (
     <div>
-      <aside className={css.sidebar}>
-        <div>
+      <aside
+        className={active ? 'css.sidebar active' : 'sidebar'}
+        onClick={() => {
+          setActive(false);
+        }}
+      >
+        <div className={css.sidebarStop} onClick={e => e.stopPropagation()}>
           <section className={css.sidebarBox}>
             <svg className={css.sidebarBoxIcon}>
               <use href={sprite + '#icon-icon-dark'}></use>
@@ -120,7 +125,6 @@ const Sidebar = ({ boards }) => {
           </section>
         </div>
       </aside>
-      {/* <SidebarActive active={menuActive} setActive={setMenuActive} /> */}
     </div>
   );
 };

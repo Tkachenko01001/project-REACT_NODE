@@ -1,5 +1,10 @@
 .sidebar {
   display: none;
+  transform: scale(0);
+}
+
+.sidebar.active {
+    transform: scale(1);
 }
 
 @media screen and (min-width: 768px) {
@@ -12,6 +17,10 @@
     height: 100vh;
   }
 }
+
+/* .sidebarStop.active{
+  transform: scale(1);
+} */
 
 /* Title */
 .sidebarBox {
