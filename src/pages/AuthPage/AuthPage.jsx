@@ -21,10 +21,12 @@ export default function AuthPage () {
 
       dispatch(logInWithGoogle({
         accessToken: id,
-        name,
-        email,
-        theme,
-        avatarURL,
+        user: {
+          name,
+          email,
+          theme,
+          avatarURL,
+        },
       }));
 
       navigate("/home", { replace: true });
