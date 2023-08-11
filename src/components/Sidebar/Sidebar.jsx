@@ -37,7 +37,11 @@ const Sidebar = () => {
         <div>
           <section className={css.sidebarBox}>
             <svg className={css.sidebarBoxIcon}>
-              <use href={sprite + '#icon-icon-dark'}></use>
+              {theme === 'violet' ? (
+                <use href={sprite + '#icon-icon-violet'}></use>
+              ) : (
+                <use href={sprite + '#icon-icon-dark'}></use>
+              )}
             </svg>
             <h2 className={css.sidebarBoxTitle}>Task Pro</h2>
           </section>
@@ -77,16 +81,24 @@ const Sidebar = () => {
           )}
         </div>
         <div>
-          <section className={css.sidebarHelp}>
+          <div className={css.sidebarHelp}>
             <NeedHelp />
-          </section>
+          </div>
           <section className={css.sidebarLogout}>
             <button
               onClick={handleClickLogout}
               className={css.sidebarLogoutButton}
               type="button"
             >
-              <svg className={css.sidebarLogoutIcon} width={32} height={32}>
+              <svg
+                className={
+                  theme === 'violet'
+                    ? css.sidebarLogoutIconWhite
+                    : css.sidebarLogoutIconGreen
+                }
+                width={32}
+                height={32}
+              >
                 <use href={sprite + '#icon-logout'}></use>
               </svg>
               Log out

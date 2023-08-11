@@ -13,10 +13,10 @@
 }
 
 .violet {
-  background-color: #ecedfd;
-  color: #161616;
-  stroke: #161616;
-  fill: #ecedfd;
+  background-color: var(--bg-color-need-help);
+  color: #fff;
+  stroke: #fff;
+  fill: var(--bg-color-need-help);
 }
 
 /* Sidebar Help  */
@@ -29,8 +29,9 @@
 
 @media screen and (min-width: 768px) {
   .sidebarHelp {
-    margin: 0 24px 24px 24px;
+    /* margin: 0 24px 24px 24px; */
     padding: 20px 20px 21px 20px;
+    border-radius: 8px;
   }
 }
 
@@ -47,10 +48,14 @@
   /* color: var(--color-white); */
 }
 
-.sidebarHelpBoxLink {
+.sidebarHelpBoxLinkGreen {
   font-family: var(--font-regular);
-
   color: var(--color-green);
+}
+
+.sidebarHelpBoxLinkViolet {
+  font-family: var(--font-regular);
+  color: var(--color-violet);
 }
 
 .sidebarHelpWrap {

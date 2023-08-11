@@ -9,11 +9,16 @@ import styles from './NewBoard.module.css';
 import { backgrounds } from 'constants/backgrounds';
 import { icons } from 'constants/icons';
 
+import { useSelector } from 'react-redux';
+import { selectTheme } from 'redux/auth/selectors';  
+
 const NewBoard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
   const [icon, setIcon] = useState('icon-project');
   const [background, setBackground] = useState(null);
+
+  const theme = useSelector(selectTheme);
 
   const dispatch = useDispatch();
 
@@ -36,13 +41,19 @@ const NewBoard = () => {
   };
 
   return (
-    <div>
+    <div
+        className={
+          (theme === 'dark' && css.dark) ||
+          (theme === 'light' && css.light) ||
+          (theme === 'violet' && css.violet)
+        }
+      >
       <button
         onClick={toggleModal}
         className={css.sidebarBoardButton}
         type="button"
       >
-        <svg className={css.sidebarBoardIcon}>
+        <svg className={theme === 'violet' ? css.sidebarBoardIconViolet : css.sidebarBoardIconGreen}>
           <use href={sprite + '#icon-plus'}></use>
         </svg>
       </button>
