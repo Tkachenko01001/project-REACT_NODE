@@ -6,7 +6,7 @@ import { LogInForm } from '../../components/AuthForm/LogInForm/LogInForm';
 import { useEffect } from 'react';
 import { logInWithGoogle } from 'redux/auth/operations';
 
-const AuthForm = () => {
+export default function AuthPage () {
   const { id } = useParams();
   const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
@@ -66,5 +66,3 @@ const AuthForm = () => {
     </section>
   );
 };
-
-export default AuthForm;

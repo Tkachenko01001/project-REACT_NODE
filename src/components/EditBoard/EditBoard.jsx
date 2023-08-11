@@ -1,44 +1,73 @@
-import React, { useState } from 'react';
-import Modal from '../Modal/Modal';
-import sprite from '../../images/sprite.svg';
-import styles from './EditBoard.module.css';
-import css from '../Sidebar/Sidebar.module.css';
+import { backgrounds } from 'constants/backgrounds';
+import { icons } from 'constants/icons';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { updateBoard } from 'redux/boards/operations';
 
-const EditBoard = () => {
+import sprite from '../../images/sprite.svg';
+import Modal from '../Modal/Modal';
+import css from '../Sidebar/Sidebar.module.css';
+import styles from './EditBoard.module.css';
+
+const EditBoard = ({ id, title, icon, background }) => {
+  const dispatch = useDispatch();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
-  const [value, setValue] = useState('icon-project');
+  const [newTitle, setNewTitle] = useState(title);
+  const [newIcon, setNewIcon] = useState(icon);
+  const [newBackground, setNewBackground] = useState(background);
 
   const handleSubmit = event => {
     event.preventDefault();
+    dispatch(
+      updateBoard({
+        id,
+        data: {
+          title: newTitle,
+          icon: newIcon,
+          background: newBackground,
+        },
+      })
+    );
+    toggleModal();
   };
 
-  const changeValue = event => {
-    setValue(event.target.value);
+  const changeIcon = event => {
+    setNewIcon(event.target.value);
+  };
+  const changeBg = event => {
+    setNewBackground(event.target.value);
+  };
+
+  const changeTitle = event => {
+    setNewTitle(event.target.value);
   };
 
   return (
     <div>
       <button
-        onClick={toggleModal}
-        className={css.sidebarBoardButton}
+        className={css.sidebarNewBoardButton}
         type="button"
+        onClick={toggleModal}
       >
-        {/* <svg className={css.sidebarBoardIcon}>
-          <use href={sprite + '#icon-plus'}></use>
-        </svg> */}
+        <svg className={css.sidebarNewBoardIcon}>
+          <use href={sprite + '#icon-pencil'} />
+        </svg>
       </button>
       {isModalOpen && (
         <Modal onClose={toggleModal}>
           <form onSubmit={handleSubmit}>
             <h1 className={styles.title}>Edit Board</h1>
+
             <input
               className={styles.field}
               id="title"
               type="text"
               name="title"
-              placeholder="Project office"
-              required
+              placeholder={title}
+              value={newTitle}
+              onChange={changeTitle}
             />
             <div className={styles.label} id="group-label-icon">
               Icons
@@ -47,125 +76,25 @@ const EditBoard = () => {
                 role="group"
                 aria-labelledby="group-label-icon"
               >
-                <input
-                  className={styles.input_svg}
-                  id="project"
-                  type="radio"
-                  name="radio"
-                  value="icon-project"
-                  checked={value === 'icon-project' ? true : false}
-                  onChange={changeValue}
-                />
-                <label className={styles.label_svg} htmlFor="project">
-                  <svg className={styles.svg} width="18" height="18">
-                    <use href={sprite + '#icon-project'}></use>
-                  </svg>
-                </label>
-
-                <input
-                  className={styles.input_svg}
-                  id="star"
-                  type="radio"
-                  name="radio"
-                  value="icon-star"
-                  checked={value === 'icon-star' ? true : false}
-                  onChange={changeValue}
-                />
-                <label className={styles.label_svg} htmlFor="star">
-                  <svg className={styles.svg} width="18" height="18">
-                    <use href={sprite + '#icon-star'}></use>
-                  </svg>
-                </label>
-
-                <input
-                  className={styles.input_svg}
-                  id="loading"
-                  type="radio"
-                  name="radio"
-                  value="icon-loading"
-                  checked={value === 'icon-loading' ? true : false}
-                  onChange={changeValue}
-                />
-                <label className={styles.label_svg} htmlFor="loading">
-                  <svg className={styles.svg} width="18" height="18">
-                    <use href={sprite + '#icon-loading'}></use>
-                  </svg>
-                </label>
-
-                <input
-                  className={styles.input_svg}
-                  id="puzzle"
-                  type="radio"
-                  name="radio"
-                  value="icon-puzzle-piece"
-                  checked={value === 'icon-puzzle-piece' ? true : false}
-                  onChange={changeValue}
-                />
-                <label className={styles.label_svg} htmlFor="puzzle">
-                  <svg className={styles.svg} width="18" height="18">
-                    <use href={sprite + '#icon-puzzle-piece'}></use>
-                  </svg>
-                </label>
-
-                <input
-                  className={styles.input_svg}
-                  id="container"
-                  type="radio"
-                  name="radio"
-                  value="icon-container"
-                  checked={value === 'icon-container' ? true : false}
-                  onChange={changeValue}
-                />
-                <label className={styles.label_svg} htmlFor="container">
-                  <svg className={styles.svg} width="18" height="18">
-                    <use href={sprite + '#icon-container'}></use>
-                  </svg>
-                </label>
-
-                <input
-                  className={styles.input_svg}
-                  id="lightning"
-                  type="radio"
-                  name="radio"
-                  value="icon-lightning"
-                  checked={value === 'icon-lightning' ? true : false}
-                  onChange={changeValue}
-                />
-                <label className={styles.label_svg} htmlFor="lightning">
-                  <svg className={styles.svg} width="18" height="18">
-                    <use href={sprite + '#icon-lightning'}></use>
-                  </svg>
-                </label>
-
-                <input
-                  className={styles.input_svg}
-                  id="colors"
-                  type="radio"
-                  name="radio"
-                  value="icon-colors"
-                  checked={value === 'icon-colors' ? true : false}
-                  onChange={changeValue}
-                />
-                <label className={styles.label_svg} htmlFor="colors">
-                  <svg className={styles.svg} width="18" height="18">
-                    <use href={sprite + '#icon-colors'}></use>
-                  </svg>
-                </label>
-
-                <input
-                  className={styles.input_svg}
-                  id="hexagon"
-                  type="radio"
-                  name="radio"
-                  value="icon-hexagon"
-                  checked={value === 'icon-hexagon' ? true : false}
-                  onChange={changeValue}
-                />
-                <label className={styles.label_svg} htmlFor="hexagon">
-                  <svg className={styles.svg} width="18" height="18">
-                    <use href={sprite + '#icon-hexagon'}></use>
-                  </svg>
-                </label>
+                {icons.map(icon => (
+                  <>
+                    <input
+                      key={icon.value}
+                      className={styles.input_svg}
+                      id={icon.value}
+                      type="radio"
+                      name="icon"
+                      value={icon.value}
+                      checked={newIcon === icon.value ? true : false}
+                      onChange={changeIcon}
+                    />
+                    <label className={styles.label_svg} htmlFor={icon.value}>
+                      <svg className={styles.svg} width="18" height="18">
+                        <use href={sprite + `#${icon.value}`}></use>
+                      </svg>
+                    </label>
+                  </>
+                ))}
               </fieldset>
             </div>
 
@@ -176,19 +105,29 @@ const EditBoard = () => {
                 role="group"
                 aria-labelledby="group-label-image"
               >
-                <label htmlFor="block">
-                  <input type="radio" name="radio" value="" />
-                  <svg className={styles.svg} width="28" height="28">
-                    <use></use>
-                  </svg>
-                </label>
-                {/* {'backgrounds'.map(bg => {
-            return (
-              <>
-                <item key={bg._id} bg={bg} _id={bg._id} />
-              </>
-            );
-          })} */}
+                {backgrounds.map(bg => (
+                  <>
+                    <input
+                      key={bg.title}
+                      className={styles.input_png}
+                      id={bg.title}
+                      type="radio"
+                      name="bg"
+                      value={bg.title}
+                      checked={newBackground === bg.title ? true : false}
+                      onChange={changeBg}
+                    />
+                    <label className={styles.label_png} htmlFor={bg.title}>
+                      <img
+                        className={styles.png}
+                        alt={bg.title}
+                        src={bg.src}
+                        width="28"
+                        height="28"
+                      />
+                    </label>
+                  </>
+                ))}
               </fieldset>
             </div>
 

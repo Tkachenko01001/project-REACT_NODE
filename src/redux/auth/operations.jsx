@@ -99,3 +99,27 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+export const changeTheme = createAsyncThunk(
+  'auth/theme',
+  async (credentials, thunkAPI) => {
+    try {
+      await axios.patch('/api/users/theme', credentials);
+      return credentials.theme;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateUser = createAsyncThunk(
+  'auth/update',
+  async (credentials, thunkAPI) => {
+    try {
+      await axios.put('/api/users/update', credentials);
+      // return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

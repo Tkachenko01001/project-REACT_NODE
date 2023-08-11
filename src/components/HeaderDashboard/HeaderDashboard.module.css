@@ -15,7 +15,7 @@
 }
 
 .title {
-    color: var(--color-white);
+    /* color: var(--color-white); */
     font-family: 'PoppinsMedium', sans-serif;
     font-size: 18px;
     font-style: normal;
@@ -40,13 +40,16 @@
     background-color: inherit;
     display: flex;
     gap: 8px;
-    color: var(--color-icon-light);
+    color: inherit;
+    /* color: var(--color-icon-light); */
     font-family: 'PoppinsMedium', sans-serif;
     font-size: 14px;
     line-height: normal;
     letter-spacing: -0.28px;
-    align-items: center;    
-    stroke: var(--color-icon-light);
+    align-items: center; 
+    stroke: inherit; 
+     
+    /* stroke: var(--color-icon-light); */
 }
 
 .filterText {
@@ -58,7 +61,8 @@
 }
 
 .modalFilter {
-    color: var(--color-white);
+    color:inherit;
+    /* color: var(--color-white); */
     font-family: 'PoppinsMedium', sans-serif;
     font-size: 18px;
     letter-spacing: -0.36px;
@@ -77,7 +81,7 @@
 }
 
 .modalLabelHeader {
-    color: var(--color-white);
+    /* color: var(--color-white); */
     font-family: 'PoppinsMedium', sans-serif;
     font-size: 14px;
     letter-spacing: -0.28px;
@@ -173,7 +177,7 @@ label{
 }
 
 
-.modalListOptionsElement:checked .radioText+.text {
+/* .modalListOptionsElement:checked .radioText+.text {
     color: white;
     /* Цвет текста при выборе радио-инпута */
-}
+/* }  */
