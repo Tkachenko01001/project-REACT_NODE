@@ -1,14 +1,12 @@
 import sprite from '../../images/sprite.svg';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Column from 'components/Column/Column';
 import MainPlaceholder from 'components/MainPlaceholder/MainPlaceholder';
 import styles from './MainDashboard.module.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
 import AddColumn from 'components/PopUps/AddColumn/AddColumn';
 import Modal from 'components/Modal/Modal';
-import { getActiveBoard } from 'redux/boards/operations';
-import { useNavigate } from 'react-router-dom';
 
 const MainDashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,17 +14,6 @@ const MainDashboard = () => {
 
   const allBoards = useSelector(selectBoardsList);
   const activeBoard = useSelector(selectActiveBoard);
- 
-
-  // useEffect(() => {
-  //   allBoards.length > 0 && dispatch(getActiveBoard(allBoards[0]._id));
-  // }, [dispatch, allBoards]);
-
-  // useEffect(() => {
-  //   if (activeBoard && allBoards.length > 0) {
-  //     navigate(`/home/${activeBoard._id}`);
-  //   }
-  // }, [navigate, activeBoard, allBoards]);
 
   const columns =
     activeBoard &&

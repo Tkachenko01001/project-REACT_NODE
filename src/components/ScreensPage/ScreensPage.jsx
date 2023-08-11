@@ -12,13 +12,14 @@ const ScreensPage = () => {
   const theme = useSelector(selectTheme);
   const activeBoard = useSelector(selectActiveBoard);
   
-  useEffect(() => {
-    if (activeBoard && activeBoard.background) {
-      setActiveBg(activeBoard.background);
-    }
-  }, [activeBoard]);
-
-  console.log(activeBg);
+useEffect(() => {
+  if (activeBoard && activeBoard.background) {
+    setActiveBg(activeBoard.background);
+  } else {
+    setActiveBg(null);
+  }
+}, [activeBoard]);
+  
   
   return (
     <div
@@ -31,7 +32,7 @@ const ScreensPage = () => {
       <section
         className={`${css.headerDashboardSection} ${
           activeBg &&
-          (css[`bg${activeBg.charAt(0).toUpperCase() + activeBg.slice(1)}`] || '')
+          (css[`bg${activeBg.charAt(0).toUpperCase() + activeBg.slice(1)}`])
         }`}
       >
         <HeaderDashboard />
