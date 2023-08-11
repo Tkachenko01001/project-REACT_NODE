@@ -6,4 +6,6 @@ export const selectIsRefreshing = state => state.auth.isRefreshing;
 
 export const selectIsLoading = state => state.auth.isLoading;
 
-export const selectIsOpenModal = state => state.auth.isOpenModal
+export const selectIsOpenModal = state => state.auth.isOpenModal;
+
+export const selectTheme = state => state.auth.user.theme;

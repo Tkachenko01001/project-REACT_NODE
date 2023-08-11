@@ -3,7 +3,7 @@ import styles from './AuthPage.module.css';
 import { RegisterForm } from '../../components/AuthForm/RegisterForm/RegisterForm';
 import { LogInForm } from '../../components/AuthForm/LogInForm/LogInForm';
 
-const AuthForm = () => {
+export default function AuthPage () {
   const { id } = useParams();
 
   return (
@@ -41,5 +41,3 @@ const AuthForm = () => {
     </section>
   );
 };
-
-export default AuthForm;

@@ -1,13 +1,23 @@
 import HeaderDashboard from '../HeaderDashboard/HeaderDashboard';
 import MainDashboard from '../MainDashboard/MainDashboard';
-import styles from './ScreensPage.module.css';
+import css from './ScreensPage.module.css';
+import { useSelector } from 'react-redux';
+import { selectTheme } from 'redux/auth/selectors';
 
 const ScreensPage = () => {
+  const theme = useSelector(selectTheme);
   return (
-    <section className={styles.headerDashboardSection}>
+    <div
+      className={        
+        (theme === 'dark' && css.dark) ||
+        (theme === 'light' && css.light) ||
+        (theme === 'violet' && css.violet)
+      }>
+    <section className={css.headerDashboardSection}>
       <HeaderDashboard />
       <MainDashboard />
     </section>
+    </div>
   );
 };
 

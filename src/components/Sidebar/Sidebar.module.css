@@ -9,9 +9,28 @@
     justify-content: space-between;
     height: 100vh;
     /* padding: 14px 14px 24px 14px; */
-    background-color: var(--color-icon-dark);
+    /* background-color: var(--color-icon-dark); */
     width: 260px;
   }
+}
+
+.dark {
+ background-color: var(--color-icon-dark);
+  color: var(--color-white);
+   stroke: var(--color-white);
+   fill: var(--bg-color-form-input);
+}
+
+.light {
+  background-color: #F6F6F7;
+  color: #161616;
+   stroke: #161616;
+   fill: #F6F6F7;
+}
+
+.violet {
+  background-color: #ECEDFD;
+  color: #161616;
 }
 
 /* Title */
@@ -43,7 +62,7 @@
 
   letter-spacing: -0.64px;
 
-  color: var(--color-white);
+  /* color: var(--color-white); */
 }
 
 /* Board */
@@ -63,7 +82,7 @@
   font-size: 12px;
   letter-spacing: -0.24px;
 
-  color: var(--color-icon-grey);
+  /* color: var(--color-icon-grey); */
 }
 
 .sidebarBoard {
@@ -90,7 +109,7 @@
   letter-spacing: -0.28px;
 
   margin-right: 77px;
-  color: var(--color-white);
+  /* color: var(--color-white); */
 }
 
 @media screen and (min-width: 768px) {
@@ -103,14 +122,19 @@
   display: flex;
   padding: 0;
   border: none;
-  background: var(--color-icon-dark);
+  background-color: inherit;
+  /* margin: 0;
+  outline: 0;
+ 
+  color: inherit; */
+  /* background: var(--color-icon-dark); */
 }
 
 .sidebarBoardIcon {
   width: 40px;
   height: 36px;
 
-  fill: var(--color-green);
+  fill: var(--color-green);  
   stroke: var(--color-icon-dark);
 }
 
@@ -164,6 +188,9 @@
   font-family: var(--font-medium);
   font-size: 14px;
   letter-spacing: -0.28px;
+  margin-right: auto;
+
+  /* color: var(--color-white); */
 }
 .bg {
   background: #000;
@@ -177,7 +204,7 @@
   border: none;
   padding: 0;
   margin-right: 8px;
-  background-color: var(--color-icon-dark);
+  /* background-color: var(--color-icon-dark); */
 }
 
 .sidebarNewBoardButtonCurrent {
@@ -185,7 +212,7 @@
   border: none;
   padding: 0;
   margin-right: 14px;
-  background-color: var(--color-icon-dark);
+  /* background-color: var(--color-icon-dark); */
 }
 
 @media screen and (min-width: 768px) {
@@ -200,60 +227,6 @@
   stroke: var(--color-icon-grey);
 }
 
-/* Sidebar Help */
-.sidebarHelp {
-  margin: 0 14px 24px 14px;
-  padding: 14px 14px 15px 15px;
-  border-radius: 8px;
-  background-color: var(--bg-color-form-input);
-}
-
-@media screen and (min-width: 768px) {
-  .sidebarHelp {
-    margin: 0 24px 24px 24px;
-    padding: 20px 20px 21px 20px;
-  }
-}
-
-.sidebarHelpBox {
-  margin: 14px 0 19px 0;
-}
-
-.sidebarHelpBoxItem {
-  font-family: var(--font-regular);
-  font-size: 14px;
-  line-height: 1.42;
-  letter-spacing: -0.28px;
-
-  color: var(--color-white);
-}
-
-.sidebarHelpBoxLink {
-  font-family: var(--font-regular);
-
-  color: var(--color-green);
-}
-
-.sidebarHelpWrap {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.sidebarHelpIcon {
-  width: 20px;
-  height: 20px;
-  stroke: var(--color-white);
-}
-
-.sidebarHelpNeedHelp {
-  font-family: var(--font-medium);
-  font-size: 12px;
-  letter-spacing: -0.24px;
-
-  color: var(--color-white);
-}
-
 .sidebarLogout {
   padding: 0 0 24px 24px;
 }
@@ -264,8 +237,10 @@
   gap: 16px;
   border: none;
   /* padding: 0 7px 0 0; */
-  color: var(--color-white);
-  background-color: var(--color-icon-dark);
+  color:inherit;
+  background-color: inherit;
+  /* color: var(--color-white);
+  background-color: var(--color-icon-dark); */
   font-family: var(--font-medium);
   font-size: 16px;
   font-weight: 500;
@@ -274,4 +249,5 @@
 
 .sidebarLogoutIcon {
   stroke: var(--color-green);
+  fill: none;
 }
