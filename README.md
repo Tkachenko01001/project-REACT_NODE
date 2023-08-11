@@ -1,5 +1,7 @@
 # project-REACT_NODE
 
+ПРИВІТ ![project-REACT_NODE](./src/images/)
+
 **[project-REACT_NODE](https://tkachenko01001.github.io/project-REACT_NODE/home)** -
 це онлайн-інструмент для керування своїми проектами, шляхом створення дошок,
 списків та карток, який допомагає організовувати завдання та проекти у формі
