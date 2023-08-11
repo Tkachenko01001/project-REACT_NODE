@@ -96,8 +96,9 @@ export const changeTheme = createAsyncThunk(
   'auth/theme',
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.patch('/api/users/theme', credentials);     
-      return res.data;
+      await axios.patch('/api/users/theme', credentials);     
+      // return res.data;
+      return credentials.theme;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

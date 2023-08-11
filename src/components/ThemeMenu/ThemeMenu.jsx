@@ -17,8 +17,8 @@ export const ThemeMenu = () => {
     event.stopPropagation();
     setThemeOption(event.target.innerText);
     setIsOpen(false);
-    dispatch(changeTheme({ theme: event.target.innerText }));
-    setTheme(event.target.innerText);
+    dispatch(changeTheme({ theme: event.target.innerText.toLowerCase() }));
+    setTheme(event.target.innerText.toLowCase);
   };
 
   const handleClick = event => {
@@ -36,7 +36,7 @@ export const ThemeMenu = () => {
     return () => {
       window.removeEventListener('click', closeMenuOnClickOutside);
     };
-  }, []);  
+  }, []);
 
   return (
     <div
