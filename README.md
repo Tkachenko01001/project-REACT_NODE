@@ -115,8 +115,11 @@ project-REACT_NODE належним чином відображатися і п�
 
 **Автори проекту:**
 
+- https://www.linkedin.com/in/lesia-brodska/
+- https://www.linkedin.com/in/volodymyr-ponomarov
 - https://www.linkedin.com/in/andrii-verhun/
 - https://www.linkedin.com/in/maksym-ostapchukk/
+- https://www.linkedin.com/in/nataly-moskalenko/
 <!-- - https://www.linkedin.com/in/oleksandrkambarov/ -->
 
 <!-- ## Создание репозитория по шаблону
