@@ -81,9 +81,8 @@ project-REACT_NODE належним чином відображатися і п�
 
 # Установка
 
-Склонуйте репозиторій:
-
-1. git clone https://github.com/Tkachenko01001/project-REACT_NODE/tree/main
+1. Склонуйте репозиторій:git
+   clonehttps://github.com/Tkachenko01001/project-REACT_NODE/tree/main
 2. Перейдіть до директорії проекту: cd project-REACT_NODE
 3. Встановіть залежності: npm install
 
