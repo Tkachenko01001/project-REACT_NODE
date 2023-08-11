@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import Modal from '../../Modal/Modal';
 import sprite from '../../../images/sprite.svg';
-import styles from '../../NewBoard/NewBoard.module.css';
+import Modal from '../../Modal/Modal';
+import styles from '../../ModalBoard/ModalBoard.module.css';
 
 const MainButtonNewBoard = ({ isModalOpen, toggleModal }) => {
   const [value, setValue] = useState('icon-project');
