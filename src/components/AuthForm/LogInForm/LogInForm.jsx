@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { logInSchema } from '../LogInSchema/LogInSchema';
 import { EyeOpen } from '../EyeOpen/EyeOpen';
@@ -7,6 +7,7 @@ import { EyeClose } from '../EyeClose/EyeClose';
 import { logIn } from 'redux/auth/operations';
 import { Loader } from '../../Loader/Loader';
 import styles from './LoginForm.module.css';
+import { selectIsLoggedIn } from 'redux/auth/selectors';
 
 const initialValues = {
   email: '',
@@ -15,6 +16,7 @@ const initialValues = {
 
 export const LogInForm = () => {
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -58,6 +60,9 @@ export const LogInForm = () => {
             password: password,
           })
         );
+
+        if (!isLoggedIn) return;
+
         setEmail('');
         setPassword('');
         setSubmitting(false);
