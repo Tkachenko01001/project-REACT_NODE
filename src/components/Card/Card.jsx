@@ -1,29 +1,25 @@
 import sprite from '../../images/sprite.svg';
 import styles from './Card.module.css';
 
-// const Card = ({card}) => {
-const Card = () => {  
+const Card = ({ task }) => {
+  const { title, description, priority, deadline } = task;
   return (
     <div className={styles.card}>
       <div className={styles.textWrapper}>
-        <h4 className={styles.title}>Card Title</h4>
+        <h4 className={styles.title}>{title}</h4>
         {/* <h4 className={styles.title}>{card.title}</h4> */}
         {/* <p className={styles.description}>{card.descr}</p> */}
-        <p className={styles.description}>
-          Conduct in-depth research and analysis on the project's topic, gather
-          relevant data, and identify key insights to inform decision-making and
-          project planning.
-        </p>
+        <p className={styles.description}>{description}</p>
       </div>
       <div className={styles.wrapper}>
         <div className={styles.priority}>
-          <h5 className={styles.subTitle}>Priority</h5>          
-          <p className={styles.priorityText}>Medium</p>
+          <h5 className={styles.subTitle}>Priority</h5>
+          <p className={styles.priorityText}>{priority}</p>
         </div>
         <div className={styles.deadline}>
           <h5 className={styles.subTitle}>Deadline</h5>
-          <p className={styles.deadlineText}>14/08/2023</p>
-        </div>       
+          <p className={styles.deadlineText}>{deadline}</p>
+        </div>
         <ul className={styles.cardIcons}>
           <li className={styles.cardIcon}>
             <button className={styles.cardButton}>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Modal from '../Modal/Modal';
 import sprite from '../../images/sprite.svg';
 import styles from './Column.module.css';
@@ -6,15 +6,15 @@ import Button from 'components/Button/Button';
 import Card from 'components/Card/Card';
 import EditColumn from 'components/PopUps/EditColumn/EditColumn';
 
-// const Column = ({title, cardList}) => {
-const Column = () => {
+const Column = ({ column }) => {
+  const { title, tasks } = column;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
 
   return (
     <div className={styles.column__container}>
       <div className={styles.columnHeader}>
-        <span className={styles.columnHeader__title}>To Do</span>
+        <span className={styles.columnHeader__title}>{title}</span>
         <div className={styles.columnHeader__controls}>
           <button className={styles.columnHeader__button} onClick={toggleModal}>
             <svg
@@ -40,11 +40,15 @@ const Column = () => {
           </button>
         </div>
       </div>
-      {/* <ul className={styles.cardList}>
-        {cardList.map(card => (
-          <li key={card.id}></li>
-        ))}
-      </ul> */}
+      {tasks && (
+        <ul className={styles.cardList}>
+          {tasks.map(task => (
+            <li key={task._id}>
+              <Card task={task} />
+            </li>
+          ))}
+        </ul>
+      )}
       <Button icon="true" text="Add card" />
       {isModalOpen && (
         <Modal onClose={toggleModal}>

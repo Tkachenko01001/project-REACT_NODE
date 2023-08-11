@@ -61,10 +61,15 @@
   font-weight: 500;
   line-height: normal;
   letter-spacing: -0.28px;
+  height: 56px;
 }
 
 @media screen and (min-width: 375px) {
   .buttonText {
     width: 141px;
   }
+}
+/* Columns */
+.columnList {
+  display: flex;
 }

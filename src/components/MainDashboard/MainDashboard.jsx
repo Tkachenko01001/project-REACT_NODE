@@ -17,7 +17,7 @@ const MainDashboard = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    allBoards.length > 0 && dispatch(getActiveBoard(allBoards[0]._id))
+    allBoards.length > 0 && dispatch(getActiveBoard(allBoards[0]._id));
   }, [dispatch, allBoards]);
 
   const columns =
@@ -31,6 +31,20 @@ const MainDashboard = () => {
       {allBoards.length > 0 ? (
         <>
           <div className={styles.container}>
+            {isModalOpen && (
+              <Modal onClose={toggleModal}>
+                <AddColumn toggleModal={toggleModal} />
+              </Modal>
+            )}
+            {columns && (
+              <ul className={styles.columnList}>
+                {activeBoard.columns.map(column => (
+                  <li key={column._id}>
+                    <Column column={column} />
+                  </li>
+                ))}
+              </ul>
+            )}
             <button className={styles.button}>
               <svg
                 width={28}
@@ -44,12 +58,6 @@ const MainDashboard = () => {
               </svg>
               <span className={styles.buttonText}>Add another column</span>
             </button>
-            {isModalOpen && (
-              <Modal onClose={toggleModal}>
-                <AddColumn toggleModal={toggleModal} />
-              </Modal>
-            )}
-            {columns && <Column />}
           </div>
           {}
         </>
