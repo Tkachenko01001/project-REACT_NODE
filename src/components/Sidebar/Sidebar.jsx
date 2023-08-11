@@ -9,11 +9,13 @@ import { NeedHelp } from 'components/NeedHelp/NeedHelp';
 import { useEffect } from 'react';
 import { getAllBoards } from 'redux/boards/operations';
 import { selectTheme } from 'redux/auth/selectors';
+import DeleteBoard from 'components/DeleteBoard/DeleteBoard';
+import { Link } from 'react-router-dom';
 
-const Sidebar = ({ boards }) => {
-  const theme = useSelector(selectTheme);
+const Sidebar = () => {
   const dispatch = useDispatch();
   const allBoards = useSelector(selectBoardsList);
+  const theme = useSelector(selectTheme);
 
   useEffect(() => {
     dispatch(getAllBoards());
@@ -45,29 +47,30 @@ const Sidebar = ({ boards }) => {
           <section className={css.sidebarBoard}>
             <p className={css.sidebarBoardItem}>Create a new board</p>
             <NewBoard />
-            <EditBoard />
           </section>
           {allBoards && (
             <ul className={css.sidebarNewBoard}>
               {allBoards.map(board => (
-                <li className={css.sidebarNewBoardList} key={board.id}>
+                <li
+                  className={`${css.sidebarNewBoardList} ${css.sidebarNewBoardItem}`}
+                  key={board._id}
+                >
                   <svg className={css.sidebarNewBoardSvg}>
                     <use href={sprite + `#${board.icon}`} />
                   </svg>
-                  <p className={css.sidebarNewBoardItem}>{board.title}</p>
-                  <button className={css.sidebarNewBoardButton} type="button">
-                    <svg className={css.sidebarNewBoardIcon}>
-                      <use href={sprite + '#icon-pencil'} />
-                    </svg>
-                  </button>
-                  <button
-                    className={css.sidebarNewBoardButtonCurrent}
-                    type="button"
+                  <Link
+                    to={`/home/${board._id}`}
+                    className={css.sidebarNewBoardItem}
                   >
-                    <svg className={css.sidebarNewBoardIcon}>
-                      <use href={sprite + '#icon-trash'} />
-                    </svg>
-                  </button>
+                    {board.title}
+                  </Link>
+                  <EditBoard
+                    id={board._id}
+                    title={board.title}
+                    icon={board.icon}
+                    background={board.background}
+                  />
+                  <DeleteBoard id={board._id} columns={board.columnOrder} />
                 </li>
               ))}
             </ul>

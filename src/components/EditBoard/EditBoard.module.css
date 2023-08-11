@@ -22,10 +22,20 @@
   margin-right: auto;
 }
 
+.text {
+  color: var(--color-white);
+  font-family: var(--font-regular);
+  font-size: 16px;
+  font-style: normal;
+  line-height: normal;
+  margin-right: auto;
+  padding: 20px 0;
+}
+
 .field {
   width: 100%;
   height: 49px;
-  padding: 14px 241px 14px 18px;
+  padding: 14px 18px;
   margin-top: 24px;
   align-items: center;
   border-radius: 8px;
@@ -65,9 +75,11 @@
   display: flex;
   gap: 8px;
   border: none;
+  padding-left: 0;
 }
 
-.input_svg {
+.input_svg,
+.input_png {
   display: none;
 }
 
@@ -94,9 +106,29 @@
   flex-wrap: wrap;
   gap: 4px;
   margin-top: 14px;
-  width: 260px;
+  width: 270px;
   cursor: pointer;
   border: none;
+  padding-left: 0;
+}
+
+.input_png:checked + label > img {
+  opacity: 1;
+  border-radius: 7px;
+  border: 1px solid white;
+}
+
+.label_png {
+  cursor: pointer;
+}
+
+.png {
+  stroke: #ffffff80;
+  transition: transform 0.25s ease;
+}
+
+.png:hover {
+  opacity: 40%;
 }
 
 .btn {

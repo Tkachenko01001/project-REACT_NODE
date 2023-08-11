@@ -140,19 +140,19 @@
 
 /* New board */
 .sidebarNewBoard {
-  margin-top: 40px;
-  padding: 20px 0 20px 14px;
-  border-right: 4px solid var(--color-green);
-  border-radius: 4px 0px 0px 4px;
+  padding: 40px 0;
+  overflow-y: scroll;
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .sidebarNewBoard {
     padding: 20px 0 20px 24px;
+
   }
-}
+} */
 
 .sidebarNewBoardList {
+  padding: 20px 24px;
   display: flex;
   align-items: center;
 }
@@ -161,8 +161,10 @@
   width: 18px;
   height: 18px;
   margin-right: 4px;
-  stroke:inherit;
-  /* stroke: var(--color-white); */
+  stroke: var(--color-icon-grey);
+}
+.sidebarNewBoardSvgActive {
+  stroke: var(--color-white);
 }
 
 @media screen and (min-width: 768px) {
@@ -172,6 +174,17 @@
 }
 
 .sidebarNewBoardItem {
+  margin-right: auto;
+  color: var(--color-icon-grey);
+}
+
+.sidebarNewBoardItemActive {
+  border-right: 4px solid var(--color-green);
+  border-radius: 4px 0px 0px 4px;
+  background: var(--bg-color-form-input);
+  color: var(--color-white);
+}
+.sidebarNewBoardItemText {
   font-family: var(--font-medium);
   font-size: 14px;
   letter-spacing: -0.28px;
@@ -179,7 +192,13 @@
 
   /* color: var(--color-white); */
 }
-
+.bg {
+  background: #000;
+}
+.svg {
+  stroke: #ffffff80;
+  transition: transform 0.25s ease;
+}
 .sidebarNewBoardButton {
   height: 16px;
   border: none;
