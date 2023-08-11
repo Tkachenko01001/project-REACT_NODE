@@ -79,7 +79,7 @@ project-REACT_NODE належним чином відображатися і п�
 
 ![project-REACT_NODE](./src/images/)
 
-# Установка
+## Установка
 
 1. Склонуйте репозиторій:git clone
    https://github.com/Tkachenko01001/project-REACT_NODE/tree/main
