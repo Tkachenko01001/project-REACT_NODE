@@ -3,6 +3,8 @@
   color: var(--color-white);
   stroke: var(--color-white);
   fill: var(--bg-color-form-input);
+  padding: 20px;
+  border-radius: 8px;
 }
 
 .light {
@@ -20,17 +22,10 @@
 }
 
 /* Sidebar Help  */
-.sidebarHelp {
-  /* margin: 0 14px 24px 14px; */
-  padding: 14px 14px 15px 15px;
-  border-radius: 8px;
-  /* background-color: var(--bg-color-form-input);  */
-}
 
 @media screen and (min-width: 768px) {
   .sidebarHelp {
-    margin: 0 24px 24px 24px;
-    padding: 20px 20px 21px 20px;
+    margin: 14px 24px 24px 24px;
   }
 }
 

@@ -1,7 +1,23 @@
 .sidebar {
   display: none;
 }
-
+.flexMarkup {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.sectionBoards {
+  flex: 1;
+  overflow-y: auto;
+}
+.partTop {
+  flex: 0 0 auto;
+  min-height: 100px;
+  overflow: hidden;
+}
+.partButton {
+  flex: 1;
+}
 @media screen and (min-width: 768px) {
   .sidebar {
     display: flex;

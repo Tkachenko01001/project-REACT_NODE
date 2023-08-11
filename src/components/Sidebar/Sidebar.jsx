@@ -16,7 +16,8 @@ const Sidebar = () => {
   const dispatch = useDispatch();
   const allBoards = useSelector(selectBoardsList);
   const theme = useSelector(selectTheme);
-  const [activeBoard, setActiveBoard] = useState(null);
+  const firstBoard = allBoards[0];
+  const [activeBoard, setActiveBoard] = useState(firstBoard._id);
 
   const handleClickBoard = boardId => {
     setActiveBoard(boardId);
@@ -38,21 +39,23 @@ const Sidebar = () => {
       }
     >
       <aside className={css.sidebar}>
-        <div>
-          <section className={css.sidebarBox}>
-            <svg className={css.sidebarBoxIcon}>
-              <use href={sprite + '#icon-icon-dark'}></use>
-            </svg>
-            <h2 className={css.sidebarBoxTitle}>Task Pro</h2>
-          </section>
-          <div className={css.sidebarItem}>
-            <p className={css.sidebarItemTitle}>My boards</p>
+        <div className={css.flexMarkup}>
+          <div className={css.partTop}>
+            <section className={css.sidebarBox}>
+              <svg className={css.sidebarBoxIcon}>
+                <use href={sprite + '#icon-icon-dark'}></use>
+              </svg>
+              <h2 className={css.sidebarBoxTitle}>Task Pro</h2>
+            </section>
+            <div className={css.sidebarItem}>
+              <p className={css.sidebarItemTitle}>My boards</p>
+            </div>
+            <section className={css.sidebarBoard}>
+              <p className={css.sidebarBoardItem}>Create a new board</p>
+              <NewBoard />
+            </section>
           </div>
-          <section className={css.sidebarBoard}>
-            <p className={css.sidebarBoardItem}>Create a new board</p>
-            <NewBoard />
-          </section>
-          <section>
+          <section className={css.sectionBoards}>
             {allBoards.length !== 0 && (
               <div className={css.sidebarListBoard}>
                 {allBoards.map(board => (
@@ -109,22 +112,23 @@ const Sidebar = () => {
               </div>
             )}
           </section>
-
-          <section className={css.sidebarHelp}>
-            <NeedHelp />
-          </section>
-          <section className={css.sidebarLogout}>
-            <button
-              onClick={handleClickLogout}
-              className={css.sidebarLogoutButton}
-              type="button"
-            >
-              <svg className={css.sidebarLogoutIcon} width={32} height={32}>
-                <use href={sprite + '#icon-logout'}></use>
-              </svg>
-              Log out
-            </button>
-          </section>
+          <div className={css.partButton}>
+            <section className={css.sidebarHelp}>
+              <NeedHelp />
+            </section>
+            <section className={css.sidebarLogout}>
+              <button
+                onClick={handleClickLogout}
+                className={css.sidebarLogoutButton}
+                type="button"
+              >
+                <svg className={css.sidebarLogoutIcon} width={32} height={32}>
+                  <use href={sprite + '#icon-logout'}></use>
+                </svg>
+                Log out
+              </button>
+            </section>
+          </div>
         </div>
       </aside>
     </div>
