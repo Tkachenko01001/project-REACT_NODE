@@ -5,7 +5,7 @@ import {
   logOut,
   refreshUser,
   changeTheme,
-  updateUser
+  updateUser,
 } from './operations';
 
 const initialState = {

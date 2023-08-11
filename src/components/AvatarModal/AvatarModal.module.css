@@ -5,6 +5,7 @@
   flex-direction: column;
   margin-bottom: 25px;
 }
+
 .thumbsContainer {
   width: 68px;
   height: 68px;
@@ -25,7 +26,7 @@
 
 .imageG {
   display: block;
-
+  object-fit: cover;
   width: 68px;
   height: 68px;
   border-radius: 8px;

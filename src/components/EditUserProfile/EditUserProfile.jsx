@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../Modal/Modal';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { object, string, mixed } from 'yup';
@@ -10,13 +10,7 @@ import styles from './EditUserProfile.module.css';
 import Avatar from 'components/Avatar/Avatar';
 import { Previews } from 'components/AvatarModal/AvatarModal';
 import { updateUser } from 'redux/auth/operations';
-
-const initialValues = {
-  avatarURL: null,
-  name: '',
-  email: '',
-  password: '',
-};
+import { selectUser } from 'redux/auth/selectors';
 
 export const registerSchema = object({
   avatarURL: mixed().required('Image is required'),
@@ -53,10 +47,14 @@ export const registerSchema = object({
 
 export const EditUserProfile = () => {
   const dispatch = useDispatch();
-  const [avatarURL, setAvatarURL] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const user = useSelector(selectUser);
+
+  const initialValues = {
+    avatarURL: user.avatarURL,
+    name: user.name,
+    email: user.email,
+    password: '',
+  };
 
   const [passwordShown, setPasswordShown] = useState(false);
   const [passwordIcon, setpasswordIcon] = useState(<EyeClose />);
@@ -75,24 +73,28 @@ export const EditUserProfile = () => {
     );
   };
 
+  const handleSubmit = (values, { setSubmitting, resetForm }) => {
+              dispatch(
+                updateUser({
+                  // avatarURL: avatarURL,
+                  name: values.name,
+                  // email: email.toLowerCase(),
+                  // password: password,
+                })
+              );
+              // console.log(
+              //   'Avatar URL:',
+              //   values.avatarURL ? URL.createObjectURL(values.avatarURL) : null
+              // );
+
+              console.log(values);
+
+              // setSubmitting(false);
+              // resetForm();
+            }
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
-
-  const handleChange = ({ target: { name, value } }, setFieldValue) => {
-    setFieldValue(name, value);
-    switch (name) {
-      case 'avatarURL':
-        return setAvatarURL(value);
-      case 'name':
-        return setName(value);
-      case 'email':
-        return setEmail(value);
-      case 'password':
-        return setPassword(value);
-      default:
-        return;
-    }
-  };
 
   return (
     <div>
@@ -102,83 +104,53 @@ export const EditUserProfile = () => {
           <Formik
             initialValues={initialValues}
             validationSchema={registerSchema}
-            onSubmit={(values, { setSubmitting, resetForm }) => {
-              dispatch(
-                updateUser({
-                  avatarURL: avatarURL,
-                  name: name,
-                  email: email.toLowerCase(),
-                  password: password,
-                })
-              );
-              console.log(
-                'Avatar URL:',
-                values.avatarURL ? URL.createObjectURL(values.avatarURL) : null
-              );
-
-              console.log(values);
-              // setAvatarURL('');
-              // setEmail('');
-              // setName('');
-              // setPassword('');
-              setSubmitting(false);
-              resetForm();
-            }}
+            onSubmit={handleSubmit}
           >
             {({ errors, values, setFieldValue }) => (
-              <Form autoComplete="off" className={styles.form}>
+              <Form className={styles.form}>
                 <div className={styles.wrap}>
-                  <p className={styles.title}>Add card</p>
-                  <Previews />
+                  <p className={styles.title}>Edit profile</p>
+                  <Previews
+                    value={user.avatarURL}
+                    onImageSelect={selectedImage => {
+                      setFieldValue('avatarURL', selectedImage.file);
+                    }}
+                  />
+                </div>
+                <div className={styles.wrap}>
                   <Field
+                    autoComplete="off"
                     className={styles.input}
                     type="text"
                     name="name"
                     placeholder="Enter your name"
-                    value={name}
-                    onChange={e => handleChange(e, setFieldValue)}
                   />
                   {errors.name && <FormError name="name" />}
                 </div>
-
                 <div className={styles.wrap}>
                   <Field
+                    autoComplete="off"
                     className={styles.input}
                     type="email"
                     name="email"
                     placeholder="Enter your email"
-                    value={email}
-                    onChange={e => handleChange(e, setFieldValue)}
                   />
                   {errors.email && <FormError name="email" />}
                 </div>
-
                 <div className={styles.wrap}>
                   <Field
+                    autoComplete="off"
                     className={styles.input}
                     type={passwordShown ? 'text' : 'password'}
                     name="password"
-                    placeholder="Create a password"
-                    value={password}
-                    onChange={e => handleChange(e, setFieldValue)}
+                    placeholder="Change password"
                   />
-
                   <span className={styles.eye_icon} onClick={togglPassword}>
                     {passwordIcon}
                   </span>
                   {errors.password && <FormError name="password" />}
                 </div>
-
-                <button
-                  className={styles.btn}
-                  type="submit"
-                  onClick={() => {
-                    setFieldValue('avatarURL', avatarURL);
-                    setFieldValue('name', name);
-                    setFieldValue('email', email);
-                    setFieldValue('password', password);
-                  }}
-                >
+                <button className={styles.btn} type="submit">
                   <div className={styles.wrap}>
                     <span>Send</span>
                     <Loader />
