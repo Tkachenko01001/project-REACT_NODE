@@ -45,15 +45,19 @@ const Sidebar = () => {
           {allBoards && (
             <ul className={css.sidebarNewBoard}>
               {allBoards.map(board => (
-                <Link
-                  to={`/home/${board._id}`}
+                <li
                   className={`${css.sidebarNewBoardList} ${css.sidebarNewBoardItem}`}
                   key={board._id}
                 >
                   <svg className={css.sidebarNewBoardSvg}>
                     <use href={sprite + `#${board.icon}`} />
                   </svg>
-                  <p className={css.sidebarNewBoardItem}>{board.title}</p>
+                  <Link
+                    to={`/home/${board._id}`}
+                    className={css.sidebarNewBoardItem}
+                  >
+                    {board.title}
+                  </Link>
                   <EditBoard
                     id={board._id}
                     title={board.title}
@@ -61,7 +65,7 @@ const Sidebar = () => {
                     background={board.background}
                   />
                   <DeleteBoard id={board._id} columns={board.columnOrder} />
-                </Link>
+                </li>
               ))}
             </ul>
           )}

@@ -1,11 +1,24 @@
 import Modal from 'components/Modal/Modal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { getActiveBoard } from 'redux/boards/operations';
+import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
 import sprite from '../../images/sprite.svg';
 import styles from './HeaderDashboard.module.css';
 
 const HeaderDashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedPriority, setSelectedPriority] = useState('');
+  const { boardName } = useParams();
+  const dispatch = useDispatch();
+
+ useEffect(() => {
+   boardName && dispatch(getActiveBoard(boardName));
+ }, [dispatch, boardName]);
+
+  const allBoards = useSelector(selectBoardsList);
+  const currentBoard = useSelector(selectActiveBoard);
 
   const toggleModal = () => setIsOpen(state => !state);
 
@@ -20,8 +33,12 @@ const HeaderDashboard = () => {
     setSelectedPriority(event.target.value);
   };
 
+    const titleToShow =
+      allBoards.length > 0 && (currentBoard.title ? currentBoard.title : allBoards[0].title);
+
   return (
     <div className={styles.wrapper}>
+      <h2 className={styles.title}>{titleToShow}</h2>
       <button className={styles.filter} onClick={toggleModal}>
         <svg className={styles.icon} width={16} height={16} aria-label="Filter">
           <title>Filter Icon</title>
@@ -49,7 +66,7 @@ const HeaderDashboard = () => {
                     name="priority"
                     value={`${option.priority}`}
                     checked={selectedPriority === option.priority}
-                    onChange={handlePriorityChange} 
+                    onChange={handlePriorityChange}
                   />
                   <div
                     className={styles.radioText}

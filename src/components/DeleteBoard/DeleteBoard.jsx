@@ -15,11 +15,9 @@ const DeleteBoard = ({ id, columns }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(id);
     dispatch(deleteBoard(id));
     toggleModal();
   };
-  console.log(columns);
   return (
     <div>
       <button
