@@ -1,7 +1,6 @@
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getActiveBoard } from 'redux/boards/operations';
 import PrivateRoute from '../Router/PrivateRoute';
 import RestrictedRoute from '../Router/RestrictedRoute';
 import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
