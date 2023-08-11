@@ -1,7 +1,18 @@
+import { useState } from 'react';
+import CustomMonthLayout from 'components/Calendar/Calendar';
+
+
 import sprite from '../../images/sprite.svg';
 import styles from './HeaderDashboard.module.css';
 
+
+
 const HeaderDashboard = () => {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModal = () => setIsModalOpen(state => !state);
+
+
   return (
     <div className={styles.wrapper}>
       {/* <h2 className={styles.title}>Project office</h2> */}
