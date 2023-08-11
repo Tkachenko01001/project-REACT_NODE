@@ -1,6 +1,6 @@
-# project-REACT_NODE
+# [project-REACT_NODE](https://tkachenko01001.github.io/project-REACT_NODE/home)
 
-**[project-REACT_NODE](https://github.com/Tkachenko01001/project-REACT_NODE)** -
+**[project-REACT_NODE](https://tkachenko01001.github.io/project-REACT_NODE/home)** -
 це онлайн-інструмент для керування своїми проектами, шляхом створення дошок,
 списків та карток, який допомагає організовувати завдання та проекти у формі
 візуальної дошки.
