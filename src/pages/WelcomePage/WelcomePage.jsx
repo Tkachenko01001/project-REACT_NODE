@@ -3,7 +3,7 @@ import styles from './WelcomePage.module.css';
 import sprite from '../../images/sprite.svg';
 import { NavLink } from 'react-router-dom';
 
-const WelcomePage = () => {
+export default function WelcomePage() {
   return (
     <section className={styles.section}>
       <div className={styles.wrapper}>
@@ -28,5 +28,3 @@ const WelcomePage = () => {
     </section>
   );
 };
-
-export default WelcomePage;

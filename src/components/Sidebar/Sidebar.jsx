@@ -1,21 +1,21 @@
-import DeleteBoard from 'components/DeleteBoard/DeleteBoard';
-import EditBoard from 'components/EditBoard/EditBoard';
-import NewBoard from 'components/NewBoard/NewBoard';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { logOut } from 'redux/auth/operations';
-import { getAllBoards } from 'redux/boards/operations';
-import { selectBoardsList } from 'redux/boards/selectors';
-import cactus from '../../images/cactus.png';
-import cactus2x from '../../images/cactus@2x.png';
-import cactus3x from '../../images/cactus@3x.png';
-import sprite from '../../images/sprite.svg';
 import css from '../Sidebar/Sidebar.module.css';
+import sprite from '../../images/sprite.svg';
+import { logOut } from 'redux/auth/operations';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectBoardsList } from 'redux/boards/selectors';
+import NewBoard from 'components/NewBoard/NewBoard';
+import EditBoard from 'components/EditBoard/EditBoard';
+import { NeedHelp } from 'components/NeedHelp/NeedHelp';
+import { useEffect } from 'react';
+import { getAllBoards } from 'redux/boards/operations';
+import { selectTheme } from 'redux/auth/selectors';
+import DeleteBoard from 'components/DeleteBoard/DeleteBoard';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   const dispatch = useDispatch();
   const allBoards = useSelector(selectBoardsList);
+  const theme = useSelector(selectTheme);
 
   useEffect(() => {
     dispatch(getAllBoards());
@@ -26,7 +26,13 @@ const Sidebar = () => {
   };
 
   return (
-    <div>
+    <div
+      className={
+        (theme === 'dark' && css.dark) ||
+        (theme === 'light' && css.light) ||
+        (theme === 'violet' && css.violet)
+      }
+    >
       <aside className={css.sidebar}>
         <div>
           <section className={css.sidebarBox}>
@@ -72,30 +78,7 @@ const Sidebar = () => {
         </div>
         <div>
           <section className={css.sidebarHelp}>
-            <div>
-              <picture>
-                <source
-                  srcSet={`${cactus} 1x, ${cactus2x} 2x,${cactus3x} 3x`}
-                />
-                <img srcSet={`${cactus} 1x`} alt="cactus" />
-              </picture>
-            </div>
-            <div className={css.sidebarHelpBox}>
-              <p className={css.sidebarHelpBoxItem}>
-                If you need help with{' '}
-                <a className={css.sidebarHelpBoxLink} href="/#">
-                  TaskPro
-                </a>
-                , check out our support resources or reach out to our customer
-                support team.
-              </p>
-            </div>
-            <div className={css.sidebarHelpWrap}>
-              <svg className={css.sidebarHelpIcon}>
-                <use href={sprite + '#icon-help-circle'}></use>
-              </svg>
-              <p className={css.sidebarHelpNeedHelp}>Need help?</p>
-            </div>
+            <NeedHelp />
           </section>
           <section className={css.sidebarLogout}>
             <button
