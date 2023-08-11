@@ -85,7 +85,9 @@
 }
 
 .input_png:checked + label > img {
-  border: var(--color-white);
+  opacity: 1;
+  border-radius: 6px;
+  border: 1.5px solid white;
 }
 
 .label_png {
@@ -93,7 +95,6 @@
 }
 
 .png {
-  border-radius: 6px;
   transition: transform 0.25s ease;
 }
 
