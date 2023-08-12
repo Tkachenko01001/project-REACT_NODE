@@ -18,7 +18,8 @@ const Sidebar = () => {
   const allBoards = useSelector(selectBoardsList);
   const theme = useSelector(selectTheme);
   const firstBoard = allBoards[0];
-  const [activeBoard, setActiveBoard] = useState(firstBoard._id);
+  const activeBoardFirstState = firstBoard ? firstBoard._id : null;
+  const [activeBoard, setActiveBoard] = useState(activeBoardFirstState);
 
   const handleClickBoard = boardId => {
     setActiveBoard(boardId);
