@@ -20,6 +20,7 @@
 }
 .partButton {
   flex: 1;
+  padding-top: 20px;
 }
 
 
@@ -198,7 +199,6 @@
 } */
 
 .sidebarListBoard {
-  overflow-y: scroll;
   border-style: none;
   padding: 40px 0;
   margin: 0;
