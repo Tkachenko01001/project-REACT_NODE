@@ -29,29 +29,45 @@ const Avatar = ({ size, onClick, preload }) => {
   return (
     <>
       {isLoading ? (
-        <Puff
-          height="80"
-          width="80"
-          radius={1}
-          color={mainColor[user.theme]}
-          ariaLabel="puff-loading"
-          wrapperStyle={{}}
-          wrapperClass=""
-          visible={true}
-        />
-      ) : (
-        <img
-          src={src}
-          alt={user.name}
-          width={size}
-          height={size}
-          onClick={onClick}
+        <button
           style={{
-            borderRadius: '5px',
-            cursor: 'pointer',
-            border: '1px solid #9dc888',
+            background: 'none',
+            border: 'none',
+            padding: '0',
           }}
-        />
+        >
+          <Puff
+            height="80"
+            width="80"
+            radius={1}
+            color={mainColor[user.theme]}
+            ariaLabel="puff-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+          />
+        </button>
+      ) : (
+        <button
+          style={{
+            background: 'none',
+            border: 'none',
+            padding: '0',
+          }}
+        >
+          <img
+            src={src}
+            alt={user.name}
+            width={size}
+            height={size}
+            onClick={onClick}
+            style={{
+              borderRadius: '5px',
+              cursor: 'pointer',
+              border: '1px solid #9dc888',
+            }}
+          />
+        </button>
       )}
     </>
   );

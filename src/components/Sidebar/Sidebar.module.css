@@ -1,10 +1,8 @@
 .sidebar {
   display: none;
-  transform: scale(0);
-}
+  transform: translateX(0);
+  transition: transform 300ms;
 
-.active {
-    transform: scale(1);
 }
 
 @media screen and (min-width: 768px) {
@@ -12,15 +10,44 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: var(--color-icon-dark);
+    height: 100vh;
+    /* padding: 14px 14px 24px 14px; */
+    /* background-color: var(--color-icon-dark); */
     width: 260px;
     height: 100vh;
+    transform: translateX(1);
+  transition: transform 300ms;
+    
   }
+}
+
+.active {
+  transform: translateX(1); 
+   transition: 0.5s;
 }
 
 /* .sidebarStop.active{
   transform: scale(1);
 } */
+
+.dark {
+  background-color: var(--color-icon-dark);
+  color: var(--color-white);
+  stroke: var(--color-white);
+  fill: var(--bg-color-form-input);
+}
+
+.light {
+  background-color: #f6f6f7;
+  color: #161616;
+  stroke: #161616;
+  fill: #f6f6f7;
+}
+
+.violet {
+  background-color: #ecedfd;
+  color: #161616;
+}
 
 /* Title */
 .sidebarBox {
@@ -51,7 +78,7 @@
 
   letter-spacing: -0.64px;
 
-  color: var(--color-white);
+  /* color: var(--color-white); */
 }
 
 /* Board */
@@ -71,7 +98,7 @@
   font-size: 12px;
   letter-spacing: -0.24px;
 
-  color: var(--color-icon-grey);
+  /* color: var(--color-icon-grey); */
 }
 
 .sidebarBoard {
@@ -98,7 +125,7 @@
   letter-spacing: -0.28px;
 
   margin-right: 77px;
-  color: var(--color-white);
+  /* color: var(--color-white); */
 }
 
 @media screen and (min-width: 768px) {
@@ -111,7 +138,12 @@
   display: flex;
   padding: 0;
   border: none;
-  background: var(--color-icon-dark);
+  background-color: inherit;
+  /* margin: 0;
+  outline: 0;
+ 
+  color: inherit; */
+  /* background: var(--color-icon-dark); */
 }
 
 .sidebarBoardIcon {
@@ -124,19 +156,19 @@
 
 /* New board */
 .sidebarNewBoard {
-  margin-top: 40px;
-  padding: 20px 0 20px 14px;
-  border-right: 4px solid var(--color-green);
-  border-radius: 4px 0px 0px 4px;
+  padding: 40px 0;
+  overflow-y: scroll;
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .sidebarNewBoard {
     padding: 20px 0 20px 24px;
+
   }
-}
+} */
 
 .sidebarNewBoardList {
+  padding: 20px 24px;
   display: flex;
   align-items: center;
 }
@@ -145,6 +177,9 @@
   width: 18px;
   height: 18px;
   margin-right: 4px;
+  stroke: var(--color-icon-grey);
+}
+.sidebarNewBoardSvgActive {
   stroke: var(--color-white);
 }
 
@@ -155,20 +190,37 @@
 }
 
 .sidebarNewBoardItem {
+  margin-right: auto;
+  color: var(--color-icon-grey);
+}
+
+.sidebarNewBoardItemActive {
+  border-right: 4px solid var(--color-green);
+  border-radius: 4px 0px 0px 4px;
+  background: var(--bg-color-form-input);
+  color: var(--color-white);
+}
+.sidebarNewBoardItemText {
   font-family: var(--font-medium);
   font-size: 14px;
   letter-spacing: -0.28px;
   margin-right: auto;
 
-  color: var(--color-white);
+  /* color: var(--color-white); */
 }
-
+.bg {
+  background: #000;
+}
+.svg {
+  stroke: #ffffff80;
+  transition: transform 0.25s ease;
+}
 .sidebarNewBoardButton {
   height: 16px;
   border: none;
   padding: 0;
   margin-right: 8px;
-  background-color: var(--color-icon-dark);
+  /* background-color: var(--color-icon-dark); */
 }
 
 .sidebarNewBoardButtonCurrent {
@@ -176,7 +228,7 @@
   border: none;
   padding: 0;
   margin-right: 14px;
-  background-color: var(--color-icon-dark);
+  /* background-color: var(--color-icon-dark); */
 }
 
 @media screen and (min-width: 768px) {
@@ -257,8 +309,10 @@
   gap: 16px;
   border: none;
   /* padding: 0 7px 0 0; */
-  color: var(--color-white);
-  background-color: var(--color-icon-dark);
+  color: inherit;
+  background-color: inherit;
+  /* color: var(--color-white);
+  background-color: var(--color-icon-dark); */
   font-family: var(--font-medium);
   font-size: 16px;
   font-weight: 500;
@@ -267,4 +321,5 @@
 
 .sidebarLogoutIcon {
   stroke: var(--color-green);
+  fill: none;
 }

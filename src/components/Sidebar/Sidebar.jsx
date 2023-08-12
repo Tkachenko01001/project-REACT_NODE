@@ -1,42 +1,46 @@
 import css from '../Sidebar/Sidebar.module.css';
 import sprite from '../../images/sprite.svg';
-import cactus from '../../images/cactus.png';
-import cactus2x from '../../images/cactus@2x.png';
-import cactus3x from '../../images/cactus@3x.png';
 import { logOut } from 'redux/auth/operations';
-import { useDispatch } from 'react-redux';
-import NewBoard from 'components/NewBoard/NewBoard';
+import { selectBoardsList } from 'redux/boards/selectors';
+import { getAllBoards } from 'redux/boards/operations';
+import { selectTheme } from 'redux/auth/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import NewBoardButton from 'components/NewBoardButton/NewBoardButton';
 import EditBoard from 'components/EditBoard/EditBoard';
-// import SidebarActive from 'components/SidebarActive/SidebarActive';
-// import { useState } from 'react';
-
+import { NeedHelp } from 'components/NeedHelp/NeedHelp';
+import DeleteBoard from 'components/DeleteBoard/DeleteBoard';
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 // import EditBoard from 'components/EditBoard/EditBoard';
 
-const Sidebar = ({ boards, active, setActive }) => {
-  // const [menuActive, setMenuActive] = useState(false);
+const Sidebar = ({active}) => {
   const dispatch = useDispatch();
+  const allBoards = useSelector(selectBoardsList);
+  const theme = useSelector(selectTheme);
 
-  const handleClickBoard = () => {
-    console.log('Click');
-  };
-
-  const handleClickHelp = () => {
-    console.log('click');
-  };
+  useEffect(() => {
+    dispatch(getAllBoards());
+  }, [dispatch]);
 
   const handleClickLogout = () => {
     dispatch(logOut());
   };
 
   return (
-    <div>
+    <div
+      className={
+        (theme === 'dark' && css.dark) ||
+        (theme === 'light' && css.light) ||
+        (theme === 'violet' && css.violet)
+      }
+    >
       <aside
-       className={active ? css.active : css.sidebar}
-        onClick={() => {
-          setActive(false);
-        }}
+        className={active ? css.active : css.sidebar}
+        // onClick={() => {
+        //   setActive(false);
+        // }}
       >
-        <div className={css.sidebarStop} onClick={e => e.stopPropagation()}>
+        <div className={css.sidebarStop} /*onClick={e => e.stopPropagation()}*/>
           <section className={css.sidebarBox}>
             <svg className={css.sidebarBoxIcon}>
               <use href={sprite + '#icon-icon-dark'}></use>
@@ -48,68 +52,39 @@ const Sidebar = ({ boards, active, setActive }) => {
           </div>
           <section className={css.sidebarBoard}>
             <p className={css.sidebarBoardItem}>Create a new board</p>
-            <button
-              onClick={handleClickBoard}
-              className={css.sidebarBoardButton}
-              type="button"
-            >
-              <svg className={css.sidebarBoardIcon}>
-                <use href={sprite + '#icon-plus'}></use>
-              </svg>
-            </button>
-            <NewBoard />
-            <EditBoard />
+            <NewBoardButton />
           </section>
-          {boards && (
+          {allBoards && (
             <ul className={css.sidebarNewBoard}>
-              <li className={css.sidebarNewBoardList}>
-                <svg className={css.sidebarNewBoardSvg}>
-                  <use href={sprite + '#icon-project'}></use>
-                </svg>
-                <p className={css.sidebarNewBoardItem}>Project office</p>
-                <button className={css.sidebarNewBoardButton} type="button">
-                  <svg className={css.sidebarNewBoardIcon}>
-                    <use href={sprite + '#icon-pencil'}></use>
-                  </svg>
-                </button>
-                <button
-                  className={css.sidebarNewBoardButtonCurrent}
-                  type="button"
+              {allBoards.map(board => (
+                <li
+                  className={`${css.sidebarNewBoardList} ${css.sidebarNewBoardItem}`}
+                  key={board._id}
                 >
-                  <svg className={css.sidebarNewBoardIcon}>
-                    <use href={sprite + '#icon-trash'}></use>
+                  <svg className={css.sidebarNewBoardSvg}>
+                    <use href={sprite + `#${board.icon}`} />
                   </svg>
-                </button>
-              </li>
+                  <Link
+                    to={`/home/${board._id}`}
+                    className={css.sidebarNewBoardItem}
+                  >
+                    {board.title}
+                  </Link>
+                  <EditBoard
+                    id={board._id}
+                    title={board.title}
+                    icon={board.icon}
+                    background={board.background}
+                  />
+                  <DeleteBoard id={board._id} columns={board.columnOrder} />
+                </li>
+              ))}
             </ul>
           )}
         </div>
         <div>
           <section className={css.sidebarHelp}>
-            <div>
-              <picture>
-                <source
-                  srcSet={`${cactus} 1x, ${cactus2x} 2x,${cactus3x} 3x`}
-                />
-                <img srcSet={`${cactus} 1x`} alt="cactus" />
-              </picture>
-            </div>
-            <div className={css.sidebarHelpBox}>
-              <p className={css.sidebarHelpBoxItem}>
-                If you need help with{' '}
-                <a className={css.sidebarHelpBoxLink} href="/#">
-                  TaskPro
-                </a>
-                , check out our support resources or reach out to our customer
-                support team.
-              </p>
-            </div>
-            <button onClick={handleClickHelp} className={css.sidebarHelpbutton}>
-              <svg className={css.sidebarHelpIcon}>
-                <use href={sprite + '#icon-help-circle'}></use>
-              </svg>
-              <p className={css.sidebarHelpNeedHelp}>Need help?</p>
-            </button>
+            <NeedHelp />
           </section>
           <section className={css.sidebarLogout}>
             <button

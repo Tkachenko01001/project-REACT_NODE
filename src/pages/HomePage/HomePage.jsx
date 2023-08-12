@@ -1,22 +1,29 @@
-import css from '../HomePage/HomePage.module.css';
+import css from './HomePage.module.css';
 import Sidebar from 'components/Sidebar/Sidebar';
-// import SidebarActive from 'components/SidebarActive/SidebarActive';
 import ScreensPage from 'components/ScreensPage/ScreensPage';
 import Header from 'components/Header/Header';
+import { useState } from 'react';
 
-export default function HomePage({ active, setActive }) {
+export default function HomePage() {
+  // My fix
+  const [menuActive, setMenuActive] = useState(false);
+
+  const handleClick = () => {
+    setMenuActive(true);
+  };
+  // My fix
+
   return (
-    <div className={css.home}>
-      <Sidebar />
-      {/* <SidebarActive /> */}
-      <div
-        onClick={() => {
-          console.log(setActive);
-          setActive(false);
-        }}
-        className={css.homeWrap}
-      >
-        <Header />
+    <div
+      className={css.home}
+      onClick={() => {
+        setMenuActive(false);
+      }}
+    >
+      <Sidebar active={menuActive} />
+
+      <div className={css.homeWrap} onClick={e => e.stopPropagation()} >
+        <Header click={handleClick} />
         <ScreensPage />
       </div>
     </div>
