@@ -106,7 +106,7 @@ using project-REACT_NODE.
 - ![ReactRouter](https://img.shields.io/badge/ReactRouter-blue?style=for-the-badge&logo=ReactRouter&logoColor=61DAFB)
 - ![MUI](https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white)
 - ![Axios](https://img.shields.io/badge/Axios-blue?style=for-the-badge&logo=Axios&logoColor=61DAFB)
-- ![Formik](https://img.shields.io/badge/Formik-blue?style=for-the-badge&logo=Formik&logoColor=61DAFB)
+- ![Formik](https://img.shields.io/badge/Formik-blue?style=for-the-badge&logo=Formik&logoColor=white)
 - та інші.
 
 ### BackEnd
