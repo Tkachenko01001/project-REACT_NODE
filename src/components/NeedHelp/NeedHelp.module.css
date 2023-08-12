@@ -1,0 +1,75 @@
+.dark {
+  background-color: var(--bg-color-form-input);
+  color: var(--color-white);
+  stroke: var(--color-white);
+  fill: var(--bg-color-form-input);
+}
+
+.light {
+  background-color: #f6f6f7;
+  color: #161616;
+  stroke: #161616;
+  fill: #f6f6f7;
+}
+
+.violet {
+  background-color: #ecedfd;
+  color: #161616;
+  stroke: #161616;
+  fill: #ecedfd;
+}
+
+/* Sidebar Help  */
+.sidebarHelp {
+  /* margin: 0 14px 24px 14px; */
+  padding: 14px 14px 15px 15px;
+  border-radius: 8px;
+  /* background-color: var(--bg-color-form-input);  */
+}
+
+@media screen and (min-width: 768px) {
+  .sidebarHelp {
+    margin: 0 24px 24px 24px;
+    padding: 20px 20px 21px 20px;
+  }
+}
+
+.sidebarHelpBox {
+  margin: 14px 0 19px 0;
+}
+
+.sidebarHelpBoxItem {
+  font-family: var(--font-regular);
+  font-size: 14px;
+  line-height: 1.42;
+  letter-spacing: -0.28px;
+
+  /* color: var(--color-white); */
+}
+
+.sidebarHelpBoxLink {
+  font-family: var(--font-regular);
+
+  color: var(--color-green);
+}
+
+.sidebarHelpWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebarHelpIcon {
+  width: 20px;
+  height: 20px;
+
+  /* stroke: var(--color-white); */
+}
+
+.sidebarHelpNeedHelp {
+  font-family: var(--font-medium);
+  font-size: 12px;
+  letter-spacing: -0.24px;
+  color: inherit;
+  /* color: var(--color-white); */
+}

@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 export const getAllBoards = createAsyncThunk(
   'boards/getAllBoards',
@@ -40,10 +40,12 @@ export const addBoard = createAsyncThunk(
 
 export const updateBoard = createAsyncThunk(
   'boards/updateBoard',
-  async ([id, data], thunkAPI) => {
+  async ({ id, data }, thunkAPI) => {
     try {
       await axios.put(`/api/boards/${id}`, data);
       thunkAPI.dispatch(getAllBoards());
+      thunkAPI.dispatch(getActiveBoard(id));
+
       return;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -107,7 +109,7 @@ export const addTask = createAsyncThunk(
   'boards/addTask',
   async (data, thunkAPI) => {
     try {
-       const res = await axios.post('/api/tasks', data);
+      const res = await axios.post('/api/tasks', data);
       thunkAPI.dispatch(getActiveBoard(res.data.board));
       return;
     } catch (error) {

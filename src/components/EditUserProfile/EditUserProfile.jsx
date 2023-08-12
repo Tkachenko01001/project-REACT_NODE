@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Modal from '../Modal/Modal';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { object, string, mixed } from 'yup';
@@ -9,6 +9,7 @@ import { Loader } from '../Loader/Loader';
 import styles from './EditUserProfile.module.css';
 import Avatar from 'components/Avatar/Avatar';
 import { Previews } from 'components/AvatarModal/AvatarModal';
+import { updateUser } from 'redux/auth/operations';
 
 const initialValues = {
   avatarURL: null,
@@ -51,7 +52,7 @@ export const registerSchema = object({
 });
 
 export const EditUserProfile = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [avatarURL, setAvatarURL] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -102,14 +103,14 @@ export const EditUserProfile = () => {
             initialValues={initialValues}
             validationSchema={registerSchema}
             onSubmit={(values, { setSubmitting, resetForm }) => {
-              // dispatch(
-              //   register({
-              //     avatarURL: avatarURL,
-              //     name: name,
-              //     email: email.toLowerCase(),
-              //     password: password,
-              //   })
-              // );
+              dispatch(
+                updateUser({
+                  avatarURL: avatarURL,
+                  name: name,
+                  email: email.toLowerCase(),
+                  password: password,
+                })
+              );
               console.log(
                 'Avatar URL:',
                 values.avatarURL ? URL.createObjectURL(values.avatarURL) : null
