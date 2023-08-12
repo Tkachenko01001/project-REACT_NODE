@@ -11,13 +11,12 @@ import { Puff } from 'react-loader-spinner';
 const Avatar = ({ size, onClick, preload }) => {
   const user = useSelector(selectUser);
   const isLoading = useSelector(selectIsLoading);
-
   const defaultAvatar = {
     dark: avaDark,
     light: avaLight,
     violet: avaViolet,
   };
-  let src = user.avatar ? user.avatar : defaultAvatar[user.theme];
+  let src = user.avatarURL ? user.avatarURL : defaultAvatar[user.theme];
   if (preload) src = preload;
 
   const mainColor = {
