@@ -1,9 +1,9 @@
 import styles from './Button.module.css';
 import sprite from '../../images/sprite.svg';
 //  Приклад додавання кнопки <Button icon="true" text="Add column" />
-const Button = ({ icon, text }) => {
+const Button = ({ icon, text, onClick }) => {
   return (
-    <button className={styles.button} type="submit">
+    <button className={styles.button} type="submit" onClick={onClick}>
       {icon && (
         <svg width={28} height={28} aria-label="plus">
           <title>Plus Icon</title>
