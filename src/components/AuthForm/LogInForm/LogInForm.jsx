@@ -8,7 +8,6 @@ import { logIn } from 'redux/auth/operations';
 import { Loader } from '../../Loader/Loader';
 import styles from './LoginForm.module.css';
 import { selectIsLoggedIn } from 'redux/auth/selectors';
-import { store } from 'redux/store';
 
 const initialValues = {
   email: '',

@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-// import { ToastContainer, toast } from 'react-toastify';
 import Swal from 'sweetalert2'
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 axios.defaults.baseURL = 'https://project-react-node-back.onrender.com';
@@ -75,6 +74,7 @@ export const logOut = createAsyncThunk('/auth/logout', async (_, thunkAPI) => {
     // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
   } catch (error) {
+    Swal.fire(error.response.data.message)
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -102,6 +102,7 @@ export const refreshUser = createAsyncThunk(
 
       return res.data;
     } catch (error) {
+      Swal.fire(error.response.data.message)
       return thunkAPI.rejectWithValue(error.message);
     }
   }
