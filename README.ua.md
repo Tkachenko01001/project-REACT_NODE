@@ -1,3 +1,5 @@
+**Читати іншою мовою: [English](README.md).**
+
 # project-REACT_NODE
 
 ![project-REACT_NODE](./src/images/readmeScreens/wellcome.png)

@@ -1,4 +1,4 @@
-**Читати іншою мовою: [English](README.md), [Українська](README.ua.md).**
+**Читати іншою мовою: [Українська](README.ua.md).**
 
 # project-REACT_NODE
 
