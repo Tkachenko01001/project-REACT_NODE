@@ -111,7 +111,7 @@ using project-REACT_NODE.
 
 ### BackEnd
 
-- ![NodeJS](https://img.shields.io/badge/NodeJS-green?style=for-the-badge&logo=NodeJS&logoColor=61DAFB)
+- ![Node.js](https://img.shields.io/badge/Node.js-green?style=for-the-badge&logo=Node.js&logoColor=61DAFB)
 - ![MongoDB](https://img.shields.io/badge/MongoDB-green?style=for-the-badge&logo=MongoDB&logoColor=61DAFB)
 - ![MongoDB](https://img.shields.io/badge/MongoDB-green?style=for-the-badge&logo=MongoDB&logoColor=61DAFB)
 
