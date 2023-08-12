@@ -15,21 +15,21 @@
 }
 
 .dark {
- background-color: var(--color-icon-dark);
+  background-color: var(--color-icon-dark);
   color: var(--color-white);
-   stroke: var(--color-white);
-   fill: var(--bg-color-form-input);
+  stroke: var(--color-white);
+  fill: var(--bg-color-form-input);
 }
 
 .light {
-  background-color: #F6F6F7;
+  background-color: #f6f6f7;
   color: #161616;
-   stroke: #161616;
-   fill: #F6F6F7;
+  stroke: #161616;
+  fill: #f6f6f7;
 }
 
 .violet {
-  background-color: #ECEDFD;
+  background-color: #ecedfd;
   color: #161616;
 }
 
@@ -134,14 +134,31 @@
   width: 40px;
   height: 36px;
 
-  fill: var(--color-green);  
+  fill: var(--color-green);
   stroke: var(--color-icon-dark);
 }
 
 /* New board */
 .sidebarNewBoard {
+  max-height: 200px;
   padding: 40px 0;
   overflow-y: scroll;
+  /* overflow-y: auto; */
+  scrollbar-width: none;
+}
+
+.sidebarNewBoard::-webkit-scrollbar {
+  width: 5px; /* Ширина скролу */
+  background-color: transparent; /* Колір фону скролу */
+}
+
+.sidebarNewBoard::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Колір бару скролу */
+  outline: 1px solid transparent; /* Обводка бару скролу */
+}
+
+.sidebarNewBoard:hover::-webkit-scrollbar-thumb {
+  background-color: var(--color-green); /* Колір бару скролу при наведенні */
 }
 
 /* @media screen and (min-width: 768px) {
@@ -237,7 +254,7 @@
   gap: 16px;
   border: none;
   /* padding: 0 7px 0 0; */
-  color:inherit;
+  color: inherit;
   background-color: inherit;
   /* color: var(--color-white);
   background-color: var(--color-icon-dark); */

@@ -5,6 +5,7 @@ import cactus3x from '../../images/cactus@3x.png';
 import css from './NeedHelp.module.css';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/auth/selectors';
+import { HelpForm } from 'components/Help/HelpForm/Help';
 
 export const NeedHelp = () => {
   const theme = useSelector(selectTheme);
@@ -24,14 +25,7 @@ export const NeedHelp = () => {
           </picture>
         </div>
         <div className={css.sidebarHelpBox}>
-          <p className={css.sidebarHelpBoxItem}>
-            If you need help with{' '}
-            <a className={css.sidebarHelpBoxLink} href="/#">
-              TaskPro
-            </a>
-            , check out our support resources or reach out to our customer
-            support team.
-          </p>
+          <HelpForm />
         </div>
         <div className={css.sidebarHelpWrap}>
           <svg className={css.sidebarHelpIcon}>
