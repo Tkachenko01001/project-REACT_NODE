@@ -1,9 +1,3 @@
-/* .form {
-  display: flex;
-  flex-direction: column;
-  margin-top: 24px;
-} */
-
 .title {
   color: var(--color-white);
   font-family: var(--font-medium);
@@ -15,7 +9,7 @@
   margin-right: auto;
 }
 
-.inputEmail {
+.input {
   width: 100%;
   height: 49px;
   padding: 18px 14px;
@@ -36,7 +30,7 @@
   transition: opacity 250ms linear;
 }
 
-.inputComment {
+.textarea {
   width: 100%;
   height: 120px;
   padding: 18px 14px;
@@ -51,44 +45,45 @@
 
   font-family: var(--font-regular);
   font-size: 14px;
-  line-height: normal;
+  line-height: 18px;
   letter-spacing: -0.28px;
 
   transition: opacity 250ms linear;
 
   word-break: break-word;
-  overflow-y: scroll;
-  /* overflow-y: auto; */
+  resize: none;
+  overflow: auto;
   scrollbar-width: none;
 }
 
-.inputComment::-webkit-scrollbar {
+.textarea::-webkit-scrollbar {
   width: 5px; /* Ширина скролу */
   background-color: transparent; /* Колір фону скролу */
 }
 
-.inputComment::-webkit-scrollbar-thumb {
+.textarea::-webkit-scrollbar-thumb {
   background-color: transparent; /* Колір бару скролу */
   outline: 1px solid transparent; /* Обводка бару скролу */
+  border-radius: 4px;
 }
 
-.inputComment:hover::-webkit-scrollbar-thumb {
+.textarea:hover::-webkit-scrollbar-thumb {
   background-color: var(--color-green); /* Колір бару скролу при наведенні */
 }
 
-.inputComment:active,
-.inputComment:hover,
-.inputComment:focus,
-.inputEmail:active,
-.inputEmail:hover,
-.inputEmail:focus {
+.textarea:active,
+.textarea:hover,
+.textarea:focus,
+.input:active,
+.input:hover,
+.input:focus {
   outline: 0;
   outline-offset: 0;
   opacity: 1;
 }
 
 .inputCommentt::placeholder,
-.inputEmail::placeholder {
+.input::placeholder {
   color: var(--color-white);
 }
 

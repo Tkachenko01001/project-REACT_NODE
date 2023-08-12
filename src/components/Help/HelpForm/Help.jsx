@@ -3,6 +3,8 @@ import styles from './Help.module.css';
 import axios from 'axios';
 import css from '../../NeedHelp/NeedHelp.module.css';
 import Modal from '../../Modal/Modal';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 axios.defaults.baseURL = 'https://project-react-node-back.onrender.com';
 
@@ -41,8 +43,7 @@ export const HelpForm = () => {
     try {
       if (email !== '' && comment !== '') {
         const res = await axios.post('/api/users/help', { email, comment });
-        console.log(res.data.message);
-        alert(res.data.message);
+        toast.success(res.data.message);
         reset();
         toggleModal();
         return res.data;
@@ -50,16 +51,15 @@ export const HelpForm = () => {
     } catch (error) {
       if (error.response) {
         const { status, data } = error.response;
-        console.log(`Status Code: ${status}`);
-        console.log(`Error Message: ${data.message}`);
+        toast.error(`Status(${status}): ${data.message}`);
       } else {
-        console.log('Network Error');
+        toast.error('Network Error');
       }
     }
   };
 
   return (
-    <div>
+    <>
       <p className={css.sidebarHelpBoxItem}>
         If you need help with{' '}
         <button
@@ -78,7 +78,7 @@ export const HelpForm = () => {
           <form onSubmit={handleSubmit}>
             <h1 className={styles.title}>Need help</h1>
             <input
-              className={styles.inputEmail}
+              className={styles.input}
               type="email"
               name="email"
               placeholder="Email address"
@@ -88,7 +88,7 @@ export const HelpForm = () => {
               onChange={handleChange}
             />
             <textarea
-              className={styles.inputComment}
+              className={styles.textarea}
               type="text"
               name="comment"
               placeholder="Comment"
@@ -103,7 +103,8 @@ export const HelpForm = () => {
           </form>
         </Modal>
       )}
-    </div>
+      <ToastContainer position="top-left" autoClose={3000} />
+    </>
   );
 };
 // <Formik
