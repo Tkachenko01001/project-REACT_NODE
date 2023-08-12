@@ -12,7 +12,7 @@ const NewBoard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
   const [icon, setIcon] = useState('icon-project');
-  const [background, setBackground] = useState(null);
+  const [background, setBackground] = useState('null');
 
   const dispatch = useDispatch();
 
@@ -28,7 +28,7 @@ const NewBoard = () => {
       if (!isBoardsLoading) {
         toggleModal();
         setIcon('icon-project');
-        setBackground(null);
+        setBackground('null');
       }
     });
   };

@@ -25,7 +25,6 @@ const EditBoard = ({ checked }) => {
   const [newIcon, setNewIcon] = useState(icon);
   const [newBackground, setNewBackground] = useState(background);
 
-  console.log(newBackground, newIcon, newTitle);
   const handleSubmit = event => {
     event.preventDefault();
     dispatch(

@@ -17,7 +17,7 @@ const DeleteBoard = ({ checked }) => {
   const { id, columns } = activeBoard;
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
   const [startLoading, setStartLoading] = useState(false);
-  console.log(columns);
+
   const dispatch = useDispatch();
 
   const [isModalOpen, setIsModalOpen] = useState(false);

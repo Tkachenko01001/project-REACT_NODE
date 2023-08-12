@@ -179,6 +179,11 @@
   flex-direction: column;
   gap: 4px;
 }
+@media (max-height: 700px) {
+  .sidebarListBoard {
+    padding: 0;
+  }
+}
 .sideBarBoardHover:hover {
   opacity: 50%;
 }
