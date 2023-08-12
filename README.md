@@ -102,7 +102,7 @@ using project-REACT_NODE.
 
 - ![JavaScrip](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 - ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-- ![Redux](https://img.shields.io/badge/Redux-blue?style=for-the-badge&logo=redux&logoColor=61DAFB)
+- ![Redux](https://img.shields.io/badge/Redux-purple?style=for-the-badge&logo=redux&logoColor=61DAFB)
 - ![ReactRouter](https://img.shields.io/badge/ReactRouter-blue?style=for-the-badge&logo=ReactRouter&logoColor=61DAFB)
 - ![MUI](https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white)
 - ![Axios](https://img.shields.io/badge/Axios-blue?style=for-the-badge&logo=Axios&logoColor=61DAFB)
