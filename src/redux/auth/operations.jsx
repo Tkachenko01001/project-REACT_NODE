@@ -1,5 +1,9 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+// import { ToastContainer, toast } from 'react-toastify';
+import Swal from 'sweetalert2'
+  import 'react-toastify/dist/ReactToastify.css';
+
 
 axios.defaults.baseURL = 'https://project-react-node-back.onrender.com';
 
@@ -27,6 +31,7 @@ export const register = createAsyncThunk(
       );
       return;
     } catch (error) {
+      Swal.fire(error.response.data.message)
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -44,8 +49,10 @@ export const logIn = createAsyncThunk(
       // After successful login, add the token to the HTTP header
       setAuthHeader(res.data.accessToken);
       return res.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+    } catch (error) {         
+      Swal.fire(error.response.data.message)
+      return thunkAPI.rejectWithValue(error.response.data.message);
+      
     }
   }
 );
