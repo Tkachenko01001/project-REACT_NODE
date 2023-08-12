@@ -1,13 +1,12 @@
 import sprite from '../../images/sprite.svg';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Column from 'components/Column/Column';
 import MainPlaceholder from 'components/MainPlaceholder/MainPlaceholder';
 import styles from './MainDashboard.module.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
 import AddColumn from 'components/PopUps/AddColumn/AddColumn';
 import Modal from 'components/Modal/Modal';
-import { getActiveBoard } from 'redux/boards/operations';
 
 const MainDashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,11 +14,6 @@ const MainDashboard = () => {
 
   const allBoards = useSelector(selectBoardsList);
   const activeBoard = useSelector(selectActiveBoard);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    allBoards.length > 0 && dispatch(getActiveBoard(allBoards[0]._id));
-  }, [dispatch, allBoards]);
 
   const columns =
     activeBoard &&
