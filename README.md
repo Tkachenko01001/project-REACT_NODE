@@ -100,10 +100,14 @@ using project-REACT_NODE.
 
 ### Frontend
 
+- JavaScrip
+  ![JavaScrip](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 - React
+  ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 - Redux
 - React Router
 - Material-UI
+  ![MUI](https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white)
 - Axios
 - Formik
 - та інші.
