@@ -103,10 +103,11 @@ using project-REACT_NODE.
 - ![JavaScrip](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 - ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 - ![Redux](https://img.shields.io/badge/Redux-blue?style=for-the-badge&logo=redux&logoColor=61DAFB)
-- React Router
+- ![React Router](https://img.shields.io/badge/React
+  Router-blue?style=for-the-badge&logo=React Router&logoColor=61DAFB)
 - ![MUI](https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white)
-- Axios
-- Formik
+- ![Axios](https://img.shields.io/badge/Axios-blue?style=for-the-badge&logo=Axios&logoColor=61DAFB)
+- ![Formik](https://img.shields.io/badge/Formik-blue?style=for-the-badge&logo=Formik&logoColor=61DAFB)
 - та інші.
 
 ### BackEnd
