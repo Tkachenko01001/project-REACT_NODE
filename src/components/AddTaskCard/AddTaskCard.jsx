@@ -74,7 +74,7 @@ export const AddTaskCard = () => {
                   description: description,
                   priority: priority,
                   column: column,
-                  deadline: format(daySelected, 'P'),//календар//
+                  deadline: format(daySelected, 'dd/MM/yyyy'),//календар//
                 })
               );
               setTitle('');

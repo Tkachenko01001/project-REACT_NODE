@@ -10,7 +10,7 @@ export default function CustomMonthLayout({daySelected, setDaySelected}) {
 
   // const [daySelected, setDaySelected] = React.useState ();
   
-  console.log(daySelected)
+  console.log(format(daySelected, 'P'))
   const DateBefore = { before: new Date()};
 
 const [isPopperOpen, setIsPopperOpen] = useState(false);
