@@ -44,6 +44,8 @@ export const updateBoard = createAsyncThunk(
     try {
       await axios.put(`/api/boards/${id}`, data);
       thunkAPI.dispatch(getAllBoards());
+      thunkAPI.dispatch(getActiveBoard(id));
+
       return;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
