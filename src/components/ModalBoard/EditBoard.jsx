@@ -12,6 +12,7 @@ import sprite from '../../images/sprite.svg';
 import css from '../Sidebar/Sidebar.module.css';
 import styles from './ModalBoard.module.css';
 import ModalPortal from './ModalPortal';
+
 const EditBoard = ({ checked }) => {
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
   const activeBoardItems = useSelector(selectActiveBoard);
@@ -38,6 +39,8 @@ const EditBoard = ({ checked }) => {
       })
     ).then(() => {
       !isBoardsLoading && toggleModal();
+      setNewIcon(icon);
+      setNewBackground(background);
     });
   };
 

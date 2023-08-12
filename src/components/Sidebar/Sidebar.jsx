@@ -28,11 +28,11 @@ const Sidebar = () => {
     dispatch(getAllBoards());
   }, [dispatch]);
 
-  useEffect(() => {
-    if (firstBoard) {
-      setActiveBoardId(firstBoard._id);
-    }
-  }, [firstBoard]);
+  // useEffect(() => {
+  //   if (firstBoard) {
+  //     setActiveBoardId(firstBoard._id);
+  //   }
+  // }, [firstBoard]);
 
   const handleClickLogout = () => {
     dispatch(logOut());
