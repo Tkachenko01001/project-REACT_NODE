@@ -1,10 +1,10 @@
-.section {
+/* .section {
   height: calc(100vh - 60px);
-}
+} */
 
 .headerDashboardSection {
   /* background-color: var(--bg-color-form-input); */
-  height: calc(100vh - 60px);
+  height: calc(100vh - 0px);
 }
 .dark {
   background-color: var(--bg-color-form-input);
