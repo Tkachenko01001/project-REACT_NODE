@@ -26,25 +26,32 @@ const MainDashboard = () => {
       {allBoards.length > 0 ? (
         <>
           <div className={styles.container}>
-            <button className={styles.button}>
+            {isModalOpen && (
+              <Modal onClose={toggleModal}>
+                <AddColumn toggleModal={toggleModal} />
+              </Modal>
+            )}
+            {columns && (
+              <ul className={styles.columnList}>
+                {activeBoard.columns.map(column => (
+                  <li key={column._id}>
+                    <Column column={column} />
+                  </li>
+                ))}
+              </ul>
+            )}
+            <button className={styles.button} onClick={toggleModal}>
               <svg
                 width={28}
                 height={28}
                 aria-label="plus"
                 className={styles.svg}
-                onClick={toggleModal}
               >
                 <title>Plus Icon</title>
                 <use href={sprite + '#icon-plus'} />
               </svg>
               <span className={styles.buttonText}>Add another column</span>
             </button>
-            {isModalOpen && (
-              <Modal onClose={toggleModal}>
-                <AddColumn toggleModal={toggleModal} />
-              </Modal>
-            )}
-            {columns && <Column />}
           </div>
           {}
         </>

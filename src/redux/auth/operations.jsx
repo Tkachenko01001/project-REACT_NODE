@@ -50,6 +50,14 @@ export const logIn = createAsyncThunk(
   }
 );
 
+export const logInWithGoogle = createAsyncThunk(
+  'auth/google',
+  (credentials) => {
+    setAuthHeader(credentials.accessToken);
+    return credentials;
+  }
+);
+
 /*
  * POST @ /users/logout
  * headers: Authorization: Bearer token
@@ -108,8 +116,8 @@ export const updateUser = createAsyncThunk(
   'auth/update',
   async (credentials, thunkAPI) => {
     try {
-      await axios.put('/api/users/update', credentials);
-      // return res.data;
+      const res = await axios.put('/api/users/update', credentials);
+      return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

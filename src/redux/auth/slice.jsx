@@ -5,7 +5,8 @@ import {
   logOut,
   refreshUser,
   changeTheme,
-  updateUser
+  updateUser,
+  logInWithGoogle,
 } from './operations';
 
 const initialState = {
@@ -95,6 +96,13 @@ const updateUserPending = (state, action) => {
 };
 
 const updateUserFulfilled = (state, action) => {
+  if (!action.payload) {
+    state.user = { name: null, email: null, theme: 'dark' };
+    state.token = null;
+    state.isLoggedIn = false;
+    state.isUpdating = false;
+    return;
+  }
   state.user = action.payload;
   state.error = null;
   state.isUpdating = false;
@@ -114,6 +122,7 @@ const authSlice = createSlice({
     builder.addCase(logIn.pending, signInPending);
     builder.addCase(logIn.fulfilled, signInFulfilled);
     builder.addCase(logIn.rejected, signInRejected);
+    builder.addCase(logInWithGoogle.fulfilled, signInFulfilled);
     builder.addCase(logOut.pending, logOutPending);
     builder.addCase(logOut.fulfilled, logOutFulfilled);
     builder.addCase(logOut.rejected, logOutRejected);
