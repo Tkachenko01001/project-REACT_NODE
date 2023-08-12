@@ -31,7 +31,7 @@ const Sidebar = ({ boards, active, setActive }) => {
   return (
     <div>
       <aside
-        className={active ? 'css.sidebar active' : 'sidebar'}
+       className={active ? css.active : css.sidebar}
         onClick={() => {
           setActive(false);
         }}

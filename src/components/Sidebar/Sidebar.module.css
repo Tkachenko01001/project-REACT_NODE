@@ -3,7 +3,7 @@
   transform: scale(0);
 }
 
-.sidebar.active {
+.active {
     transform: scale(1);
 }
 
