@@ -111,18 +111,18 @@ using project-REACT_NODE.
 
 ### Back-End
 
-- ![VSCode](https://img.shields.io/badge/VSCode-green?style=for-the-badge&logo=VSCode&logoColor=61DAFB)
+- ![Node.js](https://img.shields.io/badge/Node.js-green?style=for-the-badge&logo=Node.js&logoColor=61DAFB)
 - ![MongoDB](https://img.shields.io/badge/MongoDB-green?style=for-the-badge&logo=MongoDB&logoColor=61DAFB)
 - ![Swagger](https://img.shields.io/badge/Swagger-green?style=for-the-badge&logo=Swagger&logoColor=61DAFB)
 - e.t.c.
 
-### Utilites
+### Utilites:
 
-- ![Node.js](https://img.shields.io/badge/Node.js-green?style=for-the-badge&logo=Node.js&logoColor=61DAFB)
-- ![Webpack](https://img.shields.io/badge/Webpack-green?style=for-the-badge&logo=Webpack&logoColor=61DAFB)
+- ![VSCode](https://img.shields.io/badge/VSCode-blue?style=for-the-badge&logo=VSCode&logoColor=61DAFB)
+- ![Webpack](https://img.shields.io/badge/Webpack-blue?style=for-the-badge&logo=Webpack&logoColor=61DAFB)
 - ![Parcel](https://img.shields.io/badge/Parcel-green?style=for-the-badge&logo=Parcel&logoColor=61DAFB)
-- ![Figma](https://img.shields.io/badge/Figma-green?style=for-the-badge&logo=Figma&logoColor=61DAFB)
-- ![GitHub](https://img.shields.io/badge/GitHub-green?style=for-the-badge&logo=GitHub&logoColor=61DAFB)
+- ![Figma](https://img.shields.io/badge/Figma-red?style=for-the-badge&logo=Figma&logoColor=61DAFB)
+- ![GitHub](https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=GitHub&logoColor=61DAFB)
 - e.t.c.
 
 **Project Authors:**
