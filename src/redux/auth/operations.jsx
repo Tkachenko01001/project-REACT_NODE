@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import Swal from 'sweetalert2'
-import 'react-toastify/dist/ReactToastify.css';
-
 
 axios.defaults.baseURL = 'https://project-react-node-back.onrender.com';
 
