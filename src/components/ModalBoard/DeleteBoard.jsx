@@ -14,7 +14,7 @@ import ModalPortal from './ModalPortal';
 
 const DeleteBoard = ({ checked }) => {
   const activeBoard = useSelector(selectActiveBoard);
-  const { id, columns } = activeBoard;
+  const { _id: id, columns } = activeBoard;
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
   const [startLoading, setStartLoading] = useState(false);
 

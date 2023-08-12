@@ -19,14 +19,20 @@ const Sidebar = () => {
   const theme = useSelector(selectTheme);
   const firstBoard = allBoards[0];
   const activeBoardFirstState = firstBoard ? firstBoard._id : null;
-  const [activeBoard, setActiveBoard] = useState(activeBoardFirstState);
+  const [activeBoardId, setActiveBoardId] = useState(activeBoardFirstState);
 
   const handleClickBoard = boardId => {
-    setActiveBoard(boardId);
+    setActiveBoardId(boardId);
   };
   useEffect(() => {
     dispatch(getAllBoards());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (firstBoard) {
+      setActiveBoardId(firstBoard._id);
+    }
+  }, [firstBoard]);
 
   const handleClickLogout = () => {
     dispatch(logOut());
@@ -69,7 +75,7 @@ const Sidebar = () => {
                   >
                     <div
                       className={`${css.sidebarNewBoard} ${
-                        activeBoard === board._id ? css.activeBoard : ''
+                        activeBoardId === board._id ? css.activeBoard : ''
                       }`}
                       onClick={() => handleClickBoard(board._id)}
                     >
@@ -77,7 +83,7 @@ const Sidebar = () => {
                         <div className={css.flex}>
                           <svg
                             className={`${css.sidebarNewBoardSvg} ${
-                              activeBoard === board._id
+                              activeBoardId === board._id
                                 ? css.sidebarNewBoardSvgActive
                                 : ''
                             }`}
@@ -86,7 +92,7 @@ const Sidebar = () => {
                           </svg>
                           <p
                             className={`${css.sidebarNewBoardItem} ${
-                              activeBoard === board._id
+                              activeBoardId === board._id
                                 ? css.sidebarNewBoardTextActive
                                 : ''
                             }`}
@@ -96,10 +102,10 @@ const Sidebar = () => {
                         </div>
                         <div className={css.flex}>
                           <EditBoard
-                            checked={activeBoard === board._id}
+                            checked={activeBoardId === board._id}
                             title={board.title}
                           />
-                          <DeleteBoard checked={activeBoard === board._id} />
+                          <DeleteBoard checked={activeBoardId === board._id} />
                         </div>
                       </div>
                     </div>
