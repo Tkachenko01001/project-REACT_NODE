@@ -111,7 +111,7 @@ using project-REACT_NODE.
 
 ### BackEnd
 
-- Mongo DB
+- ![MongoDB](https://img.shields.io/badge/MongoDB-green?style=for-the-badge&logo=MongoDB&logoColor=61DAFB)
 
 **Project Authors:**
 
