@@ -17,4 +17,9 @@
   font-weight: 500;
   line-height: normal;
   letter-spacing: -0.28px;
+  transition: background-color 250ms linear, box-shadow 250ms linear;
+}
+
+.button:hover {
+  background-color: var(--color-hover-green);
 }
