@@ -6,6 +6,7 @@ import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
 import styles from './AddTaskCard.module.css';
 import sprite from '../../images/sprite.svg';
+import Button from 'components/Button/Button';
 
 const initialValues = {
   title: '',
@@ -19,11 +20,11 @@ const registerSchema = object({
   description: string().required(),
 });
 
-export const AddTaskCard = () => {
+export const AddTaskCard = ({ columnId }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [priority, setPriority] = useState('');
-  const [column] = useState('64d0d5ff12156380132f910a');
+  // const [column] = useState('64d0d5ff12156380132f910a');
   // const addLoading = useSelector(selectTaskIsLoading);
   const dispatch = useDispatch();
 
@@ -50,29 +51,31 @@ export const AddTaskCard = () => {
         return;
     }
   };
+  const onSubmit = (values, { setSubmitting }) => {
+    dispatch(
+      addTask({
+        title: title,
+        description: description,
+        priority: priority,
+        column: columnId,
+      })
+    );
+    setTitle('');
+    setDescription('');
+    setPriority('');
+    setSubmitting(false);
+    toggleModal();
+  };
 
   return (
     <div>
-      <button onClick={toggleModal}>Відкрити модалку</button>
+      <Button icon="true" text="Add another card" onClick={toggleModal} />
       {isModalOpen && (
         <Modal onClose={toggleModal}>
           <Formik
             initialValues={initialValues}
             validationSchema={registerSchema}
-            onSubmit={(values, { setSubmitting }) => {
-              dispatch(
-                addTask({
-                  title: title,
-                  description: description,
-                  priority: priority,
-                  column: column,
-                })
-              );
-              setTitle('');
-              setDescription('');
-              setPriority('');
-              setSubmitting(false);
-            }}
+            onSubmit={onSubmit}
           >
             {({ setFieldValue }) => (
               <Form autoComplete="off">
@@ -121,6 +124,7 @@ export const AddTaskCard = () => {
                   onClick={() => {
                     setFieldValue('title', title);
                     setFieldValue('description', description);
+                    // toggleModal();
                   }}
                 >
                   <svg className={styles.btnIcon}>

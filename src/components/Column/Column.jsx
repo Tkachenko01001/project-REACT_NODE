@@ -2,14 +2,21 @@ import { useState } from 'react';
 import Modal from '../Modal/Modal';
 import sprite from '../../images/sprite.svg';
 import styles from './Column.module.css';
-import Button from 'components/Button/Button';
 import Card from 'components/Card/Card';
 import EditColumn from 'components/PopUps/EditColumn/EditColumn';
+import { AddTaskCard } from 'components/AddTaskCard/AddTaskCard';
+import { deleteColumn } from 'redux/boards/operations';
+import { useDispatch } from 'react-redux';
 
 const Column = ({ column }) => {
-  const { title, tasks } = column;
+  const { _id, title, tasks } = column;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
+  const dispatch = useDispatch();
+
+  const onDeleteClick = () => {
+    dispatch(deleteColumn(_id));
+  };
 
   return (
     <div className={styles.column__container}>
@@ -27,7 +34,10 @@ const Column = ({ column }) => {
               <use href={sprite + '#icon-pencil'} />
             </svg>
           </button>
-          <button className={styles.columnHeader__button}>
+          <button
+            className={styles.columnHeader__button}
+            onClick={onDeleteClick}
+          >
             <svg
               width={16}
               height={16}
@@ -49,10 +59,10 @@ const Column = ({ column }) => {
           ))}
         </ul>
       )}
-      <Button icon="true" text="Add card" />
+      <AddTaskCard columnId={_id} />
       {isModalOpen && (
         <Modal onClose={toggleModal}>
-          <EditColumn />
+          <EditColumn id={_id} title={title} onClose={toggleModal} />
         </Modal>
       )}
     </div>

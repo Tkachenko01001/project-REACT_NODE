@@ -1,8 +1,14 @@
+import { deleteTask } from 'redux/boards/operations';
 import sprite from '../../images/sprite.svg';
 import styles from './Card.module.css';
+import { useDispatch } from 'react-redux';
 
 const Card = ({ task }) => {
-  const { title, description, priority, deadline } = task;
+  const { _id: id, title, description, priority, deadline } = task;
+  const dispatch = useDispatch();
+  const onDeleteClick = () => {
+    dispatch(deleteTask(id));
+  };
   return (
     <div className={styles.card}>
       <div className={styles.textWrapper}>
@@ -61,7 +67,7 @@ const Card = ({ task }) => {
             </button>
           </li>
           <li className={styles.cardIcon}>
-            <button className={styles.cardButton}>
+            <button className={styles.cardButton} onClick={onDeleteClick}>
               <svg
                 width={16}
                 height={16}
