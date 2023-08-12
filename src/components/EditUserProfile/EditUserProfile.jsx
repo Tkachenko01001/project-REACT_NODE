@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../Modal/Modal';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { object, string, mixed } from 'yup';
+import { object, string } from 'yup';
 import { EyeOpen } from '../AuthForm/EyeOpen/EyeOpen';
 import { EyeClose } from '../AuthForm/EyeClose/EyeClose';
 import { Loader } from '../Loader/Loader';
@@ -12,22 +12,19 @@ import { Previews } from 'components/AvatarModal/AvatarModal';
 import { updateUser } from 'redux/auth/operations';
 import { selectUser } from 'redux/auth/selectors';
 
-export const registerSchema = object({
-  avatarURL: mixed().required('Image is required'),
+const updateUserSchema = object({
   name: string()
     .min(2, 'minimum 2 characters')
     .max(32, 'maximum 32 characters')
     .test(
       'only-allowed-chars',
-      'password can contain: only Latin, numbers, special characters',
+      'name can contain: only Latin, numbers, special characters',
       value => /^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/.test(value)
     )
-    .matches(/^[a-zA-Z0-9 !@#$%^&*()_+,.:;’“?/-]+$/, 'Invalid name format')
-    .required(),
+    .matches(/^[a-zA-Z0-9 !@#$%^&*()_+,.:;’“?/-]+$/, 'Invalid name format'),
   email: string()
     .email()
-    .matches(/^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}$/, 'Invalid email format')
-    .required(),
+    .matches(/^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}$/, 'Invalid email format'),
   password: string()
     .min(8, 'minimum 8 characters')
     .max(64, 'maximum 64 characters')
@@ -41,8 +38,7 @@ export const registerSchema = object({
       'password can contain: only Latin, numbers, special characters',
       value => /^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/.test(value)
     )
-    .matches(/^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/, 'Invalid password format')
-    .required(),
+    .matches(/^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/, 'Invalid password format'),
 });
 
 export const EditUserProfile = () => {
@@ -50,7 +46,7 @@ export const EditUserProfile = () => {
   const user = useSelector(selectUser);
 
   const initialValues = {
-    avatarURL: user.avatarURL,
+    avatar: null,
     name: user.name,
     email: user.email,
     password: '',
@@ -73,25 +69,22 @@ export const EditUserProfile = () => {
     );
   };
 
-  const handleSubmit = (values, { setSubmitting, resetForm }) => {
-              dispatch(
-                updateUser({
-                  // avatarURL: avatarURL,
-                  name: values.name,
-                  // email: email.toLowerCase(),
-                  // password: password,
-                })
-              );
-              // console.log(
-              //   'Avatar URL:',
-              //   values.avatarURL ? URL.createObjectURL(values.avatarURL) : null
-              // );
-
-              console.log(values);
-
-              // setSubmitting(false);
-              // resetForm();
-            }
+  const handleSubmit = async (values, { setSubmitting, resetForm }) => {
+    setSubmitting(true);
+    let formData = new FormData();
+    formData.set('name', values.name);
+    formData.set('email', values.email);
+    if (values.avatar) formData.set('avatar', values.avatar);
+    if (values.password) formData.set('password', values.password);
+    try {
+      await dispatch(updateUser(formData));
+      resetForm();
+      setIsModalOpen(false);
+    } catch (error) {
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
@@ -102,8 +95,9 @@ export const EditUserProfile = () => {
       {isModalOpen && (
         <Modal onClose={toggleModal}>
           <Formik
+            autoComplete="off"
             initialValues={initialValues}
-            validationSchema={registerSchema}
+            validationSchema={updateUserSchema}
             onSubmit={handleSubmit}
           >
             {({ errors, values, setFieldValue }) => (
@@ -111,15 +105,13 @@ export const EditUserProfile = () => {
                 <div className={styles.wrap}>
                   <p className={styles.title}>Edit profile</p>
                   <Previews
-                    value={user.avatarURL}
                     onImageSelect={selectedImage => {
-                      setFieldValue('avatarURL', selectedImage.file);
+                      setFieldValue('avatar', selectedImage);
                     }}
                   />
                 </div>
                 <div className={styles.wrap}>
                   <Field
-                    autoComplete="off"
                     className={styles.input}
                     type="text"
                     name="name"
@@ -129,7 +121,6 @@ export const EditUserProfile = () => {
                 </div>
                 <div className={styles.wrap}>
                   <Field
-                    autoComplete="off"
                     className={styles.input}
                     type="email"
                     name="email"
@@ -139,7 +130,6 @@ export const EditUserProfile = () => {
                 </div>
                 <div className={styles.wrap}>
                   <Field
-                    autoComplete="off"
                     className={styles.input}
                     type={passwordShown ? 'text' : 'password'}
                     name="password"
