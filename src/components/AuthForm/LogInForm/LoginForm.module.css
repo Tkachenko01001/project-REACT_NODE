@@ -67,8 +67,37 @@
   transition: background-color 250ms linear, box-shadow 250ms linear;
 }
 
-.btn:hover {
+.authGoogleLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 24px;
+  height: 49px;
+  background-color: var(--color-green);
+  color: var(--color-dark);
+
+  font-family: var(--font-medium);
+  font-size: 14px;
+  line-height: normal;
+  letter-spacing: -0.28px;
+
+  text-align: center;
+  cursor: pointer;
+  padding: 14px 0px;
+  border: 0px;
+  border-radius: 8px;
+
+  transition: background-color 250ms linear, box-shadow 250ms linear;
+}
+
+.btn:hover,
+.authGoogleLink:hover {
   background-color: var(--color-hover-green);
+}
+
+.googleIcon {
+  margin-right: 5px;
 }
 
 .wrap {

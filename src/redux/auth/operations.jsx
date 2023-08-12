@@ -50,6 +50,14 @@ export const logIn = createAsyncThunk(
   }
 );
 
+export const logInWithGoogle = createAsyncThunk(
+  'auth/google',
+  (credentials) => {
+    setAuthHeader(credentials.accessToken);
+    return credentials;
+  }
+);
+
 /*
  * POST @ /users/logout
  * headers: Authorization: Bearer token

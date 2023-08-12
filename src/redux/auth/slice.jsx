@@ -6,6 +6,7 @@ import {
   refreshUser,
   changeTheme,
   updateUser,
+  logInWithGoogle,
 } from './operations';
 
 const initialState = {
@@ -121,6 +122,7 @@ const authSlice = createSlice({
     builder.addCase(logIn.pending, signInPending);
     builder.addCase(logIn.fulfilled, signInFulfilled);
     builder.addCase(logIn.rejected, signInRejected);
+    builder.addCase(logInWithGoogle.fulfilled, signInFulfilled);
     builder.addCase(logOut.pending, logOutPending);
     builder.addCase(logOut.fulfilled, logOutFulfilled);
     builder.addCase(logOut.rejected, logOutRejected);

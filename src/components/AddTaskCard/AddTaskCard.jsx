@@ -8,10 +8,16 @@ import styles from './AddTaskCard.module.css';
 import sprite from '../../images/sprite.svg';
 import Button from 'components/Button/Button';
 
+// додавання календаря
+import CustomMonthLayout from 'components/Calendar/Calendar';//delete//
+import { format } from 'date-fns';
+const today=new Date();
+
 const initialValues = {
   title: '',
   description: '',
   priority: '',
+  deadline:today,//календар//
 };
 
 const registerSchema = object({
@@ -30,6 +36,8 @@ export const AddTaskCard = ({ columnId }) => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
+
+  const [daySelected, setDaySelected] = useState (today); //календар//
 
   const radioOptions = [
     { color: '#8fa1d0', priority: 'low' },
@@ -117,6 +125,8 @@ export const AddTaskCard = ({ columnId }) => {
                     ))}
                   </div>
                 </div>
+
+                <CustomMonthLayout daySelected={daySelected} setDaySelected={setDaySelected}/>
 
                 <button
                   className={styles.btn}
