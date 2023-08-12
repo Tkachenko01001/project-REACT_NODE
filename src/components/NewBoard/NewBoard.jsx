@@ -3,22 +3,14 @@ import { useDispatch } from 'react-redux';
 import { addBoard } from 'redux/boards/operations';
 import sprite from '../../images/sprite.svg';
 import Modal from '../Modal/Modal';
-import css from '../Sidebar/Sidebar.module.css';
 import styles from './NewBoard.module.css';
 
 import { backgrounds } from 'constants/backgrounds';
 import { icons } from 'constants/icons';
 
-import { useSelector } from 'react-redux';
-import { selectTheme } from 'redux/auth/selectors';  
-
-const NewBoard = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const toggleModal = () => setIsModalOpen(state => !state);
+const NewBoard = ({ toggleModal }) => {
   const [icon, setIcon] = useState('icon-project');
-  const [background, setBackground] = useState(null);
-
-  const theme = useSelector(selectTheme);
+  const [background, setBackground] = useState(null);  
 
   const dispatch = useDispatch();
 
@@ -41,23 +33,6 @@ const NewBoard = () => {
   };
 
   return (
-    <div
-        className={
-          (theme === 'dark' && css.dark) ||
-          (theme === 'light' && css.light) ||
-          (theme === 'violet' && css.violet)
-        }
-      >
-      <button
-        onClick={toggleModal}
-        className={css.sidebarBoardButton}
-        type="button"
-      >
-        <svg className={theme === 'violet' ? css.sidebarBoardIconViolet : css.sidebarBoardIconGreen}>
-          <use href={sprite + '#icon-plus'}></use>
-        </svg>
-      </button>
-      {isModalOpen && (
         <Modal onClose={toggleModal}>
           <form onSubmit={handleSubmit}>
             <h1 className={styles.title}>New Board</h1>
@@ -143,9 +118,7 @@ const NewBoard = () => {
             </button>
           </form>
         </Modal>
-      )}
-    </div>
-  );
+       );
 };
 
 export default NewBoard;

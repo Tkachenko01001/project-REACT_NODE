@@ -3,7 +3,7 @@ import sprite from '../../images/sprite.svg';
 import { logOut } from 'redux/auth/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectBoardsList } from 'redux/boards/selectors';
-import NewBoard from 'components/NewBoard/NewBoard';
+import NewBoardButton from 'components/NewBoardButton/NewBoardButton';
 import EditBoard from 'components/EditBoard/EditBoard';
 import { NeedHelp } from 'components/NeedHelp/NeedHelp';
 import { useEffect } from 'react';
@@ -50,7 +50,7 @@ const Sidebar = () => {
           </div>
           <section className={css.sidebarBoard}>
             <p className={css.sidebarBoardItem}>Create a new board</p>
-            <NewBoard />
+            <NewBoardButton />
           </section>
           {allBoards && (
             <ul className={css.sidebarNewBoard}>

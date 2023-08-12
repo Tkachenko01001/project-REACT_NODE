@@ -37,6 +37,7 @@
   margin: 0;
   margin-top: 10px;
   position: fixed;
+  background-color: inherit;
   /* background-color: var(--color-dark); */
   transform: scaleY(0);
   transform-origin: top;

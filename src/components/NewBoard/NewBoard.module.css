@@ -128,8 +128,8 @@
 
 .input_png:checked + label > img {
   opacity: 1;
-  border-radius: 7px;
-  border: 1px solid white;
+  border-radius: 6px;
+  border: 1.5px solid white;
 }
 
 .label_png {
@@ -144,7 +144,7 @@
 }
 
 .png:hover {
-  opacity: 40%;
+  transform: scale(1.2);
 }
 .btn {
   width: 100%;
@@ -168,10 +168,6 @@
   line-height: normal;
   letter-spacing: -0.28px;
 }
-
-/* .btn:hover {
-  background: var();
-} */
 
 .icon {
   border-radius: 8px;
