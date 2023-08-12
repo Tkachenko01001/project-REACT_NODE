@@ -47,7 +47,7 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.accessToken);
       return res.data;
     } catch (error) {         
-      Swal.fire(error.response.data.message)
+      Swal.fire('Uups, you entered incorrect email or password!')
       return thunkAPI.rejectWithValue(error.response.data.message);
       
     }
