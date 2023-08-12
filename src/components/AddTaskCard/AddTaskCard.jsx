@@ -10,7 +10,7 @@ import Button from 'components/Button/Button';
 
 // додавання календаря
 import CustomMonthLayout from 'components/Calendar/Calendar';//delete//
-// import { format } from 'date-fns';
+import { format } from 'date-fns';
 const today=new Date();
 
 const initialValues = {
@@ -65,6 +65,7 @@ export const AddTaskCard = ({ columnId }) => {
         title: title,
         description: description,
         priority: priority,
+        deadline: format(daySelected, 'dd/MM/yyyy'),
         column: columnId,
       })
     );
