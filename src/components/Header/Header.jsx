@@ -8,11 +8,9 @@ import { ThemeMenu } from 'components/ThemeMenu/ThemeMenu';
 import { EditUserProfile } from 'components/EditUserProfile/EditUserProfile';
 import { selectTheme } from 'redux/auth/selectors';
 
-
 const Header = () => {
   const user = useSelector(selectUser);
   const theme = useSelector(selectTheme);
-
 
   return (
     <div
@@ -33,6 +31,7 @@ const Header = () => {
             />
           </button>
         </div>
+        
         <div className={css.headerSelect}>
           <ThemeMenu />
           <ul className={css.userInfo}>
