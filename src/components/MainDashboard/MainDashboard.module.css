@@ -1,13 +1,14 @@
 .container {
   padding: 14px 24px 0px;
   display: flex;
-  justify-content: center;
+  gap: 34px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .container {
     padding: 14px 24px 0px;
     display: inline-block;
+    justify-content: center;
   }
 }
 
@@ -40,4 +41,5 @@
 /* Columns */
 .columnList {
   display: flex;
+  gap: 34px;
 }

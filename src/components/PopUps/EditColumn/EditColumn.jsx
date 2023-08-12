@@ -7,7 +7,6 @@ import { updateColumn } from 'redux/boards/operations';
 export default function EditColumn({ id, title, onClose }) {
   const dispatch = useDispatch();
   const [newTitle, setNewTitle] = useState(title);
-  console.log(id);
 
   const changeTitle = event => {
     setNewTitle(event.target.value);

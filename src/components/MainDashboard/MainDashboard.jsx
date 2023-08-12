@@ -40,13 +40,12 @@ const MainDashboard = () => {
                 ))}
               </ul>
             )}
-            <button className={styles.button}>
+            <button className={styles.button} onClick={toggleModal}>
               <svg
                 width={28}
                 height={28}
                 aria-label="plus"
                 className={styles.svg}
-                onClick={toggleModal}
               >
                 <title>Plus Icon</title>
                 <use href={sprite + '#icon-plus'} />
