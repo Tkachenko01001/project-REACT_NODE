@@ -11,7 +11,6 @@ import { NeedHelp } from 'components/NeedHelp/NeedHelp';
 import DeleteBoard from 'components/DeleteBoard/DeleteBoard';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import EditBoard from 'components/EditBoard/EditBoard';
 
 const Sidebar = ({active}) => {
   const dispatch = useDispatch();
@@ -35,12 +34,9 @@ const Sidebar = ({active}) => {
       }
     >
       <aside
-        className={active ? css.active : css.sidebar}
-        // onClick={() => {
-        //   setActive(false);
-        // }}
+        className={active ? css.active : css.sidebar}        
       >
-        <div className={css.sidebarStop} /*onClick={e => e.stopPropagation()}*/>
+        <div className={css.sidebarStop}>
           <section className={css.sidebarBox}>
             <svg className={css.sidebarBoxIcon}>
               <use href={sprite + '#icon-icon-dark'}></use>

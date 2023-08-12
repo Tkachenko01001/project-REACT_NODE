@@ -1,23 +1,12 @@
 import css from './Header.module.css';
 import Icon from 'components/Icon/Icon';
 import { ThemeMenu } from 'components/ThemeMenu/ThemeMenu';
-// import Sidebar from 'components/Sidebar/Sidebar';
 import { EditUserProfile } from 'components/EditUserProfile/EditUserProfile';
 import { selectUser } from 'redux/auth/selectors';
 import { selectTheme } from 'redux/auth/selectors';
 import { useSelector } from 'react-redux';
 
-// import { useState } from 'react';
-
 const Header = ({ click }) => {
-  // // My fix
-  // const [menuActive, setMenuActive] = useState(false);
-
-  // const handleClick = () => {
-  //   setMenuActive(true);
-  //   console.log(menuActive);
-  // };
-  // // My fix
   const user = useSelector(selectUser);
   const theme = useSelector(selectTheme);
 
@@ -32,7 +21,6 @@ const Header = ({ click }) => {
       <div className={css.header}>
         <div className={css.burgerMenu}>
           <button onClick={click} className={css.burgerStyle}>
-            c
             <Icon
               className={css.burgerIcon}
               name="#icon-menu"
@@ -52,7 +40,6 @@ const Header = ({ click }) => {
           </ul>
         </div>
       </div>
-      {/* <Sidebar active={menuActive} setActive={setMenuActive} /> */}
     </div>
   );
 };
