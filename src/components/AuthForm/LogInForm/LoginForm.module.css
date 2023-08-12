@@ -124,6 +124,5 @@
   right: 8px;
   font-family: var(--font-regular);
   font-size: 16px;
-  /* color: var(--color-red); */
   color: var(--color-hover-green);
 }
