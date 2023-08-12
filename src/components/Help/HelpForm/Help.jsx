@@ -87,7 +87,7 @@ export const HelpForm = () => {
               value={email}
               onChange={handleChange}
             />
-            <input
+            <textarea
               className={styles.inputComment}
               type="text"
               name="comment"
