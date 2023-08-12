@@ -2,17 +2,22 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { deleteBoard } from 'redux/boards/operations';
-import { selectIsBoardsLoading } from 'redux/boards/selectors';
+import {
+  selectActiveBoard,
+  selectIsBoardsLoading,
+} from 'redux/boards/selectors';
 
 import sprite from '../../images/sprite.svg';
 import css from '../Sidebar/Sidebar.module.css';
 import styles from './ModalBoard.module.css';
 import ModalPortal from './ModalPortal';
 
-const DeleteBoard = ({ id, columns, checked }) => {
+const DeleteBoard = ({ checked }) => {
+  const activeBoard = useSelector(selectActiveBoard);
+  const { id, columns } = activeBoard;
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
   const [startLoading, setStartLoading] = useState(false);
-
+  console.log(columns);
   const dispatch = useDispatch();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -48,21 +53,32 @@ const DeleteBoard = ({ id, columns, checked }) => {
               first!
             </h3>
           )}
-
-          <button
-            className={styles.btn}
-            type="button"
-            disabled={isBoardsLoading}
-            onClick={handleAgreement}
-          >
-            {startLoading && isBoardsLoading && (
-              <ClipLoader color="#1f1f1f" size={30} />
-            )}
-            Yes
-          </button>
-          <button className={styles.btn} type="button" onClick={toggleModal}>
-            No
-          </button>
+          {columns.length !== 0 ? (
+            <button className={styles.btn} type="button" onClick={toggleModal}>
+              Close
+            </button>
+          ) : (
+            <>
+              <button
+                className={styles.btn}
+                type="button"
+                disabled={isBoardsLoading}
+                onClick={handleAgreement}
+              >
+                {startLoading && isBoardsLoading && (
+                  <ClipLoader color="#1f1f1f" size={30} />
+                )}
+                Yes
+              </button>
+              <button
+                className={styles.btn}
+                type="button"
+                onClick={toggleModal}
+              >
+                No
+              </button>
+            </>
+          )}
         </ModalPortal>
       )}
     </div>

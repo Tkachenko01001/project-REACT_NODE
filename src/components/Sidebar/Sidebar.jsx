@@ -97,16 +97,9 @@ const Sidebar = () => {
                         <div className={css.flex}>
                           <EditBoard
                             checked={activeBoard === board._id}
-                            id={board._id}
                             title={board.title}
-                            icon={board.icon}
-                            background={board.background}
                           />
-                          <DeleteBoard
-                            checked={activeBoard === board._id}
-                            id={board._id}
-                            columns={board.columnOrder}
-                          />
+                          <DeleteBoard checked={activeBoard === board._id} />
                         </div>
                       </div>
                     </div>
