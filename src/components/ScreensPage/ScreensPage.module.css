@@ -1,6 +1,6 @@
 .headerDashboardSection {
   /* background-color: var(--bg-color-form-input); */
-  height: calc(100vh - 111px);
+  height: calc(100vh - 122px);
 }
 .dark {
   background-color: var(--bg-color-form-input);
@@ -36,7 +36,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 122px);
 }
 
 @media screen and (max-width: 768px) {
