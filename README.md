@@ -104,7 +104,8 @@ using project-REACT_NODE.
   ![JavaScrip](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 - React
   ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-- Redux
+- ![Redux](Redux
+  https://www.bing.com/images/search?view=detailV2&ccid=%2fhOdP17I&id=A526F880ED267A33ECDD57953B16CD4D56CAC48C&thid=OIP._hOdP17IpsGif29ku0E5MAHaDt&mediaurl=https%3a%2f%2fblog-geek-midia.s3.amazonaws.com%2fwp-content%2fuploads%2f2021%2f01%2f06115555%2fredux-logo.png&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.fe139d3f5ec8a6c1a27f6f64bb413930%3frik%3djMTKVk3NFjuVVw%26pid%3dImgRaw%26r%3d0&exph=600&expw=1200&q=logo+redux&simid=607991091332922628&FORM=IRPRST&ck=D74A287F38E46CDE6DB0B6E81BBE414F&selectedIndex=0&idpp=overlayview&ajaxhist=0&ajaxserp=0)
 - React Router
 - Material-UI
   ![MUI](https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white)
