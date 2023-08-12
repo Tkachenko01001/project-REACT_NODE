@@ -11,16 +11,15 @@ const ScreensPage = () => {
 
   const theme = useSelector(selectTheme);
   const activeBoard = useSelector(selectActiveBoard);
-  
-useEffect(() => {
-  if (activeBoard && activeBoard.background) {
-    setActiveBg(activeBoard.background);
-  } else {
-    setActiveBg(null);
-  }
-}, [activeBoard]);
-  
-  
+
+  useEffect(() => {
+    if (activeBoard && activeBoard.background) {
+      setActiveBg(activeBoard.background);
+    } else {
+      setActiveBg(null);
+    }
+  }, [activeBoard]);
+
   return (
     <div
       className={
@@ -29,14 +28,16 @@ useEffect(() => {
         (theme === 'violet' && css.violet)
       }
     >
-      <section
-        className={`${css.headerDashboardSection} ${
-          activeBg &&
-          (css[`bg${activeBg.charAt(0).toUpperCase() + activeBg.slice(1)}`])
-        }`}
-      >
+      <section>
         <HeaderDashboard />
-        <MainDashboard />
+        <div
+          className={`${css.headerDashboardSection} ${
+            activeBg &&
+            css[`bg${activeBg.charAt(0).toUpperCase() + activeBg.slice(1)}`]
+          }`}
+        >
+          <MainDashboard />
+        </div>
       </section>
     </div>
   );
