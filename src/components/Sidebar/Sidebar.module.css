@@ -4,7 +4,7 @@
   /* transition: transform 300ms; */
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1440px) {
   .sidebar {
     display: flex;
     flex-direction: column;
