@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import sprite from '../../images/sprite.svg';
 import css from '../Modal/Modal.module.css';
+// const modalRoot = document.getElementById('#modal-root');
 
 export default function ModalPortal({ onClose, children }) {
   useEffect(() => {
@@ -23,7 +24,12 @@ export default function ModalPortal({ onClose, children }) {
       onClose();
     }
   };
+  const portalContainerId = 'modal-root';
 
+  const portalContainer = document.getElementById(portalContainerId);
+  if (!portalContainer) {
+    return null;
+  }
   const modalContent = (
     <div
       className={
@@ -46,5 +52,5 @@ export default function ModalPortal({ onClose, children }) {
     </div>
   );
 
-  return ReactDOM.createPortal(modalContent, document.body);
+  return ReactDOM.createPortal(modalContent, portalContainer);
 }
