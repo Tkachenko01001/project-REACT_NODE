@@ -28,7 +28,7 @@ const ScreensPage = () => {
         (theme === 'violet' && css.violet)
       }
     >
-      <section className={css.section}>
+      <section>
         <HeaderDashboard />
         <div
           className={`${css.headerDashboardSection} ${
