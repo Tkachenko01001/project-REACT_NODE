@@ -1,101 +1,98 @@
 # project-REACT_NODE
 
-![project-REACT_NODE](./src/images/)
+![project-REACT_NODE](./src/images/readmeScreens/wellcome.png)
 
 **[project-REACT_NODE](https://tkachenko01001.github.io/project-REACT_NODE/home)** -
-це онлайн-інструмент для керування своїми проектами, шляхом створення дошок,
-списків та карток, який допомагає організовувати завдання та проекти у формі
-візуальної дошки.
+an online tool for managing your projects by creating boards, lists, and cards
+that help organize tasks and projects in a visual board format.
 
-**Дошки** - це основний елемент організації в project-REACT_NODE, який допомагає
-вам структурувати ваші завдання та проекти. Дошка в project-REACT_NODE має
-списки та картки, які допомагають вам відстежувати прогрес, розподіляти завдання
-і здійснювати співпрацю з командою.
+**Boards** - are the primary organizational element in project-REACT_NODE,
+helping you structure your tasks and projects. A project-REACT_NODE board
+consists of lists and cards, aiding in tracking progress, task distribution, and
+collaboration with teams.
 
 ![project-REACT_NODE](./src/images/) ![project-REACT_NODE](./src/images/)
 
-**Списки** - це основний компонент дошки, який допомагає вам організувати
-завдання та інші елементи. Кожна дошка в project-REACT_NODE має список(-и), а в
-кожному списку можуть бути різні картки.
+**Lists** - serve as the core component of a board, assisting in organizing
+tasks and other elements. Each project-REACT_NODE board contains one or more
+lists, and within each list, there can be various cards.
 
 ![project-REACT_NODE](./src/images/)
 
-**Картки** - це окремі елементи, які представляють завдання, задачі або інші
-робочі одиниці. Вони є базовими одиницями організації на дошці
-project-REACT_NODE. Кожна "картка" має свій власний заголовок, опис, дату
-завершення, мітки, коментарі та інші атрибути, які допомагають описати та
-керувати завданням. Ви можете переміщувати "картки" між списками на вашій дошці,
-щоб показати їхній поточний стан. "Картки" дуже гнучкі, і їх можна
-використовувати для будь-якого виду завдань або проектів, від особистих до
-командних. Вони допомагають організовувати роботу, зберігати інформацію та
-відстежувати прогрес.
+**Cards** - represent individual items such as tasks, assignments, or other work
+units. They constitute the fundamental units of organization on the
+project-REACT_NODE board. Each "card" has its own title, description, due date,
+labels, comments, and other attributes that aid in task description and
+management. You can move cards between lists on your board to indicate their
+current status. Cards are highly flexible and can be used for any type of tasks
+or projects, from personal to collaborative. They aid in organizing work,
+storing information, and tracking progress.
 
 ![project-REACT_NODE](./src/images/)
 
-**Терміни та сповіщення:** Ви можете призначати крайні терміни (дедлайни) для
-кожної "картки" на вашій дошці. Це дозволяє вам відстежувати, коли конкретне
-завдання повинно бути завершено. Коли наближається крайній термін,
-project-REACT_NODE може надсилати вам сповіщення.
+**Due Dates and Notifications:** You can assign due dates (deadlines) to each
+card on your board. This allows you to track when specific tasks need to be
+completed. As a deadline approaches, project-REACT_NODE can send you
+notifications.
 
 ![project-REACT_NODE](./src/images/)
 
-**Мітки та кольори** - це корисні функції, які допомагають вам краще
-організувати та виділяти різні елементи на вашій дошці. Ось як ці функції
-працюють: Мітки - це позначки, які можна додати до "карток" на вашій дошці. Вони
-допомагають вам класифікувати та групувати ваші завдання або елементи за певними
-критеріями. Наприклад, ви можете використовувати мітки для позначення
-пріоритетності завдань, типу завдань або будь-яких інших категорій, які важливі
-для вашого проекту. Кольори: Ви можете додати кольорові позначки до "списків" на
-вашій дошці. Це допомагає візуально відокремити різні частини вашої роботи.
-Наприклад, ви можете використовувати різні кольори для різних типів завдань або
-різних етапів проекту. Щоб використовувати мітки та кольори в Trello, вам
-потрібно відкрити "картку" чи "список", до яких ви хочете додати мітки або
-кольори, і обрати відповідні позначки чи кольори з відповідних меню. Це допоможе
-вам легше відстежувати та розпізнавати різні елементи на вашій дошці.
+**Labels and Colors** - are useful features that help you better organize and
+highlight various elements on your board. Here's how these functions work:
+Labels are markers that can be added to cards on your board. They help you
+classify and group your tasks or items based on specific criteria. For instance,
+you can use labels to denote task priorities, task types, or any other
+categories relevant to your project. Colors: You can add colored labels to lists
+on your board. This visually distinguishes different parts of your work. For
+example, you can use different colors for different task types or project
+stages. To use labels and colors in Trello, you need to open the "card" or
+"list" to which you want to add labels or colors and select the appropriate
+markers or colors from the respective menus. This helps you easily track and
+recognize different elements on your board.
 
 ![project-REACT_NODE](./src/images/)
 
-**Зміна теми:** Змінюючи тему до більш сприятливої для вас, ви можете
-підкреслити свій особистий стиль або відчуття. Вибір кольорів, шрифтів та інших
-візуальних елементів допоможе створити для вас комфортне робоче середовище.
+**Theme Customization:** By changing the theme to one that suits you, you can
+emphasize your personal style or preference. Choosing colors, fonts, and other
+visual elements helps create a comfortable working environment for you.
 
 ![project-REACT_NODE](./src/images/)
 
-**Зміна фону дошок:** Зміна фону дошки може допомогти вам візуально відрізнити
-різні проекти або категорії завдань. Це особливо корисно, якщо у вас є кілька
-дошок для різних цілей.
+**Board Background Changes:** Altering the board's background can help visually
+differentiate between various projects or task categories. This is particularly
+useful if you have multiple boards for different purposes.
 
 ![project-REACT_NODE](./src/images/)
 
-**Респонсивний дизайн та підтримка мобільних пристроїв:** Дозволяє
-project-REACT_NODE належним чином відображатися і працювати на різних пристроях
-з різними розмірами екранів, такими як комп'ютери, планшети та смартфони.
+**Responsive Design and Mobile Support:** project-REACT_NODE is designed to
+properly display and function on different devices with varying screen sizes,
+including computers, tablets, and smartphones.і
 
 ![project-REACT_NODE](./src/images/)
 
-**Редагування профілю користувача:** Дозволяє користувачам оновлювати свої
-особисті дані та налаштування з метою збереження актуальної інформації та
-персоналізації при використані project-REACT_NODE.
+**User Profile Editing:** Allows users to update their personal information and
+settings to maintain current information and personalize their experience when
+using project-REACT_NODE.
 
 ![project-REACT_NODE](./src/images/)
 
-## Для користувача
+## For Users
 
 **[project-REACT_NODE](https://tkachenko01001.github.io/project-REACT_NODE/home)**
 
-## Для розробника
+## For Developers
 
-**Установка:**
+**Installation:**
 
-1. Склонуйте репозиторій:git clone
+1. Clone the repository: git clone
    https://github.com/Tkachenko01001/project-REACT_NODE/tree/main
-2. Перейдіть до директорії проекту: cd project-REACT_NODE
-3. Встановіть залежності: npm install
+2. Navigate to the project directory: cd project-REACT_NODE
+3. Install dependencies: npm install
 
-**Використання:**
+**Usage:**
 
-1. Запустіть проект: npm start
-2. Відкрийте браузер та перейдіть за адресою: http://localhost:3000
+1. Run the project: npm start
+2. Open a browser and navigate to: http://localhost:3000
 
 ## Технології:
 
@@ -113,7 +110,7 @@ project-REACT_NODE належним чином відображатися і п�
 
 - Mongo DB
 
-**Автори проекту:**
+**Project Authors:**
 
 - https://www.linkedin.com/in/maksym-ostapchukk/
 - https://www.linkedin.com/in/nataly-moskalenko/
