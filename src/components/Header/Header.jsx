@@ -1,14 +1,12 @@
 import css from './Header.module.css';
-
-import { useSelector } from 'react-redux';
-import { selectUser } from 'redux/auth/selectors';
-
 import Icon from 'components/Icon/Icon';
 import { ThemeMenu } from 'components/ThemeMenu/ThemeMenu';
 import { EditUserProfile } from 'components/EditUserProfile/EditUserProfile';
+import { selectUser } from 'redux/auth/selectors';
 import { selectTheme } from 'redux/auth/selectors';
+import { useSelector } from 'react-redux';
 
-const Header = () => {
+const Header = ({ click }) => {
   const user = useSelector(selectUser);
   const theme = useSelector(selectTheme);
 
@@ -22,7 +20,7 @@ const Header = () => {
     >
       <div className={css.header}>
         <div className={css.burgerMenu}>
-          <button className={css.burgerStyle}>
+          <button onClick={click} className={css.burgerStyle}>
             <Icon
               className={css.burgerIcon}
               name="#icon-menu"
