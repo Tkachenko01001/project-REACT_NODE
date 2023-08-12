@@ -52,3 +52,7 @@
   font-size: var(--rdp-caption-font-size);
   font-weight: bold; */
 }
+
+p{
+color: white;
+}

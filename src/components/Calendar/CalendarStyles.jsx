@@ -80,3 +80,23 @@ const theme = createTheme({
   //     </button>
   //     <CustomMonthLayout isModalOpen={isModalOpen} toggleModal={toggleModal}/>
   //   </div>
+
+
+//   import { useState } from 'react';
+// import { format } from 'date-fns';//delete//
+// import CustomMonthLayout from 'components/Calendar/Calendar';//delete//
+
+
+// const today=new Date();//delete//
+
+
+// const [isOpen, setIsOpen] = useState(false);//delete//
+// const toggleModal = () => setIsOpen(state => !state);//delete//
+//   const [daySelected, setDaySelected] = useState (today); //delete//
+//   console.log(daySelected)//delete//
+
+//   <li>{/*delete*/}
+// <button onClick={toggleModal}>Deadline {format(daySelected, 'PP')}</button> {/*delete*/}
+// </li>{/*delete*/}
+
+{/* <CustomMonthLayout isModalOpen={isOpen} toggleModal={toggleModal} daySelected={daySelected} setDaySelected={setDaySelected}/> delete */}
