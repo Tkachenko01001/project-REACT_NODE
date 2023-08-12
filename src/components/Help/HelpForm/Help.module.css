@@ -57,7 +57,7 @@
 }
 
 .textarea::-webkit-scrollbar {
-  width: 5px; /* Ширина скролу */
+  width: 3px; /* Ширина скролу */
   background-color: transparent; /* Колір фону скролу */
 }
 
