@@ -3,7 +3,6 @@
   color: var(--color-white);
   stroke: var(--color-white);
   fill: var(--bg-color-form-input);
-  padding: 20px;
   border-radius: 8px;
 }
 
@@ -22,12 +21,6 @@
 }
 
 /* Sidebar Help  */
-
-@media screen and (min-width: 768px) {
-  .sidebarHelp {
-    margin: 14px 24px 24px 24px;
-  }
-}
 
 .sidebarHelpBox {
   margin: 14px 0 19px 0;

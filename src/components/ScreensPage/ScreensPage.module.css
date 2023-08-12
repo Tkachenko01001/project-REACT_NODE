@@ -1,8 +1,7 @@
 .headerDashboardSection {
   /* background-color: var(--bg-color-form-input); */
-  height: calc(100vh - 60px);
+  height: calc(100vh - 122px);
 }
-
 .dark {
   background-color: var(--bg-color-form-input);
   color: var(--color-white);
@@ -10,12 +9,12 @@
 }
 
 .light {
-  background-color: #F6F6F7;
+  background-color: #f6f6f7;
   color: #161616;
 }
 
 .violet {
-  background-color: #ECEDFD;
+  background-color: #ecedfd;
   color: #161616;
 }
 
@@ -36,6 +35,8 @@
 .bgYacht {
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  height: calc(100vh - 122px);
 }
 
 @media screen and (max-width: 768px) {
@@ -286,130 +287,126 @@
   }
 }
 
-
 @media screen and (min-width: 768px) and (max-width: 1439px) and (min-resolution: 2dppx) {
   .bgAirBallon {
-      background-image: url(/src/images/airBalloon-tablet-2x.jpg);
-    }
-  
-    .bgBlue {
-      background-image: url(/src/images/blue-tablet-2x.jpg);
-    }
-  
-    .bgCappadocia {
-      background-image: url(/src/images/cappadocia-tablet-2x.jpg);
-    }
-  
-    .bgFlowers {
-      background-image: url(/src/images/flowers-tablet-2x.jpg);
-    }
-  
-    .bgGorge {
-      background-image: url(/src/images/gorge-tablet-2x.jpg);
-    }
-  
-    .bgGreens {
-      background-image: url(/src/images/greens-tablet-2x.jpg);
-    }
-  
-    .bgMoon {
-      background-image: url(/src/images/moon-tablet-2x.jpg);
-    }
-  
-    .bgMountains {
-      background-image: url(/src/images/mountains-tablet-2x.jpg);
-    }
-  
-    .bgRocksAndSea {
-      background-image: url(/src/images/rocksAndSea-tablet-2x.jpg);
-    }
-  
-    .bgSea {
-      background-image: url(/src/images/sea-tablet-2x.jpg);
-    }
-  
-    .bgSemiMoon {
-      background-image: url(/src/images/semiMoon-tablet-2x.jpg);
-    }
-  
-    .bgTrailer {
-      background-image: url(/src/images/trailer-tablet-2x.jpg);
-    }
-  
-    .bgTree {
-      background-image: url(/src/images/tree-tablet-2x.jpg);
-    }
-  
-    .bgVioletSphere {
-      background-image: url(/src/images/violetSphere-tablet-2x.jpg);
-    }
-  
-    .bgYacht {
-      background-image: url(/src/images/yacht-tablet-2x.jpg);
-    }
-}
+    background-image: url(/src/images/airBalloon-tablet-2x.jpg);
+  }
 
+  .bgBlue {
+    background-image: url(/src/images/blue-tablet-2x.jpg);
+  }
+
+  .bgCappadocia {
+    background-image: url(/src/images/cappadocia-tablet-2x.jpg);
+  }
+
+  .bgFlowers {
+    background-image: url(/src/images/flowers-tablet-2x.jpg);
+  }
+
+  .bgGorge {
+    background-image: url(/src/images/gorge-tablet-2x.jpg);
+  }
+
+  .bgGreens {
+    background-image: url(/src/images/greens-tablet-2x.jpg);
+  }
+
+  .bgMoon {
+    background-image: url(/src/images/moon-tablet-2x.jpg);
+  }
+
+  .bgMountains {
+    background-image: url(/src/images/mountains-tablet-2x.jpg);
+  }
+
+  .bgRocksAndSea {
+    background-image: url(/src/images/rocksAndSea-tablet-2x.jpg);
+  }
+
+  .bgSea {
+    background-image: url(/src/images/sea-tablet-2x.jpg);
+  }
+
+  .bgSemiMoon {
+    background-image: url(/src/images/semiMoon-tablet-2x.jpg);
+  }
+
+  .bgTrailer {
+    background-image: url(/src/images/trailer-tablet-2x.jpg);
+  }
+
+  .bgTree {
+    background-image: url(/src/images/tree-tablet-2x.jpg);
+  }
+
+  .bgVioletSphere {
+    background-image: url(/src/images/violetSphere-tablet-2x.jpg);
+  }
+
+  .bgYacht {
+    background-image: url(/src/images/yacht-tablet-2x.jpg);
+  }
+}
 
 @media screen and (max-width: 768px) and (min-resolution: 2dppx) {
   .bgAirBallon {
-      background-image: url(/src/images/airBalloon-mobile-2x.jpg);
-    }
-  
-    .bgBlue {
-      background-image: url(/src/images/blue-mobile-2x.jpg);
-    }
-  
-    .bgCappadocia {
-      background-image: url(/src/images/cappadocia-mobile-2x.jpg);
-    }
-  
-    .bgFlowers {
-      background-image: url(/src/images/flowers-mobile-2x.jpg);
-    }
-  
-    .bgGorge {
-      background-image: url(/src/images/gorge-mobile-2x.jpg);
-    }
-  
-    .bgGreens {
-      background-image: url(/src/images/greens-mobile-2x.jpg);
-    }
-  
-    .bgMoon {
-      background-image: url(/src/images/moon-mobile-2x.jpg);
-    }
-  
-    .bgMountains {
-      background-image: url(/src/images/mountains-mobile-2x.jpg);
-    }
-  
-    .bgRocksAndSea {
-      background-image: url(/src/images/rocksAndSea-mobile-2x.jpg);
-    }
-  
-    .bgSea {
-      background-image: url(/src/images/sea-mobile-2x.jpg);
-    }
-  
-    .bgSemiMoon {
-      background-image: url(/src/images/semiMoon-mobile-2x.jpg);
-    }
-  
-    .bgTrailer {
-      background-image: url(/src/images/trailer-mobile-2x.jpg);
-    }
-  
-    .bgTree {
-      background-image: url(/src/images/tree-mobile-2x.jpg);
-    }
-  
-    .bgVioletSphere {
-      background-image: url(/src/images/violetSphere-mobile-2x.jpg);
-    }
-  
-    .bgYacht {
-      background-image: url(/src/images/yacht-mobile-2x.jpg);
-    }
+    background-image: url(/src/images/airBalloon-mobile-2x.jpg);
+  }
+
+  .bgBlue {
+    background-image: url(/src/images/blue-mobile-2x.jpg);
+  }
+
+  .bgCappadocia {
+    background-image: url(/src/images/cappadocia-mobile-2x.jpg);
+  }
+
+  .bgFlowers {
+    background-image: url(/src/images/flowers-mobile-2x.jpg);
+  }
+
+  .bgGorge {
+    background-image: url(/src/images/gorge-mobile-2x.jpg);
+  }
+
+  .bgGreens {
+    background-image: url(/src/images/greens-mobile-2x.jpg);
+  }
+
+  .bgMoon {
+    background-image: url(/src/images/moon-mobile-2x.jpg);
+  }
+
+  .bgMountains {
+    background-image: url(/src/images/mountains-mobile-2x.jpg);
+  }
+
+  .bgRocksAndSea {
+    background-image: url(/src/images/rocksAndSea-mobile-2x.jpg);
+  }
+
+  .bgSea {
+    background-image: url(/src/images/sea-mobile-2x.jpg);
+  }
+
+  .bgSemiMoon {
+    background-image: url(/src/images/semiMoon-mobile-2x.jpg);
+  }
+
+  .bgTrailer {
+    background-image: url(/src/images/trailer-mobile-2x.jpg);
+  }
+
+  .bgTree {
+    background-image: url(/src/images/tree-mobile-2x.jpg);
+  }
+
+  .bgVioletSphere {
+    background-image: url(/src/images/violetSphere-mobile-2x.jpg);
+  }
+
+  .bgYacht {
+    background-image: url(/src/images/yacht-mobile-2x.jpg);
+  }
 }
-
-
