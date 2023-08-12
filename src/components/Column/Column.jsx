@@ -3,7 +3,7 @@ import Modal from '../Modal/Modal';
 import sprite from '../../images/sprite.svg';
 import styles from './Column.module.css';
 import Button from 'components/Button/Button';
-import Card from 'components/Card/Card';
+// import Card from 'components/Card/Card';
 import EditColumn from 'components/PopUps/EditColumn/EditColumn';
 
 // const Column = ({title, cardList}) => {
