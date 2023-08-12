@@ -1,25 +1,40 @@
-import css from '../Sidebar/Sidebar.module.css';
-import sprite from '../../images/sprite.svg';
-import { logOut } from 'redux/auth/operations';
-import { selectBoardsList } from 'redux/boards/selectors';
-import { getAllBoards } from 'redux/boards/operations';
-import { selectTheme } from 'redux/auth/selectors';
-import { useDispatch, useSelector } from 'react-redux';
-import NewBoardButton from 'components/NewBoardButton/NewBoardButton';
-import EditBoard from 'components/EditBoard/EditBoard';
+
+import DeleteBoard from 'components/ModalBoard/DeleteBoard';
+import EditBoard from 'components/ModalBoard/EditBoard';
+import NewBoard from 'components/ModalBoard/NewBoard';
+
 import { NeedHelp } from 'components/NeedHelp/NeedHelp';
-import DeleteBoard from 'components/DeleteBoard/DeleteBoard';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { Link } from 'react-router-dom';
+import { logOut } from 'redux/auth/operations';
+import { selectTheme } from 'redux/auth/selectors';
+import { getAllBoards } from 'redux/boards/operations';
+import { selectBoardsList } from 'redux/boards/selectors';
+import sprite from '../../images/sprite.svg';
+import css from '../Sidebar/Sidebar.module.css';
 
 const Sidebar = ({active}) => {
   const dispatch = useDispatch();
   const allBoards = useSelector(selectBoardsList);
   const theme = useSelector(selectTheme);
+  const firstBoard = allBoards[0];
+  const activeBoardFirstState = firstBoard ? firstBoard._id : null;
+  const [activeBoardId, setActiveBoardId] = useState(activeBoardFirstState);
 
+  const handleClickBoard = boardId => {
+    setActiveBoardId(boardId);
+  };
   useEffect(() => {
     dispatch(getAllBoards());
   }, [dispatch]);
+
+  // useEffect(() => {
+  //   if (firstBoard) {
+  //     setActiveBoardId(firstBoard._id);
+  //   }
+  // }, [firstBoard]);
 
   const handleClickLogout = () => {
     dispatch(logOut());
@@ -33,67 +48,92 @@ const Sidebar = ({active}) => {
         (theme === 'violet' && css.violet)
       }
     >
-      <aside
-        className={active ? css.active : css.sidebar}        
-      >
-        <div className={css.sidebarStop}>
-          <section className={css.sidebarBox}>
-            <svg className={css.sidebarBoxIcon}>
-              <use href={sprite + '#icon-icon-dark'}></use>
-            </svg>
-            <h2 className={css.sidebarBoxTitle}>Task Pro</h2>
-          </section>
-          <div className={css.sidebarItem}>
-            <p className={css.sidebarItemTitle}>My boards</p>
+
+      <aside className={css.sidebar}>
+        <div className={css.flexMarkup}>
+          <div className={css.partTop}>
+            <section className={css.sidebarBox}>
+              <svg className={css.sidebarBoxIcon}>
+                <use href={sprite + '#icon-icon-dark'}></use>
+              </svg>
+              <h2 className={css.sidebarBoxTitle}>Task Pro</h2>
+            </section>
+            <div className={css.sidebarItem}>
+              <p className={css.sidebarItemTitle}>My boards</p>
+            </div>
+            <section className={css.sidebarBoard}>
+              <p className={css.sidebarBoardItem}>Create a new board</p>
+              <NewBoard />
+            </section>
           </div>
-          <section className={css.sidebarBoard}>
-            <p className={css.sidebarBoardItem}>Create a new board</p>
-            <NewBoardButton />
-          </section>
-          {allBoards && (
-            <ul className={css.sidebarNewBoard}>
-              {allBoards.map(board => (
-                <li
-                  className={`${css.sidebarNewBoardList} ${css.sidebarNewBoardItem}`}
-                  key={board._id}
-                >
-                  <svg className={css.sidebarNewBoardSvg}>
-                    <use href={sprite + `#${board.icon}`} />
-                  </svg>
+
+          <section className={css.sectionBoards}>
+            {allBoards.length !== 0 && (
+              <div className={css.sidebarListBoard}>
+                {allBoards.map(board => (
                   <Link
                     to={`/home/${board._id}`}
-                    className={css.sidebarNewBoardItem}
+                    key={board._id}
+                    className={css.sideBarBoardHover}
                   >
-                    {board.title}
+                    <div
+                      className={`${css.sidebarNewBoard} ${
+                        activeBoardId === board._id ? css.activeBoard : ''
+                      }`}
+                      onClick={() => handleClickBoard(board._id)}
+                    >
+                      <div className={css.sidebarNewBoardItem}>
+                        <div className={css.flex}>
+                          <svg
+                            className={`${css.sidebarNewBoardSvg} ${
+                              activeBoardId === board._id
+                                ? css.sidebarNewBoardSvgActive
+                                : ''
+                            }`}
+                          >
+                            <use href={sprite + `#${board.icon}`} />
+                          </svg>
+                          <p
+                            className={`${css.sidebarNewBoardItem} ${
+                              activeBoardId === board._id
+                                ? css.sidebarNewBoardTextActive
+                                : ''
+                            }`}
+                          >
+                            {board.title}
+                          </p>
+                        </div>
+                        <div className={css.flex}>
+                          <EditBoard
+                            checked={activeBoardId === board._id}
+                            title={board.title}
+                          />
+                          <DeleteBoard checked={activeBoardId === board._id} />
+                        </div>
+                      </div>
+                    </div>
                   </Link>
-                  <EditBoard
-                    id={board._id}
-                    title={board.title}
-                    icon={board.icon}
-                    background={board.background}
-                  />
-                  <DeleteBoard id={board._id} columns={board.columnOrder} />
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-        <div>
-          <section className={css.sidebarHelp}>
-            <NeedHelp />
+                ))}
+              </div>
+            )}
           </section>
-          <section className={css.sidebarLogout}>
-            <button
-              onClick={handleClickLogout}
-              className={css.sidebarLogoutButton}
-              type="button"
-            >
-              <svg className={css.sidebarLogoutIcon} width={32} height={32}>
-                <use href={sprite + '#icon-logout'}></use>
-              </svg>
-              Log out
-            </button>
-          </section>
+          <div className={css.partButton}>
+            <section className={css.sidebarHelp}>
+              <NeedHelp />
+            </section>
+            <section className={css.sidebarLogout}>
+              <button
+                onClick={handleClickLogout}
+                className={css.sidebarLogoutButton}
+                type="button"
+              >
+                <svg className={css.sidebarLogoutIcon} width={32} height={32}>
+                  <use href={sprite + '#icon-logout'}></use>
+                </svg>
+                Log out
+              </button>
+            </section>
+          </div>
         </div>
       </aside>
     </div>
