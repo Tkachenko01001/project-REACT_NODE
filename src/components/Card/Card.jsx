@@ -2,6 +2,7 @@ import { deleteTask } from 'redux/boards/operations';
 import sprite from '../../images/sprite.svg';
 import styles from './Card.module.css';
 import { useDispatch } from 'react-redux';
+import { EditTaskCard } from 'components/EditTaskCard/EditTaskCard';
 
 const Card = ({ task }) => {
   const { _id: id, title, description, priority, deadline } = task;
@@ -9,12 +10,11 @@ const Card = ({ task }) => {
   const onDeleteClick = () => {
     dispatch(deleteTask(id));
   };
+  const priorityClass = `styles.priority_${priority}`;
   return (
-    <div className={styles.card}>
+    <div className={[styles.card, priorityClass].join(' ')}>
       <div className={styles.textWrapper}>
         <h4 className={styles.title}>{title}</h4>
-        {/* <h4 className={styles.title}>{card.title}</h4> */}
-        {/* <p className={styles.description}>{card.descr}</p> */}
         <p className={styles.description}>{description}</p>
       </div>
       <div className={styles.wrapper}>
@@ -54,7 +54,7 @@ const Card = ({ task }) => {
             </button>
           </li>
           <li className={styles.cardIcon}>
-            <button className={styles.cardButton}>
+            {/* <button className={styles.cardButton}>
               <svg
                 width={16}
                 height={16}
@@ -64,7 +64,8 @@ const Card = ({ task }) => {
                 <title>Pencil Icon</title>
                 <use href={sprite + '#icon-pencil'} />
               </svg>
-            </button>
+            </button> */}
+            <EditTaskCard task={task} />
           </li>
           <li className={styles.cardIcon}>
             <button className={styles.cardButton} onClick={onDeleteClick}>

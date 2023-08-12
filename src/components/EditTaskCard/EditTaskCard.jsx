@@ -4,6 +4,8 @@ import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
 import styles from './EditTaskCard.module.css';
 import sprite from '../../images/sprite.svg';
+import { useDispatch } from 'react-redux';
+import { updateTask } from 'redux/boards/operations';
 
 const initialValues = {
   title: '',
@@ -17,14 +19,20 @@ const registerSchema = object({
   description: string().required(),
 });
 
-export const EditTaskCard = () => {
+export const EditTaskCard = ({ task }) => {
+  const {
+    _id: taskId,
+    title: oldTitle,
+    description: oldDescription,
+    priority: oldPriority,
+  } = task;
+  const [title, setTitle] = useState(oldTitle);
+  const [description, setDescription] = useState(oldDescription);
+  const [priority, setPriority] = useState(oldPriority);
+  const dispatch = useDispatch();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
-
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
-    resetForm();
-  };
 
   const radioOptions = [
     { color: '#8fa1d0', priority: 'low' },
@@ -33,58 +41,115 @@ export const EditTaskCard = () => {
     { color: 'rgba(255, 255, 255, 0.3)', priority: 'without' },
   ];
 
+  const handleChange = ({ target: { name, value } }, setFieldValue) => {
+    setFieldValue(name, value);
+    switch (name) {
+      case 'title':
+        return setTitle(value);
+      case 'description':
+        return setDescription(value);
+      case 'priority':
+        return setPriority(value);
+      default:
+        return;
+    }
+  };
+  const onSubmit = (values, { setSubmitting }) => {
+    dispatch(
+      updateTask([
+        taskId,
+        {
+          title: title,
+          description: description,
+          priority: priority,
+          deadline: '15082023',
+        },
+      ])
+    );
+    setTitle('');
+    setDescription('');
+    setPriority('');
+    setSubmitting(false);
+    toggleModal();
+  };
+
   return (
     <div>
-      <button onClick={toggleModal}>Відкрити модалку</button>
+      <button className={styles.cardButton} onClick={toggleModal}>
+        <svg
+          width={16}
+          height={16}
+          aria-label="icon-pencil"
+          className={styles.svg}
+        >
+          <title>Edit card</title>
+          <use href={sprite + '#icon-pencil'} />
+        </svg>
+      </button>
       {isModalOpen && (
         <Modal onClose={toggleModal}>
           <Formik
             initialValues={initialValues}
             validationSchema={registerSchema}
-            onSubmit={handleSubmit}
+            onSubmit={onSubmit}
           >
-            <Form autoComplete="off">
-              <p className={styles.title}>Edit card</p>
-              <Field
-                className={styles.input}
-                type="text"
-                name="title"
-                placeholder="Title"
-              />
+            {({ setFieldValue }) => (
+              <Form autoComplete="off">
+                <p className={styles.title}>Edit card</p>
+                <Field
+                  className={styles.input}
+                  type="text"
+                  name="title"
+                  placeholder="Title"
+                  value={title}
+                  onChange={e => handleChange(e, setFieldValue)}
+                />
 
-              <Field
-                as="textarea"
-                className={styles.textarea}
-                name="description"
-                placeholder="Description"
-              />
-              <div className="wrap">
-                <span className={styles.label}>Label color</span>
-                <div>
-                  {radioOptions.map((option, index) => (
-                    <label key={index} className={styles.radioLabel}>
-                      <Field
-                        type="radio"
-                        name="priority"
-                        value={`${option.priority}`}
-                        className={styles.radioInput}
-                      />
-                      <span
-                        className={styles.radioButton}
-                        style={{ backgroundColor: option.color }}
-                      ></span>
-                    </label>
-                  ))}
+                <Field
+                  as="textarea"
+                  className={styles.textarea}
+                  name="description"
+                  placeholder="Description"
+                  value={description}
+                  onChange={e => handleChange(e, setFieldValue)}
+                />
+                <div className="wrap">
+                  <span className={styles.label}>Label color</span>
+                  <div>
+                    {radioOptions.map((option, index) => (
+                      <label key={index} className={styles.radioLabel}>
+                        <Field
+                          type="radio"
+                          name="priority"
+                          value={`${option.priority}`}
+                          className={styles.radioInput}
+                          onChange={e => handleChange(e, setFieldValue)}
+                        />
+                        <span
+                          className={styles.radioButton}
+                          style={{ backgroundColor: option.color }}
+                        ></span>
+                      </label>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              <button className={styles.btn} type="submit">
-                <svg className={styles.btnIcon}>
-                  <use href={sprite + '#icon-plus'}></use>
-                </svg>
-                <span>Add</span>
-              </button>
-            </Form>
+                <button
+                  className={styles.btn}
+                  type="submit"
+                  onClick={() => {
+                    setFieldValue('title', title);
+                    setFieldValue('description', description);
+                    // toggleModal();
+                  }}
+                >
+                  <svg className={styles.btnIcon}>
+                    <use href={sprite + '#icon-plus'}></use>
+                  </svg>
+                  <span>Edit</span>
+                </button>
+              </Form>
+            )}
           </Formik>
         </Modal>
       )}

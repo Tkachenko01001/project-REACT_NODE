@@ -57,6 +57,7 @@ export const AddTaskCard = ({ columnId }) => {
         title: title,
         description: description,
         priority: priority,
+        deadline: '15082023',
         column: columnId,
       })
     );

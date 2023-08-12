@@ -195,3 +195,19 @@
 .radioInput:checked + .radioButton:before {
   opacity: 1;
 }
+.cardButton {
+  height: 20px;
+  width: 20px;
+  stroke: var(--color-icon-grey);
+  background-color: var(--color-icon-dark);
+  border: none;
+  padding: 2px;
+}
+.cardButton:hover {
+  stroke: var(--color-green);
+  background: radial-gradient(
+    circle closest-side,
+    var(--color-green),
+    var(--color-icon-dark) 100%
+  );
+}

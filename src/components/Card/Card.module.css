@@ -85,12 +85,20 @@
 }
 
 .cardButton {
-  height: 16px;
-  width: 16px;
+  height: 20px;
+  width: 20px;
   stroke: var(--color-icon-grey);
   background-color: var(--color-icon-dark);
   border: none;
-  padding: 0;
+  padding: 2px;
+}
+.cardButton:hover {
+  stroke: var(--color-green);
+  background: radial-gradient(
+    circle closest-side,
+    var(--color-green),
+    var(--color-icon-dark) 100%
+  );
 }
 
 .wrapper {
@@ -136,4 +144,16 @@
 
 .bell {
   stroke: var(--color-green);
+}
+.priority_high::before {
+  background-color: var(--color-green);
+}
+.priority_medium::before {
+  background-color: var(--color-pink);
+}
+.priority_low::before {
+  background-color: var(--color-blue);
+}
+.without::before {
+  background-color: var(--color-form-light);
 }
