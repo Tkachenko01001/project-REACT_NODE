@@ -29,7 +29,7 @@ export const register = createAsyncThunk(
       return;
     } catch (error) {
       Swal.fire(error.response.data.message)
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
