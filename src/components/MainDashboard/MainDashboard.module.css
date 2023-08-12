@@ -1,12 +1,14 @@
+.container {
+  padding: 14px 24px 0px;
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     padding: 14px 24px 0px;
-    display: flex;
+    display: inline-block;
   }
-}
-
-.container {
-  padding: 14px 24px 0px;
 }
 
 .button {
