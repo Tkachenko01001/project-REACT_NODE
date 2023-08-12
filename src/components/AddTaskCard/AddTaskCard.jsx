@@ -10,7 +10,7 @@ import Button from 'components/Button/Button';
 
 // додавання календаря
 import CustomMonthLayout from 'components/Calendar/Calendar';//delete//
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
 const today=new Date();
 
 const initialValues = {
