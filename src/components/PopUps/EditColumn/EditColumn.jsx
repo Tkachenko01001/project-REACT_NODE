@@ -1,10 +1,21 @@
 import styles from './EditColumn.module.css';
 import Button from 'components/Button/Button';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { updateColumn } from 'redux/boards/operations';
 
-export default function EditColumn({ onSubmit }) {
+export default function EditColumn({ id, title, onClose }) {
+  const dispatch = useDispatch();
+  const [newTitle, setNewTitle] = useState(title);
+
+  const changeTitle = event => {
+    setNewTitle(event.target.value);
+  };
+
   const handleSubmit = event => {
     event.preventDefault();
-    onSubmit(event.currentTarget.value.trim());
+    dispatch(updateColumn([id, { title: newTitle }]));
+    onClose();
   };
   return (
     <>
@@ -15,10 +26,12 @@ export default function EditColumn({ onSubmit }) {
           type="text"
           autoComplete="off"
           autoFocus
-          placeholder="Title"
+          placeholder={title}
+          value={newTitle}
+          onChange={changeTitle}
         />
+        <Button icon="true" text="Edit" />
       </form>
-      <Button icon="true" text="Edit" />
     </>
   );
 }

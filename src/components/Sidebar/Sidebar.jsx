@@ -1,3 +1,4 @@
+
 import DeleteBoard from 'components/ModalBoard/DeleteBoard';
 import EditBoard from 'components/ModalBoard/EditBoard';
 import NewBoard from 'components/ModalBoard/NewBoard';
@@ -5,6 +6,7 @@ import NewBoard from 'components/ModalBoard/NewBoard';
 import { NeedHelp } from 'components/NeedHelp/NeedHelp';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { Link } from 'react-router-dom';
 import { logOut } from 'redux/auth/operations';
 import { selectTheme } from 'redux/auth/selectors';
@@ -13,7 +15,7 @@ import { selectBoardsList } from 'redux/boards/selectors';
 import sprite from '../../images/sprite.svg';
 import css from '../Sidebar/Sidebar.module.css';
 
-const Sidebar = () => {
+const Sidebar = ({active}) => {
   const dispatch = useDispatch();
   const allBoards = useSelector(selectBoardsList);
   const theme = useSelector(selectTheme);
@@ -46,6 +48,7 @@ const Sidebar = () => {
         (theme === 'violet' && css.violet)
       }
     >
+
       <aside className={css.sidebar}>
         <div className={css.flexMarkup}>
           <div className={css.partTop}>
