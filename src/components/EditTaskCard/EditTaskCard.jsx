@@ -5,11 +5,18 @@ import { object, string } from 'yup';
 import styles from './EditTaskCard.module.css';
 import sprite from '../../images/sprite.svg';
 
-const initialValues = {
-  title: '',
-  description: '',
-  priority: '',
-};
+// додавання календаря
+import CustomMonthLayout from 'components/Calendar/Calendar';
+import { format } from 'date-fns';
+import { updateTask } from 'redux/boards/operations';
+import { useDispatch } from 'react-redux';
+// const today=new Date();
+
+// const initialValues = {
+//   title: '',
+//   description: '',
+//   priority: '',   
+// };
 
 const registerSchema = object({
   title: string().required(),
@@ -17,13 +24,51 @@ const registerSchema = object({
   description: string().required(),
 });
 
-export const EditTaskCard = () => {
+export const EditTaskCard = ({id,title, description, priority,deadline}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
 
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
-    resetForm();
+  const dispatch = useDispatch();  
+  const [newTitle, setNewTitle] = useState(title);
+  const [newDescription, setNewDescription] = useState(description);
+  const [newPriority, setNewPriority] = useState(priority);  
+  const [newDaySelected, setNewDaySelected] = useState (deadline);
+
+  // 
+  
+  const handleChange = ({ target: { name, value } }, setFieldValue) => {
+    setFieldValue(name, value);
+    switch (name) {
+      case 'title':
+        return setNewTitle(value);
+      case 'description':
+        return setNewDescription(value);
+      case 'priority':
+        return setNewPriority(value);
+      default:
+        return;
+    }
+  };
+
+  const onSubmit = (values, { setSubmitting }) => {
+    dispatch(
+      updateTask({
+        id,
+        data:{
+          title: newTitle,
+          description: newDescription,
+          priority: newPriority,
+          deadline: format(newDaySelected, 'dd/MM/yyyy'),
+        // column: columnId,
+        },
+        
+      })
+    );
+    setNewTitle('');
+    setNewDescription('');
+    setNewPriority('');
+    setSubmitting(false);
+    toggleModal();
   };
 
   const radioOptions = [
@@ -39,10 +84,11 @@ export const EditTaskCard = () => {
       {isModalOpen && (
         <Modal onClose={toggleModal}>
           <Formik
-            initialValues={initialValues}
+            // initialValues={initialValues}
             validationSchema={registerSchema}
-            onSubmit={handleSubmit}
+            onSubmit={onSubmit}
           >
+           {({ setFieldValue }) => (
             <Form autoComplete="off">
               <p className={styles.title}>Edit card</p>
               <Field
@@ -50,6 +96,8 @@ export const EditTaskCard = () => {
                 type="text"
                 name="title"
                 placeholder="Title"
+                value={newTitle}
+                onChange={e => handleChange(e, setFieldValue)}
               />
 
               <Field
@@ -57,6 +105,8 @@ export const EditTaskCard = () => {
                 className={styles.textarea}
                 name="description"
                 placeholder="Description"
+                value={newDescription}
+                onChange={e => handleChange(e, setFieldValue)}
               />
               <div className="wrap">
                 <span className={styles.label}>Label color</span>
@@ -67,7 +117,8 @@ export const EditTaskCard = () => {
                         type="radio"
                         name="priority"
                         value={`${option.priority}`}
-                        className={styles.radioInput}
+                        className={styles.radioInput}                        
+                        onChange={e => handleChange(e, setFieldValue)}
                       />
                       <span
                         className={styles.radioButton}
@@ -78,13 +129,22 @@ export const EditTaskCard = () => {
                 </div>
               </div>
 
-              <button className={styles.btn} type="submit">
+              <CustomMonthLayout daySelected={newDaySelected} setDaySelected={setNewDaySelected}/>
+
+              <button className={styles.btn} 
+              type="submit"
+              onClick={() => {
+                setFieldValue('title', newTitle);
+                setFieldValue('description', newDescription);
+                // toggleModal();
+              }}>
                 <svg className={styles.btnIcon}>
                   <use href={sprite + '#icon-plus'}></use>
                 </svg>
-                <span>Add</span>
+                <span>Edit</span>
               </button>
             </Form>
+            )}
           </Formik>
         </Modal>
       )}

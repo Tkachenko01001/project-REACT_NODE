@@ -120,7 +120,7 @@ export const addTask = createAsyncThunk(
 
 export const updateTask = createAsyncThunk(
   'boards/updateTask',
-  async ([id, data], thunkAPI) => {
+  async ({id, data}, thunkAPI) => {
     try {
       const res = await axios.put(`/api/tasks/${id}`, data);
       thunkAPI.dispatch(getActiveBoard(res.data.board));
