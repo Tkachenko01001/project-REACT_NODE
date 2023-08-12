@@ -1,6 +1,6 @@
 .headerDashboardSection {
   /* background-color: var(--bg-color-form-input); */
-  height: calc(100vh - 122px);
+  height: calc(100vh - 120px);
 }
 .dark {
   background-color: var(--bg-color-form-input);
