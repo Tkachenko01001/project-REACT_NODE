@@ -1,6 +1,7 @@
 import DeleteBoard from 'components/ModalBoard/DeleteBoard';
 import EditBoard from 'components/ModalBoard/EditBoard';
 import NewBoard from 'components/ModalBoard/NewBoard';
+
 import { NeedHelp } from 'components/NeedHelp/NeedHelp';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -55,6 +56,7 @@ const Sidebar = () => {
               <NewBoard />
             </section>
           </div>
+
           <section className={css.sectionBoards}>
             {allBoards.length !== 0 && (
               <div className={css.sidebarListBoard}>
