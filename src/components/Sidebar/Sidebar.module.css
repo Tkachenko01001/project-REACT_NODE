@@ -47,10 +47,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;  
-  background-color: inherit;
-  width: 260px;
   height: 100vh; 
+  background-color: inherit;
+  width: 260px;   
 }
 
 /* .sidebarStop.active{

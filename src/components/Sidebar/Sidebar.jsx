@@ -1,4 +1,3 @@
-
 import DeleteBoard from 'components/ModalBoard/DeleteBoard';
 import EditBoard from 'components/ModalBoard/EditBoard';
 import NewBoard from 'components/ModalBoard/NewBoard';
@@ -15,7 +14,7 @@ import { selectBoardsList } from 'redux/boards/selectors';
 import sprite from '../../images/sprite.svg';
 import css from '../Sidebar/Sidebar.module.css';
 
-const Sidebar = ({active}) => {
+const Sidebar = ({ active }) => {
   const dispatch = useDispatch();
   const allBoards = useSelector(selectBoardsList);
   const theme = useSelector(selectTheme);
@@ -48,8 +47,7 @@ const Sidebar = ({active}) => {
         (theme === 'violet' && css.violet)
       }
     >
-
-      <aside className={css.sidebar}>
+      <aside className={active ? css.active : css.sidebar}>
         <div className={css.flexMarkup}>
           <div className={css.partTop}>
             <section className={css.sidebarBox}>
