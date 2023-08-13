@@ -7,6 +7,7 @@ import EditColumn from 'components/PopUps/EditColumn/EditColumn';
 import { AddTaskCard } from 'components/AddTaskCard/AddTaskCard';
 import { deleteColumn } from 'redux/boards/operations';
 import { useDispatch } from 'react-redux';
+// import SimpleBar from 'simplebar';
 import { selectTheme } from 'redux/auth/selectors';
 import { useSelector } from 'react-redux';
 
@@ -20,7 +21,7 @@ const Column = ({ column }) => {
   const onDeleteClick = () => {
     dispatch(deleteColumn(_id));
   };
-
+  // const myScroll = new SimpleBar(document.getElementById('demo'));
   return (
     <div className={styles.column__container}>
       <div

@@ -18,7 +18,7 @@
   color: #161616;
 }
 
-.bgAirBallon,
+.bgAirBalloon,
 .bgBlue,
 .bgCappadocia,
 .bgFlowers,
@@ -40,7 +40,11 @@
 }
 
 @media screen and (max-width: 768px) {
-  .bgAirBallon {
+  .headerDashboardSection {
+    display: flex;
+    justify-content: center;
+  }
+  .bgAirBalloon {
     background-image: url(/src/images/airBalloon-mobile-1x.jpg);
   }
 
@@ -102,7 +106,7 @@
 }
 
 @media screen and (min-width: 769px) and (max-width: 1440px) {
-  .bgAirBallon {
+  .bgAirBalloon {
     background-image: url(/src/images/airBalloon-tablet-1x.jpg);
   }
 
@@ -164,7 +168,7 @@
 }
 
 @media screen and (min-width: 1441px) {
-  .bgAirBallon {
+  .bgAirBalloon {
     background-image: url(/src/images/airBalloon-desktop-1x.jpg);
   }
 
@@ -226,7 +230,7 @@
 }
 
 @media screen and (min-width: 1440px) and (min-resolution: 2dppx) {
-  .bgAirBallon {
+  .bgAirBalloon {
     background-image: url(/src/images/airBalloon-desktop-2x.jpg);
   }
 
@@ -288,7 +292,7 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1439px) and (min-resolution: 2dppx) {
-  .bgAirBallon {
+  .bgAirBalloon {
     background-image: url(/src/images/airBalloon-tablet-2x.jpg);
   }
 
@@ -350,7 +354,7 @@
 }
 
 @media screen and (max-width: 768px) and (min-resolution: 2dppx) {
-  .bgAirBallon {
+  .bgAirBalloon {
     background-image: url(/src/images/airBalloon-mobile-2x.jpg);
   }
 
