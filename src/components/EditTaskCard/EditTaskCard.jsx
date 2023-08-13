@@ -12,12 +12,6 @@ import CustomMonthLayout from 'components/Calendar/Calendar';
 import { format } from 'date-fns';
 // const today = new Date();
 
-const initialValues = {
-  title: '',
-  description: '',
-  priority: '',
-};
-
 const registerSchema = object({
   title: string().required(),
   priority: string().required(),
@@ -43,6 +37,12 @@ export const EditTaskCard = ({ task }) => {
     deadline.replace('/', '.').replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')
   );
   const [newDaySelected, setNewDaySelected] = useState(deadlineInDate);
+
+  const initialValues = {
+    title: '',
+    description: '',
+    priority: oldPriority,
+  };
 
   const handleChange = ({ target: { name, value } }, setFieldValue) => {
     setFieldValue(name, value);
