@@ -28,7 +28,7 @@ const Column = ({ column }) => {
       droppableId={_id}
       type="COLUMN"
       ignoreContainerClipping={true}
-      // isCombineEnabled={true}
+      isCombineEnabled={true}
     >
       {(provided) => (
         <div
