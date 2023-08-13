@@ -14,7 +14,7 @@ import ModalPortal from './ModalPortal';
 
 const DeleteBoard = ({ checked }) => {
   const activeBoard = useSelector(selectActiveBoard);
-  const { _id: id, columns } = activeBoard;
+  const { _id, columns } = activeBoard;
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
   const [startLoading, setStartLoading] = useState(false);
 
@@ -23,12 +23,14 @@ const DeleteBoard = ({ checked }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
 
-  const handleAgreement = () => {
+const handleAgreement = () => {
+  if (activeBoard && columns.length === 0) {
     setStartLoading(true);
-    dispatch(deleteBoard(id)).then(() => {
+    dispatch(deleteBoard(_id)).then(() => {
       !isBoardsLoading && toggleModal();
     });
-  };
+  }
+};
 
   const iconActive = !checked
     ? css.sidebarNewBoardButton
@@ -43,7 +45,7 @@ const DeleteBoard = ({ checked }) => {
       {isModalOpen && (
         <ModalPortal onClose={toggleModal}>
           <h1 className={styles.title}>Delete Board</h1>
-          {columns.length === 0 ? (
+          {activeBoard && columns && columns.length === 0 ? (
             <h3 className={styles.text}>
               Are you sure you want to delete the board?
             </h3>
@@ -53,7 +55,7 @@ const DeleteBoard = ({ checked }) => {
               first!
             </h3>
           )}
-          {columns.length !== 0 ? (
+          {activeBoard && columns && columns.length !== 0 ? (
             <button className={styles.btn} type="button" onClick={toggleModal}>
               Close
             </button>
