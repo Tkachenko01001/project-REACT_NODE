@@ -4,6 +4,9 @@ import styles from './Card.module.css';
 import { useDispatch } from 'react-redux';
 import { EditTaskCard } from 'components/EditTaskCard/EditTaskCard';
 
+import { format } from 'date-fns';
+
+
 const Card = ({ task }) => {
   const { _id: id, title, description, priority, deadline } = task;
   const dispatch = useDispatch();
@@ -33,12 +36,12 @@ const Card = ({ task }) => {
         </div>
         <ul className={styles.cardIcons}>
           <li className={styles.cardIcon}>
-            <button className={styles.cardButton}>
+            <button className={styles.cardButtonNotHover}>
               <svg
                 width={16}
                 height={16}
                 aria-label="icon-bell"
-                className={styles.bell}
+                className={deadline===format(new Date(), 'dd/MM/yyyy')?styles.bell:null}
               >
                 <title>Deadline</title>
                 <use href={sprite + '#icon-bell'} />

@@ -18,6 +18,7 @@ import { format } from 'date-fns';
 //   priority: '',
 // };
 
+
 const registerSchema = object({
   title: string().required(),
   priority: string().required(),
@@ -25,7 +26,7 @@ const registerSchema = object({
 });
 
 export const EditTaskCard = ({ task }) => {
-  const { id, title, description, priority, deadline } = task;
+  const { _id: id, title, description, priority, deadline } = task;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
 
@@ -37,6 +38,14 @@ export const EditTaskCard = ({ task }) => {
     deadline.replace('/', '.').replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')
   );
   const [newDaySelected, setNewDaySelected] = useState(deadlineInDate);
+
+  const initialValues = {
+        title: newTitle,
+        description: newDescription,
+        priority: newPriority,
+  };
+
+
 
   const handleChange = ({ target: { name, value } }, setFieldValue) => {
     setFieldValue(name, value);
@@ -94,7 +103,7 @@ export const EditTaskCard = ({ task }) => {
       {isModalOpen && (
         <Modal onClose={toggleModal}>
           <Formik
-            // initialValues={initialValues}
+            initialValues={initialValues}
             validationSchema={registerSchema}
             onSubmit={onSubmit}
           >
@@ -155,7 +164,7 @@ export const EditTaskCard = ({ task }) => {
                   <svg className={styles.btnIcon}>
                     <use href={sprite + '#icon-plus'}></use>
                   </svg>
-                  <span>Edit</span>
+                  <span>Save</span>
                 </button>
               </Form>
             )}
