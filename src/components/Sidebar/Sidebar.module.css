@@ -310,15 +310,15 @@
 .sidebarNewBoardItem {
   display: flex;
   align-items: center;
-  justify-content: space-between;  
+  justify-content: space-between;
   color: var(--color-icon-grey);
 }
 
 .sidebarNewBoardItemLight {
   display: flex;
   align-items: center;
-  justify-content: space-between; 
-  color: rgba(22, 22, 22, 0.50);
+  justify-content: space-between;
+  color: rgba(22, 22, 22, 0.5);
 }
 
 .sidebarNewBoardItem:focus {
@@ -330,8 +330,8 @@
   border-right: 4px solid var(--color-green);
   border-radius: 4px 0px 0px 4px;
   opacity: 1;
-  color: inherit; 
-  background: var(--bg-color-form-input);  
+  color: inherit;
+  background: var(--bg-color-form-input);
 }
 
 .sidebarNewBoardItemText {
@@ -339,20 +339,20 @@
   font-size: 14px;
   letter-spacing: -0.28px;
   margin-right: auto;
-  color: inherit;  
+  color: inherit;
 }
 
-.sidebarNewBoardSvgActive {  
+.sidebarNewBoardSvgActive {
   stroke: inherit;
   fill: none;
   stroke-opacity: 1;
 }
 
 .sidebarNewBoardTextActiveLight {
-  color: #161616; 
+  color: #161616;
 }
 .sidebarNewBoardTextActive {
-  color: var(--color-white);  
+  color: var(--color-white);
 }
 
 /* .bg {
@@ -383,12 +383,7 @@
   /* background-color: var(--bg-color-form-input); */
 }
 .sidebarNewBoardButtonActive:hover {
-  stroke: var(--color-green);
-  background: radial-gradient(
-    circle closest-side,
-    var(--color-green),
-    var(--color-icon-dark) 100%
-  );
+ scale: 1.1;
 }
 
 .sidebarNewBoardButtonCurrent {

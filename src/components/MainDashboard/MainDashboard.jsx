@@ -60,7 +60,15 @@ const MainDashboard = () => {
                 <title>Plus Icon</title>
                 <use href={sprite + '#icon-plus'} />
               </svg>
-              <span className={styles.buttonText}>Add another column</span>
+              <span
+                className={
+                  theme === 'violet'
+                    ? styles.buttonTextViolet
+                    : styles.buttonText
+                }
+              >
+                Add another column
+              </span>
             </button>
           </div>
           {}

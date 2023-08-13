@@ -1,6 +1,5 @@
 .title {
-  color: inherit;
-  /* color: var(--color-white); */
+  color: inherit;  
   font-family: var(--font-medium);
   font-size: 18px;
   font-style: normal;

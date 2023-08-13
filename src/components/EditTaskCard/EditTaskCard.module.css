@@ -1,6 +1,6 @@
 .title {
   font-family: var(--font-medium);
-  color: #fff;
+  color: inherit;
   font-size: 18px;
   line-height: normal;
   letter-spacing: -0.36px;
@@ -14,8 +14,8 @@
   border: 1px solid var(--color-green);
   opacity: 0.4;
   margin-bottom: 14px;
-  background-color: var(--bg-color-form-input);
-  color: var(--color-white);
+  color: inherit;
+  background-color: inherit;
   box-shadow: 0px 4px 16px 0px var(--color-shadow);
 
   font-family: var(--font-regular);
@@ -25,7 +25,24 @@
 
   transition: opacity 250ms linear;
 }
+.inputViolet {
+  width: 100%;
+  border-radius: 8px;
+  padding: 14px 18px;
+  border: 1px solid var(--color-violet);
+  opacity: 0.4;
+  margin-bottom: 14px;
+  color: inherit;
+  background-color: inherit;
+  box-shadow: 0px 4px 16px 0px var(--color-shadow);
 
+  font-family: var(--font-regular);
+  font-size: 14px;
+  line-height: normal;
+  letter-spacing: -0.28px;
+
+  transition: opacity 250ms linear;
+}
 .input:active,
 .input:hover,
 .input:focus {
@@ -35,7 +52,7 @@
 }
 
 .input::placeholder {
-  color: var(--color-white);
+  color: inherit;
 }
 
 .input:-webkit-autofill,
@@ -54,8 +71,8 @@
   margin-bottom: 24px;
   border: 1px solid var(--color-green);
   opacity: 0.4;
-  background-color: var(--bg-color-form-input);
-  color: var(--color-white);
+  color: inherit;
+  background-color: inherit;
   box-shadow: 0px 4px 16px 0px var(--color-shadow);
   resize: none;
 
@@ -66,7 +83,26 @@
 
   transition: opacity 250ms linear;
 }
+.textareaViolet {
+  width: 100%;
+  min-height: 154px;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  border: 1px solid var(--color-violet);
+  opacity: 0.4;
+  color: inherit;
+  background-color: inherit;
+  box-shadow: 0px 4px 16px 0px var(--color-shadow);
+  resize: none;
 
+  font-family: var(--font-regular);
+  font-size: 14px;
+  line-height: normal;
+  letter-spacing: -0.28px;
+
+  transition: opacity 250ms linear;
+}
 .textarea:active,
 .textarea:hover,
 .textarea:focus {
@@ -76,7 +112,7 @@
 }
 
 .textarea::placeholder {
-  color: var(--color-white);
+  color: inherit;
 }
 
 .textarea:-webkit-autofill,
@@ -93,7 +129,7 @@
 
 .label {
   margin-bottom: 4px;
-  color: var(--color-icon-grey);
+  color: inherit;
   font-family: var(--font-regular);
   font-size: 12px;
   line-height: normal;
@@ -140,6 +176,32 @@
   background-color: var(--color-hover-green);
 }
 
+.btnViolet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 24px;
+  height: 49px;
+  background-color: var(--color-violet);
+  color: var(--color-white);
+  font-family: var(--font-medium);
+  font-size: 14px;
+  line-height: normal;
+  letter-spacing: -0.28px;
+
+  text-align: center;
+  cursor: pointer;
+  padding: 14px 0px;
+  border: 0px;
+  border-radius: 8px;
+
+  transition: background-color 250ms linear, box-shadow 250ms linear;
+}
+
+.btnViolet:hover {
+  background-color: var(--color-violet);
+}
 .sidebarBoardButton {
   display: flex;
   padding: 0;
@@ -156,6 +218,16 @@
   stroke: #fff;
   margin-right: 8px;
 }
+.btnIconViolet {
+  width: 28px;
+  height: 28px;
+
+  border-radius: 8px;
+  fill: var(--color-white);
+  stroke: var(--color-violet);
+  margin-right: 8px;
+}
+
 .priorityIcons {
   display: flex;
 }
@@ -200,16 +272,13 @@
 .cardButton {
   height: 20px;
   width: 20px;
-  stroke: var(--color-icon-grey);
-  background-color: var(--color-icon-dark);
+  stroke: inherit;
+  background-color: transparent;
+  /* stroke: var(--color-icon-grey); */
+  /* background-color: var(--color-icon-dark); */
   border: none;
   padding: 2px;
 }
 .cardButton:hover {
-  stroke: var(--color-green);
-  background: radial-gradient(
-    circle closest-side,
-    var(--color-green),
-    var(--color-icon-dark) 100%
-  );
+  transform: scale(1.2);
 }
