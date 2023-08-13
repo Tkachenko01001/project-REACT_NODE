@@ -22,7 +22,7 @@ const initialValues = {
 
 const registerSchema = object({
   title: string().required(),
-  priority: string().required(),
+  priority: string(),
   description: string().required(),
 });
 
@@ -64,7 +64,7 @@ export const AddTaskCard = ({ columnId }) => {
       addTask({
         title: title,
         description: description,
-        priority: priority,
+        priority: priority || 'without',
         deadline: format(daySelected, 'dd/MM/yyyy'),
         column: columnId,
       })
