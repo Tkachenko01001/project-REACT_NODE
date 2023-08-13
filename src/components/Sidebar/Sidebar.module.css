@@ -42,6 +42,7 @@
 .sectionBoards::-webkit-scrollbar-thumb {
   background-color: transparent; /* Колір бару скролу */
   outline: 1px solid transparent; /* Обводка бару скролу */
+  border-radius: 3px;
 }
 
 .sectionBoards:hover::-webkit-scrollbar-thumb {
