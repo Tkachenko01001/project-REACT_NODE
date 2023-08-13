@@ -7,7 +7,6 @@ import { addColumn } from 'redux/boards/operations';
 export default function AddColumn({ toggleModal }) {
   const dispatch = useDispatch();
   const activeBoard = useSelector(selectActiveBoard);
-  console.log(activeBoard);
 
   const handleSubmit = event => {
     event.preventDefault();

@@ -34,7 +34,6 @@ export const EditTaskCard = ({ task }) => {
   const [newDescription, setNewDescription] = useState(description);
   const [newPriority, setNewPriority] = useState(priority);
   const [newDaySelected, setNewDaySelected] = useState(deadline);
-  console.log(deadline);
   //
 
   const handleChange = ({ target: { name, value } }, setFieldValue) => {
