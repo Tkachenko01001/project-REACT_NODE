@@ -44,7 +44,11 @@ const MainDashboard = () => {
               </ul>
             )}
             <button
-              className={theme === 'dark' ? styles.buttonDark : styles.button}
+              className={
+                (theme === 'dark' && styles.buttonDark) ||
+                (theme === 'light' && styles.buttonLight) ||
+                (theme === 'violet' && styles.buttonViolet)
+              }
               onClick={toggleModal}
             >
               <svg

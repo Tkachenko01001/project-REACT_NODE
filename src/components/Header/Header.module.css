@@ -5,17 +5,21 @@
   align-items: center;
 
   /* background-color: var(--color-dark); */
-  /* height: 68px; */
+  height: 60px;
   border: 0;
 }
 
 @media screen and (min-width: 1440px) {
+  .header {
+    height: 68px;
+  }
   .burgerMenu {
     display: none;
   }
 }
 
-.burgerStyle {
+.burgerStyle,
+.burgerStyleViolet {
   cursor: pointer;
   outline: 0;
   padding: 0;
@@ -32,6 +36,14 @@
   height: 32px;
   background-color: transparent;
   color: inherit;
+}
+
+.burgerStyle:hover {
+  color: var(--color-hover-green);
+}
+
+.burgerStyleViolet:hover {
+  color: var(--color-violet);
 }
 
 .headerSelect {

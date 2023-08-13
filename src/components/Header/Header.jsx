@@ -20,7 +20,12 @@ const Header = ({ click }) => {
     >
       <div className={css.header}>
         <div className={css.burgerMenu}>
-          <button onClick={click} className={css.burgerStyle}>
+          <button
+            onClick={click}
+            className={
+              theme === 'violet' ? css.burgerStyleViolet : css.burgerStyle
+            }
+          >
             <Icon
               className={css.burgerIcon}
               name="#icon-menu"
@@ -29,7 +34,7 @@ const Header = ({ click }) => {
             />
           </button>
         </div>
-        
+
         <div className={css.headerSelect}>
           <ThemeMenu />
           <ul className={css.userInfo}>
