@@ -29,6 +29,10 @@ const App = () => {
     if (allBoards.length > 0 && Object.keys(activeBoard).length === 0) {
       navigate(`/home/${allBoards[0]._id}`);
     }
+
+    if (allBoards.length === 0) {
+      navigate('/home');
+    }
   }, [navigate, allBoards, activeBoard]);
 
   return isRefreshing ? (

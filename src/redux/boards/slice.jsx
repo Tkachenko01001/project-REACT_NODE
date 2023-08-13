@@ -50,6 +50,9 @@ const boardsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
+      .addCase(deleteBoard.fulfilled, (state, action) => {
+        state.activeBoard = {};  
+      })
       .addCase(getAllBoards.pending, handlePending)
       .addCase(getAllBoards.rejected, handleRejected)
       .addCase(getActiveBoard.pending, handlePending)
