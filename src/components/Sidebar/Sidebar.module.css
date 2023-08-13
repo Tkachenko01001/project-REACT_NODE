@@ -35,7 +35,7 @@
 }
 
 .sectionBoards::-webkit-scrollbar {
-  width: 5px;
+  width: 3px;
   background-color: transparent; /* Колір фону скролу */
 }
 
@@ -45,7 +45,7 @@
 }
 
 .sectionBoards:hover::-webkit-scrollbar-thumb {
-  background-color: var(--color-green); /* Колір бару скролу при наведенні */
+  background-color: #4a6040; /* Колір бару скролу при наведенні */
 }
 
 .partTop {
