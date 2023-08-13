@@ -7,12 +7,15 @@ import { useSelector } from 'react-redux';
 import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
 import AddColumn from 'components/PopUps/AddColumn/AddColumn';
 import Modal from 'components/Modal/Modal';
+import { selectTheme } from 'redux/auth/selectors';
 import { DragDropContext } from "react-beautiful-dnd";
 import { useDispatch } from 'react-redux';
 import { transferTask } from 'redux/boards/operations';
 
 const MainDashboard = () => {
   const dispatch = useDispatch();
+  const theme = useSelector(selectTheme);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
 
@@ -57,7 +60,10 @@ const MainDashboard = () => {
                 </ul>
               </DragDropContext>
             )}
-            <button className={styles.button} onClick={toggleModal}>
+            <button
+              className={theme === 'dark' ? styles.buttonDark : styles.button}
+              onClick={toggleModal}
+            >
               <svg
                 width={28}
                 height={28}

@@ -5,6 +5,7 @@ import { selectIsBoardsLoading } from 'redux/boards/selectors';
 import sprite from '../../images/sprite.svg';
 import css from '../Sidebar/Sidebar.module.css';
 import ModalBoard from './ModalBoard';
+import { selectTheme } from 'redux/auth/selectors';
 
 const NewBoard = () => {
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
@@ -13,6 +14,7 @@ const NewBoard = () => {
   const toggleModal = () => setIsModalOpen(state => !state);
   const [icon, setIcon] = useState('icon-project');
   const [background, setBackground] = useState('null');
+  const theme = useSelector(selectTheme);
 
   const dispatch = useDispatch();
 
@@ -52,13 +54,27 @@ const NewBoard = () => {
   };
 
   return (
-    <div>
+    <div
+      className={
+        (theme === 'dark' && css.dark) ||
+        (theme === 'light' && css.light) ||
+        (theme === 'violet' && css.violet)
+      }
+    >
       <button
         onClick={toggleModal}
         className={css.sidebarBoardButton}
         type="button"
       >
-        <svg className={css.sidebarBoardIcon}>
+        <svg
+          className={
+            theme === 'violet'
+              ? css.sidebarBoardIconViolet
+              : css.sidebarBoardIconGreen
+          }
+          width={36}
+          height={36}
+        >
           <use href={sprite + '#icon-plus'}></use>
         </svg>
       </button>
