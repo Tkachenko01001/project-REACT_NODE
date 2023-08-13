@@ -2,16 +2,24 @@
   padding: 14px 24px 0px;
   display: flex;
   gap: 34px;
+  overflow: auto;
 }
 
 @media screen and (max-width: 768px) {
   .container {
+    width: 375px;
     padding: 14px 24px 0px;
     display: inline-block;
     justify-content: center;
+    overflow: auto;
   }
 }
-
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+  .container {
+    width: 768px;
+    overflow: auto;
+  }
+}
 .button {
   display: inline-flex;
   gap: 8px;

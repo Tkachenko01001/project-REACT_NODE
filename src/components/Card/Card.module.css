@@ -78,7 +78,7 @@
   display: inline-block;
   width: 12px;
   height: 12px;
-  background-color: var(--color-pink);
+  /* background-color: var(--color-pink); */
   border-radius: 50%;
   position: absolute;
   left: -16px;
@@ -154,6 +154,6 @@
 .priority_low::before {
   background-color: var(--color-blue);
 }
-.without::before {
+.priority_without::before {
   background-color: var(--color-form-light);
 }

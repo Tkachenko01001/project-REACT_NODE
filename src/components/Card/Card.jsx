@@ -10,9 +10,8 @@ const Card = ({ task }) => {
   const onDeleteClick = () => {
     dispatch(deleteTask(id));
   };
-  const priorityClass = `styles.priority_${priority}`;
   return (
-    <div className={[styles.card, priorityClass].join(' ')}>
+    <div className={`${styles.card} ${styles[`priority_${priority}`]}`}>
       <div className={styles.textWrapper}>
         <h4 className={styles.title}>{title}</h4>
         <p className={styles.description}>{description}</p>
@@ -20,7 +19,13 @@ const Card = ({ task }) => {
       <div className={styles.wrapper}>
         <div className={styles.priority}>
           <h5 className={styles.subTitle}>Priority</h5>
-          <p className={styles.priorityText}>{priority}</p>
+          <p
+            className={`${styles.priorityText} ${
+              styles[`priority_${priority}`]
+            }`}
+          >
+            {priority}
+          </p>
         </div>
         <div className={styles.deadline}>
           <h5 className={styles.subTitle}>Deadline</h5>
@@ -35,7 +40,7 @@ const Card = ({ task }) => {
                 aria-label="icon-bell"
                 className={styles.bell}
               >
-                <title>Bell Icon</title>
+                <title>Deadline</title>
                 <use href={sprite + '#icon-bell'} />
               </svg>
             </button>
@@ -48,7 +53,7 @@ const Card = ({ task }) => {
                 aria-label="icon-arrow-circle-broken-right"
                 className={styles.svg}
               >
-                <title>Arrow Circle Right Icon</title>
+                <title>Move task</title>
                 <use href={sprite + '#icon-arrow-circle-broken-right'} />
               </svg>
             </button>
