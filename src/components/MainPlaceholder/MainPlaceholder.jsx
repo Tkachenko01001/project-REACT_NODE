@@ -1,4 +1,4 @@
-import NewBoard from 'components/NewBoard/NewBoard';
+import NewBoard from 'components/ModalBoard/NewBoard';
 import { useState } from 'react';
 
 import styles from './MainPlaceholder.module.css';

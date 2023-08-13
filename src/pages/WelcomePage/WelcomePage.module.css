@@ -111,6 +111,7 @@
 }
 
 .title {
+  color: var(--color-dark);
   font-size: 28px;
   line-height: 21px;
   letter-spacing: -0.04em;
@@ -126,6 +127,7 @@
 
 .text {
   font-family: var(--font-regular);
+  color: var(--color-dark);
   margin-bottom: 48px;
   font-size: 14px;
   line-height: 18px;

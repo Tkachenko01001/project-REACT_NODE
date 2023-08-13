@@ -33,6 +33,7 @@
     "react-toastify": "^9.1.3",
     "redux-persist": "^6.0.0",
     "styled-components": "^5.3.11",
+    "sweetalert2": "^11.7.22",
     "web-vitals": "^2.1.3",
     "yup": "^1.2.0"
   },
