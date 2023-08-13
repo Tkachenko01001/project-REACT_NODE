@@ -23,15 +23,15 @@
   background-color: transparent;
   width: 32px;
   height: 32px;
-  margin-left: 32px;
-  color: inherit;  
+  margin-left: 20px;
+  color: inherit;
 }
 
 .burgerIcon {
   width: 32px;
   height: 32px;
   background-color: transparent;
-  color: inherit;  
+  color: inherit;
 }
 
 .headerSelect {

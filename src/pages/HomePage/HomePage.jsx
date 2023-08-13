@@ -1,19 +1,20 @@
-import css from './HomePage.module.css';
-import Sidebar from 'components/Sidebar/Sidebar';
-import ScreensPage from 'components/ScreensPage/ScreensPage';
 import Header from 'components/Header/Header';
-import { useState, useEffect } from 'react';
+import ScreensPage from 'components/ScreensPage/ScreensPage';
+import Sidebar from 'components/Sidebar/Sidebar';
+import { useEffect, useState } from 'react';
+import css from './HomePage.module.css';
 
 export default function HomePage() {
   const [menuActive, setMenuActive] = useState(false);
 
   const handleClick = () => {
-    setMenuActive(state => !state);
+    setMenuActive(true);
   };
 
   const handleOverlayClick = event => {
-    if (event.currentTarget === event.target) {
-      setMenuActive(state => !state);
+    if (event.target.localName === 'svg') return;
+    if (event.target) {
+      setMenuActive(false);
     }
   };
   useEffect(() => {
@@ -29,10 +30,13 @@ export default function HomePage() {
   });
 
   return (
-    <div className={css.home} onClick={handleOverlayClick}>
+    <div className={css.home}>
       <Sidebar active={menuActive} />
 
-      <div className={menuActive ? css.homeWrapOverlay : css.homeWrap}>
+      <div
+        className={menuActive ? css.homeWrapOverlay : css.homeWrap}
+        onClick={handleOverlayClick}
+      >
         <Header click={handleClick} />
         <ScreensPage />
       </div>
