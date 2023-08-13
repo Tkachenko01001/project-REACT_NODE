@@ -4,19 +4,19 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectActiveBoard } from 'redux/boards/selectors';
 import { addColumn } from 'redux/boards/operations';
 
-export default function AddColumn({toggleModal}) {
-
+export default function AddColumn({ toggleModal }) {
   const dispatch = useDispatch();
   const activeBoard = useSelector(selectActiveBoard);
-  console.log(activeBoard);
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(addColumn({
-      title: event.currentTarget[0].value,
-      board: activeBoard._id,
-    }));
-    toggleModal()
+    dispatch(
+      addColumn({
+        title: event.currentTarget[0].value,
+        board: activeBoard._id,
+      })
+    );
+    toggleModal();
   };
 
   return (
@@ -29,9 +29,10 @@ export default function AddColumn({toggleModal}) {
           autoComplete="off"
           autoFocus
           placeholder="Title"
+          required
         />
         <Button icon="true" text="Add" />
       </form>
     </>
   );
-};
+}

@@ -92,6 +92,7 @@
 }
 
 .label {
+  display: block;
   margin-bottom: 4px;
   color: var(--color-icon-grey);
   font-family: var(--font-regular);
@@ -156,7 +157,11 @@
   stroke: #fff;
   margin-right: 8px;
 }
-
+.priorityIcons {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
 .radioLabel {
   align-items: center;
   margin-bottom: 10px;

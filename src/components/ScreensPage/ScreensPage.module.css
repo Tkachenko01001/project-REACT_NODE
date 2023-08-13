@@ -40,6 +40,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .headerDashboardSection {
+    display: flex;
+    justify-content: center;
+  }
   .bgAirBalloon {
     background-image: url(/src/images/airBalloon-mobile-1x.jpg);
   }
