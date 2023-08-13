@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../Modal/Modal';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { object, string, mixed } from 'yup';
+import { object, string } from 'yup';
 import { EyeOpen } from '../AuthForm/EyeOpen/EyeOpen';
 import { EyeClose } from '../AuthForm/EyeClose/EyeClose';
 import { Loader } from '../Loader/Loader';
@@ -10,30 +10,21 @@ import styles from './EditUserProfile.module.css';
 import Avatar from 'components/Avatar/Avatar';
 import { Previews } from 'components/AvatarModal/AvatarModal';
 import { updateUser } from 'redux/auth/operations';
+import { selectUser } from 'redux/auth/selectors';
 
-const initialValues = {
-  avatarURL: null,
-  name: '',
-  email: '',
-  password: '',
-};
-
-export const registerSchema = object({
-  avatarURL: mixed().required('Image is required'),
+const updateUserSchema = object({
   name: string()
     .min(2, 'minimum 2 characters')
     .max(32, 'maximum 32 characters')
     .test(
       'only-allowed-chars',
-      'password can contain: only Latin, numbers, special characters',
+      'name can contain: only Latin, numbers, special characters',
       value => /^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/.test(value)
     )
-    .matches(/^[a-zA-Z0-9 !@#$%^&*()_+,.:;’“?/-]+$/, 'Invalid name format')
-    .required(),
+    .matches(/^[a-zA-Z0-9 !@#$%^&*()_+,.:;’“?/-]+$/, 'Invalid name format'),
   email: string()
     .email()
-    .matches(/^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}$/, 'Invalid email format')
-    .required(),
+    .matches(/^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}$/, 'Invalid email format'),
   password: string()
     .min(8, 'minimum 8 characters')
     .max(64, 'maximum 64 characters')
@@ -47,16 +38,19 @@ export const registerSchema = object({
       'password can contain: only Latin, numbers, special characters',
       value => /^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/.test(value)
     )
-    .matches(/^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/, 'Invalid password format')
-    .required(),
+    .matches(/^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/, 'Invalid password format'),
 });
 
 export const EditUserProfile = () => {
   const dispatch = useDispatch();
-  const [avatarURL, setAvatarURL] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const user = useSelector(selectUser);
+
+  const initialValues = {
+    avatar: null,
+    name: user.name,
+    email: user.email,
+    password: '',
+  };
 
   const [passwordShown, setPasswordShown] = useState(false);
   const [passwordIcon, setpasswordIcon] = useState(<EyeClose />);
@@ -75,24 +69,25 @@ export const EditUserProfile = () => {
     );
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const toggleModal = () => setIsModalOpen(state => !state);
-
-  const handleChange = ({ target: { name, value } }, setFieldValue) => {
-    setFieldValue(name, value);
-    switch (name) {
-      case 'avatarURL':
-        return setAvatarURL(value);
-      case 'name':
-        return setName(value);
-      case 'email':
-        return setEmail(value);
-      case 'password':
-        return setPassword(value);
-      default:
-        return;
+  const handleSubmit = async (values, { setSubmitting, resetForm }) => {
+    setSubmitting(true);
+    let formData = new FormData();
+    formData.set('name', values.name);
+    formData.set('email', values.email);
+    if (values.avatar) formData.set('avatar', values.avatar);
+    if (values.password) formData.set('password', values.password);
+    try {
+      await dispatch(updateUser(formData));
+      resetForm();
+      setIsModalOpen(false);
+    } catch (error) {
+    } finally {
+      setSubmitting(false);
     }
   };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModal = () => setIsModalOpen(state => !state);
 
   return (
     <div>
@@ -100,85 +95,52 @@ export const EditUserProfile = () => {
       {isModalOpen && (
         <Modal onClose={toggleModal}>
           <Formik
+            autoComplete="off"
             initialValues={initialValues}
-            validationSchema={registerSchema}
-            onSubmit={(values, { setSubmitting, resetForm }) => {
-              dispatch(
-                updateUser({
-                  avatarURL: avatarURL,
-                  name: name,
-                  email: email.toLowerCase(),
-                  password: password,
-                })
-              );
-              console.log(
-                'Avatar URL:',
-                values.avatarURL ? URL.createObjectURL(values.avatarURL) : null
-              );
-
-              console.log(values);
-              // setAvatarURL('');
-              // setEmail('');
-              // setName('');
-              // setPassword('');
-              setSubmitting(false);
-              resetForm();
-            }}
+            validationSchema={updateUserSchema}
+            onSubmit={handleSubmit}
           >
             {({ errors, values, setFieldValue }) => (
-              <Form autoComplete="off" className={styles.form}>
+              <Form className={styles.form}>
                 <div className={styles.wrap}>
-                  <p className={styles.title}>Add card</p>
-                  <Previews />
+                  <p className={styles.title}>Edit profile</p>
+                  <Previews
+                    onImageSelect={selectedImage => {
+                      setFieldValue('avatar', selectedImage);
+                    }}
+                  />
+                </div>
+                <div className={styles.wrap}>
                   <Field
                     className={styles.input}
                     type="text"
                     name="name"
                     placeholder="Enter your name"
-                    value={name}
-                    onChange={e => handleChange(e, setFieldValue)}
                   />
                   {errors.name && <FormError name="name" />}
                 </div>
-
                 <div className={styles.wrap}>
                   <Field
                     className={styles.input}
                     type="email"
                     name="email"
                     placeholder="Enter your email"
-                    value={email}
-                    onChange={e => handleChange(e, setFieldValue)}
                   />
                   {errors.email && <FormError name="email" />}
                 </div>
-
                 <div className={styles.wrap}>
                   <Field
                     className={styles.input}
                     type={passwordShown ? 'text' : 'password'}
                     name="password"
-                    placeholder="Create a password"
-                    value={password}
-                    onChange={e => handleChange(e, setFieldValue)}
+                    placeholder="Change password"
                   />
-
                   <span className={styles.eye_icon} onClick={togglPassword}>
                     {passwordIcon}
                   </span>
                   {errors.password && <FormError name="password" />}
                 </div>
-
-                <button
-                  className={styles.btn}
-                  type="submit"
-                  onClick={() => {
-                    setFieldValue('avatarURL', avatarURL);
-                    setFieldValue('name', name);
-                    setFieldValue('email', email);
-                    setFieldValue('password', password);
-                  }}
-                >
+                <button className={styles.btn} type="submit">
                   <div className={styles.wrap}>
                     <span>Send</span>
                     <Loader />

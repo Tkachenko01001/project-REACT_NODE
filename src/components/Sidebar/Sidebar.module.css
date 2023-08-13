@@ -21,9 +21,31 @@
 
 .sidebar {
   display: none;
+  /* transform: translateX(0); */
+  /* transition: transform 300ms; */
 }
 
-@media screen and (min-width: 768px) {
+.flexMarkup {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.sectionBoards {
+  flex: 1;
+  overflow-y: auto;
+}
+.partTop {
+  flex: 0 0 auto;
+  min-height: 100px;
+  overflow: hidden;
+}
+.partButton {
+  padding-top: 20px;
+}
+
+
+@media screen and (min-width: 1440px) {
+
   .sidebar {
     display: flex;
     flex-direction: column;
@@ -32,8 +54,27 @@
     /* padding: 14px 14px 24px 14px; */
     /* background-color: var(--color-icon-dark); */
     width: 260px;
+   
+    /* transform: translateX(1); */
+    /* transition: transform 300ms; */
   }
 }
+
+.active {
+  display: block;
+  position: absolute;  
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;  
+  background-color: inherit;
+  width: 260px;
+}
+
+/* .sidebarStop.active{
+  transform: scale(1);
+} */
 
 /* Title */
 .sidebarBox {
@@ -151,8 +192,11 @@
 
 /* New board */
 .sidebarNewBoard {
-  padding: 40px 0;
-  overflow-y: scroll;
+  border-style: none;
+  padding: 20px 24px;
+  margin: 0;
+  height: 61px;
+  position: relative;
 }
 
 /* @media screen and (min-width: 768px) {
@@ -162,12 +206,22 @@
   }
 } */
 
-.sidebarNewBoardList {
-  padding: 20px 24px;
+.sidebarListBoard {
+  border-style: none;
+  padding: 40px 0;
+  margin: 0;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 4px;
 }
-
+@media (max-height: 700px) {
+  .sidebarListBoard {
+    padding: 0;
+  }
+}
+.sideBarBoardHover:hover {
+  opacity: 50%;
+}
 .sidebarNewBoardSvg {
   width: 18px;
   height: 18px;
@@ -186,6 +240,25 @@
   .sidebarNewBoardSvg {
     margin-right: 8px;
   }
+}
+.flex {
+  display: flex;
+  align-items: center;
+}
+.activeBoard {
+  background: var(--bg-color-form-input);
+  border-radius: 4px 0px 0px 4px;
+}
+.activeBoard::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 61px;
+  width: 4px;
+  color: var(--color-green);
+  border-right: 4px solid var(--color-green);
+  border-radius: 4px 0px 0px 4px;
 }
 
 .sidebarNewBoardItem {
@@ -207,6 +280,8 @@
   /* background: var(--bg-color-form-input); */
   /* color: var(--color-white); */
 }
+  
+
 .sidebarNewBoardItemText {
   font-family: var(--font-medium);
   font-size: 14px;
@@ -216,6 +291,14 @@
   /* color: var(--color-white); */
 }
 /* .bg {
+.sidebarNewBoardSvgActive {
+  stroke: var(--color-white);
+}
+.sidebarNewBoardTextActive {
+  color: var(--color-white);
+}
+
+.bg {
   background: #000;
 } */
 .svg {
@@ -230,7 +313,13 @@
   padding: 0;
   margin-right: 8px;
   background-color: inherit;
-  /* background-color: var(--color-icon-dark); */
+}
+.sidebarNewBoardButtonActive {
+  height: 16px;
+  border: none;
+  padding: 0;
+  margin-right: 8px;
+  background-color: var(--bg-color-form-input);
 }
 
 .sidebarNewBoardButtonCurrent {
@@ -267,6 +356,62 @@
   }
 }
 
+/* Sidebar Help */
+.sidebarHelp {
+  margin: 0 14px 24px 14px;
+  padding: 14px 14px 15px 15px;
+  border-radius: 8px;
+  background-color: var(--bg-color-form-input);
+}
+
+@media screen and (min-width: 768px) {
+  .sidebarHelp {
+    margin: 0 24px 24px 24px;
+    padding: 20px 20px 21px 20px;
+  }
+}
+
+.sidebarHelpBox {
+  margin: 14px 0 19px 0;
+}
+
+.sidebarHelpBoxItem {
+  font-family: var(--font-regular);
+  font-size: 14px;
+  line-height: 1.42;
+  letter-spacing: -0.28px;
+
+  color: var(--color-white);
+}
+
+.sidebarHelpBoxLink {
+  font-family: var(--font-regular);
+
+  color: var(--color-green);
+}
+
+.sidebarHelpbutton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--bg-color-form-input);
+  border: none;
+}
+
+.sidebarHelpIcon {
+  width: 20px;
+  height: 20px;
+  stroke: var(--color-white);
+}
+
+.sidebarHelpNeedHelp {
+  font-family: var(--font-medium);
+  font-size: 12px;
+  letter-spacing: -0.24px;
+
+  color: var(--color-white);
+}
+
 .sidebarLogout {
   padding: 0 0 24px 24px;
 }
@@ -275,9 +420,12 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  border: none; 
+  border: none;
+  /* padding: 0 7px 0 0; */
   color: inherit;
-  background-color: inherit;  
+  background-color: inherit;
+  /* color: var(--color-white);
+  background-color: var(--color-icon-dark); */
   font-family: var(--font-medium);
   font-size: 16px;
   font-weight: 500;

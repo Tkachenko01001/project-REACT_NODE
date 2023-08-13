@@ -6,11 +6,18 @@ import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
 import styles from './AddTaskCard.module.css';
 import sprite from '../../images/sprite.svg';
+import Button from 'components/Button/Button';
+
+// додавання календаря
+import CustomMonthLayout from 'components/Calendar/Calendar';//delete//
+import { format } from 'date-fns';
+const today=new Date();
 
 const initialValues = {
   title: '',
   description: '',
   priority: '',
+  deadline:today,//календар//
 };
 
 const registerSchema = object({
@@ -19,16 +26,18 @@ const registerSchema = object({
   description: string().required(),
 });
 
-export const AddTaskCard = () => {
+export const AddTaskCard = ({ columnId }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [priority, setPriority] = useState('');
-  const [column] = useState('64d0d5ff12156380132f910a');
+  // const [column] = useState('64d0d5ff12156380132f910a');
   // const addLoading = useSelector(selectTaskIsLoading);
   const dispatch = useDispatch();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
+
+  const [daySelected, setDaySelected] = useState (today); //календар//
 
   const radioOptions = [
     { color: '#8fa1d0', priority: 'low' },
@@ -50,29 +59,32 @@ export const AddTaskCard = () => {
         return;
     }
   };
+  const onSubmit = (values, { setSubmitting }) => {
+    dispatch(
+      addTask({
+        title: title,
+        description: description,
+        priority: priority,
+        deadline: format(daySelected, 'dd/MM/yyyy'),
+        column: columnId,
+      })
+    );
+    setTitle('');
+    setDescription('');
+    setPriority('');
+    setSubmitting(false);
+    toggleModal();
+  };
 
   return (
     <div>
-      <button onClick={toggleModal}>Відкрити модалку</button>
+      <Button icon="true" text="Add another card" onClick={toggleModal} />
       {isModalOpen && (
         <Modal onClose={toggleModal}>
           <Formik
             initialValues={initialValues}
             validationSchema={registerSchema}
-            onSubmit={(values, { setSubmitting }) => {
-              dispatch(
-                addTask({
-                  title: title,
-                  description: description,
-                  priority: priority,
-                  column: column,
-                })
-              );
-              setTitle('');
-              setDescription('');
-              setPriority('');
-              setSubmitting(false);
-            }}
+            onSubmit={onSubmit}
           >
             {({ setFieldValue }) => (
               <Form autoComplete="off">
@@ -115,12 +127,15 @@ export const AddTaskCard = () => {
                   </div>
                 </div>
 
+                <CustomMonthLayout daySelected={daySelected} setDaySelected={setDaySelected}/>
+
                 <button
                   className={styles.btn}
                   type="submit"
                   onClick={() => {
                     setFieldValue('title', title);
                     setFieldValue('description', description);
+                    // toggleModal();
                   }}
                 >
                   <svg className={styles.btnIcon}>

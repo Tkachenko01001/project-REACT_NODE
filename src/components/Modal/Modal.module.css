@@ -6,13 +6,15 @@
 }
 
 .light {
-  background-color: #FCFCFC;
+  /* background-color: #FCFCFC; */
+  background-color: #f6f6f7;
   color: #161616;
   stroke: #161616;
 }
 
 .violet {
-  background-color: #FCFCFC;
+  /* background-color: #FCFCFC; */
+  background-color: #ecedfd;
   color: #161616;
   stroke: #161616;
 }

@@ -3,6 +3,7 @@
   color: var(--color-white);
   stroke: var(--color-white);
   fill: var(--bg-color-form-input);
+  border-radius: 8px;
 }
 
 .light {

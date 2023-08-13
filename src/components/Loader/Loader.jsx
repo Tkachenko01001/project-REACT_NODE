@@ -1,6 +1,11 @@
-import ClipLoader from 'react-spinners/ClipLoader';
 import { useSelector } from 'react-redux';
-import { selectIsLoading, selectIsRefreshing } from '../../redux/auth/selectors';
+import ClipLoader from 'react-spinners/ClipLoader';
+
+import {
+  selectIsLoading,
+  selectIsRefreshing,
+  selectIsUpdating,
+} from '../../redux/auth/selectors';
 
 const override = {
   position: 'absolute',
@@ -11,13 +16,15 @@ const override = {
 export const Loader = () => {
   const isLoading = useSelector(selectIsLoading);
   const isRefreshing = useSelector(selectIsRefreshing);
+  const isUpdating = useSelector(selectIsUpdating);
 
   return (
     <ClipLoader
       color="#1f1f1f"
       cssOverride={override}
       size={14}
-      loading={isLoading||isRefreshing}
+
+      loading={isLoading || isRefreshing || isUpdating}
     />
   );
 };
