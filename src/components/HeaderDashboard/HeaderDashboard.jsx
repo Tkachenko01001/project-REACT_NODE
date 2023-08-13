@@ -6,6 +6,7 @@ import { getActiveBoard } from 'redux/boards/operations';
 import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
 import sprite from '../../images/sprite.svg';
 import styles from './HeaderDashboard.module.css';
+// import { setFilter } from 'redux/filter/slice';
 
 const HeaderDashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,9 +14,9 @@ const HeaderDashboard = () => {
   const { boardName } = useParams();
   const dispatch = useDispatch();
 
- useEffect(() => {
-   boardName && dispatch(getActiveBoard(boardName));
- }, [dispatch, boardName]);
+  useEffect(() => {
+    boardName && dispatch(getActiveBoard(boardName));
+  }, [dispatch, boardName]);
 
   const allBoards = useSelector(selectBoardsList);
   const currentBoard = useSelector(selectActiveBoard);
@@ -30,11 +31,12 @@ const HeaderDashboard = () => {
   ];
 
   const handlePriorityChange = event => {
-    setSelectedPriority(event.target.value);
+    dispatch(setSelectedPriority(event.target.value));
   };
 
-    const titleToShow =
-      allBoards.length > 0 && (currentBoard.title ? currentBoard.title : allBoards[0].title);
+  const titleToShow =
+    allBoards.length > 0 &&
+    (currentBoard.title ? currentBoard.title : allBoards[0].title);
 
   return (
     <div className={styles.wrapper}>
