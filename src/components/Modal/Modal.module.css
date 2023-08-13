@@ -86,8 +86,9 @@
   background-color: inherit;
   -webkit-transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  /* z-index: 1201; */
-  stroke: var(--color-white);
+  z-index: 1601;
+  stroke: inherit;
+  /* stroke: var(--color-white); */
 }
 /* Стилі для children - title, input, button */
 /* .title {
