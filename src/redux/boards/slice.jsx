@@ -11,6 +11,7 @@ import {
   addTask,
   updateTask,
   deleteTask,
+  transferTask,
 } from './operations';
 
 const initialState = {
@@ -70,7 +71,15 @@ const boardsSlice = createSlice({
       .addCase(updateTask.pending, handlePending)
       .addCase(updateTask.rejected, handleRejected)
       .addCase(deleteTask.pending, handlePending)
-      .addCase(deleteTask.rejected, handleRejected);
+      .addCase(deleteTask.rejected, handleRejected)
+      .addCase(transferTask.pending, handlePending)
+      .addCase(transferTask.fulfilled, (state, action) => {
+        console.log(action.payload);
+        state.activeBoard = action.payload;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(transferTask.rejected, handleRejected);
   },
 });
 

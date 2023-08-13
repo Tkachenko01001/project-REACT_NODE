@@ -66,13 +66,13 @@ const Column = ({ column }) => {
               ))}
             </ul>
           )}
+          {provided.placeholder}
           <AddTaskCard columnId={_id} />
           {isModalOpen && (
             <Modal onClose={toggleModal}>
               <EditColumn id={_id} title={title} onClose={toggleModal} />
             </Modal>
           )}
-          {provided.placeholder}
         </div>
       )}
     </StrictModeDroppable>
