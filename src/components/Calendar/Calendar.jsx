@@ -10,7 +10,7 @@ export default function CustomMonthLayout({daySelected, setDaySelected}) {
 
   // const [daySelected, setDaySelected] = React.useState ();
   
-  console.log(format(daySelected, 'P'))
+  console.log(format(daySelected, 'dd/MM/yyyy'))
   const DateBefore = { before: new Date()};
 
 const [isPopperOpen, setIsPopperOpen] = useState(false);
@@ -54,7 +54,7 @@ const handleDaySelect = (date) => {
           aria-label="Pick a date"
           onClick={handleButtonClick}
         >
-          Deadline: {format(daySelected, 'P')}
+          Deadline: {format(daySelected, 'dd/MM/yyyy')}
         </button>
       </div>
       {isPopperOpen && (

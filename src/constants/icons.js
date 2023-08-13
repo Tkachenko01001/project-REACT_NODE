@@ -1,10 +1,10 @@
 export const icons = [
-  { value: 'icon-project' },
-  { value: 'icon-star' },
-  { value: 'icon-loading' },
-  { value: 'icon-puzzle-piece' },
-  { value: 'icon-container' },
-  { value: 'icon-lightning' },
-  { value: 'icon-colors' },
-  { value: 'icon-hexagon' },
+  { key: 'project', value: 'icon-project' },
+  { key: 'star', value: 'icon-star' },
+  { key: 'loading', value: 'icon-loading' },
+  { key: 'puzzle-piece', value: 'icon-puzzle-piece' },
+  { key: 'container', value: 'icon-container' },
+  { key: 'lightning', value: 'icon-lightning' },
+  { key: 'colors', value: 'icon-colors' },
+  { key: 'hexagon', value: 'icon-hexagon' },
 ];

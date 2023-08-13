@@ -7,11 +7,16 @@ import sprite from '../../images/sprite.svg';
 import { useDispatch } from 'react-redux';
 import { updateTask } from 'redux/boards/operations';
 
-const initialValues = {
-  title: '',
-  description: '',
-  priority: '',
-};
+// додавання календаря
+import CustomMonthLayout from 'components/Calendar/Calendar';
+import { format } from 'date-fns';
+// const today = new Date();
+
+// const initialValues = {
+//   title: '',
+//   description: '',
+//   priority: '',
+// };
 
 const registerSchema = object({
   title: string().required(),
@@ -19,20 +24,56 @@ const registerSchema = object({
   description: string().required(),
 });
 
-export const EditTaskCard = ({ task }) => {
-  const {
-    _id: taskId,
-    title: oldTitle,
-    description: oldDescription,
-    priority: oldPriority,
-  } = task;
-  const [title, setTitle] = useState(oldTitle);
-  const [description, setDescription] = useState(oldDescription);
-  const [priority, setPriority] = useState(oldPriority);
-  const dispatch = useDispatch();
-
+export const EditTaskCard = ({
+  id,
+  title,
+  description,
+  priority,
+  deadline,
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
+
+  const dispatch = useDispatch();
+  const [newTitle, setNewTitle] = useState(title);
+  const [newDescription, setNewDescription] = useState(description);
+  const [newPriority, setNewPriority] = useState(priority);
+  const [newDaySelected, setNewDaySelected] = useState(deadline);
+
+  //
+
+  const handleChange = ({ target: { name, value } }, setFieldValue) => {
+    setFieldValue(name, value);
+    switch (name) {
+      case 'title':
+        return setNewTitle(value);
+      case 'description':
+        return setNewDescription(value);
+      case 'priority':
+        return setNewPriority(value);
+      default:
+        return;
+    }
+  };
+
+  const onSubmit = (values, { setSubmitting }) => {
+    dispatch(
+      updateTask({
+        id,
+        data: {
+          title: newTitle,
+          description: newDescription,
+          priority: newPriority,
+          deadline: format(newDaySelected, 'dd/MM/yyyy'),
+        },
+      })
+    );
+    setNewTitle('');
+    setNewDescription('');
+    setNewPriority('');
+    setSubmitting(false);
+    toggleModal();
+  };
 
   const radioOptions = [
     { color: '#8fa1d0', priority: 'low' },
@@ -40,38 +81,6 @@ export const EditTaskCard = ({ task }) => {
     { color: '#bedbb0', priority: 'high' },
     { color: 'rgba(255, 255, 255, 0.3)', priority: 'without' },
   ];
-
-  const handleChange = ({ target: { name, value } }, setFieldValue) => {
-    setFieldValue(name, value);
-    switch (name) {
-      case 'title':
-        return setTitle(value);
-      case 'description':
-        return setDescription(value);
-      case 'priority':
-        return setPriority(value);
-      default:
-        return;
-    }
-  };
-  const onSubmit = (values, { setSubmitting }) => {
-    dispatch(
-      updateTask([
-        taskId,
-        {
-          title: title,
-          description: description,
-          priority: priority,
-          deadline: '15082023',
-        },
-      ])
-    );
-    setTitle('');
-    setDescription('');
-    setPriority('');
-    setSubmitting(false);
-    toggleModal();
-  };
 
   return (
     <div>
@@ -89,7 +98,7 @@ export const EditTaskCard = ({ task }) => {
       {isModalOpen && (
         <Modal onClose={toggleModal}>
           <Formik
-            initialValues={initialValues}
+            // initialValues={initialValues}
             validationSchema={registerSchema}
             onSubmit={onSubmit}
           >
@@ -101,7 +110,7 @@ export const EditTaskCard = ({ task }) => {
                   type="text"
                   name="title"
                   placeholder="Title"
-                  value={title}
+                  value={newTitle}
                   onChange={e => handleChange(e, setFieldValue)}
                 />
 
@@ -110,12 +119,12 @@ export const EditTaskCard = ({ task }) => {
                   className={styles.textarea}
                   name="description"
                   placeholder="Description"
-                  value={description}
+                  value={newDescription}
                   onChange={e => handleChange(e, setFieldValue)}
                 />
                 <div className="wrap">
                   <span className={styles.label}>Label color</span>
-                  <div>
+                  <div className={styles.priorityIcons}>
                     {radioOptions.map((option, index) => (
                       <label key={index} className={styles.radioLabel}>
                         <Field
@@ -134,13 +143,17 @@ export const EditTaskCard = ({ task }) => {
                   </div>
                 </div>
 
+                <CustomMonthLayout
+                  daySelected={newDaySelected}
+                  setDaySelected={setNewDaySelected}
+                />
+
                 <button
                   className={styles.btn}
                   type="submit"
                   onClick={() => {
-                    setFieldValue('title', title);
-                    setFieldValue('description', description);
-                    // toggleModal();
+                    setFieldValue('title', newTitle);
+                    setFieldValue('description', newDescription);
                   }}
                 >
                   <svg className={styles.btnIcon}>

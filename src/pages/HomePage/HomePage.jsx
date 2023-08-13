@@ -19,7 +19,7 @@ export default function HomePage() {
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
-        setMenuActive(state => !state);
+        setMenuActive(false);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -32,7 +32,7 @@ export default function HomePage() {
     <div className={css.home} onClick={handleOverlayClick}>
       <Sidebar active={menuActive} />
 
-      <div className={css.homeWrap}>
+      <div className={menuActive ? css.homeWrapOverlay : css.homeWrap}>
         <Header click={handleClick} />
         <ScreensPage />
       </div>
