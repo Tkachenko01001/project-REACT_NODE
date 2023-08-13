@@ -45,7 +45,7 @@ const Card = ({ task }) => {
         <ul className={styles.cardIcons}>
           <li className={styles.cardIcon}>
             {deadlineNow && (
-              <button className={styles.cardButton}>
+              <button className={styles.cardButtonNotHover}>
                 <svg
                   width={16}
                   height={16}
