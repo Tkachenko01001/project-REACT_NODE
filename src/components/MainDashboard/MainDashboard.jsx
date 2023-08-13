@@ -8,8 +8,11 @@ import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
 import AddColumn from 'components/PopUps/AddColumn/AddColumn';
 import Modal from 'components/Modal/Modal';
 import { DragDropContext } from "react-beautiful-dnd";
+import { useDispatch } from 'react-redux';
+import { transferTask } from 'redux/boards/operations';
 
 const MainDashboard = () => {
+  const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
 
@@ -21,6 +24,17 @@ const MainDashboard = () => {
     activeBoard.columns &&
     activeBoard.columns.length > 0 &&
     activeBoard;
+  
+  const onDragEnd = (result) => {
+    const { destination, source, reason, draggableId: id } = result;
+    if (!destination || reason === "CANCEL") return;
+    if (destination.droppableId === source.droppableId && destination.index === source.index) return;
+    
+    dispatch(transferTask({
+      id,
+      data: { destination, source },
+    }))
+  };
 
   return (
     <>
@@ -33,7 +47,7 @@ const MainDashboard = () => {
               </Modal>
             )}
             {columns && (
-              <DragDropContext >
+              <DragDropContext onDragEnd={onDragEnd}>
                 <ul className={styles.columnList}>
                   {activeBoard.columns.map(column => (
                     <li key={column._id}>

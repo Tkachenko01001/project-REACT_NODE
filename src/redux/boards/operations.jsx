@@ -143,3 +143,15 @@ export const deleteTask = createAsyncThunk(
     }
   }
 );
+
+export const transferTask = createAsyncThunk(
+  'boards/transferTask',
+  async ({ id, data }, thunkAPI) => {
+    try {
+      const res = await axios.patch(`/api/tasks/${id}/transfer`, data);
+      thunkAPI.dispatch(getActiveBoard(res.data.board));
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    };
+  }
+);
