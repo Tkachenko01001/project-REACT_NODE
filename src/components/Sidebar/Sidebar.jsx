@@ -45,8 +45,20 @@ const Sidebar = ({ active }) => {
         <div className={css.flexMarkup}>
           <div className={css.partTop}>
             <section className={css.sidebarBox}>
-              <svg className={css.sidebarBoxIcon}>
-                <use href={sprite + '#icon-icon-dark'}></use>
+              <svg
+                className={
+                  theme === 'violet'
+                    ? css.sidebarBoxIconViolet
+                    : css.sidebarBoxIconDark
+                }
+                width={32}
+                height={32}
+              >
+                {theme === 'violet' ? (
+                  <use href={sprite + '#icon-icon-violet'}></use>
+                ) : (
+                  <use href={sprite + '#icon-icon-dark'}></use>
+                )}
               </svg>
               <h2 className={css.sidebarBoxTitle}>Task Pro</h2>
             </section>
