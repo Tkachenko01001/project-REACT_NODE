@@ -6,11 +6,11 @@ import { getActiveBoard } from 'redux/boards/operations';
 import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
 import sprite from '../../images/sprite.svg';
 import styles from './HeaderDashboard.module.css';
-// import { setFilter } from 'redux/filter/slice';
+import { setFilter } from 'redux/boards/filterSlice';
 
 const HeaderDashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedPriority, setSelectedPriority] = useState('');
+  // const [selectedPriority, setSelectedPriority] = useState('');
   const { boardName } = useParams();
   const dispatch = useDispatch();
 
@@ -31,7 +31,7 @@ const HeaderDashboard = () => {
   ];
 
   const handlePriorityChange = event => {
-    dispatch(setSelectedPriority(event.target.value));
+    dispatch(setFilter(event.target.value));
   };
 
   const titleToShow =
@@ -55,7 +55,11 @@ const HeaderDashboard = () => {
             <div className={styles.modalBoard}></div>
             <div className={styles.modalLabel}>
               <h3 className={styles.modalLabelHeader}>Label color</h3>
-              <button type="button" className={styles.modalShowAll}>
+              <button
+                type="button"
+                className={styles.modalShowAll}
+                onChange={handlePriorityChange}
+              >
                 show all
               </button>
             </div>
@@ -67,7 +71,7 @@ const HeaderDashboard = () => {
                     className={styles.modalListOptionsElement}
                     name="priority"
                     value={`${option.priority}`}
-                    checked={selectedPriority === option.priority}
+                    checked={option.priority}
                     onChange={handlePriorityChange}
                   />
                   <div
@@ -76,10 +80,9 @@ const HeaderDashboard = () => {
                   ></div>
                   <div
                     style={{
-                      color:
-                        option.priority === selectedPriority
-                          ? 'white'
-                          : 'rgba(255, 255, 255, 0.50)',
+                      color: option.priority
+                        ? 'white'
+                        : 'rgba(255, 255, 255, 0.50)',
                       cursor: 'pointer',
                     }}
                   >

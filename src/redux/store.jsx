@@ -2,7 +2,7 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/slice';
 import boardsReducer from './boards/slice';
-import { filterReducer } from './filter/slice';
+import { filterReducer } from './boards/filterSlice';
 
 import {
   persistStore,
