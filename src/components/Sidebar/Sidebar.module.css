@@ -15,10 +15,8 @@
   scrollbar-width: none;
 }
 
-/* 9999999 */
-
 .sectionBoards::-webkit-scrollbar {
-  width: 5px; /* Ширина скролу */
+  width: 5px;
   background-color: transparent; /* Колір фону скролу */
 }
 
@@ -30,8 +28,6 @@
 .sectionBoards:hover::-webkit-scrollbar-thumb {
   background-color: var(--color-green); /* Колір бару скролу при наведенні */
 }
-
-/* 9999999 */
 
 .partTop {
   flex: 0 0 auto;
