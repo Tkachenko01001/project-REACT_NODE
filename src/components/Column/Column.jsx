@@ -27,8 +27,8 @@ const Column = ({ column }) => {
     <StrictModeDroppable
       droppableId={_id}
       type="COLUMN"
-      ignoreContainerClipping={true}
-      isCombineEnabled={true}
+      // ignoreContainerClipping={true}
+      // isCombineEnabled={true}
     >
       {(provided) => (
         <div
@@ -77,6 +77,7 @@ const Column = ({ column }) => {
                   <Card task={task} index={index} />
                 </li>
               ))}
+              {provided.placeholder}
             </ul>
           )}
           <AddTaskCard columnId={_id} />
@@ -85,7 +86,7 @@ const Column = ({ column }) => {
               <EditColumn id={_id} title={title} onClose={toggleModal} />
             </Modal>
           )}
-          {provided.placeholder}
+          
         </div>
       )}
     </StrictModeDroppable>

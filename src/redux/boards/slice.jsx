@@ -74,6 +74,7 @@ const boardsSlice = createSlice({
       .addCase(deleteTask.rejected, handleRejected)
       .addCase(transferTask.pending, handlePending)
       .addCase(transferTask.fulfilled, (state, action) => {
+        console.log(action.payload);
         state.activeBoard = action.payload;
         state.isLoading = false;
         state.error = null;
