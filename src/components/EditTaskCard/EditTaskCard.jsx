@@ -33,8 +33,10 @@ export const EditTaskCard = ({ task }) => {
   const [newTitle, setNewTitle] = useState(title);
   const [newDescription, setNewDescription] = useState(description);
   const [newPriority, setNewPriority] = useState(priority);
-  const [newDaySelected, setNewDaySelected] = useState(deadline);
-  //
+  const deadlineInDate = new Date(
+    deadline.replace('/', '.').replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')
+  );
+  const [newDaySelected, setNewDaySelected] = useState(deadlineInDate);
 
   const handleChange = ({ target: { name, value } }, setFieldValue) => {
     setFieldValue(name, value);
