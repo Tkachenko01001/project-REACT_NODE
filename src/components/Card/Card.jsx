@@ -3,7 +3,6 @@ import sprite from '../../images/sprite.svg';
 import styles from './Card.module.css';
 import { useDispatch } from 'react-redux';
 import { EditTaskCard } from 'components/EditTaskCard/EditTaskCard';
-import { Draggable } from 'react-beautiful-dnd';
 
 const Card = ({ task, index }) => {
   const { _id: id, title, description, priority, deadline } = task;
@@ -20,13 +19,9 @@ const Card = ({ task, index }) => {
   const deadlineNow = days < 1;
   // console.log(deadlineNow);
   return (
-    <Draggable draggableId={id} index={index} >
-      {(provided) => (
+
         <div
           className={`${styles.card} ${styles[`priority_${priority}`]}`}
-          ref={provided.innerRef}
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
         >
           <div className={styles.textWrapper}>
             <h4 className={styles.title}>{title}</h4>
@@ -105,10 +100,7 @@ const Card = ({ task, index }) => {
               </li>
             </ul>
           </div>
-          {provided.placeholder}
         </div>
-      )}
-    </Draggable>
   );
 };
 

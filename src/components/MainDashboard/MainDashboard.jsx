@@ -51,7 +51,9 @@ const MainDashboard = () => {
             )}
             {columns && (
               <DragDropContext onDragEnd={onDragEnd}>
-                <ul className={styles.columnList}>
+                <ul
+                  className={styles.columnList}
+                >
                   {activeBoard.columns.map(column => (
                     <li key={column._id}>
                       <Column column={column} />

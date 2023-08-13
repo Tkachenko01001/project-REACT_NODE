@@ -74,8 +74,22 @@ const boardsSlice = createSlice({
       .addCase(deleteTask.rejected, handleRejected)
       .addCase(transferTask.pending, handlePending)
       .addCase(transferTask.fulfilled, (state, action) => {
-        console.log(action.payload);
-        state.activeBoard = action.payload;
+        const columns = [...state.activeBoard.columns];
+
+        const sourceColumnIndex = columns.findIndex((el) => el._id === action.payload.source.droppableId);
+        const destinationColumnIndex = columns.findIndex((el) => el._id === action.payload.destination.droppableId);
+
+        const droppedOrderUser = columns[sourceColumnIndex].taskOrder[action.payload.source.index];
+        const droppedUserIndex = columns[sourceColumnIndex].tasks.findIndex((el) => el._id === droppedOrderUser);
+        const droppedUser = columns[sourceColumnIndex].tasks[droppedUserIndex];
+
+        columns[sourceColumnIndex].tasks.splice(droppedUserIndex, 1);
+        columns[destinationColumnIndex].tasks.push(droppedUser);
+
+        columns[sourceColumnIndex].taskOrder.splice(action.payload.source.index, 1);
+        columns[destinationColumnIndex].taskOrder.splice(action.payload.destination.index, 0, droppedOrderUser)
+
+        state.activeBoard.columns = columns;
         state.isLoading = false;
         state.error = null;
       })

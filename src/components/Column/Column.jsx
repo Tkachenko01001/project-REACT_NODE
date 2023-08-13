@@ -11,6 +11,8 @@ import { useDispatch } from 'react-redux';
 import { selectTheme } from 'redux/auth/selectors';
 import { useSelector } from 'react-redux';
 import { StrictModeDroppable } from 'components/StrictModeDroppable/StrictModeDroppable';
+// import { Droppable } from 'react-beautiful-dnd';
+import { Draggable } from 'react-beautiful-dnd';
 
 const Column = ({ column }) => {
   const { _id, title, tasks, taskOrder } = column;
@@ -23,12 +25,12 @@ const Column = ({ column }) => {
     dispatch(deleteColumn(_id));
   };
   // const myScroll = new SimpleBar(document.getElementById('demo'));
-  return (
+  return ( 
     <StrictModeDroppable
       droppableId={_id}
       type="COLUMN"
-    >
-      {(provided) => (
+      >
+        {(provided) => (
         <div
           className={styles.column__container}
           ref={provided.innerRef}
@@ -69,17 +71,27 @@ const Column = ({ column }) => {
             </div>
           </div>
           {tasks && (
-            <ul className={styles.cardList}>
-              {taskOrder.map((taskId, index) => {
-                const task = tasks.find((el) => el._id === taskId);
-                return (
-                  < li key = { task._id } >
-                    <Card task={task} index={index} />
-                  </li>
-                )
-              })}
-              {provided.placeholder}
-            </ul>
+              <ul
+                className={styles.cardList}
+              >
+                  {taskOrder.map((taskId, index) => {
+                    const task = tasks.find((el) => el._id === taskId);
+                    return (
+                      <Draggable draggableId={task._id} index={index} key={task._id}>
+                        {(provided) => (
+                          < li
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                        >
+                          <Card task={task} index={index} />
+                        </li>
+                        )}
+                      </Draggable>
+                    )
+                  })}
+                {provided.placeholder}
+              </ul>
           )}
           <AddTaskCard columnId={_id} />
           {isModalOpen && (
@@ -87,7 +99,6 @@ const Column = ({ column }) => {
               <EditColumn id={_id} title={title} onClose={toggleModal} />
             </Modal>
           )}
-          
         </div>
       )}
     </StrictModeDroppable>

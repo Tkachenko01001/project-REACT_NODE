@@ -148,9 +148,9 @@ export const transferTask = createAsyncThunk(
   'boards/transferTask',
   async ({ id, data }, thunkAPI) => {
     try {
-      const resTransfer = await axios.patch(`/api/tasks/${id}/transfer`, data);
-      const resActiveBoard = await axios.get(`/api/boards/${resTransfer.data.board}`);
-      return resActiveBoard.data;
+      axios.patch(`/api/tasks/${id}/transfer`, data);
+      
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     };
