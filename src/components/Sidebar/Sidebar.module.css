@@ -42,6 +42,7 @@
 .sectionBoards::-webkit-scrollbar-thumb {
   background-color: transparent; /* Колір бару скролу */
   outline: 1px solid transparent; /* Обводка бару скролу */
+  border-radius: 3px;
 }
 
 .sectionBoards:hover::-webkit-scrollbar-thumb {
@@ -217,6 +218,8 @@
   margin: 0;
   height: 61px;
   position: relative;
+  /* color:inherit;
+  background-color: inherit; */
 }
 
 /* @media screen and (min-width: 768px) {
@@ -246,14 +249,10 @@
   width: 18px;
   height: 18px;
   margin-right: 4px;
-  opacity: 0.5;
+  stroke-opacity: 0.5;
   stroke: inherit;
+  fill: none;
   /* stroke: var(--color-icon-grey); */
-}
-.sidebarNewBoardSvgActive {
-  opacity: 1;
-  stroke: inherit;
-  /* stroke: var(--color-white); */
 }
 
 @media screen and (min-width: 768px) {
@@ -266,14 +265,26 @@
   align-items: center;
 }
 
-.activeBoard {
-  /* background: var(--bg-color-form-input); */
+.activeBoardDark {
+  background-color: var(--bg-color-form-input);
   border-radius: 4px 0px 0px 4px;
   color: inherit;
-  background-color: inherit;
 }
 
-.activeBoard::after {
+.activeBoardLight {
+  background-color: #f6f6f7;
+  border-radius: 4px 0px 0px 4px;
+  color: #161616;
+}
+
+.activeBoardViolet {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 4px 0px 0px 4px;
+  color: inherit;
+}
+
+.activeBoardDark::after,
+.activeBoardLight::after {
   content: '';
   position: absolute;
   right: 0;
@@ -284,18 +295,31 @@
   border-right: 4px solid var(--color-green);
   border-radius: 4px 0px 0px 4px;
 }
+
+.activeBoardViolet::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 61px;
+  width: 4px;
+  color: var(--color-white);
+  border-right: 4px solid var(--color-white);
+  border-radius: 4px 0px 0px 4px;
+}
 .sidebarNewBoardItem {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  /* color: inherit; */
+  justify-content: space-between;  
   color: var(--color-icon-grey);
 }
-/* .sidebarNewBoardItem {
-  opacity: 0.5;
-  color: inherit;
 
-} */
+.sidebarNewBoardItemLight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  color: rgba(22, 22, 22, 0.50);
+}
 
 .sidebarNewBoardItem:focus {
   opacity: 1;
@@ -305,10 +329,9 @@
 .sidebarNewBoardItemActive {
   border-right: 4px solid var(--color-green);
   border-radius: 4px 0px 0px 4px;
-  /* opacity: 1;
-  color: inherit; */
-  background: var(--bg-color-form-input);
-  color: var(--color-white);
+  opacity: 1;
+  color: inherit; 
+  background: var(--bg-color-form-input);  
 }
 
 .sidebarNewBoardItemText {
@@ -316,22 +339,25 @@
   font-size: 14px;
   letter-spacing: -0.28px;
   margin-right: auto;
-  /* color: inherit; */
-  color: var(--color-white);
+  color: inherit;  
 }
 
-.sidebarNewBoardSvgActive {
-  /* stroke: inherit; */
-  stroke: var(--color-white);
+.sidebarNewBoardSvgActive {  
+  stroke: inherit;
+  fill: none;
+  stroke-opacity: 1;
+}
+
+.sidebarNewBoardTextActiveLight {
+  color: #161616; 
 }
 .sidebarNewBoardTextActive {
-  color: var(--color-white);
-  /* color: inherit; */
+  color: var(--color-white);  
 }
 
-.bg {
+/* .bg {
   background: #000;
-}
+} */
 .svg {
   stroke: inherit;
   /* stroke: #ffffff80; */
@@ -344,13 +370,17 @@
   padding: 0;
   margin-right: 8px;
   background-color: inherit;
+  color: inherit;
+  stroke: inherit;
 }
 .sidebarNewBoardButtonActive {
   height: 16px;
   border: none;
   padding: 0;
   margin-right: 8px;
-  background-color: var(--bg-color-form-input);
+  background-color: inherit;
+  color: inherit;
+  /* background-color: var(--bg-color-form-input); */
 }
 .sidebarNewBoardButtonActive:hover {
   stroke: var(--color-green);
@@ -379,7 +409,10 @@
 .sidebarNewBoardIcon {
   width: 16px;
   height: 16px;
-  /* fill: var(--color-icon-grey); */
+  stroke-opacity: 0.7;
+  stroke: inherit;
+  fill: none;
+  /* fill: var(--color-icon-grey);  */
   /* stroke: var(--color-icon-dark); */
 }
 

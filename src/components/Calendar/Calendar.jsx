@@ -17,7 +17,7 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
   const buttonRef = useRef(null);
   const [popperElement, setPopperElement] = useState(null);
   const popper = usePopper(popperRef.current, popperElement, {
-    placement: 'left-start',
+    placement: 'top',
   });
   const closePopper = () => {
     setIsPopperOpen(false);
@@ -54,13 +54,13 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
       {isPopperOpen && (
         <FocusTrap
           active
-          focusTrapOptions={{
-            initialFocus: false,
-            allowOutsideClick: true,
-            clickOutsideDeactivates: true,
-            // onDeactivate: closePopper,
-            fallbackFocus: buttonRef.current,
-          }}
+          // focusTrapOptions={{
+          //   initialFocus: true,
+          //   allowOutsideClick: true,
+          //   clickOutsideDeactivates: true,
+          //   onDeactivate: closePopper,
+          //   fallbackFocus: buttonRef.current,
+          // }}
         >
           <div
             tabIndex={-1}
@@ -89,31 +89,5 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
     </div>
   );
 
-  //   isModalOpen && (
-  //     <Modal onClose={toggleModal}>
-  //     {/* <ThemeProvider theme={theme}>
-  //     <LocalizationProvider dateAdapter={AdapterDayjs}>
-  //             <DateCalendar showDaysOutsideCurrentMonth fixedWeekNumber={5} />
-  //     </LocalizationProvider>
-  //     </ThemeProvider> */}
-
-  //       <DayPicker
-  //        showOutsideDays
-  //        ISOWeek
-  //        required
-  //        mode="single"
-  //       selected={daySelected}
-  //       onSelect={setDaySelected}
-  //       footer={footer}
-  //       disabled={DateBefore}
-  //       // onDayClick={handleClick}
-  //       // modifiersClassNames={{
-  //       //   selected: 'my-selected',
-  //       //   // today: 'my-today'
-  //       // }}
-
-  //     />
-
-  //     </Modal>
-  //   );
+  
 }

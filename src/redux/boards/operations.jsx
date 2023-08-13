@@ -126,6 +126,7 @@ export const updateTask = createAsyncThunk(
       thunkAPI.dispatch(getActiveBoard(res.data.board));
       return;
     } catch (error) {
+      console.log (error.response.data.message)
       return thunkAPI.rejectWithValue(error.message);
     }
   }
