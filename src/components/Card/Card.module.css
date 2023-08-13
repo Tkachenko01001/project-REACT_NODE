@@ -101,6 +101,16 @@
   );
 }
 
+.cardButtonNotHover {
+  height: 20px;
+  width: 20px;
+  stroke: var(--color-icon-grey);
+  background-color: var(--color-icon-dark);
+  border: none;
+  padding: 2px;
+  pointer-events: none;
+}
+
 .wrapper {
   display: flex;
   position: relative;
@@ -143,7 +153,7 @@
 }
 
 .bell {
-  stroke: var(--color-green);
+  stroke: var(--color-red);
 }
 .priority_high::before {
   background-color: var(--color-green);

@@ -4,6 +4,9 @@ import styles from './Card.module.css';
 import { useDispatch } from 'react-redux';
 import { EditTaskCard } from 'components/EditTaskCard/EditTaskCard';
 
+import { format } from 'date-fns';
+
+
 const Card = ({ task }) => {
   const { _id: id, title, description, priority, deadline } = task;
   const dispatch = useDispatch();
@@ -42,7 +45,7 @@ const Card = ({ task }) => {
         <ul className={styles.cardIcons}>
           <li className={styles.cardIcon}>
             {deadlineNow && (
-              <button className={styles.cardButton}>
+              <button className={styles.cardButtonNotHover}>
                 <svg
                   width={16}
                   height={16}

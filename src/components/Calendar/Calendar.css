@@ -1,3 +1,10 @@
+.rdp{
+  opacity: 1;
+}
+
+.rdp-months {
+  background: var(--bg-color-form-input);
+}
 .rdp-button_reset {
   color: white;
   /* background: none; */
