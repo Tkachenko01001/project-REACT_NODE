@@ -8,20 +8,27 @@ import { AddTaskCard } from 'components/AddTaskCard/AddTaskCard';
 import { deleteColumn } from 'redux/boards/operations';
 import { useDispatch } from 'react-redux';
 // import SimpleBar from 'simplebar';
+import { selectTheme } from 'redux/auth/selectors';
+import { useSelector } from 'react-redux';
 
 const Column = ({ column }) => {
   const { _id, title, tasks } = column;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
   const dispatch = useDispatch();
+  const theme = useSelector(selectTheme);
 
   const onDeleteClick = () => {
     dispatch(deleteColumn(_id));
   };
   // const myScroll = new SimpleBar(document.getElementById('demo'));
   return (
-    <div className={styles.column__container} data-simplebar id="demo">
-      <div className={styles.columnHeader}>
+    <div className={styles.column__container}>
+      <div
+        className={
+          theme === 'dark' ? styles.columnHeaderDark : styles.columnHeader
+        }
+      >
         <span className={styles.columnHeader__title}>{title}</span>
         <div className={styles.columnHeader__controls}>
           <button className={styles.columnHeader__button} onClick={toggleModal}>

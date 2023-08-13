@@ -10,20 +10,20 @@ import { HelpForm } from 'components/Help/HelpForm/Help';
 export const NeedHelp = () => {
   const theme = useSelector(selectTheme);
   return (
-    <section className={css.sidebarHelp}>
-      <div
-        className={
-          (theme === 'dark' && css.dark) ||
-          (theme === 'light' && css.light) ||
-          (theme === 'violet' && css.violet)
-        }
-      >
-        <div>
-          <picture>
-            <source srcSet={`${cactus} 1x, ${cactus2x} 2x,${cactus3x} 3x`} />
-            <img srcSet={`${cactus} 1x`} alt="cactus" />
-          </picture>
-        </div>
+    <div
+      className={
+        (theme === 'dark' && css.dark) ||
+        (theme === 'light' && css.light) ||
+        (theme === 'violet' && css.violet)
+      }
+    >
+      <div className={css.sidebarHelp}>
+        {/* <div> */}
+        <picture>
+          <source srcSet={`${cactus} 1x, ${cactus2x} 2x,${cactus3x} 3x`} />
+          <img srcSet={`${cactus} 1x`} alt="cactus" />
+        </picture>
+        {/* </div> */}
         <div className={css.sidebarHelpBox}>
           <HelpForm />
         </div>
@@ -34,6 +34,6 @@ export const NeedHelp = () => {
           <p className={css.sidebarHelpNeedHelp}>Need help?</p>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
