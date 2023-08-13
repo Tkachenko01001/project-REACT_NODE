@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux';
 import { StrictModeDroppable } from 'components/StrictModeDroppable/StrictModeDroppable';
 
 const Column = ({ column }) => {
-  const { _id, title, tasks } = column;
+  const { _id, title, tasks, taskOrder } = column;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
   const dispatch = useDispatch();
@@ -27,8 +27,6 @@ const Column = ({ column }) => {
     <StrictModeDroppable
       droppableId={_id}
       type="COLUMN"
-      // ignoreContainerClipping={true}
-      // isCombineEnabled={true}
     >
       {(provided) => (
         <div
@@ -72,11 +70,14 @@ const Column = ({ column }) => {
           </div>
           {tasks && (
             <ul className={styles.cardList}>
-              {tasks.map((task, index) => (
-                <li key={task._id}>
-                  <Card task={task} index={index} />
-                </li>
-              ))}
+              {taskOrder.map((taskId, index) => {
+                const task = tasks.find((el) => el._id === taskId);
+                return (
+                  < li key = { task._id } >
+                    <Card task={task} index={index} />
+                  </li>
+                )
+              })}
               {provided.placeholder}
             </ul>
           )}
