@@ -29,12 +29,6 @@ const Sidebar = ({ active }) => {
     dispatch(getAllBoards());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   if (firstBoard) {
-  //     setActiveBoardId(firstBoard._id);
-  //   }
-  // }, [firstBoard]);
-
   const handleClickLogout = () => {
     dispatch(logOut());
   };
@@ -76,7 +70,12 @@ const Sidebar = ({ active }) => {
                   >
                     <div
                       className={`${css.sidebarNewBoard} ${
-                        activeBoardId === board._id ? css.activeBoard : ''
+                        (!activeBoardId &&
+                          activeBoardFirstState &&
+                          activeBoardFirstState === board._id) ||
+                        (activeBoardId && activeBoardId === board._id)
+                          ? css.activeBoard
+                          : ''
                       }`}
                       onClick={() => handleClickBoard(board._id)}
                     >
@@ -84,7 +83,10 @@ const Sidebar = ({ active }) => {
                         <div className={css.flex}>
                           <svg
                             className={`${css.sidebarNewBoardSvg} ${
-                              activeBoardId === board._id
+                              (!activeBoardId &&
+                                activeBoardFirstState &&
+                                activeBoardFirstState === board._id) ||
+                              (activeBoardId && activeBoardId === board._id)
                                 ? css.sidebarNewBoardSvgActive
                                 : ''
                             }`}
@@ -93,7 +95,10 @@ const Sidebar = ({ active }) => {
                           </svg>
                           <p
                             className={`${css.sidebarNewBoardItem} ${
-                              activeBoardId === board._id
+                              (!activeBoardId &&
+                                activeBoardFirstState &&
+                                activeBoardFirstState === board._id) ||
+                              (activeBoardId && activeBoardId === board._id)
                                 ? css.sidebarNewBoardTextActive
                                 : ''
                             }`}
@@ -103,8 +108,9 @@ const Sidebar = ({ active }) => {
                         </div>
                         <div className={css.flex}>
                           <EditBoard
+                            key={board._id}
                             checked={activeBoardId === board._id}
-                            title={board.title}
+                            board={board}
                           />
                           <DeleteBoard checked={activeBoardId === board._id} />
                         </div>
