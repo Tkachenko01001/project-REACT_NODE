@@ -6,44 +6,39 @@ import { useRef, useState } from 'react';
 import 'react-day-picker/dist/style.css';
 import './Calendar.css';
 
-export default function CustomMonthLayout({daySelected, setDaySelected}) {
-
+export default function CustomMonthLayout({ daySelected, setDaySelected }) {
   // const [daySelected, setDaySelected] = React.useState ();
-  
-  const DateBefore = { before: new Date()};
 
-const [isPopperOpen, setIsPopperOpen] = useState(false);
-const popperRef = useRef(null);
-const buttonRef = useRef(null);
-const [popperElement, setPopperElement] = useState(null);
-const popper = usePopper(popperRef.current, popperElement, {
-    placement: 'left-start'
+  console.log(format(daySelected, 'dd/MM/yyyy'));
+  const DateBefore = { before: new Date() };
+
+  const [isPopperOpen, setIsPopperOpen] = useState(false);
+  const popperRef = useRef(null);
+  const buttonRef = useRef(null);
+  const [popperElement, setPopperElement] = useState(null);
+  const popper = usePopper(popperRef.current, popperElement, {
+    placement: 'left-start',
   });
-const closePopper = () => {
+  const closePopper = () => {
     setIsPopperOpen(false);
     buttonRef?.current?.focus();
   };
-const handleButtonClick = (e) => {
+  const handleButtonClick = e => {
     setIsPopperOpen(true);
   };
-  
 
-  
-const handleDaySelect = (date) => {
+  const handleDaySelect = date => {
     setDaySelected(date);
     if (date) {
       closePopper();
-    } 
+    }
   };
-
-
 
   let footer = <p>Please pick a day.</p>;
   if (daySelected) {
     footer = <p>You picked {format(daySelected, 'PP')}.</p>;
   }
 
-  
   return (
     <div>
       <div ref={popperRef}>
@@ -64,7 +59,7 @@ const handleDaySelect = (date) => {
             allowOutsideClick: true,
             clickOutsideDeactivates: true,
             // onDeactivate: closePopper,
-            fallbackFocus: buttonRef.current
+            fallbackFocus: buttonRef.current,
           }}
         >
           <div
@@ -94,34 +89,31 @@ const handleDaySelect = (date) => {
     </div>
   );
 
-  
-//   isModalOpen && (
-//     <Modal onClose={toggleModal}>
-//     {/* <ThemeProvider theme={theme}>
-//     <LocalizationProvider dateAdapter={AdapterDayjs}>
-//             <DateCalendar showDaysOutsideCurrentMonth fixedWeekNumber={5} />
-//     </LocalizationProvider>
-//     </ThemeProvider> */}
-    
-//       <DayPicker
-//        showOutsideDays
-//        ISOWeek
-//        required
-//        mode="single"
-//       selected={daySelected}
-//       onSelect={setDaySelected}
-//       footer={footer}
-//       disabled={DateBefore}
-//       // onDayClick={handleClick}
-//       // modifiersClassNames={{
-//       //   selected: 'my-selected',
-//       //   // today: 'my-today'
-//       // }}
-     
-//     />
+  //   isModalOpen && (
+  //     <Modal onClose={toggleModal}>
+  //     {/* <ThemeProvider theme={theme}>
+  //     <LocalizationProvider dateAdapter={AdapterDayjs}>
+  //             <DateCalendar showDaysOutsideCurrentMonth fixedWeekNumber={5} />
+  //     </LocalizationProvider>
+  //     </ThemeProvider> */}
 
+  //       <DayPicker
+  //        showOutsideDays
+  //        ISOWeek
+  //        required
+  //        mode="single"
+  //       selected={daySelected}
+  //       onSelect={setDaySelected}
+  //       footer={footer}
+  //       disabled={DateBefore}
+  //       // onDayClick={handleClick}
+  //       // modifiersClassNames={{
+  //       //   selected: 'my-selected',
+  //       //   // today: 'my-today'
+  //       // }}
 
+  //     />
 
-//     </Modal>
-//   );
+  //     </Modal>
+  //   );
 }

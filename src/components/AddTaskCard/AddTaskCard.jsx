@@ -9,20 +9,20 @@ import sprite from '../../images/sprite.svg';
 import Button from 'components/Button/Button';
 
 // додавання календаря
-import CustomMonthLayout from 'components/Calendar/Calendar';//delete//
+import CustomMonthLayout from 'components/Calendar/Calendar'; //delete//
 import { format } from 'date-fns';
-const today=new Date();
+const today = new Date();
 
 const initialValues = {
   title: '',
   description: '',
   priority: '',
-  deadline:today,//календар//
+  deadline: today, //календар//
 };
 
 const registerSchema = object({
   title: string().required(),
-  priority: string().required(),
+  priority: string(),
   description: string().required(),
 });
 
@@ -37,7 +37,7 @@ export const AddTaskCard = ({ columnId }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
 
-  const [daySelected, setDaySelected] = useState (today); //календар//
+  const [daySelected, setDaySelected] = useState(today); //календар//
 
   const radioOptions = [
     { color: '#8fa1d0', priority: 'low' },
@@ -64,7 +64,7 @@ export const AddTaskCard = ({ columnId }) => {
       addTask({
         title: title,
         description: description,
-        priority: priority,
+        priority: priority || 'without',
         deadline: format(daySelected, 'dd/MM/yyyy'),
         column: columnId,
       })
@@ -108,7 +108,7 @@ export const AddTaskCard = ({ columnId }) => {
                 />
                 <div className="wrap">
                   <span className={styles.label}>Label color</span>
-                  <div>
+                  <div className={styles.priorityIcons}>
                     {radioOptions.map((option, index) => (
                       <label key={index} className={styles.radioLabel}>
                         <Field
@@ -126,8 +126,11 @@ export const AddTaskCard = ({ columnId }) => {
                     ))}
                   </div>
                 </div>
-
-                <CustomMonthLayout daySelected={daySelected} setDaySelected={setDaySelected}/>
+                <span className={styles.label}>Deadline</span>
+                <CustomMonthLayout
+                  daySelected={daySelected}
+                  setDaySelected={setDaySelected}
+                />
 
                 <button
                   className={styles.btn}
