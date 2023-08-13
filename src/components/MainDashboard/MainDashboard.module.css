@@ -27,7 +27,7 @@
   justify-content: center;
   align-items: center;
   border: none;
-  border-radius: 8px;  
+  border-radius: 8px;
   fill: var(--color-white);
   stroke: var(--color-icon-dark);
   background: var(--color-icon-dark);
@@ -48,7 +48,7 @@
   justify-content: center;
   align-items: center;
   border: none;
-  border-radius: 8px;  
+  border-radius: 8px;
   fill: var(--color-icon-dark);
   stroke: var(--color-white);
   background: var(--color-white);
@@ -63,7 +63,7 @@
 }
 
 @media screen and (min-width: 375px) {
-  .buttonText {   
+  .buttonText {
     width: 141px;
   }
 }

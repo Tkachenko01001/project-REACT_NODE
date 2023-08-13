@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 // import SimpleBar from 'simplebar';
 import { selectTheme } from 'redux/auth/selectors';
 import { useSelector } from 'react-redux';
+import { getFilter } from 'redux/boards/selectors';
 
 const Column = ({ column }) => {
   const { _id, title, tasks } = column;
@@ -17,10 +18,12 @@ const Column = ({ column }) => {
   const toggleModal = () => setIsModalOpen(state => !state);
   const dispatch = useDispatch();
   const theme = useSelector(selectTheme);
+  const filter = useSelector(getFilter);
 
   const onDeleteClick = () => {
     dispatch(deleteColumn(_id));
   };
+
   // const myScroll = new SimpleBar(document.getElementById('demo'));
   return (
     <div className={styles.column__container}>
@@ -60,11 +63,13 @@ const Column = ({ column }) => {
       </div>
       {tasks && (
         <ul className={styles.cardList}>
-          {tasks.map(task => (
-            <li key={task._id}>
-              <Card task={task} />
-            </li>
-          ))}
+          {tasks
+            .filter(task => filter === 'all' || task.priority === filter)
+            .map(task => (
+              <li key={task._id}>
+                <Card task={task} />
+              </li>
+            ))}
         </ul>
       )}
       <AddTaskCard columnId={_id} />

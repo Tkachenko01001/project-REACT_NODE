@@ -11,7 +11,6 @@ import { selectTheme } from 'redux/auth/selectors';
 
 const MainDashboard = () => {
   const theme = useSelector(selectTheme);
-  const [selectedPriority, setSelectedPriority] = useState('');
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
@@ -25,11 +24,6 @@ const MainDashboard = () => {
     activeBoard.columns.length > 0 &&
     activeBoard;
 
-  const handlePriorityChange = event => {
-    const newPriority = event.target.value;
-    setSelectedPriority(newPriority);
-  };
-
   return (
     <>
       {allBoards.length > 0 ? (
@@ -42,16 +36,11 @@ const MainDashboard = () => {
             )}
             {columns && (
               <ul className={styles.columnList}>
-                {activeBoard.columns
-                  .filter(
-                    column =>
-                      !selectedPriority || column.priority === selectedPriority
-                  )
-                  .map(column => (
-                    <li key={column._id}>
-                      <Column column={column} />
-                    </li>
-                  ))}
+                {activeBoard.columns.map(column => (
+                  <li key={column._id}>
+                    <Column column={column} />
+                  </li>
+                ))}
               </ul>
             )}
             <button
