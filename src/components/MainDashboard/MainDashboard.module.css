@@ -1,7 +1,6 @@
 .container {
   padding: 14px 24px 0px;
   display: flex;
-  gap: 34px;
   overflow: auto;
 }
 
@@ -50,4 +49,9 @@
 .columnList {
   display: flex;
   gap: 34px;
+}
+@media screen and (min-width: 768px) {
+  .columnList {
+    margin-right: 34px;
+  }
 }

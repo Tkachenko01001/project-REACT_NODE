@@ -24,13 +24,8 @@ const registerSchema = object({
   description: string().required(),
 });
 
-export const EditTaskCard = ({
-  id,
-  title,
-  description,
-  priority,
-  deadline,
-}) => {
+export const EditTaskCard = ({ task }) => {
+  const { id, title, description, priority, deadline } = task;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
 
@@ -39,7 +34,7 @@ export const EditTaskCard = ({
   const [newDescription, setNewDescription] = useState(description);
   const [newPriority, setNewPriority] = useState(priority);
   const [newDaySelected, setNewDaySelected] = useState(deadline);
-
+  console.log(deadline);
   //
 
   const handleChange = ({ target: { name, value } }, setFieldValue) => {
