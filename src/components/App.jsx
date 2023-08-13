@@ -5,7 +5,7 @@ import PrivateRoute from '../Router/PrivateRoute';
 import RestrictedRoute from '../Router/RestrictedRoute';
 import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
 import { refreshUser } from 'redux/auth/operations';
-import { selectIsRefreshing } from 'redux/auth/selectors';
+import { selectIsLoggedIn, selectIsRefreshing } from 'redux/auth/selectors';
 
 import { Loader } from './Loader/Loader';
 
@@ -16,6 +16,7 @@ import AuthPage from 'pages/AuthPage/AuthPage';
 const App = () => {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
+  const isLoggedIn = useSelector(selectIsLoggedIn)
   
   const allBoards = useSelector(selectBoardsList);
   const activeBoard = useSelector(selectActiveBoard);
@@ -26,14 +27,18 @@ const App = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (allBoards.length > 0 && Object.keys(activeBoard).length === 0) {
+    if (
+      isLoggedIn &&
+      allBoards.length > 0 &&
+      Object.keys(activeBoard).length === 0
+    ) {
       navigate(`/home/${allBoards[0]._id}`);
     }
 
-    if (allBoards.length === 0) {
+    if (isLoggedIn && allBoards.length === 0) {
       navigate('/home');
     }
-  }, [navigate, allBoards, activeBoard]);
+  }, [navigate, allBoards, activeBoard, isLoggedIn]);
 
   return isRefreshing ? (
     <Loader />
