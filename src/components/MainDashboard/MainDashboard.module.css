@@ -41,7 +41,7 @@
   height: 56px;
 }
 
-.button {
+.buttonLight {
   display: inline-flex;
   gap: 8px;
   padding: 14px 78px 14px 79px;
@@ -50,6 +50,27 @@
   border: none;
   border-radius: 8px;  
   fill: var(--color-icon-dark);
+  stroke: var(--color-white);
+  background: var(--color-white);
+  color: var(--color-icon-dark);
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.28px;
+  height: 56px;
+}
+
+.buttonViolet {
+  display: inline-flex;
+  gap: 8px;
+  padding: 14px 78px 14px 79px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 8px;  
+  fill: var(--color-violet);
   stroke: var(--color-white);
   background: var(--color-white);
   color: var(--color-icon-dark);
