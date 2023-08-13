@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
 import AddColumn from 'components/PopUps/AddColumn/AddColumn';
 import Modal from 'components/Modal/Modal';
+import { DragDropContext } from "react-beautiful-dnd";
 
 const MainDashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -32,13 +33,15 @@ const MainDashboard = () => {
               </Modal>
             )}
             {columns && (
-              <ul className={styles.columnList}>
-                {activeBoard.columns.map(column => (
-                  <li key={column._id}>
-                    <Column column={column} />
-                  </li>
-                ))}
-              </ul>
+              <DragDropContext >
+                <ul className={styles.columnList}>
+                  {activeBoard.columns.map(column => (
+                    <li key={column._id}>
+                      <Column column={column} />
+                    </li>
+                  ))}
+                </ul>
+              </DragDropContext>
             )}
             <button className={styles.button} onClick={toggleModal}>
               <svg
