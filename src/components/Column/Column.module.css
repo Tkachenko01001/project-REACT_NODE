@@ -74,7 +74,10 @@
   flex-direction: column;
   gap: 8px;
   max-height: 478px;
-  overflow: auto;
+  /* overflow: auto; */
+
+  overflow-y: auto;
+  scrollbar-width: none;
 }
 @media screen and (min-width: 768px) and (max-width: 1440px) {
   .cardList {
@@ -86,4 +89,20 @@
   height: 300px;
   width: 400px;
   overflow: hidden;
+}
+
+.cardList::-webkit-scrollbar {
+  width: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.cardList::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  outline: 1px solid transparent;
+  border-radius: 8px;
+}
+
+.cardList:hover::-webkit-scrollbar-thumb {
+  background-color: #121212;
 }
