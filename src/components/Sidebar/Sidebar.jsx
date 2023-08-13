@@ -118,14 +118,20 @@ const Sidebar = ({ active }) => {
                             {board.title}
                           </p>
                         </div>
-                        <div className={css.flex}>
-                          <EditBoard
-                            key={board._id}
-                            checked={activeBoardId === board._id}
-                            board={board}
-                          />
-                          <DeleteBoard checked={activeBoardId === board._id} />
-                        </div>
+                        {(activeBoardId === board._id ||
+                          (activeBoardFirstState === board._id &&
+                            !activeBoardId)) && (
+                          <div className={css.flex}>
+                            <EditBoard
+                              key={board._id}
+                              checked={activeBoardId === board._id}
+                              board={board}
+                            />
+                            <DeleteBoard
+                              checked={activeBoardId === board._id}
+                            />
+                          </div>
+                        )}
                       </div>
                     </div>
                   </Link>
