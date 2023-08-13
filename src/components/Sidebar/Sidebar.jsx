@@ -12,7 +12,7 @@ import DeleteBoard from 'components/DeleteBoard/DeleteBoard';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const Sidebar = ({active}) => {
+const Sidebar = ({ active }) => {
   const dispatch = useDispatch();
   const allBoards = useSelector(selectBoardsList);
   const theme = useSelector(selectTheme);
@@ -33,9 +33,7 @@ const Sidebar = ({active}) => {
         (theme === 'violet' && css.violet)
       }
     >
-      <aside
-        className={active ? css.active : css.sidebar}        
-      >
+      <aside className={active ? css.active : css.sidebar}>
         <div className={css.sidebarStop}>
           <section className={css.sidebarBox}>
             <svg className={css.sidebarBoxIcon}>
