@@ -1,23 +1,19 @@
 import { backgrounds } from 'constants/backgrounds';
 import { icons } from 'constants/icons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { updateBoard } from 'redux/boards/operations';
-import {
-  selectActiveBoard,
-  selectIsBoardsLoading,
-} from 'redux/boards/selectors';
+import { selectIsBoardsLoading } from 'redux/boards/selectors';
 import sprite from '../../images/sprite.svg';
 import css from '../Sidebar/Sidebar.module.css';
 import styles from './ModalBoard.module.css';
 import ModalPortal from './ModalPortal';
 
-const EditBoard = ({ checked }) => {
+const EditBoard = ({ board, checked }) => {
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
-  const activeBoardItems = useSelector(selectActiveBoard);
 
-  const { _id: id, title, icon, background } = activeBoardItems;
+  const { _id: id, title, icon, background } = board;
   const dispatch = useDispatch();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,6 +21,11 @@ const EditBoard = ({ checked }) => {
   const [newTitle, setNewTitle] = useState(title);
   const [newIcon, setNewIcon] = useState(icon);
   const [newBackground, setNewBackground] = useState(background);
+
+  useEffect(() => {
+    setNewBackground(background);
+    setNewIcon(icon);
+  }, [background, icon]);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -44,11 +45,11 @@ const EditBoard = ({ checked }) => {
     });
   };
 
-  const changeIcon = event => {
-    setNewIcon(event.target.value);
+  const changeIcon = newValue => {
+    setNewIcon(newValue);
   };
-  const changeBg = event => {
-    setNewBackground(event.target.value);
+  const changeBg = newValue => {
+    setNewBackground(newValue);
   };
   const changeTitle = event => {
     setNewTitle(event.target.value);
@@ -90,15 +91,15 @@ const EditBoard = ({ checked }) => {
                       className={styles.input_svg}
                       id={iconItem.value}
                       type="radio"
-                      name="iconItem"
+                      name={`iconNew-${id}`}
                       value={iconItem.value}
-                      checked={icon === iconItem.value ? true : false}
-                      onChange={changeIcon}
-                      onClick={() => console.log('kjhfvaj')}
+                      checked={newIcon === iconItem.value}
+                      onChange={() => changeIcon(iconItem.value)}
                     />
                     <label
                       className={styles.label_svg}
                       htmlFor={iconItem.value}
+                      onClick={() => changeIcon(iconItem.value)}
                     >
                       <svg className={styles.svg} width="18" height="18">
                         <use href={sprite + `#${iconItem.value}`}></use>
@@ -122,12 +123,16 @@ const EditBoard = ({ checked }) => {
                       className={styles.input_png}
                       id={bg.title}
                       type="radio"
-                      name="bg"
+                      name={`bgNew-${id}`}
                       value={bg.title}
-                      checked={background === bg.title ? true : false}
-                      onChange={changeBg}
+                      checked={newBackground === bg.title}
+                      onChange={() => changeBg(bg.title)}
                     />
-                    <label className={styles.label_png} htmlFor={bg.title}>
+                    <label
+                      className={styles.label_png}
+                      htmlFor={bg.title}
+                      onClick={() => changeBg(bg.title)}
+                    >
                       <img
                         className={styles.png}
                         alt={bg.title}
