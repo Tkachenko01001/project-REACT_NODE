@@ -9,7 +9,8 @@
   margin-right: 14px;
 }
 
-.themeButton {
+.themeButtonGreen,
+.themeButtonViolet {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -36,6 +37,7 @@
   margin: 0;
   margin-top: 10px;
   position: fixed;
+  background-color: inherit;
   /* background-color: var(--color-dark); */
   transform: scaleY(0);
   transform-origin: top;
@@ -58,7 +60,8 @@
   opacity: 1;
 }
 
-.themeItem {
+.themeItemGreen,
+.themeItemViolet {
   padding: 0;
   margin: 0;
   list-style-type: none;
@@ -68,9 +71,14 @@
   /* color: var(--color-icon-grey); */
 }
 
-.themeItem:hover,
-.themeButton:hover {
+.themeItemGreen:hover,
+.themeButtonGreen:hover {
   color: var(--color-green);
+}
+
+.themeItemViolet:hover,
+.themeButtonViolet:hover {
+  color: var(--color-violet);
 }
 
 .dark {

@@ -7,8 +7,12 @@ import { useSelector } from 'react-redux';
 import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
 import AddColumn from 'components/PopUps/AddColumn/AddColumn';
 import Modal from 'components/Modal/Modal';
+import { selectTheme } from 'redux/auth/selectors';
 
 const MainDashboard = () => {
+  const theme = useSelector(selectTheme);
+  const [selectedPriority, setSelectedPriority] = useState('');
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
 
@@ -20,6 +24,11 @@ const MainDashboard = () => {
     activeBoard.columns &&
     activeBoard.columns.length > 0 &&
     activeBoard;
+
+  const handlePriorityChange = event => {
+    const newPriority = event.target.value;
+    setSelectedPriority(newPriority);
+  };
 
   return (
     <>
@@ -33,14 +42,22 @@ const MainDashboard = () => {
             )}
             {columns && (
               <ul className={styles.columnList}>
-                {activeBoard.columns.map(column => (
-                  <li key={column._id}>
-                    <Column column={column} />
-                  </li>
-                ))}
+                {activeBoard.columns
+                  .filter(
+                    column =>
+                      !selectedPriority || column.priority === selectedPriority
+                  )
+                  .map(column => (
+                    <li key={column._id}>
+                      <Column column={column} />
+                    </li>
+                  ))}
               </ul>
             )}
-            <button className={styles.button} onClick={toggleModal}>
+            <button
+              className={theme === 'dark' ? styles.buttonDark : styles.button}
+              onClick={toggleModal}
+            >
               <svg
                 width={28}
                 height={28}
