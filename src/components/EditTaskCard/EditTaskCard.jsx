@@ -12,12 +12,11 @@ import CustomMonthLayout from 'components/Calendar/Calendar';
 import { format } from 'date-fns';
 // const today = new Date();
 
-// const initialValues = {
-//   title: '',
-//   description: '',
-//   priority: '',
-// };
-
+const initialValues = {
+  title: '',
+  description: '',
+  priority: '',
+};
 
 const registerSchema = object({
   title: string().required(),
@@ -26,14 +25,20 @@ const registerSchema = object({
 });
 
 export const EditTaskCard = ({ task }) => {
-  const { _id: id, title, description, priority, deadline } = task;
+  const {
+    _id: taskId,
+    title: oldTitle,
+    description: oldDescription,
+    priority: oldPriority,
+    deadline,
+  } = task;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
 
   const dispatch = useDispatch();
-  const [newTitle, setNewTitle] = useState(title);
-  const [newDescription, setNewDescription] = useState(description);
-  const [newPriority, setNewPriority] = useState(priority);
+  const [title, setTitle] = useState(oldTitle);
+  const [description, setDescription] = useState(oldDescription);
+  const [priority, setPriority] = useState(oldPriority);
   const deadlineInDate = new Date(
     deadline.replace('/', '.').replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')
   );
@@ -51,31 +56,32 @@ export const EditTaskCard = ({ task }) => {
     setFieldValue(name, value);
     switch (name) {
       case 'title':
-        return setNewTitle(value);
+        return setTitle(value);
       case 'description':
-        return setNewDescription(value);
+        return setDescription(value);
       case 'priority':
-        return setNewPriority(value);
+        return setPriority(value);
       default:
         return;
     }
   };
 
   const onSubmit = (values, { setSubmitting }) => {
+    console.log(taskId);
     dispatch(
       updateTask({
-        id,
+        id: taskId,
         data: {
-          title: newTitle,
-          description: newDescription,
-          priority: newPriority,
+          title: title,
+          description: description,
+          priority: priority,
           deadline: format(newDaySelected, 'dd/MM/yyyy'),
         },
       })
     );
-    setNewTitle('');
-    setNewDescription('');
-    setNewPriority('');
+    setTitle('');
+    setDescription('');
+    setPriority('');
     setSubmitting(false);
     toggleModal();
   };
@@ -115,7 +121,7 @@ export const EditTaskCard = ({ task }) => {
                   type="text"
                   name="title"
                   placeholder="Title"
-                  value={newTitle}
+                  value={title}
                   onChange={e => handleChange(e, setFieldValue)}
                 />
 
@@ -124,7 +130,7 @@ export const EditTaskCard = ({ task }) => {
                   className={styles.textarea}
                   name="description"
                   placeholder="Description"
-                  value={newDescription}
+                  value={description}
                   onChange={e => handleChange(e, setFieldValue)}
                 />
                 <div className="wrap">
@@ -157,8 +163,8 @@ export const EditTaskCard = ({ task }) => {
                   className={styles.btn}
                   type="submit"
                   onClick={() => {
-                    setFieldValue('title', newTitle);
-                    setFieldValue('description', newDescription);
+                    setFieldValue('title', title);
+                    setFieldValue('description', description);
                   }}
                 >
                   <svg className={styles.btnIcon}>

@@ -46,7 +46,12 @@ export const ThemeMenu = () => {
       }
     >
       <div className={css.themeWrapper}>
-        <button className={css.themeButton} onClick={handleClick}>
+        <button
+          className={
+            theme === 'violet' ? css.themeButtonViolet : css.themeButtonGreen
+          }
+          onClick={handleClick}
+        >
           {themeOption === '' ? 'Theme' : themeOption}
           <Icon name="#icon-chevron-down" width="16px" height="16px" />
         </button>
@@ -55,13 +60,28 @@ export const ThemeMenu = () => {
           onClick={e => e.stopPropagation()}
         >
           <ul>
-            <li className={css.themeItem} onClick={handleThemeChange}>
+            <li
+              className={
+                theme === 'violet' ? css.themeItemViolet : css.themeItemGreen
+              }
+              onClick={handleThemeChange}
+            >
               Light
             </li>
-            <li className={css.themeItem} onClick={handleThemeChange}>
+            <li
+              className={
+                theme === 'violet' ? css.themeItemViolet : css.themeItemGreen
+              }
+              onClick={handleThemeChange}
+            >
               Dark
             </li>
-            <li className={css.themeItem} onClick={handleThemeChange}>
+            <li
+              className={
+                theme === 'violet' ? css.themeItemViolet : css.themeItemGreen
+              }
+              onClick={handleThemeChange}
+            >
               Violet
             </li>
           </ul>

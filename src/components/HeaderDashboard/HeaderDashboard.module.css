@@ -20,7 +20,7 @@
   font-size: 18px;
   font-style: normal;
   line-height: normal;
-  letter-spacing: -0.28px;
+  letter-spacing: -0.36px;
 }
 
 @media screen and (min-width: 1440px) {
@@ -34,13 +34,15 @@
   }
 }
 
-.filter {
+.filter,
+.filterViolet {
   margin-left: auto;
   border: none;
   background-color: inherit;
   display: flex;
   gap: 8px;
   color: inherit;
+  opacity: 0.8;
   /* color: var(--color-icon-light); */
   font-family: 'PoppinsMedium', sans-serif;
   font-size: 14px;
@@ -48,9 +50,46 @@
   letter-spacing: -0.28px;
   align-items: center;
   stroke: inherit;
-
+  fill: inherit;
   /* stroke: var(--color-icon-light); */
 }
+
+.filter:hover {
+  color: var(--color-green);
+}
+
+.filterViolet:hover {
+  color: var(--color-violet);
+}
+
+.iconViolet,
+.iconLight {
+  stroke: var(--color-text-grey);
+  fill: var(--bg-color-light);
+}
+
+.iconDark {
+  stroke: var(--color-icon-light);
+  /* fill: var(--bg-color-light);   */
+}
+
+.iconViolet:hover {
+  stroke: var(--color-violet);
+}
+
+.iconLight:hover,
+.iconDark:hover {
+  stroke: var(--color-green);
+}
+
+.filterViolet:hover .iconViolet {
+  stroke: var(--color-violet);
+}
+
+.filter:hover .iconLight,
+.filter:hover .iconDark {
+    stroke: var(--color-green);
+  }
 
 .filterText {
   height: 20px;
@@ -89,8 +128,10 @@
 
 .modalShowAll {
   border: none;
-  background: none;
-  color: var(--color-icon-grey);
+  background-color: inherit;
+  color: inherit;
+  opacity: 0.5;
+  /* color: var(--color-icon-grey); */
   font-family: 'PoppinsRegular', sans-serif;
   font-size: 12px;
   letter-spacing: -0.24px;
@@ -100,7 +141,7 @@
 .modalCheckbox {
   display: flex;
   gap: 8px;
-  color: var(--color-icon-grey);
+  /* color: var(--color-icon-grey); */
   font-family: 'PoppinsRegular', sans-serif;
   font-size: 12px;
   letter-spacing: -0.24px;
@@ -175,7 +216,6 @@ label {
   transform: translate(-50%, -50%);
   transition: opacity 0.3s;
 }
-
 /* .modalListOptionsElement:checked .radioText+.text {
     color: white;
     /* Цвет текста при выборе радио-инпута */

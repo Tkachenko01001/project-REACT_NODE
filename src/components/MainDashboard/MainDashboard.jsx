@@ -7,8 +7,11 @@ import { useSelector } from 'react-redux';
 import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
 import AddColumn from 'components/PopUps/AddColumn/AddColumn';
 import Modal from 'components/Modal/Modal';
+import { selectTheme } from 'redux/auth/selectors';
 
 const MainDashboard = () => {
+  const theme = useSelector(selectTheme);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
 
@@ -40,7 +43,10 @@ const MainDashboard = () => {
                 ))}
               </ul>
             )}
-            <button className={styles.button} onClick={toggleModal}>
+            <button
+              className={theme === 'dark' ? styles.buttonDark : styles.button}
+              onClick={toggleModal}
+            >
               <svg
                 width={28}
                 height={28}
