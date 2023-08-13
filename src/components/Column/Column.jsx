@@ -31,7 +31,14 @@ const Column = ({ column }) => {
       >
         <span className={styles.columnHeader__title}>{title}</span>
         <div className={styles.columnHeader__controls}>
-          <button className={styles.columnHeader__button} onClick={toggleModal}>
+          <button
+            className={
+              theme === 'dark'
+                ? styles.columnHeader__buttonDark
+                : styles.columnHeader__button
+            }
+            onClick={toggleModal}
+          >
             <svg
               width={16}
               height={16}
@@ -43,7 +50,11 @@ const Column = ({ column }) => {
             </svg>
           </button>
           <button
-            className={styles.columnHeader__button}
+            className={
+              theme === 'dark'
+                ? styles.columnHeader__buttonDark
+                : styles.columnHeader__button
+            }
             onClick={onDeleteClick}
           >
             <svg
