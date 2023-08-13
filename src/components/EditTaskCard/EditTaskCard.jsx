@@ -162,7 +162,7 @@ export const EditTaskCard = ({ task }) => {
                   <svg className={styles.btnIcon}>
                     <use href={sprite + '#icon-plus'}></use>
                   </svg>
-                  <span>Save</span>
+                  <span>Edit</span>
                 </button>
               </Form>
             )}
