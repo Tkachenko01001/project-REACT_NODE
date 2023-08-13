@@ -4,8 +4,6 @@ import styles from './Card.module.css';
 import { useDispatch } from 'react-redux';
 import { EditTaskCard } from 'components/EditTaskCard/EditTaskCard';
 
-import { format } from 'date-fns';
-
 
 const Card = ({ task }) => {
   const { _id: id, title, description, priority, deadline } = task;
