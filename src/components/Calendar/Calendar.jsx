@@ -9,7 +9,7 @@ import './Calendar.css';
 export default function CustomMonthLayout({ daySelected, setDaySelected }) {
   // const [daySelected, setDaySelected] = React.useState ();
 
-  console.log(format(daySelected, 'dd/MM/yyyy'));
+  // console.log(format(daySelected, 'dd/MM/yyyy'));
   const DateBefore = { before: new Date() };
 
   const [isPopperOpen, setIsPopperOpen] = useState(false);

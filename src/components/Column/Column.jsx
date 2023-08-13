@@ -10,9 +10,11 @@ import { useDispatch } from 'react-redux';
 // import SimpleBar from 'simplebar';
 import { selectTheme } from 'redux/auth/selectors';
 import { useSelector } from 'react-redux';
+import { StrictModeDroppable } from 'components/StrictModeDroppable/StrictModeDroppable';
+import { Draggable } from 'react-beautiful-dnd';
 
 const Column = ({ column }) => {
-  const { _id, title, tasks } = column;
+  const { _id, title, tasks, taskOrder } = column;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
   const dispatch = useDispatch();
@@ -23,68 +25,93 @@ const Column = ({ column }) => {
   };
   // const myScroll = new SimpleBar(document.getElementById('demo'));
   return (
-    <div className={styles.column__container}>
-      <div
-        className={
-          theme === 'dark' ? styles.columnHeaderDark : styles.columnHeader
-        }
-      >
-        <span className={styles.columnHeader__title}>{title}</span>
-        <div className={styles.columnHeader__controls}>
-          <button
+    <StrictModeDroppable droppableId={_id}>
+      {(provided) => (
+        <div
+          className={styles.column__container}
+          ref={provided.innerRef}
+          {...provided.droppableProps}
+        >
+          <div
             className={
-              theme === 'dark'
-                ? styles.columnHeader__buttonDark
-                : styles.columnHeader__button
+              theme === 'dark' ? styles.columnHeaderDark : styles.columnHeader
             }
-            onClick={toggleModal}
           >
-            <svg
-              width={16}
-              height={16}
-              aria-label="icon-pencil"
-              className={styles.svg}
-            >
-              <title>Edit column</title>
-              <use href={sprite + '#icon-pencil'} />
-            </svg>
-          </button>
-          <button
-            className={
-              theme === 'dark'
-                ? styles.columnHeader__buttonDark
-                : styles.columnHeader__button
-            }
-            onClick={onDeleteClick}
-          >
-            <svg
-              width={16}
-              height={16}
-              aria-label="icon-trash"
-              className={styles.svg}
-            >
-              <title>Delete column</title>
-              <use href={sprite + '#icon-trash'} />
-            </svg>
-          </button>
+            <span className={styles.columnHeader__title}>{title}</span>
+            <div className={styles.columnHeader__controls}>
+              <button
+                className={
+                  theme === 'dark'
+                    ? styles.columnHeader__buttonDark
+                    : styles.columnHeader__button
+                }
+                onClick={toggleModal}
+              >
+                <svg
+                  width={16}
+                  height={16}
+                  aria-label="icon-pencil"
+                  className={styles.svg}
+                >
+                  <title>Edit column</title>
+                  <use href={sprite + '#icon-pencil'} />
+                </svg>
+              </button>
+              <button
+                className={
+                  theme === 'dark'
+                    ? styles.columnHeader__buttonDark
+                    : styles.columnHeader__button
+                }
+                onClick={onDeleteClick}
+              >
+                <svg
+                  width={16}
+                  height={16}
+                  aria-label="icon-trash"
+                  className={styles.svg}
+                >
+                  <title>Delete column</title>
+                  <use href={sprite + '#icon-trash'} />
+                </svg>
+              </button>
+            </div>
+          </div>
+          {tasks && (
+            <ul className={styles.cardList}>
+              {taskOrder.map((taskId, index) => {
+                const task = tasks.find((el) => el._id === taskId);
+                return (
+                  <Draggable
+                    draggableId={task._id}
+                    index={index}  
+                    key={taskId}
+                  >
+                    {(provided) => (
+                      <li
+                        key={task._id}
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                      >
+                        <Card task={task} />
+                      </li>
+                    )}
+                  </Draggable>
+                )
+              })}
+              {provided.placeholder}
+            </ul>
+          )}
+          <AddTaskCard columnId={_id} />
+          {isModalOpen && (
+            <Modal onClose={toggleModal}>
+              <EditColumn id={_id} title={title} onClose={toggleModal} />
+            </Modal>
+          )}
         </div>
-      </div>
-      {tasks && (
-        <ul className={styles.cardList}>
-          {tasks.map(task => (
-            <li key={task._id}>
-              <Card task={task} />
-            </li>
-          ))}
-        </ul>
       )}
-      <AddTaskCard columnId={_id} />
-      {isModalOpen && (
-        <Modal onClose={toggleModal}>
-          <EditColumn id={_id} title={title} onClose={toggleModal} />
-        </Modal>
-      )}
-    </div>
+    </StrictModeDroppable>
   );
 };
 
