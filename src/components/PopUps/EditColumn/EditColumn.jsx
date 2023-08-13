@@ -1,10 +1,12 @@
-import styles from './EditColumn.module.css';
 import Button from 'components/Button/Button';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateColumn } from 'redux/boards/operations';
+import { selectIsBoardsLoading } from 'redux/boards/selectors';
+import styles from './EditColumn.module.css';
 
 export default function EditColumn({ id, title, onClose }) {
+  const isBoardsLoading = useSelector(selectIsBoardsLoading);
   const dispatch = useDispatch();
   const [newTitle, setNewTitle] = useState(title);
 
@@ -14,8 +16,9 @@ export default function EditColumn({ id, title, onClose }) {
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(updateColumn([id, { title: newTitle }]));
-    onClose();
+    dispatch(updateColumn([id, { title: newTitle }])).then(() => {
+      !isBoardsLoading && onClose();
+    });
   };
   return (
     <>
@@ -30,7 +33,7 @@ export default function EditColumn({ id, title, onClose }) {
           value={newTitle}
           onChange={changeTitle}
         />
-        <Button icon="true" text="Edit" />
+        <Button loading={isBoardsLoading} icon="true" text="Edit" />
       </form>
     </>
   );

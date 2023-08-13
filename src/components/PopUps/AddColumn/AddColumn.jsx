@@ -1,12 +1,16 @@
-import styles from './AddColumn.module.css';
 import Button from 'components/Button/Button';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectActiveBoard } from 'redux/boards/selectors';
+import { useDispatch, useSelector } from 'react-redux';
 import { addColumn } from 'redux/boards/operations';
+import {
+  selectActiveBoard,
+  selectIsBoardsLoading,
+} from 'redux/boards/selectors';
+import styles from './AddColumn.module.css';
 
 export default function AddColumn({ toggleModal }) {
   const dispatch = useDispatch();
   const activeBoard = useSelector(selectActiveBoard);
+  const isBoardsLoading = useSelector(selectIsBoardsLoading);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -15,8 +19,9 @@ export default function AddColumn({ toggleModal }) {
         title: event.currentTarget[0].value,
         board: activeBoard._id,
       })
-    );
-    toggleModal();
+    ).then(() => {
+      !isBoardsLoading && toggleModal();
+    });
   };
 
   return (
@@ -31,7 +36,7 @@ export default function AddColumn({ toggleModal }) {
           placeholder="Title"
           required
         />
-        <Button icon="true" text="Add" />
+        <Button loading={isBoardsLoading} icon="true" text="Add" />
       </form>
     </>
   );

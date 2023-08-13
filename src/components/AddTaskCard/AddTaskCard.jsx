@@ -1,12 +1,14 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addTask } from 'redux/boards/operations';
-import Modal from '../Modal/Modal';
-import { Formik, Form, Field } from 'formik';
-import { object, string } from 'yup';
-import styles from './AddTaskCard.module.css';
-import sprite from '../../images/sprite.svg';
 import Button from 'components/Button/Button';
+import { Field, Form, Formik } from 'formik';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import ClipLoader from 'react-spinners/ClipLoader';
+import { addTask } from 'redux/boards/operations';
+import { selectIsBoardsLoading } from 'redux/boards/selectors';
+import { object, string } from 'yup';
+import sprite from '../../images/sprite.svg';
+import Modal from '../Modal/Modal';
+import styles from './AddTaskCard.module.css';
 
 // додавання календаря
 import CustomMonthLayout from 'components/Calendar/Calendar'; //delete//
@@ -33,6 +35,8 @@ export const AddTaskCard = ({ columnId }) => {
   // const [column] = useState('64d0d5ff12156380132f910a');
   // const addLoading = useSelector(selectTaskIsLoading);
   const dispatch = useDispatch();
+
+  const isBoardsLoading = useSelector(selectIsBoardsLoading);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
@@ -68,12 +72,13 @@ export const AddTaskCard = ({ columnId }) => {
         deadline: format(daySelected, 'dd/MM/yyyy'),
         column: columnId,
       })
-    );
+    ).then(() => {
+      !isBoardsLoading && toggleModal();
+    });
     setTitle('');
     setDescription('');
     setPriority('');
     setSubmitting(false);
-    toggleModal();
   };
 
   return (
@@ -141,9 +146,13 @@ export const AddTaskCard = ({ columnId }) => {
                     // toggleModal();
                   }}
                 >
-                  <svg className={styles.btnIcon}>
-                    <use href={sprite + '#icon-plus'}></use>
-                  </svg>
+                  {isBoardsLoading ? (
+                    <ClipLoader color="#1f1f1f" size={30} />
+                  ) : (
+                    <svg className={styles.btnIcon}>
+                      <use href={sprite + '#icon-plus'}></use>
+                    </svg>
+                  )}
                   <span>Add</span>
                 </button>
               </Form>

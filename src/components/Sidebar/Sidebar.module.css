@@ -240,7 +240,7 @@
   }
 }
 .sideBarBoardHover:hover {
-  opacity: 50%;
+  opacity: 70%;
 }
 .sidebarNewBoardSvg {
   width: 18px;
@@ -267,10 +267,10 @@
 }
 
 .activeBoard {
-  /* background: var(--bg-color-form-input); */
   border-radius: 4px 0px 0px 4px;
   color: inherit;
   background-color: inherit;
+  /* background: var(--bg-color-form-input); */
 }
 
 .activeBoard::after {
@@ -345,14 +345,8 @@
   margin-right: 8px;
   background-color: inherit;
 }
-.sidebarNewBoardButtonActive {
-  height: 16px;
-  border: none;
-  padding: 0;
-  margin-right: 8px;
-  background-color: var(--bg-color-form-input);
-}
-.sidebarNewBoardButtonActive:hover {
+
+.sidebarNewBoardButton:hover {
   stroke: var(--color-green);
   background: radial-gradient(
     circle closest-side,

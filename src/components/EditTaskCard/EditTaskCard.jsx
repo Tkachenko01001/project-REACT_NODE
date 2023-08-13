@@ -1,11 +1,15 @@
+import { Field, Form, Formik } from 'formik';
 import { useState } from 'react';
-import Modal from '../Modal/Modal';
-import { Formik, Form, Field } from 'formik';
-import { object, string } from 'yup';
-import styles from './EditTaskCard.module.css';
-import sprite from '../../images/sprite.svg';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import ClipLoader from 'react-spinners/ClipLoader';
+import { selectIsBoardsLoading } from 'redux/boards/selectors';
+
 import { updateTask } from 'redux/boards/operations';
+import { object, string } from 'yup';
+import sprite from '../../images/sprite.svg';
+import Modal from '../Modal/Modal';
+import styles from './EditTaskCard.module.css';
 
 // додавання календаря
 import CustomMonthLayout from 'components/Calendar/Calendar';
@@ -26,6 +30,9 @@ export const EditTaskCard = ({ task }) => {
     priority: oldPriority,
     deadline,
   } = task;
+
+  const isBoardsLoading = useSelector(selectIsBoardsLoading);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
 
@@ -70,12 +77,13 @@ export const EditTaskCard = ({ task }) => {
           deadline: format(newDaySelected, 'dd/MM/yyyy'),
         },
       })
-    );
+    ).then(() => {
+      !isBoardsLoading && toggleModal();
+    });
     setTitle('');
     setDescription('');
     setPriority('');
     setSubmitting(false);
-    toggleModal();
   };
 
   const radioOptions = [
@@ -159,9 +167,13 @@ export const EditTaskCard = ({ task }) => {
                     setFieldValue('description', description);
                   }}
                 >
-                  <svg className={styles.btnIcon}>
-                    <use href={sprite + '#icon-plus'}></use>
-                  </svg>
+                  {isBoardsLoading ? (
+                    <ClipLoader color="#1f1f1f" size={30} />
+                  ) : (
+                    <svg className={styles.btnIcon}>
+                      <use href={sprite + '#icon-plus'}></use>
+                    </svg>
+                  )}
                   <span>Edit</span>
                 </button>
               </Form>

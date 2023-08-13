@@ -7,12 +7,12 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
-import { logOut } from 'redux/auth/operations';
 import { selectTheme } from 'redux/auth/selectors';
 import { getAllBoards } from 'redux/boards/operations';
 import { selectBoardsList } from 'redux/boards/selectors';
 import sprite from '../../images/sprite.svg';
-import css from '../Sidebar/Sidebar.module.css';
+import Logout from './Logout';
+import css from './Sidebar.module.css';
 
 const Sidebar = ({ active }) => {
   const dispatch = useDispatch();
@@ -28,10 +28,6 @@ const Sidebar = ({ active }) => {
   useEffect(() => {
     dispatch(getAllBoards());
   }, [dispatch]);
-
-  const handleClickLogout = () => {
-    dispatch(logOut());
-  };
 
   return (
     <div
@@ -67,7 +63,7 @@ const Sidebar = ({ active }) => {
             </div>
             <section className={css.sidebarBoard}>
               <p className={css.sidebarBoardItem}>Create a new board</p>
-              <NewBoard />
+              <NewBoard from="Sidebar" />
             </section>
           </div>
 
@@ -122,14 +118,8 @@ const Sidebar = ({ active }) => {
                           (activeBoardFirstState === board._id &&
                             !activeBoardId)) && (
                           <div className={css.flex}>
-                            <EditBoard
-                              key={board._id}
-                              checked={activeBoardId === board._id}
-                              board={board}
-                            />
-                            <DeleteBoard
-                              checked={activeBoardId === board._id}
-                            />
+                            <EditBoard key={board._id} board={board} />
+                            <DeleteBoard />
                           </div>
                         )}
                       </div>
@@ -144,7 +134,8 @@ const Sidebar = ({ active }) => {
               <NeedHelp />
             </section>
             <section className={css.sidebarLogout}>
-              <button
+              <Logout />
+              {/* <button
                 onClick={handleClickLogout}
                 className={css.sidebarLogoutButton}
                 type="button"
@@ -153,7 +144,7 @@ const Sidebar = ({ active }) => {
                   <use href={sprite + '#icon-logout'}></use>
                 </svg>
                 Log out
-              </button>
+              </button> */}
             </section>
           </div>
         </div>

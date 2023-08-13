@@ -1,15 +1,11 @@
-import { deleteTask } from 'redux/boards/operations';
+import { EditTaskCard } from 'components/EditTaskCard/EditTaskCard';
 import sprite from '../../images/sprite.svg';
 import styles from './Card.module.css';
-import { useDispatch } from 'react-redux';
-import { EditTaskCard } from 'components/EditTaskCard/EditTaskCard';
+import DeleteTask from './DeleteCard';
 
 const Card = ({ task }) => {
   const { _id: id, title, description, priority, deadline } = task;
-  const dispatch = useDispatch();
-  const onDeleteClick = () => {
-    dispatch(deleteTask(id));
-  };
+
   const deadlineInDate = new Date(
     deadline.replace('/', '.').replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')
   );
@@ -17,7 +13,7 @@ const Card = ({ task }) => {
   const timeDiff = deadlineInDate - currentDate;
   const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
   const deadlineNow = days < 1;
-  console.log(deadlineNow);
+
   return (
     <div className={`${styles.card} ${styles[`priority_${priority}`]}`}>
       <div className={styles.textWrapper}>
@@ -83,17 +79,7 @@ const Card = ({ task }) => {
             <EditTaskCard task={task} />
           </li>
           <li className={styles.cardIcon}>
-            <button className={styles.cardButton} onClick={onDeleteClick}>
-              <svg
-                width={16}
-                height={16}
-                aria-label="icon-trash"
-                className={styles.svg}
-              >
-                <title>Trash Icon</title>
-                <use href={sprite + '#icon-trash'} />
-              </svg>
-            </button>
+            <DeleteTask id={id} />
           </li>
         </ul>
       </div>
