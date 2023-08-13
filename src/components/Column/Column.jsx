@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 // import SimpleBar from 'simplebar';
 import { selectTheme } from 'redux/auth/selectors';
 import { useSelector } from 'react-redux';
+import { StrictModeDroppable } from 'components/StrictModeDroppable/StrictModeDroppable';
 
 const Column = ({ column }) => {
   const { _id, title, tasks } = column;
@@ -23,57 +24,71 @@ const Column = ({ column }) => {
   };
   // const myScroll = new SimpleBar(document.getElementById('demo'));
   return (
-    <div className={styles.column__container}>
-      <div
-        className={
-          theme === 'dark' ? styles.columnHeaderDark : styles.columnHeader
-        }
-      >
-        <span className={styles.columnHeader__title}>{title}</span>
-        <div className={styles.columnHeader__controls}>
-          <button className={styles.columnHeader__button} onClick={toggleModal}>
-            <svg
-              width={16}
-              height={16}
-              aria-label="icon-pencil"
-              className={styles.svg}
-            >
-              <title>Edit column</title>
-              <use href={sprite + '#icon-pencil'} />
-            </svg>
-          </button>
-          <button
-            className={styles.columnHeader__button}
-            onClick={onDeleteClick}
+    <StrictModeDroppable
+      droppableId={_id}
+      type="COLUMN"
+      ignoreContainerClipping={true}
+      // isCombineEnabled={true}
+    >
+      {(provided) => (
+        <div
+          className={styles.column__container}
+          ref={provided.innerRef}
+          {...provided.droppableProps}
+        >
+          <div
+            className={
+              theme === 'dark' ? styles.columnHeaderDark : styles.columnHeader
+            }
           >
-            <svg
-              width={16}
-              height={16}
-              aria-label="icon-trash"
-              className={styles.svg}
-            >
-              <title>Delete column</title>
-              <use href={sprite + '#icon-trash'} />
-            </svg>
-          </button>
+            <span className={styles.columnHeader__title}>{title}</span>
+            <div className={styles.columnHeader__controls}>
+              <button className={styles.columnHeader__button} onClick={toggleModal}>
+                <svg
+                  width={16}
+                  height={16}
+                  aria-label="icon-pencil"
+                  className={styles.svg}
+                >
+                  <title>Edit column</title>
+                  <use href={sprite + '#icon-pencil'} />
+                </svg>
+              </button>
+              <button
+                className={styles.columnHeader__button}
+                onClick={onDeleteClick}
+              >
+                <svg
+                  width={16}
+                  height={16}
+                  aria-label="icon-trash"
+                  className={styles.svg}
+                >
+                  <title>Delete column</title>
+                  <use href={sprite + '#icon-trash'} />
+                </svg>
+              </button>
+            </div>
+          </div>
+          {tasks && (
+            <ul className={styles.cardList}>
+              {tasks.map((task, index) => (
+                <li key={task._id}>
+                  <Card task={task} index={index} />
+                </li>
+              ))}
+            </ul>
+          )}
+          <AddTaskCard columnId={_id} />
+          {isModalOpen && (
+            <Modal onClose={toggleModal}>
+              <EditColumn id={_id} title={title} onClose={toggleModal} />
+            </Modal>
+          )}
+          {provided.placeholder}
         </div>
-      </div>
-      {tasks && (
-        <ul className={styles.cardList}>
-          {tasks.map(task => (
-            <li key={task._id}>
-              <Card task={task} />
-            </li>
-          ))}
-        </ul>
       )}
-      <AddTaskCard columnId={_id} />
-      {isModalOpen && (
-        <Modal onClose={toggleModal}>
-          <EditColumn id={_id} title={title} onClose={toggleModal} />
-        </Modal>
-      )}
-    </div>
+    </StrictModeDroppable>
   );
 };
 
