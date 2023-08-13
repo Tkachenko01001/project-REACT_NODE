@@ -1,11 +1,54 @@
-import NewBoard from 'components/ModalBoard/NewBoard';
 import { useState } from 'react';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { addBoard } from 'redux/boards/operations';
+import { selectIsBoardsLoading } from 'redux/boards/selectors';
+import ModalBoard from 'components/ModalBoard/ModalBoard';
 import styles from './MainPlaceholder.module.css';
 
 const MainPlaceholder = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
+  const isBoardsLoading = useSelector(selectIsBoardsLoading);
+  const required = true;
+  const [icon, setIcon] = useState('icon-project');
+  const [background, setBackground] = useState('null');
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    dispatch(
+      addBoard({
+        title: event.target[0].value,
+        icon,
+        background,
+      })
+    ).then(() => {
+      if (!isBoardsLoading) {
+        toggleModal();
+        setIcon('icon-project');
+        setBackground('null');
+      }
+    });
+  };
+
+  const changeIcon = event => {
+    setIcon(event.target.value);
+  };
+  const changeBg = event => {
+    setBackground(event.target.value);
+  };
+
+  const modalProps = {
+    isModalOpen,
+    toggleModal,
+    handleSubmit,
+    changeBg,
+    changeIcon,
+    icon,
+    background,
+    required,
+  };
 
   return (
     <div className={styles.mainDashboardContainer}>
@@ -22,7 +65,11 @@ const MainPlaceholder = () => {
         board serves as a powerful tool to organize the workflow and ensure
         effective collaboration among team members.
       </p>
-      {isModalOpen && <NewBoard toggleModal={toggleModal} />}
+      <ModalBoard
+        {...modalProps}
+        modalTitle="New Board"
+        submitButtonText="Create"
+      />
     </div>
   );
 };
