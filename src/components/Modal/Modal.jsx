@@ -34,7 +34,7 @@ export default function Modal({ onClose, children }) {
           (theme === 'violet' && css.violet)
         }
       >
-        <div className={css.modal}>
+        <div className={theme === 'dark' ? css.modalDark : css.modal}>
           <>
             <button
               type="button"

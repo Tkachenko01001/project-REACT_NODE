@@ -1,6 +1,7 @@
 .title {
   font-family: var(--font-medium);
-  color: var(--color-white) f;
+  color: inherit;
+  color: var(--color-white);
   font-size: 18px;
   line-height: normal;
   letter-spacing: -0.36px;
@@ -14,7 +15,9 @@
   border: 1px solid var(--color-green);
   opacity: 0.4;
   margin-bottom: 14px;
-  background-color: var(--bg-color-form-input);
+  /* color: inherit; */
+  background-color: inherit;
+  /* background-color: var(--bg-color-form-input); */
   color: var(--color-white);
   box-shadow: 0px 4px 16px 0px var(--color-shadow);
 
@@ -54,7 +57,9 @@
   margin-bottom: 24px;
   border: 1px solid var(--color-green);
   opacity: 0.4;
-  background-color: var(--bg-color-form-input);
+  /* color: inherit; */
+  background-color: inherit;
+  /* background-color: var(--bg-color-form-input); */
   color: var(--color-white);
   box-shadow: 0px 4px 16px 0px var(--color-shadow);
   resize: none;
@@ -93,6 +98,7 @@
 
 .label {
   margin-bottom: 4px;
+  /* color: inherit; */
   color: var(--color-icon-grey);
   font-family: var(--font-regular);
   font-size: 12px;
@@ -120,7 +126,7 @@
   margin-top: 24px;
   height: 49px;
   background-color: var(--color-green);
-  color: var(--color-dark);
+  /* color: var(--color-dark); */
 
   font-family: var(--font-medium);
   font-size: 14px;

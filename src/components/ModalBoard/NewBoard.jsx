@@ -66,7 +66,15 @@ const NewBoard = () => {
         className={css.sidebarBoardButton}
         type="button"
       >
-        <svg className={theme === 'violet' ? css.sidebarBoardIconViolet : css.sidebarBoardIconGreen} width={36} height={36}>
+        <svg
+          className={
+            theme === 'violet'
+              ? css.sidebarBoardIconViolet
+              : css.sidebarBoardIconGreen
+          }
+          width={36}
+          height={36}
+        >
           <use href={sprite + '#icon-plus'}></use>
         </svg>
       </button>

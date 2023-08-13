@@ -16,6 +16,7 @@
   background-color: #FCFCFC;
   color: #161616;
   stroke: #161616;
+  
 }.title {
   /* color: var(--color-white); */
   font-family: var(--font-medium);
@@ -60,13 +61,14 @@
 .field:focus {
   outline: 0;
   opacity: 1;
+  color: inherit;
 }
 
 .label {
-  /* width: 100%;
+  width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column; */
+  flex-direction: column;
   /* color: var(--color-white); */
   font-family: var(--font-medium);
   font-size: 14px;
@@ -90,8 +92,8 @@
 }
 
 .input_svg:checked + label > svg {
-  stroke: inherit;
-  /* stroke: var(--color-white); */
+  /* stroke: inherit; */
+  stroke: var(--color-white);
 }
 
 .label_svg {
@@ -99,8 +101,9 @@
 }
 
 .svg {
-  opacity: 0.8;
-  stroke: inherit;
+  stroke: inherit; 
+   stroke-opacity: 0.8; 
+  /* stroke: inherit;  */
   /* stroke: #ffffff80; */
   transition: transform 0.25s ease;
 }
@@ -132,9 +135,11 @@
 }
 
 .png {
-  opacity: 0.8;
-  stroke: inherit;
+  /* opacity: 0.8;
+  stroke: inherit; */
   /* stroke: #ffffff80; */
+  stroke: inherit; 
+  stroke-opacity: 0.8; 
   transition: transform 0.25s ease;
 }
 
