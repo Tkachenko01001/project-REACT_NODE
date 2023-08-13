@@ -31,7 +31,23 @@
 .sectionBoards {
   flex: 1;
   overflow-y: auto;
+  scrollbar-width: none;
 }
+
+.sectionBoards::-webkit-scrollbar {
+  width: 3px;
+  background-color: transparent; /* Колір фону скролу */
+}
+
+.sectionBoards::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Колір бару скролу */
+  outline: 1px solid transparent; /* Обводка бару скролу */
+}
+
+.sectionBoards:hover::-webkit-scrollbar-thumb {
+  background-color: #4a6040; /* Колір бару скролу при наведенні */
+}
+
 .partTop {
   flex: 0 0 auto;
   min-height: 100px;
@@ -49,6 +65,9 @@
     height: 100vh;
     background-color: inherit;
     width: 260px;
+
+    /* transform: translateX(1); */
+    /* transition: transform 300ms; */
   }
 }
 

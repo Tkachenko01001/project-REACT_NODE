@@ -13,6 +13,14 @@ const Card = ({ task }) => {
   const onDeleteClick = () => {
     dispatch(deleteTask(id));
   };
+  const deadlineInDate = new Date(
+    deadline.replace('/', '.').replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')
+  );
+  const currentDate = new Date();
+  const timeDiff = deadlineInDate - currentDate;
+  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+  const deadlineNow = days < 1;
+  console.log(deadlineNow);
   return (
     <div className={`${styles.card} ${styles[`priority_${priority}`]}`}>
       <div className={styles.textWrapper}>
@@ -36,17 +44,19 @@ const Card = ({ task }) => {
         </div>
         <ul className={styles.cardIcons}>
           <li className={styles.cardIcon}>
-            <button className={styles.cardButtonNotHover}>
-              <svg
-                width={16}
-                height={16}
-                aria-label="icon-bell"
-                className={deadline===format(new Date(), 'dd/MM/yyyy')?styles.bell:null}
-              >
-                <title>Deadline</title>
-                <use href={sprite + '#icon-bell'} />
-              </svg>
-            </button>
+            {deadlineNow && (
+              <button className={styles.cardButton}>
+                <svg
+                  width={16}
+                  height={16}
+                  aria-label="icon-bell"
+                  className={styles.bell}
+                >
+                  <title>Deadline</title>
+                  <use href={sprite + '#icon-bell'} />
+                </svg>
+              </button>
+            )}
           </li>
           <li className={styles.cardIcon}>
             <button className={styles.cardButton}>

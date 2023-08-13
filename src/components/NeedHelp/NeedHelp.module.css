@@ -56,6 +56,10 @@
 .sidebarHelpBoxLinkGreen {
   font-family: var(--font-regular);
   color: var(--color-green);
+
+  border: none;
+  background-color: inherit;
+  padding: 0;
 }
 
 .sidebarHelpBoxLinkViolet {
