@@ -10,7 +10,9 @@ import Modal from 'components/Modal/Modal';
 import { selectTheme } from 'redux/auth/selectors';
 import { DragDropContext } from "react-beautiful-dnd";
 import { useDispatch } from 'react-redux';
-import { transferTask } from 'redux/boards/operations';
+import { transferTask, transferColumn } from 'redux/boards/operations';
+import { StrictModeDroppable } from 'components/StrictModeDroppable/StrictModeDroppable';
+import { Draggable } from 'react-beautiful-dnd';
 
 const MainDashboard = () => {
   const dispatch = useDispatch();
@@ -28,67 +30,95 @@ const MainDashboard = () => {
     activeBoard.columns.length > 0 &&
     activeBoard;
   
+    console.log(columns);
+
+  
   const onDragEnd = (result) => {
-    const { destination, source, reason, draggableId: id } = result;
+    console.log(result);
+    const { type, destination, source, reason, draggableId: id } = result;
     if (!destination || reason === "CANCEL") return;
     if (destination.droppableId === source.droppableId && destination.index === source.index) return;
     
-    dispatch(transferTask({
-      id,
-      data: { destination, source },
-    }))
-  };
+    if (type === 'tasks') {
+      dispatch(transferTask({
+        id,
+        data: { destination, source },
+      }));
+    };
 
-  return (
-    <>
-      {allBoards.length > 0 ? (
-        <>
-          <div className={styles.container}>
-            {isModalOpen && (
-              <Modal onClose={toggleModal}>
-                <AddColumn toggleModal={toggleModal} />
-              </Modal>
-            )}
-            {columns && (
-              <DragDropContext onDragEnd={onDragEnd}>
-                <ul
-                  className={styles.columnList}
-                >
-                  {activeBoard.columns.map(column => (
-                    <li key={column._id}>
-                      <Column column={column} />
-                    </li>
-                  ))}
-                </ul>
-              </DragDropContext>
-            )}
-            <button
-              className={
-                (theme === 'dark' && styles.buttonDark) ||
-                (theme === 'light' && styles.buttonLight) ||
-                (theme === 'violet' && styles.buttonViolet)
-              }
-              onClick={toggleModal}
-            >
-              <svg
-                width={28}
-                height={28}
-                aria-label="plus"
-                className={styles.svg}
+    if (type === 'columns') {
+      dispatch(transferColumn({
+        id,
+        data: { destination, source },
+      }));
+    };
+
+    return (
+      <>
+        {allBoards.length > 0 ? (
+          <>
+            <div className={styles.container}>
+              {isModalOpen && (
+                <Modal onClose={toggleModal}>
+                  <AddColumn toggleModal={toggleModal} />
+                </Modal>
+              )}
+              {columns && (
+                <DragDropContext onDragEnd={onDragEnd}>
+                  <StrictModeDroppable droppableId='board' direction='horizontal' type='columns'>
+                    {(provided) => (
+                      <ul
+                        className={styles.columnList}
+                        ref={provided.innerRef}
+                        {...provided.droppableProps}
+                      >
+                        {activeBoard.columns.map((column, index) => (
+                          <Draggable draggableId={column._id} index={index} key={column._id}>
+                            {(provided) => (
+                              <li
+                                ref={provided.innerRef}
+                                {...provided.draggableProps}
+                                {...provided.dragHandleProps}
+                              >
+                                <Column column={column} />
+                              </li>
+                            )}
+                          </Draggable>
+                        ))}
+                        {provided.placeholder}
+                      </ul>
+                    )}
+                  </StrictModeDroppable>
+                </DragDropContext>
+              )}
+              <button
+                className={
+                  (theme === 'dark' && styles.buttonDark) ||
+                  (theme === 'light' && styles.buttonLight) ||
+                  (theme === 'violet' && styles.buttonViolet)
+                }
+                onClick={toggleModal}
               >
-                <title>Plus Icon</title>
-                <use href={sprite + '#icon-plus'} />
-              </svg>
-              <span className={styles.buttonText}>Add another column</span>
-            </button>
-          </div>
-          {}
-        </>
-      ) : (
-        <MainPlaceholder />
-      )}
-    </>
-  );
-};
+                <svg
+                  width={28}
+                  height={28}
+                  aria-label="plus"
+                  className={styles.svg}
+                >
+                  <title>Plus Icon</title>
+                  <use href={sprite + '#icon-plus'} />
+                </svg>
+                <span className={styles.buttonText}>Add another column</span>
+              </button>
+            </div>
+            { }
+          </>
+        ) : (
+          <MainPlaceholder />
+        )}
+      </>
+    );
+  };
+}
 
 export default MainDashboard;

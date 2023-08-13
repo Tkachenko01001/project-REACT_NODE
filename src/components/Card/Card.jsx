@@ -18,7 +18,7 @@ const Card = ({ task }) => {
   const timeDiff = deadlineInDate - currentDate;
   const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
   const deadlineNow = days < 1;
-  console.log(deadlineNow);
+  // console.log(deadlineNow);
   return (
     <div className={`${styles.card} ${styles[`priority_${priority}`]}`}>
       <div className={styles.textWrapper}>

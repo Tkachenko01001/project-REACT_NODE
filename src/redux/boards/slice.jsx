@@ -12,6 +12,7 @@ import {
   updateTask,
   deleteTask,
   transferTask,
+  transferColumn,
 } from './operations';
 
 const initialState = {
@@ -96,7 +97,13 @@ const boardsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(transferTask.rejected, handleRejected);
+      .addCase(transferTask.rejected, handleRejected)
+      .addCase(transferColumn.pending, handlePending)
+      .addCase(transferColumn.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(transferColumn.rejected, handleRejected);
   },
 });
 
