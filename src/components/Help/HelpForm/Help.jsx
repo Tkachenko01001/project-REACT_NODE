@@ -5,6 +5,8 @@ import css from '../../NeedHelp/NeedHelp.module.css';
 import Modal from '../../Modal/Modal';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useSelector } from 'react-redux';
+import { selectTheme } from 'redux/auth/selectors';
 
 axios.defaults.baseURL = 'https://project-react-node-back.onrender.com';
 
@@ -12,6 +14,7 @@ export const HelpForm = () => {
   const [email, setEmail] = useState('');
   const [comment, setComment] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const theme = useSelector(selectTheme);
 
   const toggleModal = () => setIsModalOpen(state => !state);
 
@@ -64,7 +67,11 @@ export const HelpForm = () => {
         If you need help with{' '}
         <button
           onClick={toggleModal}
-          className={css.sidebarHelpBoxLink}
+          className={
+            theme === 'violet'
+              ? css.sidebarHelpBoxLinkViolet
+              : css.sidebarHelpBoxLinkGreen
+          }
           type="button"
           aria-label="Open Help Modal for TaskPro"
         >
