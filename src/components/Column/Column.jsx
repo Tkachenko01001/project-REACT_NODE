@@ -26,7 +26,7 @@ const Column = ({ column }) => {
   // const myScroll = new SimpleBar(document.getElementById('demo'));
   return (
     <StrictModeDroppable droppableId={_id}>
-      {(provided) => (
+      {provided => (
         <div
           className={styles.column__container}
           ref={provided.innerRef}
@@ -41,9 +41,9 @@ const Column = ({ column }) => {
             <div className={styles.columnHeader__controls}>
               <button
                 className={
-                  theme === 'dark'
-                    ? styles.columnHeader__buttonDark
-                    : styles.columnHeader__button
+                  (theme === 'dark' && styles.columnHeader__buttonDark) ||
+                  (theme === 'light' && styles.columnHeader__buttonLight) ||
+                  (theme === 'violet' && styles.columnHeader__buttonViolet)
                 }
                 onClick={toggleModal}
               >
@@ -59,9 +59,9 @@ const Column = ({ column }) => {
               </button>
               <button
                 className={
-                  theme === 'dark'
-                    ? styles.columnHeader__buttonDark
-                    : styles.columnHeader__button
+                  (theme === 'dark' && styles.columnHeader__buttonDark) ||
+                  (theme === 'light' && styles.columnHeader__buttonLight) ||
+                  (theme === 'violet' && styles.columnHeader__buttonViolet)
                 }
                 onClick={onDeleteClick}
               >
@@ -80,14 +80,10 @@ const Column = ({ column }) => {
           {tasks && (
             <ul className={styles.cardList}>
               {taskOrder.map((taskId, index) => {
-                const task = tasks.find((el) => el._id === taskId);
+                const task = tasks.find(el => el._id === taskId);
                 return (
-                  <Draggable
-                    draggableId={task._id}
-                    index={index}  
-                    key={taskId}
-                  >
-                    {(provided) => (
+                  <Draggable draggableId={task._id} index={index} key={taskId}>
+                    {provided => (
                       <li
                         key={task._id}
                         ref={provided.innerRef}
@@ -98,7 +94,7 @@ const Column = ({ column }) => {
                       </li>
                     )}
                   </Draggable>
-                )
+                );
               })}
               {provided.placeholder}
             </ul>

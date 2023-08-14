@@ -89,7 +89,7 @@
   justify-content: center;
   align-items: center;
   border: none;
-  border-radius: 8px;  
+  border-radius: 8px;
   fill: var(--color-violet);
   stroke: var(--color-white);
   background: var(--color-white);
@@ -101,6 +101,16 @@
   line-height: normal;
   letter-spacing: -0.28px;
   height: 56px;
+}
+
+.buttonLight:hover {
+  background-color: var(--color-green);
+}
+.buttonDark:hover {
+  color: var(--color-green);
+}
+.buttonViolet:hover {
+  background-color: var(--color-light-violet); 
 }
 
 @media screen and (min-width: 375px) {

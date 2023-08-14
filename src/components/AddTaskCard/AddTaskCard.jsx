@@ -7,6 +7,8 @@ import { object, string } from 'yup';
 import styles from './AddTaskCard.module.css';
 import sprite from '../../images/sprite.svg';
 import Button from 'components/Button/Button';
+import { useSelector } from 'react-redux';
+import { selectTheme } from 'redux/auth/selectors';
 
 // додавання календаря
 import CustomMonthLayout from 'components/Calendar/Calendar'; //delete//
@@ -33,6 +35,7 @@ export const AddTaskCard = ({ columnId }) => {
   // const [column] = useState('64d0d5ff12156380132f910a');
   // const addLoading = useSelector(selectTaskIsLoading);
   const dispatch = useDispatch();
+  const theme = useSelector(selectTheme);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
@@ -43,7 +46,11 @@ export const AddTaskCard = ({ columnId }) => {
     { color: '#8fa1d0', priority: 'low' },
     { color: '#e09cb5', priority: 'medium' },
     { color: '#bedbb0', priority: 'high' },
-    { color: 'rgba(255, 255, 255, 0.3)', priority: 'without' },
+    {
+      color:
+        theme === 'dark' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(22, 22, 22, 0.3)',
+      priority: 'without',
+    },
   ];
 
   const handleChange = ({ target: { name, value } }, setFieldValue) => {
@@ -90,7 +97,9 @@ export const AddTaskCard = ({ columnId }) => {
               <Form autoComplete="off">
                 <p className={styles.title}>Add card</p>
                 <Field
-                  className={styles.input}
+                  className={
+                    theme === 'violet' ? styles.inputViolet : styles.input
+                  }
                   type="text"
                   name="title"
                   placeholder="Title"
@@ -100,7 +109,9 @@ export const AddTaskCard = ({ columnId }) => {
 
                 <Field
                   as="textarea"
-                  className={styles.textarea}
+                  className={
+                    theme === 'violet' ? styles.textareaViolet : styles.textarea
+                  }
                   name="description"
                   placeholder="Description"
                   value={description}
@@ -133,7 +144,7 @@ export const AddTaskCard = ({ columnId }) => {
                 />
 
                 <button
-                  className={styles.btn}
+                  className={theme === 'violet' ? styles.btnViolet : styles.btn}
                   type="submit"
                   onClick={() => {
                     setFieldValue('title', title);
@@ -141,7 +152,11 @@ export const AddTaskCard = ({ columnId }) => {
                     // toggleModal();
                   }}
                 >
-                  <svg className={styles.btnIcon}>
+                  <svg
+                    className={
+                      theme === 'violet' ? styles.btnIconViolet : styles.btnIcon
+                    }
+                  >
                     <use href={sprite + '#icon-plus'}></use>
                   </svg>
                   <span>Add</span>
