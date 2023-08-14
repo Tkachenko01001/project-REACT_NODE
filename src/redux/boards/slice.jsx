@@ -20,6 +20,7 @@ const initialState = {
   activeBoard: {},
   isLoading: false,
   error: null,
+  filter: 'show all'
 };
 
 const handlePending = (state, action) => {
@@ -37,6 +38,9 @@ const boardsSlice = createSlice({
   reducers: {
     clearError(state) {
       state.error = null;
+    },
+    setFilter(state, action) {
+      state.filter = action.payload;
     },
   },
   extraReducers: builder => {
@@ -114,6 +118,6 @@ const boardsSlice = createSlice({
   },
 });
 
-export const { clearError } = boardsSlice.actions;
+export const { clearError, setFilter } = boardsSlice.actions;
 
 export default boardsSlice.reducer;
