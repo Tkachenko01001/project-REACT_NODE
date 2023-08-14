@@ -1,43 +1,24 @@
+import css from '../HomePage/HomePage.module.css';
+
+import { useSelector } from 'react-redux';
+import { selectUser } from 'redux/auth/selectors';
 import Header from 'components/Header/Header';
-import ScreensPage from 'components/ScreensPage/ScreensPage';
 import Sidebar from 'components/Sidebar/Sidebar';
-import { useEffect, useState } from 'react';
-import css from './HomePage.module.css';
+import ScreensPage from 'components/ScreensPage/ScreensPage';
+import { PopupProvider } from 'hooks/usePopup';
 
 export default function HomePage() {
-  const [menuActive, setMenuActive] = useState(false);
-
-  const handleClick = () => {
-    setMenuActive(true);
-  };
-
-  const handleOverlayClick = event => {
-    if (event.target.localName === 'svg') return;
-    if (event.target) {
-      setMenuActive(false);
-    }
-  };
-  useEffect(() => {
-    const handleKeyDown = e => {
-      if (e.code === 'Escape') {
-        setMenuActive(false);
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  });
+  const user = useSelector(selectUser);
 
   return (
-    <div className={css.home}>
-      <Sidebar active={menuActive} />
-
-      <div
-        className={menuActive ? css.homeWrapOverlay : css.homeWrap}
-        onClick={handleOverlayClick}
-      >
-        <Header click={handleClick} />
+    <div className={css.home} data-theme={user.theme}>
+      <Sidebar />
+      <div className={css.homeWrap}>
+        <PopupProvider>
+          <div className={css.headerBox}>
+            <Header />
+          </div>
+        </PopupProvider>
         <ScreensPage />
       </div>
     </div>

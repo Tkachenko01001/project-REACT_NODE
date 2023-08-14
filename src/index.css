@@ -42,6 +42,8 @@
   --color-icon-grey: rgba(255, 255, 255, 0.5);
   --color-icon-light: rgba(255, 255, 255, 0.8);
   --color-bg-light: rgba(255, 255, 255, 0.1);
+  --pop-up-bg-color: #151515;
+  --secondary-text-color: #ffffff80;
 
   /* Colors/label */
   --color-blue: #8fa1d0;

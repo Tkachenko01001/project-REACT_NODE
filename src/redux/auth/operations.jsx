@@ -21,12 +21,10 @@ export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      await axios.post('/api/users/register', credentials);
-      // After successful registration, perform login.
-      thunkAPI.dispatch(
-        logIn({ email: credentials.email, password: credentials.password })
-      );
-      return;
+      const res = await axios.post('/api/users/register', credentials);
+      // After successful registration, add the token to the HTTP header
+      setAuthHeader(res.data.accessToken);
+      return res.data;
     } catch (error) {
       Swal.fire(error.response.data.message)
       return thunkAPI.rejectWithValue(error.response.data.message);
@@ -63,6 +61,26 @@ export const logInWithGoogle = createAsyncThunk(
 );
 
 /*
+ * PATCH @ /user/theme
+ * headers: Authorization: Bearer token
+ */
+
+export const changeTheme = createAsyncThunk(
+  'auth/changeTheme',
+  async (theme, thunkAPI) => {
+    try {
+      const { data } = await axios.patch('/api/users/theme', {
+        theme,
+      });
+
+      console.log(data);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+/*
  * POST @ /users/logout
  * headers: Authorization: Bearer token
  */
@@ -81,6 +99,7 @@ export const logOut = createAsyncThunk('/auth/logout', async (_, thunkAPI) => {
  * GET @ /users/current
  * headers: Authorization: Bearer token
  */
+
 export const refreshUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
