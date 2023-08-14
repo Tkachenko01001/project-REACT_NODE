@@ -1,5 +1,5 @@
 .title {
-  color: var(--color-white);
+  color: inherit;
   font-family: var(--font-medium);
   font-size: 18px;
   font-style: normal;
@@ -18,8 +18,29 @@
   border: 1px solid var(--color-green);
   border-radius: 8px;
   opacity: 0.4;
-  color: var(--color-white);
-  background-color: var(--bg-color-form-input);
+  color: inherit;
+  background-color: inherit;
+  box-shadow: 0px 4px 16px 0px var(--color-shadow);
+  font-family: var(--font-regular);
+  font-size: 14px;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.28px;
+
+  transition: opacity 250ms linear;
+}
+
+.inputViolet {
+  width: 100%;
+  height: 49px;
+  padding: 18px 14px;
+  margin-bottom: 14px;
+  align-items: center;
+  border: 1px solid var(--color-violet);
+  border-radius: 8px;
+  opacity: 0.4;
+  color: inherit;
+  background-color: inherit;
   box-shadow: 0px 4px 16px 0px var(--color-shadow);
   font-family: var(--font-regular);
   font-size: 14px;
@@ -39,8 +60,34 @@
   border: 1px solid var(--color-green);
   border-radius: 8px;
   opacity: 0.4;
-  background-color: var(--bg-color-form-input);
-  color: var(--color-white);
+  background-color: inherit;
+  color: inherit;
+  box-shadow: 0px 4px 16px 0px var(--color-shadow);
+
+  font-family: var(--font-regular);
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.28px;
+
+  transition: opacity 250ms linear;
+
+  word-break: break-word;
+  resize: none;
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+.textareaViolet {
+  width: 100%;
+  height: 120px;
+  padding: 18px 14px;
+  margin-bottom: 24px;
+  align-items: center;
+  border: 1px solid var(--color-violet);
+  border-radius: 8px;
+  opacity: 0.4;
+  background-color: inherit;
+  color: inherit;
   box-shadow: 0px 4px 16px 0px var(--color-shadow);
 
   font-family: var(--font-regular);
@@ -82,9 +129,9 @@
   opacity: 1;
 }
 
-.inputCommentt::placeholder,
+.inputComment::placeholder,
 .input::placeholder {
-  color: var(--color-white);
+  color: inherit;
 }
 
 .btn {
@@ -112,4 +159,31 @@
 
 .btn:hover {
   background-color: var(--color-hover-green);
+}
+
+.btnViolet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 49px;
+  background-color: var(--color-violet);
+  color: var(--color-white);
+
+  font-family: var(--font-medium);
+  font-size: 14px;
+  line-height: normal;
+  letter-spacing: -0.28px;
+
+  text-align: center;
+  cursor: pointer;
+  padding: 14px 0px;
+  border: 0px;
+  border-radius: 8px;
+
+  transition: background-color 250ms linear, box-shadow 250ms linear;
+}
+
+.btnViolet:hover {
+ background-color: var(--color-light-violet);
 }

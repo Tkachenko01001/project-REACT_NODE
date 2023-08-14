@@ -2,12 +2,11 @@ import { backgrounds } from 'constants/backgrounds';
 import { icons } from 'constants/icons';
 import { useSelector } from 'react-redux';
 import { selectIsBoardsLoading } from 'redux/boards/selectors';
-
+import { selectTheme } from 'redux/auth/selectors';
 import ClipLoader from 'react-spinners/ClipLoader';
-
 import sprite from '../../images/sprite.svg';
+import ModalPortal from '../Modal/ModalPortal';
 import styles from './ModalBoard.module.css';
-import ModalPortal from './ModalPortal';
 
 const ModalBoard = ({
   isModalOpen,
@@ -26,6 +25,7 @@ const ModalBoard = ({
   modalTitle,
   submitButtonText,
 }) => {
+  const theme = useSelector(selectTheme);
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
   return (
     isModalOpen && (
@@ -111,11 +111,18 @@ const ModalBoard = ({
             </fieldset>
           </div>
 
-          <button className={styles.btn} type="submit">
+          <button
+            className={theme === 'violet' ? styles.btnViolet : styles.btn}
+            type="submit"
+          >
             {isBoardsLoading ? (
               <ClipLoader color="#1f1f1f" size={30} />
             ) : (
-              <svg className={styles.icon} width="28" height="28">
+              <svg
+                className={theme === 'violet' ? styles.iconViolet : styles.icon}
+                width="28"
+                height="28"
+              >
                 <use href={sprite + '#icon-plus'}></use>
               </svg>
             )}

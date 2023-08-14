@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 20px 0px;
   margin-bottom: 39px;
   flex-direction: row;
 }
@@ -26,7 +25,8 @@
 @media screen and (min-width: 1440px) {
   .wrapper {
     margin-bottom: 10px;
-    padding: 14px 24px 0px;
+    padding: 0px;
+    /* padding-right: 24px; */
   }
 
   .title {
@@ -69,8 +69,7 @@
 }
 
 .iconDark {
-  stroke: var(--color-icon-light);
-  /* fill: var(--bg-color-light);   */
+  stroke: var(--color-icon-light); 
 }
 
 .iconViolet:hover {
@@ -88,8 +87,8 @@
 
 .filter:hover .iconLight,
 .filter:hover .iconDark {
-    stroke: var(--color-green);
-  }
+  stroke: var(--color-green);
+}
 
 .filterText {
   height: 20px;
@@ -107,9 +106,15 @@
   letter-spacing: -0.36px;
 }
 
-.modalBoard {
+.modalBoardDark {
   height: 1px;
   background-color: var(--color-sidebar-border);
+  margin-top: 14px;
+}
+
+.modalBoard {
+  height: 1px;
+  background-color: rgba(22, 22, 22, 0.1);
   margin-top: 14px;
 }
 

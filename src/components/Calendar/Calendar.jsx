@@ -4,8 +4,12 @@ import { usePopper } from 'react-popper';
 import FocusTrap from 'focus-trap-react';
 import { useRef, useState } from 'react';
 import 'react-day-picker/dist/style.css';
+import css from './Calendar.module.css';
+import { selectTheme } from 'redux/auth/selectors';
+import { useSelector } from 'react-redux';
 
 export default function CustomMonthLayout({ daySelected, setDaySelected }) {
+  const theme = useSelector(selectTheme);
   // const [daySelected, setDaySelected] = React.useState ();
 
   // console.log(format(daySelected, 'dd/MM/yyyy'));
@@ -42,6 +46,7 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
     <div>
       <div ref={popperRef}>
         <button
+        className={css.calendarButton}
           ref={buttonRef}
           type="button"
           aria-label="Pick a date"
@@ -52,7 +57,7 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
       </div>
       {isPopperOpen && (
         <FocusTrap
-          active
+          active                
           // focusTrapOptions={{
           //   initialFocus: true,
           //   allowOutsideClick: true,
@@ -64,7 +69,8 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
           <div
             tabIndex={-1}
             style={popper.styles.popper}
-            className="dialog-sheet"
+            className={theme === 'dark' ? css.dark : css.light} 
+            // className="dialog-sheet"
             {...popper.attributes.popper}
             ref={setPopperElement}
             role="dialog"
@@ -87,6 +93,4 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
       )}
     </div>
   );
-
-  
 }
