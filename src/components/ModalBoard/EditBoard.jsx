@@ -9,8 +9,10 @@ import sprite from '../../images/sprite.svg';
 import css from '../Sidebar/Sidebar.module.css';
 import styles from './ModalBoard.module.css';
 import ModalPortal from './ModalPortal';
+import { selectTheme } from 'redux/auth/selectors';
 
 const EditBoard = ({ board, checked }) => {
+  const theme = useSelector(selectTheme);
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
 
   const { _id: id, title, icon, background } = board;
@@ -146,11 +148,21 @@ const EditBoard = ({ board, checked }) => {
               </fieldset>
             </div>
 
-            <button className={styles.btn} type="submit" onClick={handleSubmit}>
+            <button
+              className={theme === 'violet' ? styles.btnViolet : styles.btn}
+              type="submit"
+              onClick={handleSubmit}
+            >
               {isBoardsLoading ? (
                 <ClipLoader color="#1f1f1f" size={30} />
               ) : (
-                <svg className={styles.icon} width="28" height="28">
+                <svg
+                  className={
+                    theme === 'violet' ? styles.iconViolet : styles.icon
+                  }
+                  width="28"
+                  height="28"
+                >
                   <use href={sprite + '#icon-plus'}></use>
                 </svg>
               )}

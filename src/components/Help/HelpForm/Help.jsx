@@ -85,7 +85,7 @@ export const HelpForm = () => {
           <form onSubmit={handleSubmit}>
             <h1 className={styles.title}>Need help</h1>
             <input
-              className={styles.input}
+              className={theme === 'violet' ? styles.inputViolet : styles.input}
               type="email"
               name="email"
               placeholder="Email address"
@@ -95,7 +95,9 @@ export const HelpForm = () => {
               onChange={handleChange}
             />
             <textarea
-              className={styles.textarea}
+              className={
+                theme === 'violet' ? styles.textareaViolet : styles.textarea
+              }
               type="text"
               name="comment"
               placeholder="Comment"
@@ -104,7 +106,10 @@ export const HelpForm = () => {
               value={comment}
               onChange={handleChange}
             />
-            <button className={styles.btn} type="submit">
+            <button
+              className={theme === 'violet' ? styles.btnViolet : styles.btn}
+              type="submit"
+            >
               Send
             </button>
           </form>

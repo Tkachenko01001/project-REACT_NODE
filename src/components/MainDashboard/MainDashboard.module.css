@@ -100,6 +100,16 @@
   height: 56px;
 }
 
+.buttonLight:hover {
+  background-color: var(--color-green);
+}
+.buttonDark:hover {
+  color: var(--color-green);
+}
+.buttonViolet:hover {
+  background-color: var(--color-light-violet); 
+}
+
 @media screen and (min-width: 375px) {
   .buttonText {
     width: 141px;
