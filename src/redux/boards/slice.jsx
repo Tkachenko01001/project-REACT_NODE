@@ -100,6 +100,13 @@ const boardsSlice = createSlice({
       .addCase(transferTask.rejected, handleRejected)
       .addCase(transferColumn.pending, handlePending)
       .addCase(transferColumn.fulfilled, (state, action) => {
+        const columnOrder = [...state.activeBoard.columnOrder];
+
+        const droppedColumn = columnOrder[action.payload.source.index];
+        columnOrder.splice(action.payload.source.index, 1);
+        columnOrder.splice(action.payload.destination.index, 0, droppedColumn);
+
+        state.activeBoard.columnOrder = columnOrder;
         state.isLoading = false;
         state.error = null;
       })

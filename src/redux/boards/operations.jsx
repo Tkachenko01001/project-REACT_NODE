@@ -162,8 +162,8 @@ export const transferColumn = createAsyncThunk(
   'boards/transferColumn',
   async ({ id, data }, thunkAPI) => {
     try {
-      const res = await axios.patch(`/api/columns/${id}/transfer`, data);
-      console.log(res.data);
+      axios.patch(`/api/columns/${id}/transfer`, data);
+      
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

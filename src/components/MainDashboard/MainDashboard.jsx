@@ -47,10 +47,8 @@ const MainDashboard = () => {
         id,
         data: { destination, source },
       }));
-      // console.log({result, columns});
     };
   };
-  console.log(columns);
 
   return (
     <>
@@ -71,19 +69,22 @@ const MainDashboard = () => {
                         ref={provided.innerRef}
                         {...provided.droppableProps}
                       >
-                        {activeBoard.columns.map((column, index) => (
-                          <Draggable draggableId={column._id} index={index} key={column._id}>
-                            {(provided) => (
-                              <li
-                                ref={provided.innerRef}
-                                {...provided.draggableProps}
-                                {...provided.dragHandleProps}
-                              >
-                                <Column column={column} />
-                              </li>
-                            )}
+                        {activeBoard.columnOrder.map((columnId, index) => {
+                          const column = activeBoard.columns.find((el) => el._id === columnId);
+                          return (
+                            <Draggable draggableId={column._id} index={index} key={column._id}>
+                              {(provided) => (
+                                <li
+                                  ref={provided.innerRef}
+                                  {...provided.draggableProps}
+                                  {...provided.dragHandleProps}
+                                >
+                                  <Column column={column} />
+                                </li>
+                              )}
                           </Draggable>
-                        ))}
+                          )
+                        })}
                         {provided.placeholder}
                       </ul>
                     )}
