@@ -134,6 +134,7 @@ export const EditTaskCard = ({ task }) => {
                   name="title"
                   placeholder="Title"
                   value={title}
+                  required
                   onChange={e => handleChange(e, setFieldValue)}
                 />
 
@@ -145,6 +146,7 @@ export const EditTaskCard = ({ task }) => {
                   name="description"
                   placeholder="Description"
                   value={description}
+                  required
                   onChange={e => handleChange(e, setFieldValue)}
                 />
                 <div className="wrap">

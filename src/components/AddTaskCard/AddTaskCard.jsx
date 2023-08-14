@@ -84,6 +84,7 @@ export const AddTaskCard = ({ columnId }) => {
     setTitle('');
     setDescription('');
     setPriority('');
+    setDaySelected(today);
     setSubmitting(false);
   };
 
@@ -108,6 +109,7 @@ export const AddTaskCard = ({ columnId }) => {
                   name="title"
                   placeholder="Title"
                   value={title}
+                  required
                   onChange={e => handleChange(e, setFieldValue)}
                 />
 
@@ -119,6 +121,7 @@ export const AddTaskCard = ({ columnId }) => {
                   name="description"
                   placeholder="Description"
                   value={description}
+                  required
                   onChange={e => handleChange(e, setFieldValue)}
                 />
                 <div className="wrap">

@@ -23,14 +23,19 @@
 }
 
 .card {
-  max-width: 334px;
+  width: 320px;
   height: 154px;
   border-radius: 8px;
   background-color: inherit;
   color: inherit;
   position: relative;
 }
-
+@media screen and (max-width: 375px) {
+  .card {
+    max-width: 320px;
+    width: auto;
+  }
+}
 .card::before {
   content: '';
   display: block;

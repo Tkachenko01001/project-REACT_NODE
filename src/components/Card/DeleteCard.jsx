@@ -43,7 +43,7 @@ const DeleteTask = ({ id }) => {
           aria-label="icon-trash"
           className={style.svg}
         >
-          <title>Trash Icon</title>
+          <title>Delete task</title>
           <use href={sprite + '#icon-trash'} />
         </svg>
       </button>

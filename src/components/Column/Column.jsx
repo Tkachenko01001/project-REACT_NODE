@@ -11,16 +11,20 @@ import DeleteColumn from './DeleteColumn';
 
 import { StrictModeDroppable } from 'components/StrictModeDroppable/StrictModeDroppable';
 import { Draggable } from 'react-beautiful-dnd';
+import { selectFilter } from 'redux/boards/selectors';
+import { normalizePriority } from 'helpers/normalizePriority';
 
 const Column = ({ column }) => {
   const { _id, title, tasks, taskOrder } = column;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
   const theme = useSelector(selectTheme);
+  const selectedFilter = useSelector(selectFilter);
+  const normalizedFilter = normalizePriority(selectedFilter);
 
   // const myScroll = new SimpleBar(document.getElementById('demo'));
   return (
-    <StrictModeDroppable droppableId={_id}>
+    <StrictModeDroppable droppableId={_id} type="tasks">
       {provided => (
         <div
           className={styles.column__container}
@@ -59,6 +63,9 @@ const Column = ({ column }) => {
             <ul className={styles.cardList}>
               {taskOrder.map((taskId, index) => {
                 const task = tasks.find(el => el._id === taskId);
+                if (normalizedFilter !== 'show all') {
+                  if (normalizedFilter !== task.priority) return null;
+                }
                 return (
                   <Draggable draggableId={task._id} index={index} key={taskId}>
                     {provided => (
