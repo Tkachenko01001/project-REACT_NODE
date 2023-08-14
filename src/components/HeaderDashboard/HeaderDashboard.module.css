@@ -184,7 +184,8 @@ label {
   align-items: center;
 }
 
-.radioText {
+.radioText,
+.radioTextDark {
   position: relative;
   cursor: pointer;
   width: 14px;
@@ -193,7 +194,8 @@ label {
   color: var(--color-sidebar-border);
 }
 
-.radioText:before {
+.radioText::before,
+.radioTextDark::before {
   content: '';
   position: absolute;
   top: -3px;
@@ -203,7 +205,8 @@ label {
   border-radius: 50%;
 }
 
-.radioText:after {
+.radioText::after,
+.radioTextDark::after {
   content: '';
   position: absolute;
   top: 1px;
@@ -215,15 +218,25 @@ label {
   transition: 0.2s;
 }
 
-.radio input:checked + .radioText:after {
+.radio input:checked + .radioText::after,
+.radio input:checked + .radioTextDark::after {
   opacity: 1;
 }
-
-.radio input:focus + .radioText:before {
+.radio input:focus + .radioTextDark::before {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  border: 2px solid black;
+  border: 2px solid var(--color-icon-dark);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+}
+.radio input:focus + .radioText::before {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--color-white);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

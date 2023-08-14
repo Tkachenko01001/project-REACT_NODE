@@ -69,7 +69,11 @@ const HeaderDashboard = () => {
         <Modal onClose={toggleModal}>
           <form className={styles.modalFilterWrapper}>
             <h2 className={styles.modalFilter}>Filters</h2>
-            <div className={theme === 'dark' ? styles.modalBoardDark : styles.modalBoard}></div>
+            <div
+              className={
+                theme === 'dark' ? styles.modalBoardDark : styles.modalBoard
+              }
+            ></div>
             <div className={styles.modalLabel}>
               <h3 className={styles.modalLabelHeader}>Label color</h3>
               <button type="button" className={styles.modalShowAll}>
@@ -88,7 +92,9 @@ const HeaderDashboard = () => {
                     onChange={handlePriorityChange}
                   />
                   <div
-                    className={styles.radioText}
+                    className={
+                      theme === 'dark' ? styles.radioTextDark : styles.radioText
+                    }
                     style={{ backgroundColor: option.color }}
                   ></div>
                   <div

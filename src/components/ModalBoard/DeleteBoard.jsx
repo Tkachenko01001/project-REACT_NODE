@@ -6,6 +6,7 @@ import {
   selectActiveBoard,
   selectIsBoardsLoading,
 } from 'redux/boards/selectors';
+import { selectTheme } from 'redux/auth/selectors';
 
 import ModalPortal from 'components/Modal/ModalPortal';
 import sprite from '../../images/sprite.svg';
@@ -13,6 +14,7 @@ import css from '../Sidebar/Sidebar.module.css';
 import styles from './ModalBoard.module.css';
 
 const DeleteBoard = ({ checked }) => {
+  const theme = useSelector(selectTheme);
   const activeBoard = useSelector(selectActiveBoard);
   const { _id, columns } = activeBoard;
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
@@ -56,13 +58,17 @@ const DeleteBoard = ({ checked }) => {
             </h3>
           )}
           {activeBoard && columns && columns.length !== 0 ? (
-            <button className={styles.btn} type="button" onClick={toggleModal}>
+            <button
+              className={theme === 'violet' ? styles.btnViolet : styles.btn}
+              type="button"
+              onClick={toggleModal}
+            >
               Close
             </button>
           ) : (
             <>
               <button
-                className={styles.btn}
+                className={theme === 'violet' ? styles.btnViolet : styles.btn}
                 type="button"
                 disabled={isBoardsLoading}
                 onClick={handleAgreement}
@@ -73,7 +79,7 @@ const DeleteBoard = ({ checked }) => {
                 Yes
               </button>
               <button
-                className={styles.btn}
+                className={theme === 'violet' ? styles.btnViolet : styles.btn}
                 type="button"
                 onClick={toggleModal}
               >

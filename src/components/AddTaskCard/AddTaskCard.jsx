@@ -134,7 +134,11 @@ export const AddTaskCard = ({ columnId }) => {
                           onChange={e => handleChange(e, setFieldValue)}
                         />
                         <span
-                          className={styles.radioButton}
+                          className={
+                            theme === 'dark'
+                              ? styles.radioButtonDark
+                              : styles.radioButton
+                          }
                           style={{ backgroundColor: option.color }}
                         ></span>
                       </label>
@@ -159,9 +163,13 @@ export const AddTaskCard = ({ columnId }) => {
                   {isBoardsLoading ? (
                     <ClipLoader color="#1f1f1f" size={30} />
                   ) : (
-                    <svg className={
-                      theme === 'violet' ? styles.btnIconViolet : styles.btnIcon
-                    }>
+                    <svg
+                      className={
+                        theme === 'violet'
+                          ? styles.btnIconViolet
+                          : styles.btnIcon
+                      }
+                    >
                       <use href={sprite + '#icon-plus'}></use>
                     </svg>
                   )}

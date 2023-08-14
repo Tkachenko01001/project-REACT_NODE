@@ -6,11 +6,13 @@ import {
   selectIsBoardsLoading,
 } from 'redux/boards/selectors';
 import styles from './AddColumn.module.css';
+import { selectTheme } from 'redux/auth/selectors';
 
 export default function AddColumn({ toggleModal }) {
   const dispatch = useDispatch();
   const activeBoard = useSelector(selectActiveBoard);
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
+  const theme = useSelector(selectTheme);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -29,7 +31,7 @@ export default function AddColumn({ toggleModal }) {
       <h2 className={styles.title}>Add column</h2>
       <form onSubmit={handleSubmit}>
         <input
-          className={styles.input}
+          className={theme === 'violet' ? styles.inputViolet : styles.input}
           type="text"
           autoComplete="off"
           autoFocus

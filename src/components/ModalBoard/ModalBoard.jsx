@@ -34,7 +34,7 @@ const ModalBoard = ({
           <h1 className={styles.title}>{modalTitle}</h1>
 
           <input
-            className={styles.field}
+            className={theme === 'violet' ? styles.fieldViolet : styles.field}
             id="title"
             type="text"
             name="title"

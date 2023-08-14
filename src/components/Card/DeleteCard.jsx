@@ -57,7 +57,7 @@ const DeleteTask = ({ id }) => {
           </h3>
 
           <button
-            className={styles.btn}
+            className={theme === 'violet' ? styles.btnViolet : styles.btn}
             type="button"
             disabled={isBoardsLoading}
             onClick={handleAgreement}
@@ -67,7 +67,11 @@ const DeleteTask = ({ id }) => {
             )}
             Yes
           </button>
-          <button className={styles.btn} type="button" onClick={toggleModal}>
+          <button
+            className={theme === 'violet' ? styles.btnViolet : styles.btn}
+            type="button"
+            onClick={toggleModal}
+          >
             No
           </button>
         </ModalPortal>

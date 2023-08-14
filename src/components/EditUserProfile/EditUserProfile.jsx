@@ -114,7 +114,7 @@ export const EditUserProfile = () => {
                 </div>
                 <div className={styles.wrap}>
                   <Field
-                    className={styles.input}
+                    className={theme === 'violet' ? styles.inputViolet : styles.input}
                     type="text"
                     name="name"
                     placeholder="Enter your name"
@@ -123,7 +123,7 @@ export const EditUserProfile = () => {
                 </div>
                 <div className={styles.wrap}>
                   <Field
-                    className={styles.input}
+                    className={theme === 'violet' ? styles.inputViolet : styles.input}
                     type="email"
                     name="email"
                     placeholder="Enter your email"
@@ -132,7 +132,7 @@ export const EditUserProfile = () => {
                 </div>
                 <div className={styles.wrap}>
                   <Field
-                    className={styles.input}
+                    className={theme === 'violet' ? styles.inputViolet : styles.input}
                     type={passwordShown ? 'text' : 'password'}
                     name="password"
                     placeholder="Change password"

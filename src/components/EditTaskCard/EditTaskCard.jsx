@@ -160,7 +160,11 @@ export const EditTaskCard = ({ task }) => {
                           onChange={e => handleChange(e, setFieldValue)}
                         />
                         <span
-                          className={styles.radioButton}
+                          className={
+                            theme === 'dark'
+                              ? styles.radioButtonDark
+                              : styles.radioButton
+                          }
                           style={{ backgroundColor: option.color }}
                         ></span>
                       </label>

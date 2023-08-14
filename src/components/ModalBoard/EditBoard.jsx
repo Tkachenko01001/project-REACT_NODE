@@ -74,7 +74,7 @@ const EditBoard = ({ board, checked }) => {
             <h1 className={styles.title}>Edit Board</h1>
 
             <input
-              className={styles.field}
+              className={theme === 'violet' ? styles.fieldViolet : styles.field}
               id="title"
               type="text"
               name="title"
