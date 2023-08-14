@@ -10,7 +10,7 @@ import Modal from 'components/Modal/Modal';
 import { selectTheme } from 'redux/auth/selectors';
 import { DragDropContext } from "react-beautiful-dnd";
 import { useDispatch } from 'react-redux';
-import { transferTask } from 'redux/boards/operations';
+import { transferTask, transferColumn } from 'redux/boards/operations';
 
 const MainDashboard = () => {
   const dispatch = useDispatch();
@@ -29,14 +29,24 @@ const MainDashboard = () => {
     activeBoard;
   
   const onDragEnd = (result) => {
-    const { destination, source, reason, draggableId: id } = result;
+    const { type, destination, source, reason, draggableId: id } = result;
     if (!destination || reason === "CANCEL") return;
     if (destination.droppableId === source.droppableId && destination.index === source.index) return;
     
-    dispatch(transferTask({
-      id,
-      data: { destination, source },
-    }))
+    if (type === 'task') {
+      dispatch(transferTask({
+        id,
+        data: { destination, source },
+      }));
+    };
+
+    if (type === 'column') {
+      // dispatch(transferColumn({
+      //   id,
+      //   data: { destination, source },
+      // }));
+      console.log(result);
+    };
   };
 
   return (
@@ -51,16 +61,31 @@ const MainDashboard = () => {
             )}
             {columns && (
               <DragDropContext onDragEnd={onDragEnd}>
-                <ul
-                  className={styles.columnList}
-                >
-                  {activeBoard.columns.map(column => (
-                    <li key={column._id}>
-                      <Column column={column} />
-                    </li>
-                  ))}
-                </ul>
-              </DragDropContext>
+                  <StrictModeDroppable droppableId='board' direction='horizontal' type='columns'>
+                    {(provided) => (
+                      <ul
+                        className={styles.columnList}
+                        ref={provided.innerRef}
+                        {...provided.droppableProps}
+                      >
+                        {activeBoard.columns.map((column, index) => (
+                          <Draggable draggableId={column._id} index={index} key={column._id}>
+                            {(provided) => (
+                              <li
+                                ref={provided.innerRef}
+                                {...provided.draggableProps}
+                                {...provided.dragHandleProps}
+                              >
+                                <Column column={column} />
+                              </li>
+                            )}
+                          </Draggable>
+                        ))}
+                        {provided.placeholder}
+                      </ul>
+                    )}
+                  </StrictModeDroppable>
+                </DragDropContext>
             )}
             <button
               className={
