@@ -1,27 +1,25 @@
 .themeWrapper {
   width: 68px;
   height: 21px;
-  position: relative;
-  /* background-color: var(--color-dark); */
-  /* color: var(--color-icon-light); */
+  position: relative;  
   cursor: pointer;
   z-index: 1000;
   margin-right: 14px;
 }
 
-.themeButton {
+.themeButtonGreen,
+.themeButtonViolet {
   display: flex;
   align-items: center;
   gap: 4px;
 
   width: 68px;
   height: 21px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.5;
   font-size: 14px;
   font-family: var(--font-medium);
-  color: inherit;
-  /* color: var(--color-white); */
+  color: inherit;  
   background-color: transparent;
   border: none;
 
@@ -29,14 +27,13 @@
 }
 
 .themeMenu {
-  width: 82px;
-  height: 89px;
+  width: 100px;
+  height: 87px;
   border-radius: 8px;
   padding: 18px;
-  margin: 0;
-  margin-top: 10px;
+  margin: 0;  
   position: fixed;
-  /* background-color: var(--color-dark); */
+  background-color: inherit; 
   transform: scaleY(0);
   transform-origin: top;
   transition: transform 0.3s ease, opacity 0.3s ease;
@@ -44,33 +41,43 @@
 }
 
 .themeMenuOpen {
-  width: 82px;
-  height: 89px;
+  width: 100px;
+  height: 87px;
   border-radius: 8px;
   padding: 18px;
-  margin: 0;
-  margin-top: 10px;
+  margin: 0;  
   position: fixed;
-  /* background-color: var(--color-dark); */
+  top: 23px;  
   transform: scaleY(1);
   transform-origin: top;
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 1;
 }
 
-.themeItem {
+@media screen and (min-width: 1440px) {
+  .themeMenuOpen {
+    top: 33px;
+  }
+}
+
+.themeItemGreen,
+.themeItemViolet {
   padding: 0;
   margin: 0;
   list-style-type: none;
   font-size: 14px;
-  font-weight: 500;
-  line-height: 1.5;
-  /* color: var(--color-icon-grey); */
+  font-weight: 400;
+  line-height: 1.5;  
 }
 
-.themeItem:hover,
-.themeButton:hover {
+.themeItemGreen:hover,
+.themeButtonGreen:hover {
   color: var(--color-green);
+}
+
+.themeItemViolet:hover,
+.themeButtonViolet:hover {
+  color: var(--color-violet);
 }
 
 .dark {

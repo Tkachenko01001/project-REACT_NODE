@@ -4,12 +4,15 @@ import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
 import styles from './EditTaskCard.module.css';
 import sprite from '../../images/sprite.svg';
+import { useDispatch } from 'react-redux';
+import { updateTask } from 'redux/boards/operations';
+import { useSelector } from 'react-redux';
+import { selectTheme } from 'redux/auth/selectors';
 
-const initialValues = {
-  title: '',
-  description: '',
-  priority: '',
-};
+// додавання календаря
+import CustomMonthLayout from 'components/Calendar/Calendar';
+import { format } from 'date-fns';
+// const today = new Date();
 
 const registerSchema = object({
   title: string().required(),
@@ -17,74 +20,166 @@ const registerSchema = object({
   description: string().required(),
 });
 
-export const EditTaskCard = () => {
+export const EditTaskCard = ({ task }) => {
+  const {
+    _id: taskId,
+    title: oldTitle,
+    description: oldDescription,
+    priority: oldPriority,
+    deadline,
+  } = task;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
+  const theme = useSelector(selectTheme);
+  const dispatch = useDispatch();
+  const [title, setTitle] = useState(oldTitle);
+  const [description, setDescription] = useState(oldDescription);
+  const [priority, setPriority] = useState(oldPriority);
+  const deadlineInDate = new Date(
+    deadline.replace('/', '.').replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')
+  );
+  const [newDaySelected, setNewDaySelected] = useState(deadlineInDate);
 
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
-    resetForm();
+  const initialValues = {
+    title: '',
+    description: '',
+    priority: oldPriority,
+  };
+
+  const handleChange = ({ target: { name, value } }, setFieldValue) => {
+    setFieldValue(name, value);
+    switch (name) {
+      case 'title':
+        return setTitle(value);
+      case 'description':
+        return setDescription(value);
+      case 'priority':
+        return setPriority(value);
+      default:
+        return;
+    }
+  };
+
+  const onSubmit = (values, { setSubmitting }) => {
+    console.log(taskId);
+    dispatch(
+      updateTask({
+        id: taskId,
+        data: {
+          title: title,
+          description: description,
+          priority: priority,
+          deadline: format(newDaySelected, 'dd/MM/yyyy'),
+        },
+      })
+    );
+    // setTitle('');
+    // setDescription('');
+    // setPriority('');
+    setSubmitting(false);
+    toggleModal();
   };
 
   const radioOptions = [
     { color: '#8fa1d0', priority: 'low' },
     { color: '#e09cb5', priority: 'medium' },
     { color: '#bedbb0', priority: 'high' },
-    { color: 'rgba(255, 255, 255, 0.3)', priority: 'without' },
+    {
+      color:
+        theme === 'dark' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(22, 22, 22, 0.3)',
+      priority: 'without',
+    },
   ];
 
   return (
     <div>
-      <button onClick={toggleModal}>Відкрити модалку</button>
+      <button className={styles.cardButton} onClick={toggleModal}>
+        <svg
+          width={16}
+          height={16}
+          aria-label="icon-pencil"
+          className={styles.svg}
+        >
+          <title>Edit card</title>
+          <use href={sprite + '#icon-pencil'} />
+        </svg>
+      </button>
       {isModalOpen && (
         <Modal onClose={toggleModal}>
           <Formik
             initialValues={initialValues}
             validationSchema={registerSchema}
-            onSubmit={handleSubmit}
+            onSubmit={onSubmit}
           >
-            <Form autoComplete="off">
-              <p className={styles.title}>Edit card</p>
-              <Field
-                className={styles.input}
-                type="text"
-                name="title"
-                placeholder="Title"
-              />
+            {({ setFieldValue }) => (
+              <Form autoComplete="off">
+                <p className={styles.title}>Edit card</p>
+                <Field
+                  className={
+                    theme === 'violet' ? styles.inputViolet : styles.input
+                  }
+                  type="text"
+                  name="title"
+                  placeholder="Title"
+                  value={title}
+                  onChange={e => handleChange(e, setFieldValue)}
+                />
 
-              <Field
-                as="textarea"
-                className={styles.textarea}
-                name="description"
-                placeholder="Description"
-              />
-              <div className="wrap">
-                <span className={styles.label}>Label color</span>
-                <div>
-                  {radioOptions.map((option, index) => (
-                    <label key={index} className={styles.radioLabel}>
-                      <Field
-                        type="radio"
-                        name="priority"
-                        value={`${option.priority}`}
-                        className={styles.radioInput}
-                      />
-                      <span
-                        className={styles.radioButton}
-                        style={{ backgroundColor: option.color }}
-                      ></span>
-                    </label>
-                  ))}
+                <Field
+                  as="textarea"
+                  className={
+                    theme === 'violet' ? styles.textareaViolet : styles.textarea
+                  }
+                  name="description"
+                  placeholder="Description"
+                  value={description}
+                  onChange={e => handleChange(e, setFieldValue)}
+                />
+                <div className="wrap">
+                  <span className={styles.label}>Label color</span>
+                  <div className={styles.priorityIcons}>
+                    {radioOptions.map((option, index) => (
+                      <label key={index} className={styles.radioLabel}>
+                        <Field
+                          type="radio"
+                          name="priority"
+                          value={`${option.priority}`}
+                          className={styles.radioInput}
+                          onChange={e => handleChange(e, setFieldValue)}
+                        />
+                        <span
+                          className={styles.radioButton}
+                          style={{ backgroundColor: option.color }}
+                        ></span>
+                      </label>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              <button className={styles.btn} type="submit">
-                <svg className={styles.btnIcon}>
-                  <use href={sprite + '#icon-plus'}></use>
-                </svg>
-                <span>Add</span>
-              </button>
-            </Form>
+                <CustomMonthLayout
+                  daySelected={newDaySelected}
+                  setDaySelected={setNewDaySelected}
+                />
+
+                <button
+                  className={theme === 'violet' ? styles.btnViolet : styles.btn}
+                  type="submit"
+                  onClick={() => {
+                    setFieldValue('title', title);
+                    setFieldValue('description', description);
+                  }}
+                >
+                  <svg
+                    className={
+                      theme === 'violet' ? styles.btnIconViolet : styles.btnIcon
+                    }
+                  >
+                    <use href={sprite + '#icon-plus'}></use>
+                  </svg>
+                  <span>Edit</span>
+                </button>
+              </Form>
+            )}
           </Formik>
         </Modal>
       )}

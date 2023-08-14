@@ -1,58 +1,86 @@
+import { deleteTask } from 'redux/boards/operations';
 import sprite from '../../images/sprite.svg';
 import styles from './Card.module.css';
+import { useDispatch } from 'react-redux';
+import { EditTaskCard } from 'components/EditTaskCard/EditTaskCard';
+import { selectTheme } from 'redux/auth/selectors';
+import { useSelector } from 'react-redux';
 
-// const Card = ({card}) => {
-const Card = () => {  
+const Card = ({ task }) => {
+  const { _id: id, title, description, priority, deadline } = task;
+  const dispatch = useDispatch();
+  const theme = useSelector(selectTheme);
+
+  const onDeleteClick = () => {
+    dispatch(deleteTask(id));
+  };
+  const deadlineInDate = new Date(
+    deadline.replace('/', '.').replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')
+  );
+  const currentDate = new Date();
+  const timeDiff = deadlineInDate - currentDate;
+  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+  const deadlineNow = days < 1;
+
   return (
-    <div className={styles.card}>
-      <div className={styles.textWrapper}>
-        <h4 className={styles.title}>Card Title</h4>
-        {/* <h4 className={styles.title}>{card.title}</h4> */}
-        {/* <p className={styles.description}>{card.descr}</p> */}
-        <p className={styles.description}>
-          Conduct in-depth research and analysis on the project's topic, gather
-          relevant data, and identify key insights to inform decision-making and
-          project planning.
-        </p>
-      </div>
-      <div className={styles.wrapper}>
-        <div className={styles.priority}>
-          <h5 className={styles.subTitle}>Priority</h5>          
-          <p className={styles.priorityText}>Medium</p>
+    <div
+      className={
+        (theme === 'dark' && styles.dark) ||
+        (theme === 'light' && styles.light) ||
+        (theme === 'violet' && styles.violet)
+      }
+    >
+      <div className={`${styles.card} ${styles[`priority_${priority}`]}`}>
+        <div className={styles.textWrapper}>
+          <h4 className={styles.title}>{title}</h4>
+          <p className={styles.description}>{description}</p>
         </div>
-        <div className={styles.deadline}>
-          <h5 className={styles.subTitle}>Deadline</h5>
-          <p className={styles.deadlineText}>14/08/2023</p>
-        </div>       
-        <ul className={styles.cardIcons}>
-          <li className={styles.cardIcon}>
-            <button className={styles.cardButton}>
-              <svg
-                width={16}
-                height={16}
-                aria-label="icon-bell"
-                className={styles.bell}
-              >
-                <title>Bell Icon</title>
-                <use href={sprite + '#icon-bell'} />
-              </svg>
-            </button>
-          </li>
-          <li className={styles.cardIcon}>
-            <button className={styles.cardButton}>
-              <svg
-                width={16}
-                height={16}
-                aria-label="icon-arrow-circle-broken-right"
-                className={styles.svg}
-              >
-                <title>Arrow Circle Right Icon</title>
-                <use href={sprite + '#icon-arrow-circle-broken-right'} />
-              </svg>
-            </button>
-          </li>
-          <li className={styles.cardIcon}>
-            <button className={styles.cardButton}>
+        <div className={theme === 'dark' ? styles.wrapperDark : styles.wrapper}>
+          <div className={styles.priority}>
+            <h5 className={styles.subTitle}>Priority</h5>
+            <p
+              className={`${styles.priorityText} ${
+                styles[`priority_${priority}`]
+              }`}
+            >
+              {priority}
+            </p>
+          </div>
+          <div className={styles.deadline}>
+            <h5 className={styles.subTitle}>Deadline</h5>
+            <p className={styles.deadlineText}>{deadline}</p>
+          </div>
+          <ul className={styles.cardIcons}>
+            <li className={styles.cardIcon}>
+              {deadlineNow && (
+                <button className={styles.cardButtonNotHover}>
+                  <svg
+                    width={16}
+                    height={16}
+                    aria-label="icon-bell"
+                    className={styles.bell}
+                  >
+                    <title>Deadline</title>
+                    <use href={sprite + '#icon-bell'} />
+                  </svg>
+                </button>
+              )}
+            </li>
+            <li className={styles.cardIcon}>
+              <button className={styles.cardButton}>
+                <svg
+                  width={16}
+                  height={16}
+                  aria-label="icon-arrow-circle-broken-right"
+                  className={styles.svg}
+                >
+                  <title>Move task</title>
+                  <use href={sprite + '#icon-arrow-circle-broken-right'} />
+                </svg>
+              </button>
+            </li>
+            <li className={styles.cardIcon}>
+              {/* <button className={styles.cardButton}>
               <svg
                 width={16}
                 height={16}
@@ -62,22 +90,24 @@ const Card = () => {
                 <title>Pencil Icon</title>
                 <use href={sprite + '#icon-pencil'} />
               </svg>
-            </button>
-          </li>
-          <li className={styles.cardIcon}>
-            <button className={styles.cardButton}>
-              <svg
-                width={16}
-                height={16}
-                aria-label="icon-trash"
-                className={styles.svg}
-              >
-                <title>Trash Icon</title>
-                <use href={sprite + '#icon-trash'} />
-              </svg>
-            </button>
-          </li>
-        </ul>
+            </button> */}
+              <EditTaskCard task={task} />
+            </li>
+            <li className={styles.cardIcon}>
+              <button className={styles.cardButton} onClick={onDeleteClick}>
+                <svg
+                  width={16}
+                  height={16}
+                  aria-label="icon-trash"
+                  className={styles.svg}
+                >
+                  <title>Trash Icon</title>
+                  <use href={sprite + '#icon-trash'} />
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );

@@ -120,12 +120,13 @@ export const addTask = createAsyncThunk(
 
 export const updateTask = createAsyncThunk(
   'boards/updateTask',
-  async ([id, data], thunkAPI) => {
+  async ({id, data}, thunkAPI) => {
     try {
       const res = await axios.put(`/api/tasks/${id}`, data);
       thunkAPI.dispatch(getActiveBoard(res.data.board));
       return;
     } catch (error) {
+      console.log (error.response.data.message)
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -141,5 +142,18 @@ export const deleteTask = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
+  }
+);
+
+export const transferTask = createAsyncThunk(
+  'boards/transferTask',
+  async ({ id, data }, thunkAPI) => {
+    try {
+      axios.patch(`/api/tasks/${id}/transfer`, data);
+      
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    };
   }
 );

@@ -6,8 +6,8 @@ export const registerSchema = object({
     .max(32, 'maximum 32 characters')
     .test(
       'only-allowed-chars',
-      'password can contain: only Latin, numbers, special characters',
-      value => /^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/.test(value)
+      'Name can contain: only Latin, numbers, special characters',
+      value => /^[a-zA-Z0-9\-!@#$%^&*()_+,.: ;’“?/]+$/.test(value)
     )
     .matches(/^[a-zA-Z0-9 !@#$%^&*()_+,.:;’“?/-]+$/, 'Invalid name format')
     .required(),

@@ -2,16 +2,19 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addBoard } from 'redux/boards/operations';
 import { selectIsBoardsLoading } from 'redux/boards/selectors';
-import ModalBoard from 'components/ModalBoard/ModalBoard';
-import styles from './MainPlaceholder.module.css';
+import sprite from '../../images/sprite.svg';
+import css from '../Sidebar/Sidebar.module.css';
+import ModalBoard from './ModalBoard';
+import { selectTheme } from 'redux/auth/selectors';
 
-const MainPlaceholder = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const toggleModal = () => setIsModalOpen(state => !state);
+const NewBoard = () => {
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
   const required = true;
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModal = () => setIsModalOpen(state => !state);
   const [icon, setIcon] = useState('icon-project');
   const [background, setBackground] = useState('null');
+  const theme = useSelector(selectTheme);
 
   const dispatch = useDispatch();
 
@@ -51,20 +54,30 @@ const MainPlaceholder = () => {
   };
 
   return (
-    <div className={styles.mainDashboardContainer}>
-      <p className={styles.dashboardDefaultParagraph}>
-        Before starting your project, it is essential
-        <button
-          type="button"
-          className={styles.createBoard}
-          onClick={toggleModal}
+    <div
+      className={
+        (theme === 'dark' && css.dark) ||
+        (theme === 'light' && css.light) ||
+        (theme === 'violet' && css.violet)
+      }
+    >
+      <button
+        onClick={toggleModal}
+        className={css.sidebarBoardButton}
+        type="button"
+      >
+        <svg
+          className={
+            theme === 'violet'
+              ? css.sidebarBoardIconViolet
+              : css.sidebarBoardIconGreen
+          }
+          width={36}
+          height={36}
         >
-          to create a board
-        </button>
-        to visualize and track all the necessary tasks and milestones. This
-        board serves as a powerful tool to organize the workflow and ensure
-        effective collaboration among team members.
-      </p>
+          <use href={sprite + '#icon-plus'}></use>
+        </svg>
+      </button>
       <ModalBoard
         {...modalProps}
         modalTitle="New Board"
@@ -74,4 +87,4 @@ const MainPlaceholder = () => {
   );
 };
 
-export default MainPlaceholder;
+export default NewBoard;

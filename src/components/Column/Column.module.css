@@ -1,11 +1,12 @@
 .column__container {
   width: 334px;
-  padding-left: 24px;
   display: flex;
   flex-direction: column;
   gap: 14px;
+  /* scrollbar-width: auto;
+  scrollbar-color: rgb(0, 0, 0) rgb(87, 86, 84); цвет бегунка и зоны отслеживания */
 }
-.columnHeader {
+.columnHeaderDark {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -14,8 +15,18 @@
   background-color: var(--color-icon-dark);
   border-radius: 8px;
 }
+.columnHeader {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 18px 20px 17px 20px;
+  background-color: var(--color-white);
+  border-radius: 8px;
+}
 .columnHeader__title {
-  color: var(--color-white);
+  color: inherit;
+  /* color: var(--color-white); */
   font-family: var(--font-medium);
   font-size: 14px;
   font-style: normal;
@@ -30,24 +41,75 @@
   gap: 8px;
   margin-left: auto;
 }
-.columnHeader__button {
+.columnHeader__buttonDark {
   height: 20px;
   width: 20px;
-  stroke: var(--color-icon-grey);
-  background-color: var(--color-icon-dark);
+  background-color: transparent;  
+  fill:none;  
+  /* stroke: rgba(22, 22, 22, 0.5); */
+  stroke: var(--color-icon-grey);  
   border: none;
   padding: 2px;
 }
-.columnHeader__button:hover {
+.columnHeader__buttonLight,
+.columnHeader__buttonViolet {
+  height: 20px;
+  width: 20px;
+  background-color: transparent;  
+  fill:none;  
+  stroke: rgba(22, 22, 22, 0.5);
+  /* stroke: var(--color-icon-grey); */  
+  border: none;
+  padding: 2px;
+}
+.columnHeader__buttonDark:hover,
+.columnHeader__buttonLight:hover{
   stroke: var(--color-green);
-  background: radial-gradient(
+  transform: scale(1.2);  
+  /* background: radial-gradient(
     circle closest-side,
     var(--color-green),
     var(--color-icon-dark) 100%
-  );
+  ); */
+}
+.columnHeader__buttonViolet:hover {
+  stroke: var(--color-violet);
+  transform: scale(1.2);  
 }
 .cardList {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  max-height: 478px;
+  /* overflow: auto; */
+
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+  .cardList {
+    height: 640px;
+  }
+}
+
+.demo {
+  height: 300px;
+  width: 400px;
+  overflow: hidden;
+}
+
+.cardList::-webkit-scrollbar {
+  width: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.cardList::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  outline: 1px solid transparent;
+  border-radius: 8px;
+}
+
+.cardList:hover::-webkit-scrollbar-thumb {
+  background-color: #121212;
 }

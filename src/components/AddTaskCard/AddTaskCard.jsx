@@ -6,35 +6,51 @@ import { Formik, Form, Field } from 'formik';
 import { object, string } from 'yup';
 import styles from './AddTaskCard.module.css';
 import sprite from '../../images/sprite.svg';
+import Button from 'components/Button/Button';
+import { useSelector } from 'react-redux';
+import { selectTheme } from 'redux/auth/selectors';
+
+// додавання календаря
+import CustomMonthLayout from 'components/Calendar/Calendar'; //delete//
+import { format } from 'date-fns';
+const today = new Date();
 
 const initialValues = {
   title: '',
   description: '',
   priority: '',
+  deadline: today, //календар//
 };
 
 const registerSchema = object({
   title: string().required(),
-  priority: string().required(),
+  priority: string(),
   description: string().required(),
 });
 
-export const AddTaskCard = () => {
+export const AddTaskCard = ({ columnId }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [priority, setPriority] = useState('');
-  const [column] = useState('64d0d5ff12156380132f910a');
+  // const [column] = useState('64d0d5ff12156380132f910a');
   // const addLoading = useSelector(selectTaskIsLoading);
   const dispatch = useDispatch();
+  const theme = useSelector(selectTheme);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
+
+  const [daySelected, setDaySelected] = useState(today); //календар//
 
   const radioOptions = [
     { color: '#8fa1d0', priority: 'low' },
     { color: '#e09cb5', priority: 'medium' },
     { color: '#bedbb0', priority: 'high' },
-    { color: 'rgba(255, 255, 255, 0.3)', priority: 'without' },
+    {
+      color:
+        theme === 'dark' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(22, 22, 22, 0.3)',
+      priority: 'without',
+    },
   ];
 
   const handleChange = ({ target: { name, value } }, setFieldValue) => {
@@ -50,35 +66,40 @@ export const AddTaskCard = () => {
         return;
     }
   };
+  const onSubmit = (values, { setSubmitting }) => {
+    dispatch(
+      addTask({
+        title: title,
+        description: description,
+        priority: priority || 'without',
+        deadline: format(daySelected, 'dd/MM/yyyy'),
+        column: columnId,
+      })
+    );
+    setTitle('');
+    setDescription('');
+    setPriority('');
+    setSubmitting(false);
+    toggleModal();
+  };
 
   return (
     <div>
-      <button onClick={toggleModal}>Відкрити модалку</button>
+      <Button icon="true" text="Add another card" onClick={toggleModal} />
       {isModalOpen && (
         <Modal onClose={toggleModal}>
           <Formik
             initialValues={initialValues}
             validationSchema={registerSchema}
-            onSubmit={(values, { setSubmitting }) => {
-              dispatch(
-                addTask({
-                  title: title,
-                  description: description,
-                  priority: priority,
-                  column: column,
-                })
-              );
-              setTitle('');
-              setDescription('');
-              setPriority('');
-              setSubmitting(false);
-            }}
+            onSubmit={onSubmit}
           >
             {({ setFieldValue }) => (
               <Form autoComplete="off">
                 <p className={styles.title}>Add card</p>
                 <Field
-                  className={styles.input}
+                  className={
+                    theme === 'violet' ? styles.inputViolet : styles.input
+                  }
                   type="text"
                   name="title"
                   placeholder="Title"
@@ -88,7 +109,9 @@ export const AddTaskCard = () => {
 
                 <Field
                   as="textarea"
-                  className={styles.textarea}
+                  className={
+                    theme === 'violet' ? styles.textareaViolet : styles.textarea
+                  }
                   name="description"
                   placeholder="Description"
                   value={description}
@@ -96,7 +119,7 @@ export const AddTaskCard = () => {
                 />
                 <div className="wrap">
                   <span className={styles.label}>Label color</span>
-                  <div>
+                  <div className={styles.priorityIcons}>
                     {radioOptions.map((option, index) => (
                       <label key={index} className={styles.radioLabel}>
                         <Field
@@ -114,16 +137,26 @@ export const AddTaskCard = () => {
                     ))}
                   </div>
                 </div>
+                <span className={styles.label}>Deadline</span>
+                <CustomMonthLayout
+                  daySelected={daySelected}
+                  setDaySelected={setDaySelected}
+                />
 
                 <button
-                  className={styles.btn}
+                  className={theme === 'violet' ? styles.btnViolet : styles.btn}
                   type="submit"
                   onClick={() => {
                     setFieldValue('title', title);
                     setFieldValue('description', description);
+                    // toggleModal();
                   }}
                 >
-                  <svg className={styles.btnIcon}>
+                  <svg
+                    className={
+                      theme === 'violet' ? styles.btnIconViolet : styles.btnIcon
+                    }
+                  >
                     <use href={sprite + '#icon-plus'}></use>
                   </svg>
                   <span>Add</span>

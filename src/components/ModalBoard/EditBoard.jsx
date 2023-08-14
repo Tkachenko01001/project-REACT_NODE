@@ -1,15 +1,21 @@
 import { backgrounds } from 'constants/backgrounds';
 import { icons } from 'constants/icons';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import ClipLoader from 'react-spinners/ClipLoader';
 import { updateBoard } from 'redux/boards/operations';
-
+import { selectIsBoardsLoading } from 'redux/boards/selectors';
 import sprite from '../../images/sprite.svg';
-import Modal from '../Modal/Modal';
 import css from '../Sidebar/Sidebar.module.css';
-import styles from './EditBoard.module.css';
+import styles from './ModalBoard.module.css';
+import ModalPortal from './ModalPortal';
+import { selectTheme } from 'redux/auth/selectors';
 
-const EditBoard = ({ id, title, icon, background }) => {
+const EditBoard = ({ board, checked }) => {
+  const theme = useSelector(selectTheme);
+  const isBoardsLoading = useSelector(selectIsBoardsLoading);
+
+  const { _id: id, title, icon, background } = board;
   const dispatch = useDispatch();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,6 +23,11 @@ const EditBoard = ({ id, title, icon, background }) => {
   const [newTitle, setNewTitle] = useState(title);
   const [newIcon, setNewIcon] = useState(icon);
   const [newBackground, setNewBackground] = useState(background);
+
+  useEffect(() => {
+    setNewBackground(background);
+    setNewIcon(icon);
+  }, [background, icon]);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -29,34 +40,34 @@ const EditBoard = ({ id, title, icon, background }) => {
           background: newBackground,
         },
       })
-    );
-    toggleModal();
+    ).then(() => {
+      !isBoardsLoading && toggleModal();
+      setNewIcon(icon);
+      setNewBackground(background);
+    });
   };
 
-  const changeIcon = event => {
-    setNewIcon(event.target.value);
+  const changeIcon = newValue => {
+    setNewIcon(newValue);
   };
-  const changeBg = event => {
-    setNewBackground(event.target.value);
+  const changeBg = newValue => {
+    setNewBackground(newValue);
   };
-
   const changeTitle = event => {
     setNewTitle(event.target.value);
   };
-
+  const iconActive = !checked
+    ? css.sidebarNewBoardButton
+    : css.sidebarNewBoardButtonActive;
   return (
     <div>
-      <button
-        className={css.sidebarNewBoardButton}
-        type="button"
-        onClick={toggleModal}
-      >
+      <button className={iconActive} type="button" onClick={toggleModal}>
         <svg className={css.sidebarNewBoardIcon}>
           <use href={sprite + '#icon-pencil'} />
         </svg>
       </button>
       {isModalOpen && (
-        <Modal onClose={toggleModal}>
+        <ModalPortal onClose={toggleModal}>
           <form onSubmit={handleSubmit}>
             <h1 className={styles.title}>Edit Board</h1>
 
@@ -76,24 +87,27 @@ const EditBoard = ({ id, title, icon, background }) => {
                 role="group"
                 aria-labelledby="group-label-icon"
               >
-                {icons.map(icon => (
-                  <>
+                {icons.map(iconItem => (
+                  <div key={iconItem.value}>
                     <input
-                      key={icon.value}
                       className={styles.input_svg}
-                      id={icon.value}
+                      id={iconItem.value}
                       type="radio"
-                      name="icon"
-                      value={icon.value}
-                      checked={newIcon === icon.value ? true : false}
-                      onChange={changeIcon}
+                      name={`iconNew-${id}`}
+                      value={iconItem.value}
+                      checked={newIcon === iconItem.value}
+                      onChange={() => changeIcon(iconItem.value)}
                     />
-                    <label className={styles.label_svg} htmlFor={icon.value}>
+                    <label
+                      className={styles.label_svg}
+                      htmlFor={iconItem.value}
+                      onClick={() => changeIcon(iconItem.value)}
+                    >
                       <svg className={styles.svg} width="18" height="18">
-                        <use href={sprite + `#${icon.value}`}></use>
+                        <use href={sprite + `#${iconItem.value}`}></use>
                       </svg>
                     </label>
-                  </>
+                  </div>
                 ))}
               </fieldset>
             </div>
@@ -106,18 +120,21 @@ const EditBoard = ({ id, title, icon, background }) => {
                 aria-labelledby="group-label-image"
               >
                 {backgrounds.map(bg => (
-                  <>
+                  <div key={bg.title}>
                     <input
-                      key={bg.title}
                       className={styles.input_png}
                       id={bg.title}
                       type="radio"
-                      name="bg"
+                      name={`bgNew-${id}`}
                       value={bg.title}
-                      checked={newBackground === bg.title ? true : false}
-                      onChange={changeBg}
+                      checked={newBackground === bg.title}
+                      onChange={() => changeBg(bg.title)}
                     />
-                    <label className={styles.label_png} htmlFor={bg.title}>
+                    <label
+                      className={styles.label_png}
+                      htmlFor={bg.title}
+                      onClick={() => changeBg(bg.title)}
+                    >
                       <img
                         className={styles.png}
                         alt={bg.title}
@@ -126,22 +143,35 @@ const EditBoard = ({ id, title, icon, background }) => {
                         height="28"
                       />
                     </label>
-                  </>
+                  </div>
                 ))}
               </fieldset>
             </div>
 
-            <button className={styles.btn} type="submit">
-              <svg className={styles.icon} width="28" height="28">
-                <use href={sprite + '#icon-plus'}></use>
-              </svg>
+            <button
+              className={theme === 'violet' ? styles.btnViolet : styles.btn}
+              type="submit"
+              onClick={handleSubmit}
+            >
+              {isBoardsLoading ? (
+                <ClipLoader color="#1f1f1f" size={30} />
+              ) : (
+                <svg
+                  className={
+                    theme === 'violet' ? styles.iconViolet : styles.icon
+                  }
+                  width="28"
+                  height="28"
+                >
+                  <use href={sprite + '#icon-plus'}></use>
+                </svg>
+              )}
               Edit
             </button>
           </form>
-        </Modal>
+        </ModalPortal>
       )}
     </div>
   );
 };
-
 export default EditBoard;

@@ -4,9 +4,9 @@
   justify-content: flex-start;
   align-items: center;
 }
-.icon:hover {
+/* .icon:hover {
   color: var(--color-hover-green);
-}
+} */
 .tip {
   position: absolute;
   transform: translateY(-20px);

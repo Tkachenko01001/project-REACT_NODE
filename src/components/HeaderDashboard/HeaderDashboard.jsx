@@ -6,16 +6,18 @@ import { getActiveBoard } from 'redux/boards/operations';
 import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
 import sprite from '../../images/sprite.svg';
 import styles from './HeaderDashboard.module.css';
+import { selectTheme } from 'redux/auth/selectors';
 
 const HeaderDashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedPriority, setSelectedPriority] = useState('');
   const { boardName } = useParams();
   const dispatch = useDispatch();
+  const theme = useSelector(selectTheme);
 
- useEffect(() => {
-   boardName && dispatch(getActiveBoard(boardName));
- }, [dispatch, boardName]);
+  useEffect(() => {
+    boardName && dispatch(getActiveBoard(boardName));
+  }, [dispatch, boardName]);
 
   const allBoards = useSelector(selectBoardsList);
   const currentBoard = useSelector(selectActiveBoard);
@@ -23,7 +25,11 @@ const HeaderDashboard = () => {
   const toggleModal = () => setIsOpen(state => !state);
 
   const options = [
-    { color: 'rgba(255, 255, 255, 0.3)', priority: 'Without priority' },
+    {
+      color:
+        theme === 'dark' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(22, 22, 22, 0.3)',
+      priority: 'Without priority',
+    },
     { color: '#8FA1D0', priority: 'Low' },
     { color: '#E09CB5', priority: 'Medium' },
     { color: '#BEDBB0', priority: 'High' },
@@ -33,14 +39,27 @@ const HeaderDashboard = () => {
     setSelectedPriority(event.target.value);
   };
 
-    const titleToShow =
-      allBoards.length > 0 && (currentBoard.title ? currentBoard.title : allBoards[0].title);
+  const titleToShow =
+    allBoards.length > 0 &&
+    (currentBoard.title ? currentBoard.title : allBoards[0].title);
 
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.title}>{titleToShow}</h2>
-      <button className={styles.filter} onClick={toggleModal}>
-        <svg className={styles.icon} width={16} height={16} aria-label="Filter">
+      <button
+        className={theme === 'violet' ? styles.filterViolet : styles.filter}
+        onClick={toggleModal}
+      >
+        <svg
+          className={
+            (theme === 'dark' && styles.iconDark) ||
+            (theme === 'light' && styles.iconLight) ||
+            (theme === 'violet' && styles.iconViolet)
+          }
+          width={16}
+          height={16}
+          aria-label="Filter"
+        >
           <title>Filter Icon</title>
           <use href={sprite + '#icon-filter'} />
         </svg>
@@ -50,7 +69,7 @@ const HeaderDashboard = () => {
         <Modal onClose={toggleModal}>
           <form className={styles.modalFilterWrapper}>
             <h2 className={styles.modalFilter}>Filters</h2>
-            <div className={styles.modalBoard}></div>
+            <div className={theme === 'dark' ? styles.modalBoardDark : styles.modalBoard}></div>
             <div className={styles.modalLabel}>
               <h3 className={styles.modalLabelHeader}>Label color</h3>
               <button type="button" className={styles.modalShowAll}>
@@ -73,11 +92,9 @@ const HeaderDashboard = () => {
                     style={{ backgroundColor: option.color }}
                   ></div>
                   <div
+                    className={styles.modalCheckbox}
                     style={{
-                      color:
-                        option.priority === selectedPriority
-                          ? 'white'
-                          : 'rgba(255, 255, 255, 0.50)',
+                      opacity: option.priority === selectedPriority ? 1 : 0.5,
                       cursor: 'pointer',
                     }}
                   >

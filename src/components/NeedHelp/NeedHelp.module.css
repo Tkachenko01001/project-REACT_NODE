@@ -3,6 +3,7 @@
   color: var(--color-white);
   stroke: var(--color-white);
   fill: var(--bg-color-form-input);
+  border-radius: 8px;
 }
 
 .light {
@@ -10,13 +11,15 @@
   color: #161616;
   stroke: #161616;
   fill: #f6f6f7;
+  border-radius: 8px;
 }
 
 .violet {
-  background-color: #ecedfd;
-  color: #161616;
-  stroke: #161616;
-  fill: #ecedfd;
+  background-color: var(--bg-color-need-help);
+  color: #fff;
+  stroke: #fff;
+  fill: var(--bg-color-need-help);
+  border-radius: 8px;
 }
 
 /* Sidebar Help  */
@@ -24,13 +27,18 @@
   /* margin: 0 14px 24px 14px; */
   padding: 14px 14px 15px 15px;
   border-radius: 8px;
+  background-color: inherit;
+  color: inherit;
   /* background-color: var(--bg-color-form-input);  */
 }
 
 @media screen and (min-width: 768px) {
   .sidebarHelp {
-    margin: 0 24px 24px 24px;
+    /* margin: 0 24px 24px 24px; */
     padding: 20px 20px 21px 20px;
+    border-radius: 8px;
+    background-color: inherit;
+    color: inherit;
   }
 }
 
@@ -43,14 +51,24 @@
   font-size: 14px;
   line-height: 1.42;
   letter-spacing: -0.28px;
-
+  color: inherit;
   /* color: var(--color-white); */
 }
 
-.sidebarHelpBoxLink {
+.sidebarHelpBoxLinkGreen {
   font-family: var(--font-regular);
-
   color: var(--color-green);
+  border: none;
+  background-color: inherit;
+  padding: 0;
+}
+
+.sidebarHelpBoxLinkViolet {
+  font-family: var(--font-regular);
+  color: var(--color-violet);
+  border: none;
+  background-color: inherit;
+  padding: 0;
 }
 
 .sidebarHelpWrap {
