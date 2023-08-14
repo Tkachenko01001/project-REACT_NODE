@@ -7,10 +7,10 @@ import {
   selectIsBoardsLoading,
 } from 'redux/boards/selectors';
 
+import ModalPortal from 'components/Modal/ModalPortal';
 import sprite from '../../images/sprite.svg';
 import css from '../Sidebar/Sidebar.module.css';
 import styles from './ModalBoard.module.css';
-import ModalPortal from './ModalPortal';
 
 const DeleteBoard = ({ checked }) => {
   const activeBoard = useSelector(selectActiveBoard);

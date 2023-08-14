@@ -54,24 +54,6 @@ const Column = ({ column }) => {
                 </svg>
               </button>
               <DeleteColumn id={_id} tasks={tasks} />
-              {/* <button
-                className={
-                  theme === 'dark'
-                    ? styles.columnHeader__buttonDark
-                    : styles.columnHeader__button
-                }
-                onClick={onDeleteClick}
-              >
-                <svg
-                  width={16}
-                  height={16}
-                  aria-label="icon-trash"
-                  className={styles.svg}
-                >
-                  <title>Delete column</title>
-                  <use href={sprite + '#icon-trash'} />
-                </svg>
-              </button> */}
             </div>
           </div>
           {tasks && (

@@ -1,17 +1,18 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ClipLoader from 'react-spinners/ClipLoader';
+import { selectTheme } from 'redux/auth/selectors';
 import { deleteColumn } from 'redux/boards/operations';
 import { selectIsBoardsLoading } from 'redux/boards/selectors';
-import style from '../Column/Column.module.css';
-
 import sprite from '../../images/sprite.svg';
+import style from '../Column/Column.module.css';
 import ModalPortal from '../Modal/ModalPortal';
 import styles from '../ModalBoard/ModalBoard.module.css';
 
 const DeleteColumn = ({ id, tasks }) => {
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
   const [startLoading, setStartLoading] = useState(false);
+  const theme = useSelector(selectTheme);
 
   const dispatch = useDispatch();
 
@@ -26,13 +27,22 @@ const DeleteColumn = ({ id, tasks }) => {
   };
 
   return (
-    <div>
-      <button className={style.columnHeader__button} onClick={toggleModal}>
+    <div
+      className={theme === 'dark' ? style.columnHeaderDark : style.columnHeader}
+    >
+      <button
+        className={
+          theme === 'dark'
+            ? style.columnHeader__buttonDark
+            : style.columnHeader__button
+        }
+        onClick={toggleModal}
+      >
         <svg
           width={16}
           height={16}
           aria-label="icon-trash"
-          className={styles.svg}
+          className={style.svg}
         >
           <title>Delete column</title>
           <use href={sprite + '#icon-trash'} />
