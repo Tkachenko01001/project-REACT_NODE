@@ -23,14 +23,19 @@
 }
 
 .card {
-  max-width: 334px;
+  width: 320px;
   height: 154px;
   border-radius: 8px;
   background-color: inherit;
-  color: inherit;  
+  color: inherit;
   position: relative;
 }
-
+@media screen and (max-width: 375px) {
+  .card {
+    max-width: 320px;
+    width: auto;
+  }
+}
 .card::before {
   content: '';
   display: block;
@@ -125,7 +130,7 @@
   padding: 2px;
 }
 .cardButton:hover {
-  transform: scale(1.2);  
+  transform: scale(1.2);
 }
 
 .cardButtonNotHover {
@@ -145,14 +150,14 @@
   display: flex;
   position: relative;
   padding: 14px 14px 14px 24px;
-  align-items: flex-end;  
+  align-items: flex-end;
 }
 
 .wrapperDark::before {
   content: '';
   display: block;
   width: 290px;
-  height: 1px;   
+  height: 1px;
   background-color: var(--color-bg-light);
   position: absolute;
   top: 0;
@@ -162,7 +167,7 @@
   content: '';
   display: block;
   width: 290px;
-  height: 1px;   
+  height: 1px;
   background-color: rgba(22, 22, 22, 0.1);
   position: absolute;
   top: 0;
