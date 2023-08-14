@@ -2,26 +2,6 @@
   /* background-color: var(--bg-color-form-input); */
   height: calc(100vh - 120px);
 }
-@media screen and (max-width: 375px) {
-  .container {
-    padding: 10px 5px;
-  }
-}
-@media screen and (min-width: 375px) and (max-width: 768px) {
-  .container {
-    padding: 14px 20px;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 1440px) {
-  .container {
-    padding: 26px 32px;
-  }
-}
-@media screen and (min-width: 1440px) {
-  .container {
-    padding: 10px 24px;
-  }
-}
 .dark {
   background-color: var(--bg-color-form-input);
   color: var(--color-white);
