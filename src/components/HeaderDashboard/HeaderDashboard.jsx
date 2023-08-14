@@ -8,6 +8,7 @@ import sprite from '../../images/sprite.svg';
 import styles from './HeaderDashboard.module.css';
 import { selectTheme } from 'redux/auth/selectors';
 import { setFilter } from 'redux/boards/filterSlice';
+import Column from '../Column/Column';
 
 const HeaderDashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -116,6 +117,13 @@ const HeaderDashboard = () => {
           </form>
         </Modal>
       )}
+      {allBoards.map(board => (
+        <Column
+          key={board._id}
+          column={board}
+          currentFilter={selectedPriority}
+        />
+      ))}
     </div>
   );
 };

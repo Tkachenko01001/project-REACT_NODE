@@ -12,7 +12,7 @@ import { selectTheme } from 'redux/auth/selectors';
 import { useSelector } from 'react-redux';
 import { getFilter } from 'redux/boards/selectors';
 
-const Column = ({ column }) => {
+const Column = ({ column, currentFilter }) => {
   const { _id, title, tasks } = column;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
@@ -64,7 +64,7 @@ const Column = ({ column }) => {
       {tasks && (
         <ul className={styles.cardList}>
           {tasks
-            .filter(task => filter === 'all' || task.priority === filter)
+            .filter(task => currentFilter === 'all' || task.priority === filter)
             .map(task => (
               <li key={task._id}>
                 <Card task={task} />
