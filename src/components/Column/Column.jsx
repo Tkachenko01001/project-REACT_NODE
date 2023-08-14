@@ -21,7 +21,7 @@ const Column = ({ column }) => {
 
   // const myScroll = new SimpleBar(document.getElementById('demo'));
   return (
-    <StrictModeDroppable droppableId={_id}>
+    <StrictModeDroppable droppableId={_id} type='tasks'>
       {provided => (
         <div
           className={styles.column__container}
