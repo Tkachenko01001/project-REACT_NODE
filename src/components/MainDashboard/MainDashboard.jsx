@@ -10,6 +10,8 @@ import Modal from 'components/Modal/Modal';
 import { selectTheme } from 'redux/auth/selectors';
 import { DragDropContext } from "react-beautiful-dnd";
 import { useDispatch } from 'react-redux';
+import { StrictModeDroppable } from 'components/StrictModeDroppable/StrictModeDroppable';
+import { Draggable } from 'react-beautiful-dnd';
 import { transferTask, transferColumn } from 'redux/boards/operations';
 
 const MainDashboard = () => {
