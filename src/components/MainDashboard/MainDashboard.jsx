@@ -47,9 +47,10 @@ const MainDashboard = () => {
         id,
         data: { destination, source },
       }));
-      console.log(result);
+      // console.log({result, columns});
     };
   };
+  console.log(columns);
 
   return (
     <>

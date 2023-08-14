@@ -147,7 +147,7 @@ export const deleteTask = createAsyncThunk(
 
 export const transferTask = createAsyncThunk(
   'boards/transferTask',
-  async ({ id, data }, thunkAPI) => {
+  ({ id, data }, thunkAPI) => {
     try {
       axios.patch(`/api/tasks/${id}/transfer`, data);
       
@@ -162,8 +162,8 @@ export const transferColumn = createAsyncThunk(
   'boards/transferColumn',
   async ({ id, data }, thunkAPI) => {
     try {
-      axios.patch(`/api/columns/${id}/transfer`, data);
-      
+      const res = await axios.patch(`/api/columns/${id}/transfer`, data);
+      console.log(res.data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
