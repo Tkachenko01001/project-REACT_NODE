@@ -73,7 +73,7 @@ const Card = ({ task }) => {
                 </button>
               )}
             </li>
-            <li className={styles.cardIcon}>
+            {/* <li className={styles.cardIcon}>
               <button
                 className={
                   (theme === 'dark' && styles.cardButtonDark) ||
@@ -91,20 +91,9 @@ const Card = ({ task }) => {
                   <use href={sprite + '#icon-arrow-circle-broken-right'} />
                 </svg>
               </button>
-            </li>
+            </li> */}
             <li className={styles.cardIcon}>
-              {/* <button className={styles.cardButton}>
-              <svg
-                width={16}
-                height={16}
-                aria-label="icon-pencil"
-                className={styles.svg}
-              >
-                <title>Pencil Icon</title>
-                <use href={sprite + '#icon-pencil'} />
-              </svg>
-            </button> */}
-              <EditTaskCard task={task} />
+                 <EditTaskCard task={task} />
             </li>
             <li className={styles.cardIcon}>
               <DeleteTask id={id} />

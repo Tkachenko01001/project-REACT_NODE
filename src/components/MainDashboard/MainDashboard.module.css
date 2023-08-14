@@ -3,6 +3,7 @@
   display: flex;
   overflow-x: auto;
   scrollbar-width: none;
+  height: 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -44,7 +45,7 @@
 .buttonDark {
   display: inline-flex;
   gap: 8px;
-  padding: 14px 0px;
+  padding: 14px 70px;
   width: 334px;
   justify-content: center;
   align-items: center;
