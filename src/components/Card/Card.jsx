@@ -18,9 +18,7 @@ const Card = ({ task }) => {
     deadline.replace('/', '.').replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')
   );
   const currentDate = new Date();
-  const timeDiff = deadlineInDate - currentDate;
-  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-  const deadlineNow = days < 1;
+  const deadlineNow = currentDate > deadlineInDate;
 
   return (
     <div
