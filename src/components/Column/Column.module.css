@@ -44,10 +44,10 @@
 .columnHeader__buttonDark {
   height: 20px;
   width: 20px;
-  background-color: transparent;  
-  fill:none;  
+  background-color: transparent;
+  fill: none;
   /* stroke: rgba(22, 22, 22, 0.5); */
-  stroke: var(--color-icon-grey);  
+  stroke: var(--color-icon-grey);
   border: none;
   padding: 2px;
 }
@@ -55,10 +55,10 @@
 .columnHeader__buttonViolet {
   height: 20px;
   width: 20px;
-  background-color: transparent;  
-  fill:none;  
+  background-color: transparent;
+  fill: none;
   stroke: rgba(22, 22, 22, 0.5);
-  /* stroke: var(--color-icon-grey); */  
+  /* stroke: var(--color-icon-grey); */
   border: none;
   padding: 2px;
 }

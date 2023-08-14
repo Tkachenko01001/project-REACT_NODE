@@ -1,23 +1,20 @@
 .container {
-  padding: 14px 24px 0px;
+  /* padding: 14px 24px 0px; */
   display: flex;
   overflow-x: auto;
   scrollbar-width: none;
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .container {
-    width: 375px;
-    padding: 14px 24px 0px;
-    display: inline-block;
-    justify-content: center;
+  
   }
-}
-@media screen and (min-width: 768px) and (max-width: 1440px) {
+} */
+/* @media screen and (min-width: 768px) and (max-width: 1440px) {
   .container {
     width: 768px;
   }
-}
+} */
 
 .container::-webkit-scrollbar {
   width: 12px; /* Ширина скролу (параметр бару) */
