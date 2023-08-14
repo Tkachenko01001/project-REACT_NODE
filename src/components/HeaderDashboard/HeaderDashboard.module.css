@@ -5,11 +5,13 @@
   /* margin-bottom: 39px; */
   flex-direction: row;
 }
+
 @media screen and (max-width: 375px) {
   .wrapper {
     padding: 5px 10px;
   }
 }
+
 @media screen and (min-width: 375px) and (max-width: 768px) {
   .wrapper {
     padding: 14px 20px;
@@ -215,11 +217,11 @@ label {
   transition: 0.2s;
 }
 
-.radio input:checked + .radioText:after {
+.radio input:checked+.radioText:after {
   opacity: 1;
 }
 
-.radio input:focus + .radioText:before {
+.radio input:checked+.radioText:before {
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -229,6 +231,7 @@ label {
   transform: translate(-50%, -50%);
   transition: opacity 0.3s;
 }
+
 /* .modalListOptionsElement:checked .radioText+.text {
     color: white;
     /* Цвет текста при выборе радио-инпута */
