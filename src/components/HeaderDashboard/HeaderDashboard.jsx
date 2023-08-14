@@ -69,7 +69,7 @@ const HeaderDashboard = () => {
         <Modal onClose={toggleModal}>
           <form className={styles.modalFilterWrapper}>
             <h2 className={styles.modalFilter}>Filters</h2>
-            <div className={styles.modalBoard}></div>
+            <div className={theme === 'dark' ? styles.modalBoardDark : styles.modalBoard}></div>
             <div className={styles.modalLabel}>
               <h3 className={styles.modalLabelHeader}>Label color</h3>
               <button type="button" className={styles.modalShowAll}>

@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { selectTheme } from 'redux/auth/selectors';
 import { addBoard } from 'redux/boards/operations';
 import { selectIsBoardsLoading } from 'redux/boards/selectors';
 import sprite from '../../images/sprite.svg';
 import css from '../Sidebar/Sidebar.module.css';
 import ModalBoard from './ModalBoard';
-import { selectTheme } from 'redux/auth/selectors';
 
 const NewBoard = () => {
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
@@ -78,9 +78,10 @@ const NewBoard = () => {
           <use href={sprite + '#icon-plus'}></use>
         </svg>
       </button>
+
       <ModalBoard
         {...modalProps}
-        modalTitle="New Board"
+        modalTitle="New board"
         submitButtonText="Create"
       />
     </div>

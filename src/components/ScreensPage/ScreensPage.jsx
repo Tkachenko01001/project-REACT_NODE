@@ -1,13 +1,13 @@
-import HeaderDashboard from '../HeaderDashboard/HeaderDashboard';
-import MainDashboard from '../MainDashboard/MainDashboard';
-import css from './ScreensPage.module.css';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/auth/selectors';
 import { selectActiveBoard } from 'redux/boards/selectors';
-import { useEffect, useState } from 'react';
+import HeaderDashboard from '../HeaderDashboard/HeaderDashboard';
+import MainDashboard from '../MainDashboard/MainDashboard';
+import css from './ScreensPage.module.css';
 
 const ScreensPage = () => {
-  const [activeBg, setActiveBg] = useState(null);
+  const [activeBg, setActiveBg] = useState('null');
 
   const theme = useSelector(selectTheme);
   const activeBoard = useSelector(selectActiveBoard);
@@ -16,7 +16,7 @@ const ScreensPage = () => {
     if (activeBoard && activeBoard.background) {
       setActiveBg(activeBoard.background);
     } else {
-      setActiveBg(null);
+      setActiveBg('null');
     }
   }, [activeBoard]);
 
@@ -28,7 +28,7 @@ const ScreensPage = () => {
         (theme === 'violet' && css.violet)
       }
     >
-      <section>
+      <section className={css.container}>
         <HeaderDashboard />
         <div
           className={`${css.headerDashboardSection} ${
