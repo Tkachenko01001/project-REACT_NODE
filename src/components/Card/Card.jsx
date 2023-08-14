@@ -35,7 +35,7 @@ const Card = ({ task }) => {
           <h4 className={styles.title}>{title}</h4>
           <p className={styles.description}>{description}</p>
         </div>
-        <div className={styles.wrapper}>
+        <div className={theme === 'dark' ? styles.wrapperDark : styles.wrapper}>
           <div className={styles.priority}>
             <h5 className={styles.subTitle}>Priority</h5>
             <p

@@ -69,8 +69,7 @@
 }
 
 .iconDark {
-  stroke: var(--color-icon-light);
-  /* fill: var(--bg-color-light);   */
+  stroke: var(--color-icon-light); 
 }
 
 .iconViolet:hover {
@@ -107,9 +106,15 @@
   letter-spacing: -0.36px;
 }
 
-.modalBoard {
+.modalBoardDark {
   height: 1px;
   background-color: var(--color-sidebar-border);
+  margin-top: 14px;
+}
+
+.modalBoard {
+  height: 1px;
+  background-color: rgba(22, 22, 22, 0.1);
   margin-top: 14px;
 }
 

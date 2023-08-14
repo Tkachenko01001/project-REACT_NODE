@@ -185,5 +185,5 @@
 }
 
 .btnViolet:hover {
- opacity: 0.5;
+ background-color: var(--color-light-violet);
 }

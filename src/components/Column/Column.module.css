@@ -65,6 +65,7 @@
 .columnHeader__buttonDark:hover,
 .columnHeader__buttonLight:hover{
   stroke: var(--color-green);
+  transform: scale(1.2);  
   /* background: radial-gradient(
     circle closest-side,
     var(--color-green),
@@ -73,6 +74,7 @@
 }
 .columnHeader__buttonViolet:hover {
   stroke: var(--color-violet);
+  transform: scale(1.2);  
 }
 .cardList {
   display: flex;

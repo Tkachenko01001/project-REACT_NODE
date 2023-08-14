@@ -140,19 +140,30 @@
   pointer-events: none;
 }
 
-.wrapper {
+.wrapper,
+.wrapperDark {
   display: flex;
   position: relative;
   padding: 14px 14px 14px 24px;
-  align-items: flex-end;
+  align-items: flex-end;  
+}
+
+.wrapperDark::before {
+  content: '';
+  display: block;
+  width: 290px;
+  height: 1px;   
+  background-color: var(--color-bg-light);
+  position: absolute;
+  top: 0;
 }
 
 .wrapper::before {
   content: '';
   display: block;
   width: 290px;
-  height: 1px;
-  background-color: var(--color-bg-light);
+  height: 1px;   
+  background-color: rgba(22, 22, 22, 0.1);
   position: absolute;
   top: 0;
 }
