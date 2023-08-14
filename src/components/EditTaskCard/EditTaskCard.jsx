@@ -73,9 +73,9 @@ export const EditTaskCard = ({ task }) => {
         },
       })
     );
-    setTitle('');
-    setDescription('');
-    setPriority('');
+    // setTitle('');
+    // setDescription('');
+    // setPriority('');
     setSubmitting(false);
     toggleModal();
   };
