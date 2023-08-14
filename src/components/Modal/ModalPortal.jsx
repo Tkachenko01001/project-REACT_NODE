@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import sprite from '../../images/sprite.svg';
-import css from '../Modal/Modal.module.css';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/auth/selectors';
-// const modalRoot = document.getElementById('#modal-root');
+import sprite from '../../images/sprite.svg';
+import css from '../Modal/Modal.module.css';
 
 export default function ModalPortal({ onClose, children }) {
   const theme = useSelector(selectTheme);

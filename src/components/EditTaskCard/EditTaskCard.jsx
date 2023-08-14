@@ -1,12 +1,15 @@
+import { Field, Form, Formik } from 'formik';
 import { useState } from 'react';
-import Modal from '../Modal/Modal';
-import { Formik, Form, Field } from 'formik';
-import { object, string } from 'yup';
-import styles from './EditTaskCard.module.css';
-import sprite from '../../images/sprite.svg';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import ClipLoader from 'react-spinners/ClipLoader';
+import { selectIsBoardsLoading } from 'redux/boards/selectors';
+
 import { updateTask } from 'redux/boards/operations';
-import { useSelector } from 'react-redux';
+import { object, string } from 'yup';
+import sprite from '../../images/sprite.svg';
+import Modal from '../Modal/Modal';
+import styles from './EditTaskCard.module.css';
 import { selectTheme } from 'redux/auth/selectors';
 
 // додавання календаря
@@ -28,6 +31,9 @@ export const EditTaskCard = ({ task }) => {
     priority: oldPriority,
     deadline,
   } = task;
+
+  const isBoardsLoading = useSelector(selectIsBoardsLoading);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
   const theme = useSelector(selectTheme);
@@ -72,12 +78,11 @@ export const EditTaskCard = ({ task }) => {
           deadline: format(newDaySelected, 'dd/MM/yyyy'),
         },
       })
-    );
-    // setTitle('');
-    // setDescription('');
-    // setPriority('');
-    setSubmitting(false);
-    toggleModal();
+    )
+      .then(() => {
+        !isBoardsLoading && toggleModal();
+      })
+      .else(setSubmitting(false));
   };
 
   const radioOptions = [
@@ -169,13 +174,19 @@ export const EditTaskCard = ({ task }) => {
                     setFieldValue('description', description);
                   }}
                 >
-                  <svg
-                    className={
-                      theme === 'violet' ? styles.btnIconViolet : styles.btnIcon
-                    }
-                  >
-                    <use href={sprite + '#icon-plus'}></use>
-                  </svg>
+                  {isBoardsLoading ? (
+                    <ClipLoader color="#1f1f1f" size={30} />
+                  ) : (
+                    <svg
+                      className={
+                        theme === 'violet'
+                          ? styles.btnIconViolet
+                          : styles.btnIcon
+                      }
+                    >
+                      <use href={sprite + '#icon-plus'}></use>
+                    </svg>
+                  )}
                   <span>Edit</span>
                 </button>
               </Form>

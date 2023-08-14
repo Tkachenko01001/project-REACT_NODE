@@ -5,8 +5,8 @@ import { selectIsBoardsLoading } from 'redux/boards/selectors';
 import { selectTheme } from 'redux/auth/selectors';
 import ClipLoader from 'react-spinners/ClipLoader';
 import sprite from '../../images/sprite.svg';
+import ModalPortal from '../Modal/ModalPortal';
 import styles from './ModalBoard.module.css';
-import ModalPortal from './ModalPortal';
 
 const ModalBoard = ({
   isModalOpen,

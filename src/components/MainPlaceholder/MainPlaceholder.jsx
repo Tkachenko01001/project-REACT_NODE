@@ -1,8 +1,8 @@
+import ModalBoard from 'components/ModalBoard/ModalBoard';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addBoard } from 'redux/boards/operations';
 import { selectIsBoardsLoading } from 'redux/boards/selectors';
-import ModalBoard from 'components/ModalBoard/ModalBoard';
 import styles from './MainPlaceholder.module.css';
 
 const MainPlaceholder = () => {
@@ -65,9 +65,10 @@ const MainPlaceholder = () => {
         board serves as a powerful tool to organize the workflow and ensure
         effective collaboration among team members.
       </p>
+
       <ModalBoard
         {...modalProps}
-        modalTitle="New Board"
+        modalTitle="New board"
         submitButtonText="Create"
       />
     </div>

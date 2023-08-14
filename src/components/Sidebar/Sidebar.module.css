@@ -231,7 +231,7 @@
   }
 }
 .sideBarBoardHover:hover {
-  opacity: 50%;
+  opacity: 70%;
 }
 .sidebarNewBoardSvg {
   width: 18px;
@@ -253,10 +253,11 @@
   align-items: center;
 }
 
-.activeBoardDark {
-  background-color: var(--bg-color-form-input);
+.activeBoard {
   border-radius: 4px 0px 0px 4px;
   color: inherit;
+  background-color: inherit;
+  /* background: var(--bg-color-form-input); */
 }
 
 .activeBoardLight {
