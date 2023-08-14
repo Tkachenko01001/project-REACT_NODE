@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 20px 0px;
   margin-bottom: 39px;
   flex-direction: row;
 }
@@ -26,7 +25,8 @@
 @media screen and (min-width: 1440px) {
   .wrapper {
     margin-bottom: 10px;
-    padding: 14px 24px 0px;
+    padding: 0px;
+    /* padding-right: 24px; */
   }
 
   .title {
@@ -88,8 +88,8 @@
 
 .filter:hover .iconLight,
 .filter:hover .iconDark {
-    stroke: var(--color-green);
-  }
+  stroke: var(--color-green);
+}
 
 .filterText {
   height: 20px;
