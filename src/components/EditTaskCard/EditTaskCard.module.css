@@ -128,6 +128,7 @@
 }
 
 .label {
+  display: block;
   margin-bottom: 4px;
   color: inherit;
   font-family: var(--font-regular);

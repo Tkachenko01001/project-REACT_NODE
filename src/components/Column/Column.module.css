@@ -63,9 +63,9 @@
   padding: 2px;
 }
 .columnHeader__buttonDark:hover,
-.columnHeader__buttonLight:hover{
+.columnHeader__buttonLight:hover {
   stroke: var(--color-green);
-  transform: scale(1.2);  
+  transform: scale(1.2);
   /* background: radial-gradient(
     circle closest-side,
     var(--color-green),
@@ -74,7 +74,7 @@
 }
 .columnHeader__buttonViolet:hover {
   stroke: var(--color-violet);
-  transform: scale(1.2);  
+  transform: scale(1.2);
 }
 .cardList {
   display: flex;
@@ -88,7 +88,7 @@
 }
 @media screen and (min-width: 768px) and (max-width: 1440px) {
   .cardList {
-    height: 640px;
+    max-height: 640px;
   }
 }
 
