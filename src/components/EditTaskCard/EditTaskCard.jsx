@@ -1,12 +1,15 @@
+import { Field, Form, Formik } from 'formik';
 import { useState } from 'react';
-import Modal from '../Modal/Modal';
-import { Formik, Form, Field } from 'formik';
-import { object, string } from 'yup';
-import styles from './EditTaskCard.module.css';
-import sprite from '../../images/sprite.svg';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import ClipLoader from 'react-spinners/ClipLoader';
+import { selectIsBoardsLoading } from 'redux/boards/selectors';
+
 import { updateTask } from 'redux/boards/operations';
-import { useSelector } from 'react-redux';
+import { object, string } from 'yup';
+import sprite from '../../images/sprite.svg';
+import Modal from '../Modal/Modal';
+import styles from './EditTaskCard.module.css';
 import { selectTheme } from 'redux/auth/selectors';
 
 // додавання календаря
@@ -28,6 +31,9 @@ export const EditTaskCard = ({ task }) => {
     priority: oldPriority,
     deadline,
   } = task;
+
+  const isBoardsLoading = useSelector(selectIsBoardsLoading);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
   const theme = useSelector(selectTheme);
@@ -72,12 +78,11 @@ export const EditTaskCard = ({ task }) => {
           deadline: format(newDaySelected, 'dd/MM/yyyy'),
         },
       })
-    );
-    // setTitle('');
-    // setDescription('');
-    // setPriority('');
-    setSubmitting(false);
-    toggleModal();
+    )
+      .then(() => {
+        !isBoardsLoading && toggleModal();
+      })
+      .else(setSubmitting(false));
   };
 
   const radioOptions = [
@@ -93,7 +98,14 @@ export const EditTaskCard = ({ task }) => {
 
   return (
     <div>
-      <button className={styles.cardButton} onClick={toggleModal}>
+      <button
+        className={
+          (theme === 'dark' && styles.cardButtonDark) ||
+          (theme === 'light' && styles.cardButtonLight) ||
+          (theme === 'violet' && styles.cardButtonViolet)
+        }
+        onClick={toggleModal}
+      >
         <svg
           width={16}
           height={16}
@@ -122,6 +134,7 @@ export const EditTaskCard = ({ task }) => {
                   name="title"
                   placeholder="Title"
                   value={title}
+                  required
                   onChange={e => handleChange(e, setFieldValue)}
                 />
 
@@ -133,6 +146,7 @@ export const EditTaskCard = ({ task }) => {
                   name="description"
                   placeholder="Description"
                   value={description}
+                  required
                   onChange={e => handleChange(e, setFieldValue)}
                 />
                 <div className="wrap">
@@ -148,7 +162,11 @@ export const EditTaskCard = ({ task }) => {
                           onChange={e => handleChange(e, setFieldValue)}
                         />
                         <span
-                          className={styles.radioButton}
+                          className={
+                            theme === 'dark'
+                              ? styles.radioButtonDark
+                              : styles.radioButton
+                          }
                           style={{ backgroundColor: option.color }}
                         ></span>
                       </label>
@@ -169,13 +187,19 @@ export const EditTaskCard = ({ task }) => {
                     setFieldValue('description', description);
                   }}
                 >
-                  <svg
-                    className={
-                      theme === 'violet' ? styles.btnIconViolet : styles.btnIcon
-                    }
-                  >
-                    <use href={sprite + '#icon-plus'}></use>
-                  </svg>
+                  {isBoardsLoading ? (
+                    <ClipLoader color="#1f1f1f" size={30} />
+                  ) : (
+                    <svg
+                      className={
+                        theme === 'violet'
+                          ? styles.btnIconViolet
+                          : styles.btnIcon
+                      }
+                    >
+                      <use href={sprite + '#icon-plus'}></use>
+                    </svg>
+                  )}
                   <span>Edit</span>
                 </button>
               </Form>

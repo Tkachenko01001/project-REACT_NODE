@@ -1,5 +1,5 @@
 .title {
-  color: inherit;  
+  color: inherit;
   font-family: var(--font-medium);
   font-size: 18px;
   font-style: normal;
@@ -35,10 +35,8 @@
   margin-bottom: 24px;
   border: 1px solid var(--color-green);
   opacity: 0.4;
-  background-color: transparent;
-  color: inherit;
-  /* background-color: var(--bg-color-form-input); */
-  /* color: var(--color-white); */
+  background-color: inherit;
+  color: inherit;  
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
 
   font-family: var(--font-regular);
@@ -49,16 +47,40 @@
   transition: opacity 250ms linear;
 }
 
+.inputViolet {
+  width: 100%;
+  border-radius: 8px;
+  padding: 14px 18px;
+  border: 1px solid var(--color-violet);
+  opacity: 0.4;
+  margin-bottom: 14px;
+  color: inherit;
+  background-color: inherit;
+  box-shadow: 0px 4px 16px 0px var(--color-shadow);
+
+  font-family: var(--font-regular);
+  font-size: 14px;
+  line-height: normal;
+  letter-spacing: -0.28px;
+
+  transition: opacity 250ms linear;
+}
 .input:active,
 .input:hover,
-.input:focus {
-  outline: 0;
+.input:focus,
+.input:focus-visible,
+.inputViolet:active,
+.inputViolet:hover,
+.inputViolet:focus,
+.inputViolet:focus-visible {
+  outline: none;
   outline-offset: 0;
   opacity: 1;
 }
 
-.input::placeholder {
-  color: var(--color-white);
+.input::placeholder,
+.inputViolet::placeholder {
+  color: inherit;
   font-family: var(--font-medium);
   font-size: 14px;
   font-style: normal;

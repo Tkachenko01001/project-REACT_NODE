@@ -1,19 +1,34 @@
-@media screen and (min-width: 768px) {
-  .container {
-    padding: 14px 24px 0px;
-    display: flex;
-    justify-content: center;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .mainDashboardContainer {
-    padding: 0px 20px 0px 20px;
-  }
-}
-
 .container {
-  padding: 14px 24px 0px;
+  /* padding: 14px 24px 0px; */
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  height: 100%;
+}
+@media screen and (max-width: 375px) {
+  .container {
+    padding: 10px 15px 10px 15px;
+  }
+}
+@media screen and (min-width: 375px) and (max-width: 768px) {
+  .container {
+    padding: 15px 20px 15px 20px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+  .container {
+    padding: 15px 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    padding: 20px 32px;
+  }
+}
+.container::-webkit-scrollbar {
+  width: 12px; /* Ширина скролу (параметр бару) */
+  background-color: #161616; /* Колір фону скролу */
+  border-radius: 12px;
 }
 
 .dashboardDefault {
@@ -47,7 +62,8 @@
 .button {
   display: inline-flex;
   gap: 8px;
-  padding: 14px 78px 14px 79px;
+  padding: 14px 70px;
+  width: 334px;
   justify-content: center;
   align-items: center;
   border: none;
@@ -62,10 +78,81 @@
   font-weight: 500;
   line-height: normal;
   letter-spacing: -0.28px;
+  height: 56px;
+}
+
+.buttonLight {
+  display: inline-flex;
+  gap: 8px;
+  width: 334px;
+  padding: 14px 78px 14px 79px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 8px;
+  fill: var(--color-icon-dark);
+  stroke: var(--color-white);
+  background: var(--color-white);
+  color: var(--color-icon-dark);
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.28px;
+  height: 56px;
+}
+
+.buttonViolet {
+  display: inline-flex;
+  width: 334px;
+  gap: 8px;
+  padding: 14px 78px 14px 79px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 8px;
+  fill: var(--color-violet);
+  stroke: var(--color-white);
+  background: var(--color-white);
+  color: var(--color-icon-dark);
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.28px;
+  height: 56px;
+}
+
+.buttonLight:hover {
+  background-color: var(--color-green);
+}
+.buttonDark:hover {
+  color: var(--color-green);
+}
+.buttonViolet:hover {
+  background-color: var(--color-light-violet);
 }
 
 @media screen and (min-width: 375px) {
   .buttonText {
     width: 141px;
+  }
+}
+/* Columns */
+
+@media screen and (max-width: 375px) {
+  .columnList {
+    display: flex;
+    gap: 15px;
+    margin-right: 15px;
+  }
+}
+@media screen and (min-width: 375px) {
+  .columnList {
+    display: flex;
+    gap: 34px;
+    margin-right: 34px;
   }
 }

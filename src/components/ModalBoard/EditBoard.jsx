@@ -6,9 +6,9 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import { updateBoard } from 'redux/boards/operations';
 import { selectIsBoardsLoading } from 'redux/boards/selectors';
 import sprite from '../../images/sprite.svg';
+import ModalPortal from '../Modal/ModalPortal';
 import css from '../Sidebar/Sidebar.module.css';
 import styles from './ModalBoard.module.css';
-import ModalPortal from './ModalPortal';
 import { selectTheme } from 'redux/auth/selectors';
 
 const EditBoard = ({ board, checked }) => {
@@ -56,12 +56,14 @@ const EditBoard = ({ board, checked }) => {
   const changeTitle = event => {
     setNewTitle(event.target.value);
   };
-  const iconActive = !checked
-    ? css.sidebarNewBoardButton
-    : css.sidebarNewBoardButtonActive;
+
   return (
     <div>
-      <button className={iconActive} type="button" onClick={toggleModal}>
+      <button
+        className={css.sidebarNewBoardButton}
+        type="button"
+        onClick={toggleModal}
+      >
         <svg className={css.sidebarNewBoardIcon}>
           <use href={sprite + '#icon-pencil'} />
         </svg>
@@ -72,7 +74,7 @@ const EditBoard = ({ board, checked }) => {
             <h1 className={styles.title}>Edit Board</h1>
 
             <input
-              className={styles.field}
+              className={theme === 'violet' ? styles.fieldViolet : styles.field}
               id="title"
               type="text"
               name="title"

@@ -1,8 +1,15 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PrivateRoute from '../Router/PrivateRoute';
 import RestrictedRoute from '../Router/RestrictedRoute';
-import AuthPage from '../pages/AuthPage/AuthPage';
-import WelcomePage from '../pages/WelcomePage/WelcomePage';
+import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
+import { refreshUser } from 'redux/auth/operations';
+import { selectIsLoggedIn, selectIsRefreshing } from 'redux/auth/selectors';
+import { Loader } from './Loader/Loader';
+
+import AuthPage from 'pages/AuthPage/AuthPage';
+import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import HomePage from 'pages/HomePage/HomePage';
 
 const App = () => {

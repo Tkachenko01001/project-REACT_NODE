@@ -5,8 +5,8 @@ import { selectIsBoardsLoading } from 'redux/boards/selectors';
 import { selectTheme } from 'redux/auth/selectors';
 import ClipLoader from 'react-spinners/ClipLoader';
 import sprite from '../../images/sprite.svg';
+import ModalPortal from '../Modal/ModalPortal';
 import styles from './ModalBoard.module.css';
-import ModalPortal from './ModalPortal';
 
 const ModalBoard = ({
   isModalOpen,
@@ -34,7 +34,7 @@ const ModalBoard = ({
           <h1 className={styles.title}>{modalTitle}</h1>
 
           <input
-            className={styles.field}
+            className={theme === 'violet' ? styles.fieldViolet : styles.field}
             id="title"
             type="text"
             name="title"
