@@ -4,7 +4,6 @@ import { usePopper } from 'react-popper';
 import FocusTrap from 'focus-trap-react';
 import { useRef, useState } from 'react';
 import 'react-day-picker/dist/style.css';
-import './Calendar.css';
 
 export default function CustomMonthLayout({ daySelected, setDaySelected }) {
   // const [daySelected, setDaySelected] = React.useState ();
