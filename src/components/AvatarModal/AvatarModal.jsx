@@ -5,9 +5,11 @@ import styles from './AvatarModal.module.css';
 import avaDark from '../../images/user_dark.svg';
 import avaLight from '../../images/user_light.svg';
 import avaViolet from '../../images/user_violet.svg';
+import { selectTheme } from 'redux/auth/selectors';
 
 export function Previews({ onImageSelect }) {
   const user = useSelector(selectUser);
+  const theme = useSelector(selectTheme);
   const fileInput = useRef(null);
 
   const defaultAvatar = {
@@ -51,7 +53,10 @@ export function Previews({ onImageSelect }) {
             />
           </div>
         </aside>
-        <span className={styles.btn} onClick={() => fileInput.current.click()}>
+        <span
+          className={theme === 'violet' ? styles.btnViolet : styles.btn}
+          onClick={() => fileInput.current.click()}
+        >
           +
         </span>
       </div>

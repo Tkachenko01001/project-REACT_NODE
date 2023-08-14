@@ -1,6 +1,7 @@
 .title {
   font-family: var(--font-medium);
-  color: var(--color-white);
+  color:inherit;
+  /* color: var(--color-white); */
   font-size: 18px;
   line-height: normal;
   letter-spacing: -0.36px;
@@ -19,8 +20,10 @@
   border: 1px solid var(--color-green);
   opacity: 0.4;
   margin-bottom: 14px;
-  background-color: var(--bg-color-form-input);
-  color: var(--color-white);
+  background-color: inherit;
+  color:inherit;
+  /* background-color: var(--bg-color-form-input);
+  color: var(--color-white); */
   box-shadow: 0px 4px 16px 0px var(--color-shadow);
 
   font-family: var(--font-regular);
@@ -40,7 +43,9 @@
 }
 
 .input::placeholder {
-  color: var(--color-white);
+  color: inherit;
+  opacity: 0.4;
+  /* color: var(--color-white); */
 }
 
 .input:-webkit-autofill,
@@ -77,6 +82,34 @@
 
 .btn:hover {
   background-color: var(--color-hover-green);
+}
+
+.btnViolet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 24px;
+  height: 49px;
+  background-color: var(--color-violet);
+  color: var(--color-white);
+
+  font-family: var(--font-medium);
+  font-size: 14px;
+  line-height: normal;
+  letter-spacing: -0.28px;
+
+  text-align: center;
+  cursor: pointer;
+  padding: 14px 0px;
+  border: 0px;
+  border-radius: 8px;
+
+  transition: background-color 250ms linear, box-shadow 250ms linear;
+}
+
+.btnViolet:hover {
+  background-color: var(--color-light-violet);
 }
 
 .wrap {

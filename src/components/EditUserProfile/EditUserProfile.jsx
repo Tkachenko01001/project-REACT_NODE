@@ -11,6 +11,7 @@ import Avatar from 'components/Avatar/Avatar';
 import { Previews } from 'components/AvatarModal/AvatarModal';
 import { updateUser } from 'redux/auth/operations';
 import { selectUser } from 'redux/auth/selectors';
+import { selectTheme } from 'redux/auth/selectors';
 
 const updateUserSchema = object({
   name: string()
@@ -44,6 +45,7 @@ const updateUserSchema = object({
 export const EditUserProfile = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  const theme = useSelector(selectTheme);
 
   const initialValues = {
     avatar: null,
@@ -140,7 +142,7 @@ export const EditUserProfile = () => {
                   </span>
                   {errors.password && <FormError name="password" />}
                 </div>
-                <button className={styles.btn} type="submit">
+                <button className={theme === 'violet' ? styles.btnViolet : styles.btn} type="submit">
                   <div className={styles.wrap}>
                     <span>Send</span>
                     <Loader />

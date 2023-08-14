@@ -270,16 +270,35 @@
 .radioInput:checked + .radioButton:before {
   opacity: 1;
 }
-.cardButton {
+.cardButtonDark {
   height: 20px;
   width: 20px;
-  stroke: inherit;
+  fill: none;
+  stroke: var(--color-icon-grey);
   background-color: transparent;
-  /* stroke: var(--color-icon-grey); */
-  /* background-color: var(--color-icon-dark); */
+  /* background-color: var(--color-icon-dark);  */
   border: none;
   padding: 2px;
 }
-.cardButton:hover {
+
+.cardButtonLight,
+.cardButtonViolet {
+  height: 20px;
+  width: 20px;
+  fill: none;
+  background-color: transparent;
+  stroke: rgba(22, 22, 22, 0.5);
+  border: none;
+  padding: 2px;
+}
+
+.cardButtonDark:hover,
+.cardButtonLight:hover {
+  transform: scale(1.2);
+  stroke: var(--color-green);
+}
+
+.cardButtonViolet:hover {
+  stroke: var(--color-violet);
   transform: scale(1.2);
 }

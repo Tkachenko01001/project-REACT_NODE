@@ -23,7 +23,15 @@ const Card = ({ task }) => {
         (theme === 'violet' && styles.violet)
       }
     >
-      <div className={`${styles.card} ${styles[`priority_${priority}`]}`}>
+      <div
+        className={`${styles.card} ${
+          styles[
+            theme === 'dark'
+              ? `priorityDark_${priority}`
+              : `priority_${priority}`
+          ]
+        }`}
+      >
         <div className={styles.textWrapper}>
           <h4 className={styles.title}>{title}</h4>
           <p className={styles.description}>{description}</p>
@@ -33,7 +41,11 @@ const Card = ({ task }) => {
             <h5 className={styles.subTitle}>Priority</h5>
             <p
               className={`${styles.priorityText} ${
-                styles[`priority_${priority}`]
+                styles[
+                  theme === 'dark'
+                    ? `priorityDark_${priority}`
+                    : `priority_${priority}`
+                ]
               }`}
             >
               {priority}
@@ -46,12 +58,14 @@ const Card = ({ task }) => {
           <ul className={styles.cardIcons}>
             <li className={styles.cardIcon}>
               {deadlineNow && (
-                <button className={styles.cardButtonNotHover}>
+                <button className={styles.cardButtonBell}>
                   <svg
                     width={16}
                     height={16}
                     aria-label="icon-bell"
-                    className={styles.bell}
+                    className={
+                      theme === 'violet' ? styles.bellViolet : styles.bell
+                    }
                   >
                     <title>Deadline</title>
                     <use href={sprite + '#icon-bell'} />
@@ -60,7 +74,13 @@ const Card = ({ task }) => {
               )}
             </li>
             <li className={styles.cardIcon}>
-              <button className={styles.cardButton}>
+              <button
+                className={
+                  (theme === 'dark' && styles.cardButtonDark) ||
+                  (theme === 'light' && styles.cardButtonLight) ||
+                  (theme === 'violet' && styles.cardButtonViolet)
+                }
+              >
                 <svg
                   width={16}
                   height={16}

@@ -5,7 +5,6 @@ import { useState } from 'react';
 import sprite from '../../images/sprite.svg';
 import Modal from '../Modal/Modal';
 import styles from './Column.module.css';
-// import SimpleBar from 'simplebar';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/auth/selectors';
 import DeleteColumn from './DeleteColumn';

@@ -8,10 +8,12 @@ import style from './Card.module.css';
 import sprite from '../../images/sprite.svg';
 import ModalPortal from '../Modal/ModalPortal';
 import styles from '../ModalBoard/ModalBoard.module.css';
+import { selectTheme } from 'redux/auth/selectors';
 
 const DeleteTask = ({ id }) => {
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
   const [startLoading, setStartLoading] = useState(false);
+  const theme = useSelector(selectTheme);
 
   const dispatch = useDispatch();
 
@@ -27,7 +29,14 @@ const DeleteTask = ({ id }) => {
 
   return (
     <div>
-      <button className={style.cardButton} onClick={toggleModal}>
+      <button
+        className={
+          (theme === 'dark' && style.cardButtonDark) ||
+          (theme === 'light' && style.cardButtonLight) ||
+          (theme === 'violet' && style.cardButtonViolet)
+        }
+        onClick={toggleModal}
+      >
         <svg
           width={16}
           height={16}
