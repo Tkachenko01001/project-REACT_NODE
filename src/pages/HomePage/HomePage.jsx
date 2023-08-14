@@ -12,7 +12,8 @@ export default function HomePage() {
   };
 
   const handleOverlayClick = event => {
-    if (event.target.localName === 'svg') return;
+    if (event.target.localName === 'svg' || event.target.localName === 'use')
+      return;
     if (event.target) {
       setMenuActive(false);
     }
@@ -30,13 +31,10 @@ export default function HomePage() {
   });
 
   return (
-    <div className={css.home}>
+    <div className={css.home} onClick={handleOverlayClick}>
       <Sidebar active={menuActive} />
 
-      <div
-        className={menuActive ? css.homeWrapOverlay : css.homeWrap}
-        onClick={handleOverlayClick}
-      >
+      <div className={menuActive ? css.homeWrapOverlay : css.homeWrap}>
         <Header click={handleClick} />
         <ScreensPage />
       </div>
