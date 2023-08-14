@@ -1,10 +1,16 @@
 .column__container {
-  max-width: 334px;
+  width: 334px;
   display: flex;
   flex-direction: column;
   gap: 14px;
   /* scrollbar-width: auto;
   scrollbar-color: rgb(0, 0, 0) rgb(87, 86, 84); цвет бегунка и зоны отслеживания */
+}
+@media screen and (max-width: 375px) {
+  .column__container {
+    max-width: 334px;
+    width: auto;
+  }
 }
 .columnHeaderDark {
   display: flex;
@@ -80,7 +86,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-height: 478px;
+  max-height: 55vh;
   /* overflow: auto; */
 
   overflow-y: auto;
@@ -88,14 +94,19 @@
 }
 @media screen and (min-width: 768px) and (max-width: 1440px) {
   .cardList {
-    max-height: 640px;
+    max-height: 55vh;
   }
 }
 
-.demo {
-  height: 300px;
-  width: 400px;
-  overflow: hidden;
+@media screen and (min-width: 375px) and (max-width: 768px) {
+  .cardList {
+    max-height: 55vh;
+  }
+}
+@media screen and (max-width: 375px) {
+  .cardList {
+    max-height: 50vh;
+  }
 }
 
 .cardList::-webkit-scrollbar {

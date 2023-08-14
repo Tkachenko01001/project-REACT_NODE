@@ -84,6 +84,7 @@ export const AddTaskCard = ({ columnId }) => {
     setTitle('');
     setDescription('');
     setPriority('');
+    setDaySelected(today);
     setSubmitting(false);
   };
 

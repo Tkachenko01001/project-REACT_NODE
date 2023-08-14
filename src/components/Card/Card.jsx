@@ -59,19 +59,6 @@ const Card = ({ task }) => {
                 </button>
               )}
             </li>
-            {/* <li className={styles.cardIcon}>
-              <button className={styles.cardButton}>
-                <svg
-                  width={16}
-                  height={16}
-                  aria-label="icon-arrow-circle-broken-right"
-                  className={styles.svg}
-                >
-                  <title>Move task</title>
-                  <use href={sprite + '#icon-arrow-circle-broken-right'} />
-                </svg>
-              </button>
-            </li> */}
             <li className={styles.cardIcon}>
               <EditTaskCard task={task} />
             </li>
