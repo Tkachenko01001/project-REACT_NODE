@@ -1,10 +1,17 @@
+import { useSelector } from 'react-redux';
 import ClipLoader from 'react-spinners/ClipLoader';
+import { selectTheme } from 'redux/auth/selectors';
 import sprite from '../../images/sprite.svg';
 import styles from './Button.module.css';
 //  Приклад додавання кнопки <Button icon="true" text="Add column" />
 const Button = ({ icon, text, onClick, loading }) => {
+  const theme = useSelector(selectTheme);
   return (
-    <button className={styles.button} type="submit" onClick={onClick}>
+    <button
+      className={theme === 'violet' ? styles.buttonViolet : styles.button}
+      type="submit"
+      onClick={onClick}
+    >
       {loading ? (
         <ClipLoader color="#1f1f1f" size={30} />
       ) : (

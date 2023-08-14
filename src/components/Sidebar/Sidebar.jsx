@@ -77,14 +77,35 @@ const Sidebar = ({ active }) => {
                     className={css.sideBarBoardHover}
                   >
                     <div
-                      className={`${css.sidebarNewBoard} ${
-                        (!activeBoardId &&
-                          activeBoardFirstState &&
-                          activeBoardFirstState === board._id) ||
-                        (activeBoardId && activeBoardId === board._id)
-                          ? css.activeBoard
-                          : ''
-                      }`}
+                      className={
+                        (theme === 'dark' &&
+                          `${css.sidebarNewBoard} ${
+                            (!activeBoardId &&
+                              activeBoardFirstState &&
+                              activeBoardFirstState === board._id) ||
+                            (activeBoardId && activeBoardId === board._id)
+                              ? css.activeBoardDark
+                              : ''
+                          }`) ||
+                        (theme === 'violet' &&
+                          `${css.sidebarNewBoard} ${
+                            (!activeBoardId &&
+                              activeBoardFirstState &&
+                              activeBoardFirstState === board._id) ||
+                            (activeBoardId && activeBoardId === board._id)
+                              ? css.activeBoardViolet
+                              : ''
+                          }`) ||
+                        (theme === 'light' &&
+                          `${css.sidebarNewBoard} ${
+                            (!activeBoardId &&
+                              activeBoardFirstState &&
+                              activeBoardFirstState === board._id) ||
+                            (activeBoardId && activeBoardId === board._id)
+                              ? css.activeBoardLight
+                              : ''
+                          }`)
+                      }
                       onClick={() => handleClickBoard(board._id)}
                     >
                       <div className={css.sidebarNewBoardItem}>
@@ -102,14 +123,27 @@ const Sidebar = ({ active }) => {
                             <use href={sprite + `#${board.icon}`} />
                           </svg>
                           <p
-                            className={`${css.sidebarNewBoardItem} ${
-                              (!activeBoardId &&
-                                activeBoardFirstState &&
-                                activeBoardFirstState === board._id) ||
-                              (activeBoardId && activeBoardId === board._id)
-                                ? css.sidebarNewBoardTextActive
-                                : ''
-                            }`}
+                            className={
+                              theme === 'light'
+                                ? `${css.sidebarNewBoardItemLight} ${
+                                    (!activeBoardId &&
+                                      activeBoardFirstState &&
+                                      activeBoardFirstState === board._id) ||
+                                    (activeBoardId &&
+                                      activeBoardId === board._id)
+                                      ? css.sidebarNewBoardTextActiveLight
+                                      : ''
+                                  }`
+                                : `${css.sidebarNewBoardItem} ${
+                                    (!activeBoardId &&
+                                      activeBoardFirstState &&
+                                      activeBoardFirstState === board._id) ||
+                                    (activeBoardId &&
+                                      activeBoardId === board._id)
+                                      ? css.sidebarNewBoardTextActive
+                                      : ''
+                                  }`
+                            }
                           >
                             {board.title}
                           </p>

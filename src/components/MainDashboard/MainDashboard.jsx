@@ -8,8 +8,12 @@ import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
 import AddColumn from 'components/PopUps/AddColumn/AddColumn';
 import Modal from 'components/Modal/Modal';
 import { selectTheme } from 'redux/auth/selectors';
+import { DragDropContext } from "react-beautiful-dnd";
+import { useDispatch } from 'react-redux';
+import { transferTask } from 'redux/boards/operations';
 
 const MainDashboard = () => {
+  const dispatch = useDispatch();
   const theme = useSelector(selectTheme);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,6 +27,17 @@ const MainDashboard = () => {
     activeBoard.columns &&
     activeBoard.columns.length > 0 &&
     activeBoard;
+  
+  const onDragEnd = (result) => {
+    const { destination, source, reason, draggableId: id } = result;
+    if (!destination || reason === "CANCEL") return;
+    if (destination.droppableId === source.droppableId && destination.index === source.index) return;
+    
+    dispatch(transferTask({
+      id,
+      data: { destination, source },
+    }))
+  };
 
   return (
     <>
@@ -35,16 +50,24 @@ const MainDashboard = () => {
               </Modal>
             )}
             {columns && (
-              <ul className={styles.columnList}>
-                {activeBoard.columns.map(column => (
-                  <li key={column._id}>
-                    <Column column={column} />
-                  </li>
-                ))}
-              </ul>
+              <DragDropContext onDragEnd={onDragEnd}>
+                <ul
+                  className={styles.columnList}
+                >
+                  {activeBoard.columns.map(column => (
+                    <li key={column._id}>
+                      <Column column={column} />
+                    </li>
+                  ))}
+                </ul>
+              </DragDropContext>
             )}
             <button
-              className={theme === 'dark' ? styles.buttonDark : styles.button}
+              className={
+                (theme === 'dark' && styles.buttonDark) ||
+                (theme === 'light' && styles.buttonLight) ||
+                (theme === 'violet' && styles.buttonViolet)
+              }
               onClick={toggleModal}
             >
               <svg

@@ -3,6 +3,7 @@ import sprite from '../../images/sprite.svg';
 import styles from './Card.module.css';
 import DeleteTask from './DeleteCard';
 
+
 const Card = ({ task }) => {
   const { _id: id, title, description, priority, deadline } = task;
 
@@ -38,7 +39,7 @@ const Card = ({ task }) => {
         <ul className={styles.cardIcons}>
           <li className={styles.cardIcon}>
             {deadlineNow && (
-              <button className={styles.cardButton}>
+              <button className={styles.cardButtonNotHover}>
                 <svg
                   width={16}
                   height={16}

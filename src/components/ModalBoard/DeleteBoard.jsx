@@ -8,13 +8,13 @@ import {
 } from 'redux/boards/selectors';
 
 import sprite from '../../images/sprite.svg';
-import ModalPortal from '../Modal/ModalPortal';
 import css from '../Sidebar/Sidebar.module.css';
 import styles from './ModalBoard.module.css';
+import ModalPortal from './ModalPortal';
 
-const DeleteBoard = () => {
+const DeleteBoard = ({ checked }) => {
   const activeBoard = useSelector(selectActiveBoard);
-  const { _id: id, columns } = activeBoard;
+  const { _id, columns } = activeBoard;
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
   const [startLoading, setStartLoading] = useState(false);
 
@@ -24,27 +24,28 @@ const DeleteBoard = () => {
   const toggleModal = () => setIsModalOpen(state => !state);
 
   const handleAgreement = () => {
-    setStartLoading(true);
-    dispatch(deleteBoard(id)).then(() => {
-      !isBoardsLoading && toggleModal();
-    });
+    if (activeBoard && columns.length === 0) {
+      setStartLoading(true);
+      dispatch(deleteBoard(_id)).then(() => {
+        !isBoardsLoading && toggleModal();
+      });
+    }
   };
 
+  const iconActive = !checked
+    ? css.sidebarNewBoardButton
+    : css.sidebarNewBoardButtonActive;
   return (
     <div>
-      <button
-        className={css.sidebarNewBoardButton}
-        type="button"
-        onClick={toggleModal}
-      >
+      <button className={iconActive} type="button" onClick={toggleModal}>
         <svg className={css.sidebarNewBoardIcon}>
           <use href={sprite + '#icon-trash'} />
         </svg>
       </button>
       {isModalOpen && (
         <ModalPortal onClose={toggleModal}>
-          <h1 className={styles.title}>Delete board</h1>
-          {columns.length === 0 ? (
+          <h1 className={styles.title}>Delete Board</h1>
+          {activeBoard && columns && columns.length === 0 ? (
             <h3 className={styles.text}>
               Are you sure you want to delete the board?
             </h3>
@@ -54,7 +55,7 @@ const DeleteBoard = () => {
               first!
             </h3>
           )}
-          {columns.length !== 0 ? (
+          {activeBoard && columns && columns.length !== 0 ? (
             <button className={styles.btn} type="button" onClick={toggleModal}>
               Close
             </button>

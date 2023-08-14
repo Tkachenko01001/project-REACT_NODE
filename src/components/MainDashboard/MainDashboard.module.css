@@ -1,7 +1,8 @@
 .container {
   padding: 14px 24px 0px;
   display: flex;
-  overflow: auto;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
 
 @media screen and (max-width: 768px) {
@@ -10,14 +11,33 @@
     padding: 14px 24px 0px;
     display: inline-block;
     justify-content: center;
-    overflow: auto;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1440px) {
   .container {
     width: 768px;
-    overflow: auto;
   }
+}
+
+.container::-webkit-scrollbar {
+  width: 12px; /* Ширина скролу (параметр бару) */
+  background-color: #161616; /* Колір фону скролу */
+  border-radius: 12px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Колір бару скролу */
+  outline: 1px solid transparent; /* Обводка бару скролу */
+  border-radius: 12px;
+}
+
+.container:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Колір бару скролу при наведенні (параметр бару) */
 }
 
 .buttonDark {
@@ -27,7 +47,7 @@
   justify-content: center;
   align-items: center;
   border: none;
-  border-radius: 8px;  
+  border-radius: 8px;
   fill: var(--color-white);
   stroke: var(--color-icon-dark);
   background: var(--color-icon-dark);
@@ -41,14 +61,14 @@
   height: 56px;
 }
 
-.button {
+.buttonLight {
   display: inline-flex;
   gap: 8px;
   padding: 14px 78px 14px 79px;
   justify-content: center;
   align-items: center;
   border: none;
-  border-radius: 8px;  
+  border-radius: 8px;
   fill: var(--color-icon-dark);
   stroke: var(--color-white);
   background: var(--color-white);
@@ -62,8 +82,29 @@
   height: 56px;
 }
 
+.buttonViolet {
+  display: inline-flex;
+  gap: 8px;
+  padding: 14px 78px 14px 79px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 8px;  
+  fill: var(--color-violet);
+  stroke: var(--color-white);
+  background: var(--color-white);
+  color: var(--color-icon-dark);
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.28px;
+  height: 56px;
+}
+
 @media screen and (min-width: 375px) {
-  .buttonText {   
+  .buttonText {
     width: 141px;
   }
 }

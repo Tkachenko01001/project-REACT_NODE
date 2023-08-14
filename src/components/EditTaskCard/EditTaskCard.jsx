@@ -77,13 +77,11 @@ export const EditTaskCard = ({ task }) => {
           deadline: format(newDaySelected, 'dd/MM/yyyy'),
         },
       })
-    ).then(() => {
-      !isBoardsLoading && toggleModal();
-    });
-    setTitle('');
-    setDescription('');
-    setPriority('');
-    setSubmitting(false);
+    )
+      .then(() => {
+        !isBoardsLoading && toggleModal();
+      })
+      .else(setSubmitting(false));
   };
 
   const radioOptions = [
