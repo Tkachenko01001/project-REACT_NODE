@@ -10,6 +10,7 @@ import { object, string } from 'yup';
 import sprite from '../../images/sprite.svg';
 import Modal from '../Modal/Modal';
 import styles from './EditTaskCard.module.css';
+import { selectTheme } from 'redux/auth/selectors';
 
 // додавання календаря
 import CustomMonthLayout from 'components/Calendar/Calendar';
@@ -35,7 +36,7 @@ export const EditTaskCard = ({ task }) => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
-
+  const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
   const [title, setTitle] = useState(oldTitle);
   const [description, setDescription] = useState(oldDescription);
@@ -88,7 +89,11 @@ export const EditTaskCard = ({ task }) => {
     { color: '#8fa1d0', priority: 'low' },
     { color: '#e09cb5', priority: 'medium' },
     { color: '#bedbb0', priority: 'high' },
-    { color: 'rgba(255, 255, 255, 0.3)', priority: 'without' },
+    {
+      color:
+        theme === 'dark' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(22, 22, 22, 0.3)',
+      priority: 'without',
+    },
   ];
 
   return (
@@ -115,7 +120,9 @@ export const EditTaskCard = ({ task }) => {
               <Form autoComplete="off">
                 <p className={styles.title}>Edit card</p>
                 <Field
-                  className={styles.input}
+                  className={
+                    theme === 'violet' ? styles.inputViolet : styles.input
+                  }
                   type="text"
                   name="title"
                   placeholder="Title"
@@ -125,7 +132,9 @@ export const EditTaskCard = ({ task }) => {
 
                 <Field
                   as="textarea"
-                  className={styles.textarea}
+                  className={
+                    theme === 'violet' ? styles.textareaViolet : styles.textarea
+                  }
                   name="description"
                   placeholder="Description"
                   value={description}
@@ -158,7 +167,7 @@ export const EditTaskCard = ({ task }) => {
                 />
 
                 <button
-                  className={styles.btn}
+                  className={theme === 'violet' ? styles.btnViolet : styles.btn}
                   type="submit"
                   onClick={() => {
                     setFieldValue('title', title);
@@ -168,7 +177,13 @@ export const EditTaskCard = ({ task }) => {
                   {isBoardsLoading ? (
                     <ClipLoader color="#1f1f1f" size={30} />
                   ) : (
-                    <svg className={styles.btnIcon}>
+                    <svg
+                      className={
+                        theme === 'violet'
+                          ? styles.btnIconViolet
+                          : styles.btnIcon
+                      }
+                    >
                       <use href={sprite + '#icon-plus'}></use>
                     </svg>
                   )}

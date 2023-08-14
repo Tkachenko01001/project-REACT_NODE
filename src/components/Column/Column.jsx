@@ -37,9 +37,9 @@ const Column = ({ column }) => {
             <div className={styles.columnHeader__controls}>
               <button
                 className={
-                  theme === 'dark'
-                    ? styles.columnHeader__buttonDark
-                    : styles.columnHeader__button
+                  (theme === 'dark' && styles.columnHeader__buttonDark) ||
+                  (theme === 'light' && styles.columnHeader__buttonLight) ||
+                  (theme === 'violet' && styles.columnHeader__buttonViolet)
                 }
                 onClick={toggleModal}
               >

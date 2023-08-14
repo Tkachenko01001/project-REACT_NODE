@@ -1,8 +1,33 @@
+.dark {
+  background-color: var(--color-icon-dark);
+  color: var(--color-white);
+  stroke: var(--color-white);
+  fill: var(--bg-color-form-input);
+  border-radius: 8px;
+}
+
+.light {
+  background-color: var(--color-white);
+  color: #161616;
+  stroke: #161616;
+  fill: none;
+  border-radius: 8px;
+}
+
+.violet {
+  background-color: var(--color-white);
+  color: var(--color-icon-dark);
+  stroke: var(--color-icon-dark);
+  fill: none;
+  border-radius: 8px;
+}
+
 .card {
   max-width: 334px;
   height: 154px;
   border-radius: 8px;
-  background-color: var(--color-icon-dark);
+  background-color: inherit;
+  color: inherit;  
   position: relative;
 }
 
@@ -11,7 +36,7 @@
   display: block;
   width: 4px;
   height: 100%;
-  background-color: var(--color-pink);
+  /* background-color: var(--color-pink); */
   border-radius: 4px 0px 0px 4px;
   position: absolute;
 }
@@ -21,7 +46,8 @@
 }
 
 .title {
-  color: var(--color-white);
+  color: inherit;
+  /* color: var(--color-white); */
   font-family: var(--font-semibold);
   font-size: 14px;
   font-style: normal;
@@ -33,7 +59,8 @@
 
 .description {
   max-width: 290px;
-  color: var(--color-icon-grey);
+  color: inherit;
+  /* color: var(--color-icon-grey); */
   font-family: var(--font-regular);
   font-size: 12px;
   font-style: normal;
@@ -48,7 +75,8 @@
 }
 
 .subTitle {
-  color: var(--color-icon-grey);
+  color: inherit;
+  /* color: var(--color-icon-grey); */
   font-family: var(--font-regular);
   font-size: 8px;
   font-style: normal;
@@ -59,7 +87,8 @@
 
 .deadlineText,
 .priorityText {
-  color: var(--color-white);
+  color: inherit;
+  /* color: var(--color-white); */
   font-family: var(--font-regular);
   font-size: 10px;
   font-style: normal;
@@ -87,43 +116,54 @@
 .cardButton {
   height: 20px;
   width: 20px;
-  stroke: var(--color-icon-grey);
-  background-color: var(--color-icon-dark);
+  stroke: inherit;
+  fill: none;
+  /* stroke: var(--color-icon-grey); */
+  background-color: transparent;
+  /* background-color: var(--color-icon-dark);  */
   border: none;
   padding: 2px;
 }
 .cardButton:hover {
-  stroke: var(--color-green);
-  background: radial-gradient(
-    circle closest-side,
-    var(--color-green),
-    var(--color-icon-dark) 100%
-  );
+  transform: scale(1.2);  
 }
 
 .cardButtonNotHover {
   height: 20px;
   width: 20px;
-  stroke: var(--color-icon-grey);
-  background-color: var(--color-icon-dark);
+  stroke: inherit;
+  /* stroke: var(--color-icon-grey); */
+  background-color: transparent;
+  /* background-color: var(--color-icon-dark); */
   border: none;
   padding: 2px;
   pointer-events: none;
 }
 
-.wrapper {
+.wrapper,
+.wrapperDark {
   display: flex;
   position: relative;
   padding: 14px 14px 14px 24px;
-  align-items: flex-end;
+  align-items: flex-end;  
+}
+
+.wrapperDark::before {
+  content: '';
+  display: block;
+  width: 290px;
+  height: 1px;   
+  background-color: var(--color-bg-light);
+  position: absolute;
+  top: 0;
 }
 
 .wrapper::before {
   content: '';
   display: block;
   width: 290px;
-  height: 1px;
-  background-color: var(--color-bg-light);
+  height: 1px;   
+  background-color: rgba(22, 22, 22, 0.1);
   position: absolute;
   top: 0;
 }

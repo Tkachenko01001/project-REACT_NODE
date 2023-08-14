@@ -1,17 +1,16 @@
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PrivateRoute from '../Router/PrivateRoute';
 import RestrictedRoute from '../Router/RestrictedRoute';
 import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
 import { refreshUser } from 'redux/auth/operations';
 import { selectIsLoggedIn, selectIsRefreshing } from 'redux/auth/selectors';
-
 import { Loader } from './Loader/Loader';
 
-import WelcomePage from 'pages/WelcomePage/WelcomePage';
-import HomePage from 'pages/HomePage/HomePage';
-import AuthPage from 'pages/AuthPage/AuthPage';
+const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
+const HomePage = lazy(() => import('pages/HomePage/HomePage'));
+const AuthPage = lazy(() => import('pages/AuthPage/AuthPage'));
 
 const App = () => {
   const dispatch = useDispatch();

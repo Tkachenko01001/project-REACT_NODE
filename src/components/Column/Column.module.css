@@ -51,7 +51,8 @@
   border: none;
   padding: 2px;
 }
-.columnHeader__button {
+.columnHeader__buttonLight,
+.columnHeader__buttonViolet {
   height: 20px;
   width: 20px;
   background-color: transparent;  
@@ -61,13 +62,19 @@
   border: none;
   padding: 2px;
 }
-.columnHeader__button:hover {
+.columnHeader__buttonDark:hover,
+.columnHeader__buttonLight:hover{
   stroke: var(--color-green);
-  background: radial-gradient(
+  transform: scale(1.2);  
+  /* background: radial-gradient(
     circle closest-side,
     var(--color-green),
     var(--color-icon-dark) 100%
-  );
+  ); */
+}
+.columnHeader__buttonViolet:hover {
+  stroke: var(--color-violet);
+  transform: scale(1.2);  
 }
 .cardList {
   display: flex;

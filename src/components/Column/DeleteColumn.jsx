@@ -27,14 +27,12 @@ const DeleteColumn = ({ id, tasks }) => {
   };
 
   return (
-    <div
-      className={theme === 'dark' ? style.columnHeaderDark : style.columnHeader}
-    >
+    <div>
       <button
         className={
-          theme === 'dark'
-            ? style.columnHeader__buttonDark
-            : style.columnHeader__button
+          (theme === 'dark' && style.columnHeader__buttonDark) ||
+          (theme === 'light' && style.columnHeader__buttonLight) ||
+          (theme === 'violet' && style.columnHeader__buttonViolet)
         }
         onClick={toggleModal}
       >
