@@ -394,8 +394,6 @@
   stroke-opacity: 0.7;
   stroke: inherit;
   fill: none;
-  /* fill: var(--color-icon-grey);  */
-  /* stroke: var(--color-icon-dark); */
 }
 .sidebarNewBoardIcon:hover {
   transform: scale(1.2);
@@ -403,9 +401,6 @@
 
 /* Sidebar Help */
 .sidebarHelp {
-  /* width: 100%;
-  border-radius: 8px;
-  margin: 0 14px 24px 14px; */
   padding: 0 14px 24px 14px;
   background-color: transparent;
   color: inherit;
@@ -413,9 +408,6 @@
 
 @media screen and (min-width: 768px) {
   .sidebarHelp {
-    /* width: 100%;
-    border-radius: 8px;
-    margin: 0 24px 24px 24px; */
     padding: 0 24px 24px 24px;
     background-color: transparent;
     color: inherit;
@@ -472,11 +464,8 @@
   align-items: center;
   gap: 16px;
   border: none;
-  /* padding: 0 7px 0 0; */
   color: inherit;
   background-color: inherit;
-  /* color: var(--color-white);
-  background-color: var(--color-icon-dark); */
   font-family: var(--font-medium);
   font-size: 16px;
   font-weight: 500;
