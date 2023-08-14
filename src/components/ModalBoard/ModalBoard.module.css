@@ -113,9 +113,8 @@
   display: none;
 }
 
-.input_svg:checked + label > svg {
-  stroke: inherit;
-  /* stroke: var(--color-white); */
+.input_svg:checked + label > svg { 
+  stroke-opacity: 1;
 }
 
 .label_svg {

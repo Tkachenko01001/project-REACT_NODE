@@ -4,6 +4,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import { logOut } from 'redux/auth/operations';
 import { selectIsLoggedIn } from 'redux/auth/selectors';
 import css from './Sidebar.module.css';
+import { selectTheme } from 'redux/auth/selectors';
 
 import sprite from '../../images/sprite.svg';
 import ModalPortal from '../Modal/ModalPortal';
@@ -14,6 +15,7 @@ const Logout = () => {
   const [startLoading, setStartLoading] = useState(false);
 
   const dispatch = useDispatch();
+  const theme = useSelector(selectTheme);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
@@ -32,7 +34,15 @@ const Logout = () => {
         className={css.sidebarLogoutButton}
         type="button"
       >
-        <svg className={css.sidebarLogoutIcon} width={32} height={32}>
+        <svg
+          className={
+            theme === 'violet'
+              ? css.sidebarLogoutIconWhite
+              : css.sidebarLogoutIconGreen
+          }
+          width={32}
+          height={32}
+        >
           <use href={sprite + '#icon-logout'}></use>
         </svg>
         Log out
