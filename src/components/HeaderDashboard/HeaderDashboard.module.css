@@ -8,13 +8,13 @@
 
 @media screen and (max-width: 375px) {
   .wrapper {
-    padding: 5px 10px;
+    padding: 20px 10px;
   }
 }
 
 @media screen and (min-width: 375px) and (max-width: 768px) {
   .wrapper {
-    padding: 14px 20px;
+    padding: 20px 20px;
   }
 }
 
