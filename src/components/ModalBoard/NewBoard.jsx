@@ -4,11 +4,10 @@ import { selectTheme } from 'redux/auth/selectors';
 import { addBoard } from 'redux/boards/operations';
 import { selectIsBoardsLoading } from 'redux/boards/selectors';
 import sprite from '../../images/sprite.svg';
-import styles from '../MainPlaceholder/MainPlaceholder.module.css';
 import css from '../Sidebar/Sidebar.module.css';
 import ModalBoard from './ModalBoard';
 
-const NewBoard = ({ from }) => {
+const NewBoard = () => {
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
   const required = true;
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -54,7 +53,7 @@ const NewBoard = ({ from }) => {
     required,
   };
 
-  return from === 'Sidebar' ? (
+  return (
     <div
       className={
         (theme === 'dark' && css.dark) ||
@@ -82,25 +81,10 @@ const NewBoard = ({ from }) => {
 
       <ModalBoard
         {...modalProps}
-        modalTitle="New Board"
+        modalTitle="New board"
         submitButtonText="Create"
       />
     </div>
-  ) : (
-    <>
-      <button
-        type="button"
-        className={styles.createBoard}
-        onClick={toggleModal}
-      >
-        to create a board
-      </button>
-      <ModalBoard
-        {...modalProps}
-        modalTitle="New Board"
-        submitButtonText="Create"
-      />
-    </>
   );
 };
 

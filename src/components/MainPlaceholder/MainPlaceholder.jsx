@@ -68,7 +68,7 @@ const MainPlaceholder = () => {
 
       <ModalBoard
         {...modalProps}
-        modalTitle="New Board"
+        modalTitle="New board"
         submitButtonText="Create"
       />
     </div>

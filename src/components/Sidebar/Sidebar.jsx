@@ -63,7 +63,7 @@ const Sidebar = ({ active }) => {
             </div>
             <section className={css.sidebarBoard}>
               <p className={css.sidebarBoardItem}>Create a new board</p>
-              <NewBoard from="Sidebar" />
+              <NewBoard />
             </section>
           </div>
 
@@ -169,16 +169,6 @@ const Sidebar = ({ active }) => {
             </section>
             <section className={css.sidebarLogout}>
               <Logout />
-              {/* <button
-                onClick={handleClickLogout}
-                className={css.sidebarLogoutButton}
-                type="button"
-              >
-                <svg className={css.sidebarLogoutIcon} width={32} height={32}>
-                  <use href={sprite + '#icon-logout'}></use>
-                </svg>
-                Log out
-              </button> */}
             </section>
           </div>
         </div>
