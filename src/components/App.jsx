@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
-import { useEffect, lazy } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PrivateRoute from '../Router/PrivateRoute';
 import RestrictedRoute from '../Router/RestrictedRoute';
@@ -42,43 +42,45 @@ const App = () => {
   return isRefreshing ? (
     <Loader />
   ) : (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <RestrictedRoute
-            redirectTo="/home"
-            component={<Navigate to="/welcome" />}
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <RestrictedRoute
+                redirectTo="/home"
+                component={<Navigate to="/welcome" />}
+              />
+            }
           />
-        }
-      />
-      <Route
-        path="/welcome"
-        element={
-          <RestrictedRoute redirectTo="/home" component={<WelcomePage />} />
-        }
-      />
+          <Route
+            path="/welcome"
+            element={
+              <RestrictedRoute redirectTo="/home" component={<WelcomePage />} />
+            }
+          />
 
-      <Route path="/auth" element={<Navigate to="/auth/login" />} />
-      <Route
-        path="/auth/:id"
-        element={
-          <RestrictedRoute redirectTo="/home" component={<AuthPage />} />
-        }
-      />
+          <Route path="/auth" element={<Navigate to="/auth/login" />} />
+          <Route
+            path="/auth/:id"
+            element={
+              <RestrictedRoute redirectTo="/home" component={<AuthPage />} />
+            }
+          />
 
-      <Route
-        path="/home"
-        element={<PrivateRoute redirectTo="/auth" component={<HomePage />} />}
-      />
+          <Route
+            path="/home"
+            element={<PrivateRoute redirectTo="/auth" component={<HomePage />} />}
+          />
 
-      <Route
-        path="/home/:boardName"
-        element={<PrivateRoute redirectTo="/auth" component={<HomePage />} />}
-      />
+          <Route
+            path="/home/:boardName"
+            element={<PrivateRoute redirectTo="/auth" component={<HomePage />} />}
+          />
 
-      <Route path="*" element={<Navigate to="/" />} />
-    </Routes>
+          <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+        </Suspense>
   );
 };
 

@@ -35,18 +35,18 @@ const MainDashboard = () => {
     if (!destination || reason === "CANCEL") return;
     if (destination.droppableId === source.droppableId && destination.index === source.index) return;
     
-    if (type === 'task') {
+    if (type === 'tasks') {
       dispatch(transferTask({
         id,
         data: { destination, source },
       }));
     };
 
-    if (type === 'column') {
-      // dispatch(transferColumn({
-      //   id,
-      //   data: { destination, source },
-      // }));
+    if (type === 'columns') {
+      dispatch(transferColumn({
+        id,
+        data: { destination, source },
+      }));
       console.log(result);
     };
   };
@@ -63,7 +63,7 @@ const MainDashboard = () => {
             )}
             {columns && (
               <DragDropContext onDragEnd={onDragEnd}>
-                  <StrictModeDroppable droppableId='board' direction='horizontal' type='columns'>
+                  <StrictModeDroppable droppableId={columns._id} direction='horizontal' type='columns'>
                     {(provided) => (
                       <ul
                         className={styles.columnList}
