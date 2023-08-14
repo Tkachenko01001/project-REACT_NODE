@@ -1,6 +1,6 @@
 .title {
   font-family: var(--font-medium);
-  color: var(--color-white);
+  color:inherit;  
   font-size: 18px;
   line-height: normal;
   letter-spacing: -0.36px;
@@ -19,8 +19,8 @@
   border: 1px solid var(--color-green);
   opacity: 0.4;
   margin-bottom: 14px;
-  background-color: var(--bg-color-form-input);
-  color: var(--color-white);
+  background-color: inherit;
+  color:inherit;  
   box-shadow: 0px 4px 16px 0px var(--color-shadow);
 
   font-family: var(--font-regular);
@@ -30,17 +30,46 @@
 
   transition: opacity 250ms linear;
 }
+.inputViolet {
+  width: 100%;
+  border-radius: 8px;
+  padding: 14px 18px;
+  border: 1px solid var(--color-violet);
+  opacity: 0.4;
+  margin-bottom: 14px;
+  color: inherit;
+  background-color: inherit;
+  box-shadow: 0px 4px 16px 0px var(--color-shadow);
 
+  font-family: var(--font-regular);
+  font-size: 14px;
+  line-height: normal;
+  letter-spacing: -0.28px;
+
+  transition: opacity 250ms linear;
+}
 .input:active,
 .input:hover,
-.input:focus {
-  outline: 0;
+.input:focus,
+.input:focus-visible,
+.inputViolet:active,
+.inputViolet:hover,
+.inputViolet:focus,
+.inputViolet:focus-visible {
+  outline: none;
   outline-offset: 0;
   opacity: 1;
 }
 
-.input::placeholder {
-  color: var(--color-white);
+.input::placeholder,
+.inputViolet::placeholder {
+  color: inherit;
+  font-family: var(--font-medium);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.28px;
 }
 
 .input:-webkit-autofill,
@@ -77,6 +106,34 @@
 
 .btn:hover {
   background-color: var(--color-hover-green);
+}
+
+.btnViolet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 24px;
+  height: 49px;
+  background-color: var(--color-violet);
+  color: var(--color-white);
+
+  font-family: var(--font-medium);
+  font-size: 14px;
+  line-height: normal;
+  letter-spacing: -0.28px;
+
+  text-align: center;
+  cursor: pointer;
+  padding: 14px 0px;
+  border: 0px;
+  border-radius: 8px;
+
+  transition: background-color 250ms linear, box-shadow 250ms linear;
+}
+
+.btnViolet:hover {
+  background-color: var(--color-light-violet);
 }
 
 .wrap {

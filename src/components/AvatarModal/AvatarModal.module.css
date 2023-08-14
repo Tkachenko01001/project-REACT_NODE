@@ -32,6 +32,22 @@
   border-radius: 8px;
 }
 
+.btnViolet {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: var(--color-light-violet);
+  border-radius: 4px;
+
+  cursor: pointer;
+}
+
 .btn {
   position: absolute;
   left: 50%;
@@ -44,8 +60,16 @@
   height: 24px;
   background-color: var(--color-green);
   border-radius: 4px;
-
+  color: var(--color-icon-dark);
   cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--color-hover-green);
+}
+
+.btnViolet:hover {
+  background-color: var(--color-violet);
 }
 
 .fileInput {

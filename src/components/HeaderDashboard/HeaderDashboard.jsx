@@ -103,7 +103,9 @@ const HeaderDashboard = () => {
                     onChange={handlePriorityChange}
                   />
                   <div
-                    className={styles.radioText}
+                    className={
+                      theme === 'dark' ? styles.radioTextDark : styles.radioText
+                    }
                     style={{ backgroundColor: option.color }}
                   ></div>
                   <div

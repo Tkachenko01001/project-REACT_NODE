@@ -98,7 +98,14 @@ export const EditTaskCard = ({ task }) => {
 
   return (
     <div>
-      <button className={styles.cardButton} onClick={toggleModal}>
+      <button
+        className={
+          (theme === 'dark' && styles.cardButtonDark) ||
+          (theme === 'light' && styles.cardButtonLight) ||
+          (theme === 'violet' && styles.cardButtonViolet)
+        }
+        onClick={toggleModal}
+      >
         <svg
           width={16}
           height={16}
@@ -155,7 +162,11 @@ export const EditTaskCard = ({ task }) => {
                           onChange={e => handleChange(e, setFieldValue)}
                         />
                         <span
-                          className={styles.radioButton}
+                          className={
+                            theme === 'dark'
+                              ? styles.radioButtonDark
+                              : styles.radioButton
+                          }
                           style={{ backgroundColor: option.color }}
                         ></span>
                       </label>
