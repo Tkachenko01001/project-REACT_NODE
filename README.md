@@ -125,7 +125,6 @@ using project Task Pro.
 
 - ![VSCode](https://img.shields.io/badge/VSCode-blue?style=for-the-badge&logo=VSCode&logoColor=61DAFB)
 - ![Webpack](https://img.shields.io/badge/Webpack-blue?style=for-the-badge&logo=Webpack&logoColor=61DAFB)
-- ![Parcel](https://img.shields.io/badge/Parcel-green?style=for-the-badge&logo=Parcel&logoColor=61DAFB)
 - ![Figma](https://img.shields.io/badge/Figma-red?style=for-the-badge&logo=Figma&logoColor=61DAFB)
 - ![GitHub](https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=GitHub&logoColor=61DAFB)
 
