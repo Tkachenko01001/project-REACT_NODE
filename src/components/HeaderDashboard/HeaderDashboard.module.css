@@ -239,8 +239,3 @@ label {
   transform: translate(-50%, -50%);
   transition: opacity 0.3s;
 }
-
-/* .modalListOptionsElement:checked .radioText+.text {
-    color: white;
-    /* Цвет текста при выборе радио-инпута */
-/* }  */
