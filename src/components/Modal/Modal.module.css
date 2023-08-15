@@ -90,6 +90,10 @@
   stroke: inherit;
   /* stroke: var(--color-white); */
 }
+
+.close_Button:hover {
+  stroke-opacity: 0.5;
+}
 /* Стилі для children - title, input, button */
 /* .title {
   color: var(--color-white);

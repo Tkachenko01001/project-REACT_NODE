@@ -2,12 +2,13 @@
   opacity: 1;
 }
 .dark {
-  opacity: 1;
+  /* opacity: 1; */
   background-color: var(--bg-color-form-input);
   border-radius: 8px;
   border: 1px solid var(--color-green);
   padding: 18px;
   color: var(--color-white);
+  z-index: 3000;  
 }
 
 .light {
@@ -16,6 +17,7 @@
   border: 1px solid var(--color-green);
   padding: 18px;
   color: var(--bg-color-form-input);
+  z-index: 3000;  
 }
 
 .violet {
@@ -24,7 +26,9 @@
   border: 1px solid var(--color-violet);
   padding: 18px;
   color: var(--bg-color-form-input);
+  z-index: 3000;  
 }
+
 .rdp-months {
   background: var(--bg-color-form-input);
   border-radius: 8px;
