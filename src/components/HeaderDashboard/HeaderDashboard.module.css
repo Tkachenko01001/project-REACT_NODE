@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* margin-bottom: 39px; */
   flex-direction: row;
 }
 
@@ -20,13 +19,11 @@
 
 @media screen and (min-width: 768px) and (max-width: 1440px) {
   .wrapper {
-    /* margin-bottom: 26px; */
     padding: 26px 32px 15px 32px;
   }
 }
 
 .title {
-  /* color: var(--color-white); */
   font-family: 'PoppinsMedium', sans-serif;
   font-size: 18px;
   font-style: normal;
@@ -53,7 +50,6 @@
   gap: 8px;
   color: inherit;
   opacity: 0.8;
-  /* color: var(--color-icon-light); */
   font-family: 'PoppinsMedium', sans-serif;
   font-size: 14px;
   line-height: normal;
@@ -61,7 +57,7 @@
   align-items: center;
   stroke: inherit;
   fill: inherit;
-  /* stroke: var(--color-icon-light); */
+  transition: color 250ms linear;
 }
 
 .filter:hover {
@@ -76,10 +72,13 @@
 .iconLight {
   stroke: var(--color-text-grey);
   fill: var(--bg-color-light);
+
+  transition: stroke 250ms linear;
 }
 
 .iconDark {
   stroke: var(--color-icon-light);
+  transition: stroke 250ms linear;
 }
 
 .iconViolet:hover {
@@ -110,7 +109,6 @@
 
 .modalFilter {
   color: inherit;
-  /* color: var(--color-white); */
   font-family: 'PoppinsMedium', sans-serif;
   font-size: 18px;
   letter-spacing: -0.36px;
@@ -135,7 +133,6 @@
 }
 
 .modalLabelHeader {
-  /* color: var(--color-white); */
   font-family: 'PoppinsMedium', sans-serif;
   font-size: 14px;
   letter-spacing: -0.28px;
@@ -146,7 +143,6 @@
   background-color: inherit;
   color: inherit;
   opacity: 0.5;
-  /* color: var(--color-icon-grey); */
   font-family: 'PoppinsRegular', sans-serif;
   font-size: 12px;
   letter-spacing: -0.24px;
@@ -156,7 +152,6 @@
 .modalCheckbox {
   display: flex;
   gap: 8px;
-  /* color: var(--color-icon-grey); */
   font-family: 'PoppinsRegular', sans-serif;
   font-size: 12px;
   letter-spacing: -0.24px;
@@ -244,8 +239,3 @@ label {
   transform: translate(-50%, -50%);
   transition: opacity 0.3s;
 }
-
-/* .modalListOptionsElement:checked .radioText+.text {
-    color: white;
-    /* Цвет текста при выборе радио-инпута */
-/* }  */

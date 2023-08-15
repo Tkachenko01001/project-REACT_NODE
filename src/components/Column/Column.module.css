@@ -3,8 +3,6 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  /* scrollbar-width: auto;
-  scrollbar-color: rgb(0, 0, 0) rgb(87, 86, 84); цвет бегунка и зоны отслеживания */
 }
 @media screen and (max-width: 375px) {
   .column__container {
@@ -32,7 +30,7 @@
 }
 .columnHeader__title {
   color: inherit;
-  /* color: var(--color-white); */
+
   font-family: var(--font-medium);
   font-size: 14px;
   font-style: normal;
@@ -52,11 +50,12 @@
   width: 20px;
   background-color: transparent;
   fill: none;
-  /* stroke: rgba(22, 22, 22, 0.5); */
   stroke: var(--color-icon-grey);
   border: none;
   padding: 2px;
+  transition: transform 250ms linear, stroke 250ms linear;
 }
+
 .columnHeader__buttonLight,
 .columnHeader__buttonViolet {
   height: 20px;
@@ -64,20 +63,18 @@
   background-color: transparent;
   fill: none;
   stroke: rgba(22, 22, 22, 0.5);
-  /* stroke: var(--color-icon-grey); */
+
   border: none;
   padding: 2px;
+  transition: transform 250ms linear, stroke 250ms linear;
 }
+
 .columnHeader__buttonDark:hover,
 .columnHeader__buttonLight:hover {
   stroke: var(--color-green);
   transform: scale(1.2);
-  /* background: radial-gradient(
-    circle closest-side,
-    var(--color-green),
-    var(--color-icon-dark) 100%
-  ); */
 }
+
 .columnHeader__buttonViolet:hover {
   stroke: var(--color-violet);
   transform: scale(1.2);
@@ -87,7 +84,6 @@
   flex-direction: column;
   gap: 8px;
   max-height: 55vh;
-  /* overflow: auto; */
 
   overflow-y: auto;
   scrollbar-width: none;

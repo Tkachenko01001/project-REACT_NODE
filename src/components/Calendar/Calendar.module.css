@@ -34,7 +34,6 @@
 }
 .rdp-button_reset {
   color: white;
-  /* background: none; */
   font: var(--font-regular);
 }
 
@@ -73,19 +72,7 @@
 }
 
 .rdp-caption_label {
-  /* position: relative;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  margin: 0;
-  padding: 0 0.25em;
-  white-space: nowrap; */
   color: var(--color-white);
-  /* border: 0;
-  border: 2px solid transparent;
-  font-family: inherit;
-  font-size: var(--rdp-caption-font-size);
-  font-weight: bold; */
 }
 .calendarButton {
   outline: none;

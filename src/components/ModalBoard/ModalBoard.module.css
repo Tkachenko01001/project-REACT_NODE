@@ -17,7 +17,6 @@
   stroke: #161616;
 }
 .title {
-  /* color: var(--color-white); */
   font-family: var(--font-medium);
   font-size: 18px;
   font-style: normal;
@@ -27,7 +26,6 @@
 }
 
 .text {
-  /* color: var(--color-white); */
   font-family: var(--font-regular);
   font-size: 16px;
   font-style: normal;
@@ -47,9 +45,8 @@
   opacity: 0.4;
   background-color: inherit;
   color: inherit;
-  /* background: var(--bg-color-form-input); */
+
   box-shadow: 0px 4px 16px 0px var(--color-text-grey);
-  /* color: var(--color-white); */
   font-family: var(--font-regular);
   font-size: 14px;
   font-style: normal;
@@ -67,9 +64,7 @@
   opacity: 0.4;
   background-color: inherit;
   color: inherit;
-  /* background: var(--bg-color-form-input); */
   box-shadow: 0px 4px 16px 0px var(--color-text-grey);
-  /* color: var(--color-white); */
   font-family: var(--font-regular);
   font-size: 14px;
   font-style: normal;
@@ -91,7 +86,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  /* color: var(--color-white); */
+
   font-family: var(--font-medium);
   font-size: 14px;
   font-style: normal;
@@ -113,7 +108,7 @@
   display: none;
 }
 
-.input_svg:checked + label > svg { 
+.input_svg:checked + label > svg {
   stroke-opacity: 1;
 }
 
@@ -127,7 +122,7 @@
   stroke-opacity: 0.5;
   /* stroke: inherit;  */
   /* stroke: #ffffff80; */
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, stroke-opacity 0.25s ease;
 }
 
 .svg:hover,
@@ -159,12 +154,9 @@
 }
 
 .png {
-  /* opacity: 0.8;
-  stroke: inherit; */
-  /* stroke: #ffffff80; */
   stroke: inherit;
   stroke-opacity: 0.5;
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, stroke-opacity 0.25s ease;
 }
 
 .png:hover,
@@ -186,7 +178,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  background: var(--color-green);
+  background-color: var(--color-green);
   text-align: center;
   color: var(--color-dark);
   font-family: var(--font-medium);
@@ -194,6 +186,7 @@
   font-style: normal;
   line-height: normal;
   letter-spacing: -0.28px;
+  transition: background-color 0.25s ease;
 }
 .btnViolet {
   position: relative;
@@ -209,7 +202,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  background: var(--color-violet);
+  background-color: var(--color-violet);
   text-align: center;
   color: var(--color-white);
   font-family: var(--font-medium);
@@ -217,12 +210,13 @@
   font-style: normal;
   line-height: normal;
   letter-spacing: -0.28px;
+  transition: background-color 0.25s ease;
 }
 .btn:hover {
-  background: var(--color-hover-green);
+  background-color: var(--color-hover-green);
 }
 .btnViolet:hover {
-  background: var(--color-light-violet);
+  background-color: var(--color-light-violet);
 }
 .icon {
   border-radius: 8px;

@@ -24,12 +24,10 @@
 
 /* Sidebar Help  */
 .sidebarHelp {
-  /* margin: 0 14px 24px 14px; */
   padding: 14px 14px 15px 15px;
   border-radius: 8px;
   background-color: inherit;
   color: inherit;
-  /* background-color: var(--bg-color-form-input);  */
 }
 
 @media screen and (min-width: 768px) {
@@ -52,7 +50,6 @@
   line-height: 1.42;
   letter-spacing: -0.28px;
   color: inherit;
-  /* color: var(--color-white); */
 }
 
 .sidebarHelpBoxLinkGreen {
@@ -88,8 +85,6 @@
 .sidebarHelpIcon {
   width: 20px;
   height: 20px;
-
-  /* stroke: var(--color-white); */
 }
 
 .sidebarHelpNeedHelp {
@@ -97,5 +92,4 @@
   font-size: 12px;
   letter-spacing: -0.24px;
   color: inherit;
-  /* color: var(--color-white); */
 }
