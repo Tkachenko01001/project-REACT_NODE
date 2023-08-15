@@ -1,12 +1,12 @@
 .column__container {
-  width: 334px;
+  min-width: 258px;
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
-@media screen and (max-width: 375px) {
+@media screen and (min-width: 375px) {
   .column__container {
-    max-width: 334px;
+    min-width: 334px;
     width: auto;
   }
 }

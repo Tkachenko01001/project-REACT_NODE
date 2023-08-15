@@ -142,11 +142,13 @@
 .label {
   display: block;
   margin-bottom: 4px;
-  color: inherit;
   font-family: var(--font-regular);
   font-size: 12px;
   line-height: normal;
   letter-spacing: -0.24px;
+  color: #ffffff80;
+  /* #FFFFFF80 - for dark theme*/
+  /* #16161680 - for others*/
 }
 
 .btn {
@@ -233,13 +235,12 @@
 
 .priorityIcons {
   display: flex;
-  gap: 8px;
   margin-bottom: 14px;
 }
 
 .radioLabel {
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
   cursor: pointer;
 }
 

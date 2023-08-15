@@ -1,6 +1,6 @@
 .themeWrapper {
-  width: 68px;
-  height: 21px;
+  width: 72px;
+  height: 20px;
   position: relative;
   cursor: pointer;
   z-index: 1000;
@@ -12,7 +12,6 @@
   display: flex;
   align-items: center;
   gap: 4px;
-
   width: 68px;
   height: 21px;
   font-weight: 400;
@@ -46,17 +45,21 @@
 
 .themeMenuOpen {
   width: 80px;
-  height: 87px;
+  height: 100px;
   border-radius: 8px;
-  /* border: 1px solid inherit; */
-  padding: 18px;
+
+  padding: 32px 28px 18px 7px;
   margin: 0;
   position: fixed;
-  top: 23px;
+  top: 12px;
+
   transform: scaleY(1);
   transform-origin: top;
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 1;
+
+  background-color: rgba (255, 255, 255, 0.05);
+
   box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
 }
 
@@ -68,6 +71,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
+
   transition: color 250ms linear;
 }
 
@@ -94,4 +98,7 @@
 .violet {
   background-color: #fcfcfc;
   color: #161616;
+}
+.arrow {
+  fill: none;
 }

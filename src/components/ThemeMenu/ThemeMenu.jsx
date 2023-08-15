@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import css from './ThemeMenu.module.css';
 import Icon from 'components/Icon/Icon';
-import { useSelector } from 'react-redux';
-import { selectTheme } from 'redux/auth/selectors';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeTheme } from 'redux/auth/operations';
+import { selectTheme } from 'redux/auth/selectors';
+import css from './ThemeMenu.module.css';
 
 export const ThemeMenu = () => {
   const [themeOption, setThemeOption] = useState('');
@@ -26,7 +25,7 @@ export const ThemeMenu = () => {
   };
 
   useEffect(() => {
-    const closeMenuOnClickOutside = event => {
+    const closeMenuOnClickOutside = () => {
       setIsOpen(false);
     };
 

@@ -1,6 +1,9 @@
 .rdp {
   opacity: 1;
 }
+.rdp-day_selected {
+  background-color: var(--rdp-accent-color);
+}
 .dark {
   /* opacity: 1; */
   background-color: var(--bg-color-form-input);
@@ -48,7 +51,7 @@
 }
 
 .rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
-  background-color: blue;
+  background-color: var(--color-hover-green);
 }
 
 .rdp-day_today:not(.rdp-day_outside) {
@@ -60,7 +63,7 @@
 .rdp-day_selected:hover {
   color: white;
   opacity: 1;
-  background-color: var(--color-hover-green);
+  background-color: var(--rdp-accent-color);
 }
 
 .rdp-head_cell {
@@ -83,4 +86,8 @@
   border: none;
   background-color: transparent;
   color: inherit;
+  padding: 0;
+  display: flex;
+  gap: 4px;
+  align-items: center;
 }

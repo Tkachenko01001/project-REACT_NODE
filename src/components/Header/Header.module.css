@@ -25,10 +25,21 @@
   background-color: transparent;
   width: 32px;
   height: 32px;
-  margin-left: 20px;
+  margin-left: 10px;
   color: inherit;
 }
-
+@media screen and (min-width: 375px) {
+  .burgerStyle,
+  .burgerStyleViolet {
+    margin-left: 20px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .burgerStyle,
+  .burgerStyleViolet {
+    margin-left: 32px;
+  }
+}
 .burgerIcon {
   width: 32px;
   height: 32px;
