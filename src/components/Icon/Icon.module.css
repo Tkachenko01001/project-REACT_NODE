@@ -3,11 +3,12 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
   fill: none;
+
+  transition: transform 250ms linear, stroke 250ms linear;
 }
-/* .icon:hover {
-  color: var(--color-hover-green);
-} */
+
 .tip {
   position: absolute;
   transform: translateY(-20px);

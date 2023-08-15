@@ -15,8 +15,8 @@ import HomePage from 'pages/HomePage/HomePage';
 const App = () => {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
-  const isLoggedIn = useSelector(selectIsLoggedIn)
-  
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
   const allBoards = useSelector(selectBoardsList);
   const activeBoard = useSelector(selectActiveBoard);
   const navigate = useNavigate();

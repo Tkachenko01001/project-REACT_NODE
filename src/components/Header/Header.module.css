@@ -1,10 +1,8 @@
-/* @media screen and (max-width: 767px) { */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  /* background-color: var(--color-dark); */
   height: 60px;
   border: 0;
 }
@@ -59,10 +57,10 @@
 
 .headerSelect {
   display: flex;
-  /* justify-content: right; */
+
   align-items: center;
   border-bottom: 0px solid rgb(57, 59, 59);
-  /* background-color: var(--color-dark); */
+
   padding: 14px 20px;
   margin-left: auto;
 }
@@ -73,7 +71,6 @@
   gap: 4px;
   position: relative;
   z-index: 0;
-  /* color: var(--color-white); */
 }
 
 .selectorTheme:hover,
@@ -87,7 +84,7 @@
   cursor: pointer;
   gap: 4px;
   margin-right: 14px;
-  /* color: var(--color-whiter); */
+
   background-color: transparent;
   border: none;
   font-family: inherit;
@@ -103,7 +100,7 @@
 
 .styleName {
   margin-right: 8px;
-  /* color: var(--color-white); */
+
   background-color: transparent;
   font-size: 14px;
 }

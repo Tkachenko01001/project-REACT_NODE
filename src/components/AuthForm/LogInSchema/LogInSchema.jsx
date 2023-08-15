@@ -6,8 +6,8 @@ export const logInSchema = object({
     .matches(/^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}$/, 'Invalid email format')
     .required(),
   password: string()
-    .min(8, 'minimum 8 characters')
-    .max(64, 'maximum 64 characters')
+    .min(8, 'Minimum 8 characters')
+    .max(64, 'Maximum 64 characters')
     .test(
       'no-spaces',
       'Invalid format: without spaces',
@@ -15,7 +15,7 @@ export const logInSchema = object({
     )
     .test(
       'only-allowed-chars',
-      'password can contain: only Latin, numbers, special characters',
+      'Must contain: only Latin, numbers, special characters',
       value => /^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/.test(value)
     )
     .matches(/^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/, 'Invalid password format')

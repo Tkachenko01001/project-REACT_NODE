@@ -1,5 +1,6 @@
 import Button from 'components/Button/Button';
-import { Field, Form, Formik } from 'formik';
+import CustomMonthLayout from 'components/Calendar/Calendar';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ClipLoader from 'react-spinners/ClipLoader';
@@ -11,39 +12,35 @@ import sprite from '../../images/sprite.svg';
 import Modal from '../Modal/Modal';
 import styles from './AddTaskCard.module.css';
 
-// додавання календаря
-import CustomMonthLayout from 'components/Calendar/Calendar'; //delete//
 import { format } from 'date-fns';
+
 const today = new Date();
 
 const initialValues = {
   title: '',
   description: '',
   priority: '',
-  deadline: today, //календар//
+  deadline: today,
 };
 
-const registerSchema = object({
+const addTaskCardSchema = object({
   title: string().required(),
   priority: string(),
   description: string().required(),
 });
 
 export const AddTaskCard = ({ columnId }) => {
+  const dispatch = useDispatch();
+  const theme = useSelector(selectTheme);
+  const isBoardsLoading = useSelector(selectIsBoardsLoading);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [priority, setPriority] = useState('');
-  // const [column] = useState('64d0d5ff12156380132f910a');
-  // const addLoading = useSelector(selectTaskIsLoading);
-  const dispatch = useDispatch();
-  const theme = useSelector(selectTheme);
-
-  const isBoardsLoading = useSelector(selectIsBoardsLoading);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
 
-  const [daySelected, setDaySelected] = useState(today); //календар//
+  const [daySelected, setDaySelected] = useState(today);
 
   const radioOptions = [
     { color: '#8fa1d0', priority: 'low' },
@@ -55,6 +52,15 @@ export const AddTaskCard = ({ columnId }) => {
       priority: 'without',
     },
   ];
+
+  const FormError = ({ name }) => {
+    return (
+      <ErrorMessage
+        name={name}
+        render={message => <p className={styles.error}>{message}</p>}
+      />
+    );
+  };
 
   const handleChange = ({ target: { name, value } }, setFieldValue) => {
     setFieldValue(name, value);
@@ -69,6 +75,7 @@ export const AddTaskCard = ({ columnId }) => {
         return;
     }
   };
+
   const onSubmit = (values, { setSubmitting }) => {
     dispatch(
       addTask({
@@ -95,35 +102,42 @@ export const AddTaskCard = ({ columnId }) => {
         <Modal onClose={toggleModal}>
           <Formik
             initialValues={initialValues}
-            validationSchema={registerSchema}
+            validationSchema={addTaskCardSchema}
             onSubmit={onSubmit}
           >
-            {({ setFieldValue }) => (
+            {({ errors, setFieldValue }) => (
               <Form autoComplete="off">
                 <p className={styles.title}>Add card</p>
-                <Field
-                  className={
-                    theme === 'violet' ? styles.inputViolet : styles.input
-                  }
-                  type="text"
-                  name="title"
-                  placeholder="Title"
-                  value={title}
-                  required
-                  onChange={e => handleChange(e, setFieldValue)}
-                />
+                <div className={styles.wrapError}>
+                  <Field
+                    className={
+                      theme === 'violet' ? styles.inputViolet : styles.input
+                    }
+                    type="text"
+                    name="title"
+                    placeholder="Title"
+                    value={title}
+                    onChange={e => handleChange(e, setFieldValue)}
+                  />
+                  {errors.title && <FormError name="title" />}
+                </div>
 
-                <Field
-                  as="textarea"
-                  className={
-                    theme === 'violet' ? styles.textareaViolet : styles.textarea
-                  }
-                  name="description"
-                  placeholder="Description"
-                  value={description}
-                  required
-                  onChange={e => handleChange(e, setFieldValue)}
-                />
+                <div className={styles.wrapError}>
+                  <Field
+                    as="textarea"
+                    className={
+                      theme === 'violet'
+                        ? styles.textareaViolet
+                        : styles.textarea
+                    }
+                    name="description"
+                    placeholder="Description"
+                    value={description}
+                    onChange={e => handleChange(e, setFieldValue)}
+                  />
+                  {errors.description && <FormError name="description" />}
+                </div>
+
                 <div className="wrap">
                   <span className={styles.label}>Label color</span>
                   <div className={styles.priorityIcons}>

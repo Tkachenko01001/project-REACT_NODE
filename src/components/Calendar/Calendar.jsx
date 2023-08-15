@@ -12,9 +12,6 @@ import css from './Calendar.module.css';
 export default function CustomMonthLayout({ daySelected, setDaySelected }) {
   const [firstView, setFirstView] = useState(true);
   const theme = useSelector(selectTheme);
-  // const [daySelected, setDaySelected] = React.useState ();
-
-  // console.log(format(daySelected, 'dd/MM/yyyy'));
   const DateBefore = { before: new Date() };
 
   const [isPopperOpen, setIsPopperOpen] = useState(false);
@@ -65,21 +62,11 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
         </button>
       </div>
       {isPopperOpen && (
-        <FocusTrap
-          active
-          // focusTrapOptions={{
-          //   initialFocus: true,
-          //   allowOutsideClick: true,
-          //   clickOutsideDeactivates: true,
-          //   onDeactivate: closePopper,
-          //   fallbackFocus: buttonRef.current,
-          // }}
-        >
+        <FocusTrap active className={css.calendarWrapper}>
           <div
             tabIndex={-1}
             style={popper.styles.popper}
             className={theme === 'dark' ? css.dark : css.light}
-            // className="dialog-sheet"
             {...popper.attributes.popper}
             ref={setPopperElement}
             role="dialog"

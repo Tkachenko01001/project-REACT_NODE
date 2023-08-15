@@ -46,6 +46,7 @@
   border-radius: 4px;
 
   cursor: pointer;
+  transition: background-color 250ms linear;
 }
 
 .btn {
@@ -62,6 +63,7 @@
   border-radius: 4px;
   color: var(--color-icon-dark);
   cursor: pointer;
+  transition: background-color 250ms linear;
 }
 
 .btn:hover {

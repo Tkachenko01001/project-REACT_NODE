@@ -302,7 +302,6 @@
   fill: none;
   stroke: var(--color-icon-grey);
   background-color: transparent;
-  /* background-color: var(--color-icon-dark);  */
   border: none;
   padding: 2px;
 }
@@ -327,4 +326,17 @@
 .cardButtonViolet:hover {
   stroke: var(--color-violet);
   transform: scale(1.2);
+}
+
+.wrapError {
+  position: relative;
+}
+
+.error {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-family: var(--font-regular);
+  font-size: 10px;
+  color: var(--color-hover-green);
 }

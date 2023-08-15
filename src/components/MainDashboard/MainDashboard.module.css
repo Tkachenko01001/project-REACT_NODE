@@ -1,5 +1,4 @@
 .container {
-  /* padding: 14px 24px 0px; */
   display: flex;
   overflow-x: auto;
   scrollbar-width: none;
@@ -26,24 +25,19 @@
   }
 }
 .container::-webkit-scrollbar {
-  width: 12px; /* Ширина скролу (параметр бару) */
-  background-color: #161616; /* Колір фону скролу */
-  border-radius: 12px;
+  width: 6px; /* Ширина скролу (параметр бару) */
+  background-color: transparent; /* Колір фону скролу */
+  border-radius: 6px;
 }
 
 .container::-webkit-scrollbar-thumb {
   background-color: transparent; /* Колір бару скролу */
   outline: 1px solid transparent; /* Обводка бару скролу */
-  border-radius: 12px;
+  border-radius: 6px;
 }
 
 .container:hover::-webkit-scrollbar-thumb {
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.1
-  ); /* Колір бару скролу при наведенні (параметр бару) */
+  background-color: rgba(22, 22, 22, 0.3);
 }
 
 .buttonDark {
@@ -66,6 +60,8 @@
   line-height: normal;
   letter-spacing: -0.28px;
   height: 56px;
+  transition: color 250ms linear;
+
   min-width: 258px;
 }
 @media screen and (min-width: 375px) {
@@ -94,6 +90,8 @@
   line-height: normal;
   letter-spacing: -0.28px;
   height: 56px;
+  transition: background-color 250ms linear;
+
   min-width: 258px;
 }
 @media screen and (min-width: 375px) {
@@ -121,6 +119,8 @@
   line-height: normal;
   letter-spacing: -0.28px;
   height: 56px;
+  transition: background-color 250ms linear;
+
   min-width: 258px;
 }
 @media screen and (min-width: 375px) {

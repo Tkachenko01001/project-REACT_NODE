@@ -5,12 +5,13 @@
   background-color: var(--rdp-accent-color);
 }
 .dark {
-  opacity: 1;
+  /* opacity: 1; */
   background-color: var(--bg-color-form-input);
   border-radius: 8px;
   border: 1px solid var(--color-green);
   padding: 18px;
   color: var(--color-white);
+  z-index: 3000;  
 }
 
 .light {
@@ -19,6 +20,7 @@
   border: 1px solid var(--color-green);
   padding: 18px;
   color: var(--bg-color-form-input);
+  z-index: 3000;  
 }
 
 .violet {
@@ -27,7 +29,9 @@
   border: 1px solid var(--color-violet);
   padding: 18px;
   color: var(--bg-color-form-input);
+  z-index: 3000;  
 }
+
 .rdp-months {
   background: var(--bg-color-form-input);
   border-radius: 8px;
@@ -37,7 +41,6 @@
 }
 .rdp-button_reset {
   color: white;
-  /* background: none; */
   font: var(--font-regular);
 }
 
@@ -76,19 +79,7 @@
 }
 
 .rdp-caption_label {
-  /* position: relative;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  margin: 0;
-  padding: 0 0.25em;
-  white-space: nowrap; */
   color: var(--color-white);
-  /* border: 0;
-  border: 2px solid transparent;
-  font-family: inherit;
-  font-size: var(--rdp-caption-font-size);
-  font-weight: bold; */
 }
 .calendarButton {
   outline: none;

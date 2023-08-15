@@ -1,6 +1,6 @@
 .title {
   font-family: var(--font-medium);
-  color:inherit;  
+  color: inherit;
   font-size: 18px;
   line-height: normal;
   letter-spacing: -0.36px;
@@ -20,7 +20,7 @@
   opacity: 0.4;
   margin-bottom: 14px;
   background-color: inherit;
-  color:inherit;  
+  color: inherit;
   box-shadow: 0px 4px 16px 0px var(--color-shadow);
 
   font-family: var(--font-regular);
@@ -160,5 +160,5 @@
   right: 8px;
   font-family: var(--font-regular);
   font-size: 10px;
-  color: var(--color-red);
+  color: var(--color-hover-green);
 }
