@@ -60,13 +60,17 @@ const DeleteColumn = ({ id, tasks }) => {
             </h3>
           )}
           {tasks.length !== 0 ? (
-            <button className={styles.btn} type="button" onClick={toggleModal}>
+            <button
+              className={theme === 'violet' ? styles.btnViolet : styles.btn}
+              type="button"
+              onClick={toggleModal}
+            >
               Close
             </button>
           ) : (
             <>
               <button
-                className={styles.btn}
+                className={theme === 'violet' ? styles.btnViolet : styles.btn}
                 type="button"
                 disabled={isBoardsLoading}
                 onClick={handleAgreement}
@@ -77,7 +81,7 @@ const DeleteColumn = ({ id, tasks }) => {
                 Yes
               </button>
               <button
-                className={styles.btn}
+                className={theme === 'violet' ? styles.btnViolet : styles.btn}
                 type="button"
                 onClick={toggleModal}
               >

@@ -84,6 +84,7 @@ export const AddTaskCard = ({ columnId }) => {
     setTitle('');
     setDescription('');
     setPriority('');
+    setDaySelected(today);
     setSubmitting(false);
   };
 
@@ -108,6 +109,7 @@ export const AddTaskCard = ({ columnId }) => {
                   name="title"
                   placeholder="Title"
                   value={title}
+                  required
                   onChange={e => handleChange(e, setFieldValue)}
                 />
 
@@ -119,6 +121,7 @@ export const AddTaskCard = ({ columnId }) => {
                   name="description"
                   placeholder="Description"
                   value={description}
+                  required
                   onChange={e => handleChange(e, setFieldValue)}
                 />
                 <div className="wrap">
@@ -134,7 +137,11 @@ export const AddTaskCard = ({ columnId }) => {
                           onChange={e => handleChange(e, setFieldValue)}
                         />
                         <span
-                          className={styles.radioButton}
+                          className={
+                            theme === 'dark'
+                              ? styles.radioButtonDark
+                              : styles.radioButton
+                          }
                           style={{ backgroundColor: option.color }}
                         ></span>
                       </label>
@@ -159,9 +166,13 @@ export const AddTaskCard = ({ columnId }) => {
                   {isBoardsLoading ? (
                     <ClipLoader color="#1f1f1f" size={30} />
                   ) : (
-                    <svg className={
-                      theme === 'violet' ? styles.btnIconViolet : styles.btnIcon
-                    }>
+                    <svg
+                      className={
+                        theme === 'violet'
+                          ? styles.btnIconViolet
+                          : styles.btnIcon
+                      }
+                    >
                       <use href={sprite + '#icon-plus'}></use>
                     </svg>
                   )}

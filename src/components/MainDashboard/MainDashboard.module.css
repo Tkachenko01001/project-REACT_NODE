@@ -3,19 +3,28 @@
   display: flex;
   overflow-x: auto;
   scrollbar-width: none;
+  height: 100%;
 }
-
-/* @media screen and (max-width: 768px) {
+@media screen and (max-width: 375px) {
   .container {
-  
+    padding: 10px 15px 10px 15px;
   }
-} */
-/* @media screen and (min-width: 768px) and (max-width: 1440px) {
+}
+@media screen and (min-width: 375px) and (max-width: 768px) {
   .container {
-    width: 768px;
+    padding: 15px 20px 15px 20px;
   }
-} */
-
+}
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+  .container {
+    padding: 15px 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    padding: 20px 32px;
+  }
+}
 .container::-webkit-scrollbar {
   width: 12px; /* Ширина скролу (параметр бару) */
   background-color: #161616; /* Колір фону скролу */
@@ -40,7 +49,8 @@
 .buttonDark {
   display: inline-flex;
   gap: 8px;
-  padding: 14px 78px 14px 79px;
+  padding: 14px 70px;
+  width: 334px;
   justify-content: center;
   align-items: center;
   border: none;
@@ -61,6 +71,7 @@
 .buttonLight {
   display: inline-flex;
   gap: 8px;
+  width: 334px;
   padding: 14px 78px 14px 79px;
   justify-content: center;
   align-items: center;
@@ -81,6 +92,7 @@
 
 .buttonViolet {
   display: inline-flex;
+  width: 334px;
   gap: 8px;
   padding: 14px 78px 14px 79px;
   justify-content: center;
@@ -107,7 +119,7 @@
   color: var(--color-green);
 }
 .buttonViolet:hover {
-  background-color: var(--color-light-violet); 
+  background-color: var(--color-light-violet);
 }
 
 @media screen and (min-width: 375px) {
@@ -116,12 +128,18 @@
   }
 }
 /* Columns */
-.columnList {
-  display: flex;
-  gap: 34px;
-}
-@media screen and (min-width: 768px) {
+
+@media screen and (max-width: 375px) {
   .columnList {
+    display: flex;
+    gap: 15px;
+    margin-right: 15px;
+  }
+}
+@media screen and (min-width: 375px) {
+  .columnList {
+    display: flex;
+    gap: 34px;
     margin-right: 34px;
   }
 }

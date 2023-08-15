@@ -13,9 +13,7 @@ const Card = ({ task }) => {
     deadline.replace('/', '.').replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')
   );
   const currentDate = new Date();
-  const timeDiff = deadlineInDate - currentDate;
-  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-  const deadlineNow = days < 1;
+  const deadlineNow = currentDate > deadlineInDate;
 
   return (
     <div
@@ -25,7 +23,15 @@ const Card = ({ task }) => {
         (theme === 'violet' && styles.violet)
       }
     >
-      <div className={`${styles.card} ${styles[`priority_${priority}`]}`}>
+      <div
+        className={`${styles.card} ${
+          styles[
+            theme === 'dark'
+              ? `priorityDark_${priority}`
+              : `priority_${priority}`
+          ]
+        }`}
+      >
         <div className={styles.textWrapper}>
           <h4 className={styles.title}>{title}</h4>
           <p className={styles.description}>{description}</p>
@@ -35,7 +41,11 @@ const Card = ({ task }) => {
             <h5 className={styles.subTitle}>Priority</h5>
             <p
               className={`${styles.priorityText} ${
-                styles[`priority_${priority}`]
+                styles[
+                  theme === 'dark'
+                    ? `priorityDark_${priority}`
+                    : `priority_${priority}`
+                ]
               }`}
             >
               {priority}
@@ -48,12 +58,14 @@ const Card = ({ task }) => {
           <ul className={styles.cardIcons}>
             <li className={styles.cardIcon}>
               {deadlineNow && (
-                <button className={styles.cardButtonNotHover}>
+                <button className={styles.cardButtonBell}>
                   <svg
                     width={16}
                     height={16}
                     aria-label="icon-bell"
-                    className={styles.bell}
+                    className={
+                      theme === 'violet' ? styles.bellViolet : styles.bell
+                    }
                   >
                     <title>Deadline</title>
                     <use href={sprite + '#icon-bell'} />
@@ -61,8 +73,14 @@ const Card = ({ task }) => {
                 </button>
               )}
             </li>
-            <li className={styles.cardIcon}>
-              <button className={styles.cardButton}>
+            {/* <li className={styles.cardIcon}>
+              <button
+                className={
+                  (theme === 'dark' && styles.cardButtonDark) ||
+                  (theme === 'light' && styles.cardButtonLight) ||
+                  (theme === 'violet' && styles.cardButtonViolet)
+                }
+              >
                 <svg
                   width={16}
                   height={16}
@@ -73,20 +91,9 @@ const Card = ({ task }) => {
                   <use href={sprite + '#icon-arrow-circle-broken-right'} />
                 </svg>
               </button>
-            </li>
+            </li> */}
             <li className={styles.cardIcon}>
-              {/* <button className={styles.cardButton}>
-              <svg
-                width={16}
-                height={16}
-                aria-label="icon-pencil"
-                className={styles.svg}
-              >
-                <title>Pencil Icon</title>
-                <use href={sprite + '#icon-pencil'} />
-              </svg>
-            </button> */}
-              <EditTaskCard task={task} />
+                 <EditTaskCard task={task} />
             </li>
             <li className={styles.cardIcon}>
               <DeleteTask id={id} />
