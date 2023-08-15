@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 axios.defaults.baseURL = 'https://project-react-node-back.onrender.com';
 
@@ -28,7 +28,7 @@ export const register = createAsyncThunk(
       );
       return;
     } catch (error) {
-      Swal.fire(error.response.data.message)
+      Swal.fire(error.response.data.message);
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
@@ -46,21 +46,17 @@ export const logIn = createAsyncThunk(
       // After successful login, add the token to the HTTP header
       setAuthHeader(res.data.accessToken);
       return res.data;
-    } catch (error) {         
-      Swal.fire('Uups, you entered incorrect email or password!')
+    } catch (error) {
+      Swal.fire('Uups, you entered incorrect email or password!');
       return thunkAPI.rejectWithValue(error.response.data.message);
-      
     }
   }
 );
 
-export const logInWithGoogle = createAsyncThunk(
-  'auth/google',
-  (credentials) => {
-    setAuthHeader(credentials.accessToken);
-    return credentials;
-  }
-);
+export const logInWithGoogle = createAsyncThunk('auth/google', credentials => {
+  setAuthHeader(credentials.accessToken);
+  return credentials;
+});
 
 /*
  * POST @ /users/logout
@@ -72,7 +68,7 @@ export const logOut = createAsyncThunk('/auth/logout', async (_, thunkAPI) => {
     // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
   } catch (error) {
-    Swal.fire(error.response.data.message)
+    Swal.fire(error.response.data.message);
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -100,7 +96,7 @@ export const refreshUser = createAsyncThunk(
 
       return res.data;
     } catch (error) {
-      Swal.fire(error.response.data.message)
+      Swal.fire(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
