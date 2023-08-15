@@ -49,8 +49,8 @@
 .buttonDark {
   display: inline-flex;
   gap: 8px;
-  padding: 14px 70px;
-  width: 334px;
+  padding: 14px 0px;
+
   justify-content: center;
   align-items: center;
   border: none;
@@ -66,13 +66,19 @@
   line-height: normal;
   letter-spacing: -0.28px;
   height: 56px;
+  min-width: 258px;
+}
+@media screen and (min-width: 375px) {
+  .buttonDark {
+    min-width: 334px;
+  }
 }
 
 .buttonLight {
   display: inline-flex;
   gap: 8px;
-  width: 334px;
-  padding: 14px 78px 14px 79px;
+
+  padding: 14px 0;
   justify-content: center;
   align-items: center;
   border: none;
@@ -88,13 +94,18 @@
   line-height: normal;
   letter-spacing: -0.28px;
   height: 56px;
+  min-width: 258px;
+}
+@media screen and (min-width: 375px) {
+  .buttonLight {
+    min-width: 334px;
+  }
 }
 
 .buttonViolet {
   display: inline-flex;
-  width: 334px;
   gap: 8px;
-  padding: 14px 78px 14px 79px;
+  padding: 14px 0;
   justify-content: center;
   align-items: center;
   border: none;
@@ -110,6 +121,12 @@
   line-height: normal;
   letter-spacing: -0.28px;
   height: 56px;
+  min-width: 258px;
+}
+@media screen and (min-width: 375px) {
+  .buttonViolet {
+    min-width: 334px;
+  }
 }
 
 .buttonLight:hover {

@@ -1,14 +1,16 @@
+import Icon from 'components/Icon/Icon';
 import { format } from 'date-fns';
-import { DayPicker } from 'react-day-picker';
-import { usePopper } from 'react-popper';
 import FocusTrap from 'focus-trap-react';
 import { useRef, useState } from 'react';
+import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
-import css from './Calendar.module.css';
-import { selectTheme } from 'redux/auth/selectors';
+import { usePopper } from 'react-popper';
 import { useSelector } from 'react-redux';
+import { selectTheme } from 'redux/auth/selectors';
+import css from './Calendar.module.css';
 
 export default function CustomMonthLayout({ daySelected, setDaySelected }) {
+  const [firstView, setFirstView] = useState(true);
   const theme = useSelector(selectTheme);
   // const [daySelected, setDaySelected] = React.useState ();
 
@@ -31,33 +33,40 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
   };
 
   const handleDaySelect = date => {
+    setFirstView(false);
     setDaySelected(date);
     if (date) {
       closePopper();
     }
   };
 
-  let footer = <p>Please pick a day.</p>;
+  let footer = <p>Please pick a day</p>;
   if (daySelected) {
-    footer = <p>You picked {format(daySelected, 'PP')}.</p>;
+    footer = <p>You picked {format(daySelected, 'PP')}</p>;
   }
 
   return (
     <div>
       <div ref={popperRef}>
         <button
-        className={css.calendarButton}
+          className={css.calendarButton}
           ref={buttonRef}
           type="button"
           aria-label="Pick a date"
           onClick={handleButtonClick}
         >
-          Deadline: {format(daySelected, 'dd/MM/yyyy')}
+          {firstView ? (
+            <span>Today is {format(daySelected, 'PPPP')}</span>
+          ) : (
+            <span>Selected deadline on {format(daySelected, 'PPP')}</span>
+          )}
+
+          <Icon name="#icon-chevron-down" width="16px" height="16px" />
         </button>
       </div>
       {isPopperOpen && (
         <FocusTrap
-          active                
+          active
           // focusTrapOptions={{
           //   initialFocus: true,
           //   allowOutsideClick: true,
@@ -69,7 +78,7 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
           <div
             tabIndex={-1}
             style={popper.styles.popper}
-            className={theme === 'dark' ? css.dark : css.light} 
+            className={theme === 'dark' ? css.dark : css.light}
             // className="dialog-sheet"
             {...popper.attributes.popper}
             ref={setPopperElement}

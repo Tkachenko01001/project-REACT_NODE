@@ -3,13 +3,13 @@ import { Field, Form, Formik } from 'formik';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ClipLoader from 'react-spinners/ClipLoader';
+import { selectTheme } from 'redux/auth/selectors';
 import { addTask } from 'redux/boards/operations';
 import { selectIsBoardsLoading } from 'redux/boards/selectors';
 import { object, string } from 'yup';
 import sprite from '../../images/sprite.svg';
 import Modal from '../Modal/Modal';
 import styles from './AddTaskCard.module.css';
-import { selectTheme } from 'redux/auth/selectors';
 
 // додавання календаря
 import CustomMonthLayout from 'components/Calendar/Calendar'; //delete//
@@ -160,7 +160,6 @@ export const AddTaskCard = ({ columnId }) => {
                   onClick={() => {
                     setFieldValue('title', title);
                     setFieldValue('description', description);
-                    // toggleModal();
                   }}
                 >
                   {isBoardsLoading ? (

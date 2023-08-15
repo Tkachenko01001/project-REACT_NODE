@@ -174,21 +174,16 @@
 .wrapperDark::before {
   content: '';
   display: block;
-  width: 290px;
+  width: 210px;
   height: 1px;
   background-color: var(--color-bg-light);
   position: absolute;
   top: 0;
 }
-
-.wrapper::before {
-  content: '';
-  display: block;
-  width: 290px;
-  height: 1px;
-  background-color: rgba(22, 22, 22, 0.1);
-  position: absolute;
-  top: 0;
+@media screen and (min-width: 375px) {
+  .wrapperDark::before {
+    width: 290px;
+  }
 }
 
 .cardIcons {

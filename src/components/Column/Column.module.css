@@ -1,14 +1,14 @@
 .column__container {
-  width: 334px;
+  min-width: 258px;
   display: flex;
   flex-direction: column;
   gap: 14px;
   /* scrollbar-width: auto;
   scrollbar-color: rgb(0, 0, 0) rgb(87, 86, 84); цвет бегунка и зоны отслеживания */
 }
-@media screen and (max-width: 375px) {
+@media screen and (min-width: 375px) {
   .column__container {
-    max-width: 334px;
+    min-width: 334px;
     width: auto;
   }
 }

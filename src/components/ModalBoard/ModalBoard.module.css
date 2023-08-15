@@ -113,7 +113,7 @@
   display: none;
 }
 
-.input_svg:checked + label > svg { 
+.input_svg:checked + label > svg {
   stroke-opacity: 1;
 }
 
@@ -123,7 +123,6 @@
 
 .svg {
   stroke: inherit;
-  fill: none;
   stroke-opacity: 0.5;
   /* stroke: inherit;  */
   /* stroke: #ffffff80; */

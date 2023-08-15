@@ -1,7 +1,7 @@
 .themeWrapper {
-  width: 68px;
-  height: 21px;
-  position: relative;  
+  width: 72px;
+  height: 20px;
+  position: relative;
   cursor: pointer;
   z-index: 1000;
   margin-right: 14px;
@@ -12,14 +12,13 @@
   display: flex;
   align-items: center;
   gap: 4px;
-
   width: 68px;
   height: 21px;
   font-weight: 400;
   line-height: 1.5;
   font-size: 14px;
   font-family: var(--font-regular);
-  color: inherit;  
+  color: inherit;
   background-color: transparent;
   border: none;
 
@@ -31,31 +30,31 @@
   height: 87px;
   border-radius: 8px;
   padding: 18px;
-  margin: 0;  
+  margin: 0;
   position: fixed;
-  background-color: inherit; 
+  background-color: inherit;
   transform: scaleY(0);
   transform-origin: top;
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 0;
   /* border: 1px solid inherit; */
-  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.10);
+  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
 }
 
 .themeMenuOpen {
   width: 80px;
-  height: 87px;
+  height: 100px;
   border-radius: 8px;
-  /* border: 1px solid inherit; */
-  padding: 18px;
-  margin: 0;  
+  padding: 32px 28px 18px 7px;
+  margin: 0;
   position: fixed;
-  top: 23px;  
+  top: 12px;
   transform: scaleY(1);
   transform-origin: top;
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 1;
-  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.10);
+  background-color: rgba (255, 255, 255, 0.05);
+  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
 }
 
 .themeItemGreen,
@@ -65,7 +64,7 @@
   list-style-type: none;
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.5;    
+  line-height: 1.5;
 }
 
 .themeItemGreen:hover,
@@ -91,4 +90,7 @@
 .violet {
   background-color: #fcfcfc;
   color: #161616;
+}
+.arrow {
+  fill: none;
 }
