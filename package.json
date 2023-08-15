@@ -15,6 +15,7 @@
     "axios": "^1.4.0",
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
+    "focus-trap-react": "^10.2.1",
     "formik": "^2.4.3",
     "react": "^18.1.0",
     "react-beautiful-dnd": "^13.1.1",
