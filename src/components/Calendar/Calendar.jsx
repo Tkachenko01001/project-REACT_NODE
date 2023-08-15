@@ -10,9 +10,6 @@ import { useSelector } from 'react-redux';
 
 export default function CustomMonthLayout({ daySelected, setDaySelected }) {
   const theme = useSelector(selectTheme);
-  // const [daySelected, setDaySelected] = React.useState ();
-
-  // console.log(format(daySelected, 'dd/MM/yyyy'));
   const DateBefore = { before: new Date() };
 
   const [isPopperOpen, setIsPopperOpen] = useState(false);
@@ -46,7 +43,7 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
     <div>
       <div ref={popperRef}>
         <button
-        className={css.calendarButton}
+          className={css.calendarButton}
           ref={buttonRef}
           type="button"
           aria-label="Pick a date"
@@ -56,22 +53,11 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
         </button>
       </div>
       {isPopperOpen && (
-        <FocusTrap
-          active 
-          className={css.calendarWrapper}               
-          // focusTrapOptions={{
-          //   initialFocus: true,
-          //   allowOutsideClick: true,
-          //   clickOutsideDeactivates: true,
-          //   onDeactivate: closePopper,
-          //   fallbackFocus: buttonRef.current,
-          // }}
-        >
+        <FocusTrap active className={css.calendarWrapper}>
           <div
             tabIndex={-1}
             style={popper.styles.popper}
-            className={theme === 'dark' ? css.dark : css.light} 
-            // className="dialog-sheet"
+            className={theme === 'dark' ? css.dark : css.light}
             {...popper.attributes.popper}
             ref={setPopperElement}
             role="dialog"

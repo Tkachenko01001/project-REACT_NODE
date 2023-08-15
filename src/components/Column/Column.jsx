@@ -22,7 +22,6 @@ const Column = ({ column }) => {
   const selectedFilter = useSelector(selectFilter);
   const normalizedFilter = normalizePriority(selectedFilter);
 
-  // const myScroll = new SimpleBar(document.getElementById('demo'));
   return (
     <StrictModeDroppable droppableId={_id} type="tasks">
       {provided => (

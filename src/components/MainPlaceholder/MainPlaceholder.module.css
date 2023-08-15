@@ -1,33 +1,32 @@
 @media screen and (max-width: 768px) {
-    .mainDashboardContainer {
-        padding: 0px 20px 0px 20px;
-    }
+  .mainDashboardContainer {
+    padding: 0px 20px 0px 20px;
+  }
 }
 
 .dashboardDefaultParagraph {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-    max-width: 468px;
-    text-align: center;
-    /* color: var(--color-icon-grey); */
-    font-size: 14px;
-    line-height: 18px;
-    letter-spacing: -0.28px;
+  max-width: 468px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.28px;
 }
 
 @media screen and (max-width: 768px) {
-    .dashboardDefaultParagraph {
-        font-size: 12px;
-        line-height: 16px;
-        letter-spacing: -0.02px;
-    }
+  .dashboardDefaultParagraph {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.02px;
+  }
 }
 
 .createBoard {
-    border: none;
-    background: none;
-    color: var(--color-green);
+  border: none;
+  background: none;
+  color: var(--color-green);
 }

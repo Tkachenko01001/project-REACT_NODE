@@ -19,7 +19,7 @@ const updateUserSchema = object({
     .max(32, 'maximum 32 characters')
     .test(
       'only-allowed-chars',
-      'name can contain: only Latin, numbers, special characters',
+      'Must contain: only Latin, numbers, special characters',
       value => /^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/.test(value)
     )
     .matches(/^[a-zA-Z0-9 !@#$%^&*()_+,.:;’“?/-]+$/, 'Invalid name format'),
@@ -36,7 +36,7 @@ const updateUserSchema = object({
     )
     .test(
       'only-allowed-chars',
-      'password can contain: only Latin, numbers, special characters',
+      'Must contain: only Latin, numbers, special characters',
       value => /^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/.test(value)
     )
     .matches(/^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/, 'Invalid password format'),
@@ -114,7 +114,9 @@ export const EditUserProfile = () => {
                 </div>
                 <div className={styles.wrap}>
                   <Field
-                    className={theme === 'violet' ? styles.inputViolet : styles.input}
+                    className={
+                      theme === 'violet' ? styles.inputViolet : styles.input
+                    }
                     type="text"
                     name="name"
                     placeholder="Enter your name"
@@ -123,7 +125,9 @@ export const EditUserProfile = () => {
                 </div>
                 <div className={styles.wrap}>
                   <Field
-                    className={theme === 'violet' ? styles.inputViolet : styles.input}
+                    className={
+                      theme === 'violet' ? styles.inputViolet : styles.input
+                    }
                     type="email"
                     name="email"
                     placeholder="Enter your email"
@@ -132,7 +136,9 @@ export const EditUserProfile = () => {
                 </div>
                 <div className={styles.wrap}>
                   <Field
-                    className={theme === 'violet' ? styles.inputViolet : styles.input}
+                    className={
+                      theme === 'violet' ? styles.inputViolet : styles.input
+                    }
                     type={passwordShown ? 'text' : 'password'}
                     name="password"
                     placeholder="Change password"
@@ -142,7 +148,10 @@ export const EditUserProfile = () => {
                   </span>
                   {errors.password && <FormError name="password" />}
                 </div>
-                <button className={theme === 'violet' ? styles.btnViolet : styles.btn} type="submit">
+                <button
+                  className={theme === 'violet' ? styles.btnViolet : styles.btn}
+                  type="submit"
+                >
                   <div className={styles.wrap}>
                     <span>Send</span>
                     <Loader />

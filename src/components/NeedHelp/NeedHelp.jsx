@@ -18,12 +18,11 @@ export const NeedHelp = () => {
       }
     >
       <div className={css.sidebarHelp}>
-        {/* <div> */}
         <picture>
           <source srcSet={`${cactus} 1x, ${cactus2x} 2x,${cactus3x} 3x`} />
           <img srcSet={`${cactus} 1x`} alt="cactus" />
         </picture>
-        {/* </div> */}
+
         <div className={css.sidebarHelpBox}>
           <HelpForm />
         </div>

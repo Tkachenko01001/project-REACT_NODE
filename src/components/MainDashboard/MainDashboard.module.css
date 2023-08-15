@@ -1,5 +1,4 @@
 .container {
-  /* padding: 14px 24px 0px; */
   display: flex;
   overflow-x: auto;
   scrollbar-width: none;
@@ -61,6 +60,8 @@
   line-height: normal;
   letter-spacing: -0.28px;
   height: 56px;
+
+  transition: color 250ms linear;
 }
 
 .buttonLight {
@@ -83,6 +84,8 @@
   line-height: normal;
   letter-spacing: -0.28px;
   height: 56px;
+
+  transition: background-color 250ms linear;
 }
 
 .buttonViolet {
@@ -105,6 +108,8 @@
   line-height: normal;
   letter-spacing: -0.28px;
   height: 56px;
+
+  transition: background-color 250ms linear;
 }
 
 .buttonLight:hover {

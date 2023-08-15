@@ -184,9 +184,6 @@
   border: none;
   background-color: inherit;
   color: inherit;
-  /* margin: 0;
-  outline: 0;
-  /* background: var(--color-icon-dark); */
 }
 
 .sidebarBoardIconGreen {
@@ -194,6 +191,7 @@
   height: 36px;
   fill: var(--color-green);
   stroke: var(--color-icon-dark);
+  transition: transform 250ms linear;
 }
 
 .sidebarBoardIconViolet {
@@ -201,6 +199,7 @@
   height: 36px;
   fill: #b8bcfd;
   stroke: white;
+  transition: transform 250ms linear;
 }
 
 .sidebarBoardIconGreen:hover,
@@ -224,6 +223,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  transition: opacity 250ms linear;
 }
 @media (max-height: 700px) {
   .sidebarListBoard {
@@ -240,7 +240,6 @@
   stroke-opacity: 0.5;
   stroke: inherit;
   fill: none;
-  /* stroke: var(--color-icon-grey); */
 }
 
 @media screen and (min-width: 768px) {
@@ -257,7 +256,6 @@
   border-radius: 4px 0px 0px 4px;
   color: inherit;
   background-color: inherit;
-  /* background: var(--bg-color-form-input); */
 }
 
 .activeBoardLight {
@@ -308,6 +306,7 @@
   align-items: center;
   justify-content: space-between;
   color: rgba(22, 22, 22, 0.5);
+  transition: opacity 250ms linear, color 250ms linear;
 }
 
 .sidebarNewBoardItem:focus {
@@ -344,12 +343,9 @@
   color: var(--color-white);
 }
 
-/* .bg {
-  background: #000;
-} */
 .svg {
   stroke: inherit;
-  /* stroke: #ffffff80; */
+
   transition: transform 0.25s ease;
   stroke-opacity: 0.8;
 }
@@ -369,6 +365,7 @@
   margin-right: 8px;
   background-color: inherit;
   color: inherit;
+  transition: transform 250ms linear;
 }
 .sidebarNewBoardButtonActive:hover {
   transform: scale(1.2);
@@ -394,6 +391,7 @@
   stroke-opacity: 0.7;
   stroke: inherit;
   fill: none;
+  transition: transform 250ms linear;
 }
 .sidebarNewBoardIcon:hover {
   transform: scale(1.2);
@@ -470,6 +468,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: normal;
+  transition: transform 250ms linear;
 }
 .sidebarLogoutButton:hover {
   transform: scale(0.9);

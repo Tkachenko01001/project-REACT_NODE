@@ -1,7 +1,6 @@
-import { Field, Form, Formik } from 'formik';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { Field, Form, Formik, ErrorMessage } from 'formik';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { selectIsBoardsLoading } from 'redux/boards/selectors';
 
@@ -12,10 +11,8 @@ import Modal from '../Modal/Modal';
 import styles from './EditTaskCard.module.css';
 import { selectTheme } from 'redux/auth/selectors';
 
-// додавання календаря
 import CustomMonthLayout from 'components/Calendar/Calendar';
 import { format } from 'date-fns';
-// const today = new Date();
 
 const registerSchema = object({
   title: string().required(),
@@ -50,6 +47,15 @@ export const EditTaskCard = ({ task }) => {
     title: '',
     description: '',
     priority: oldPriority,
+  };
+
+  const FormError = ({ name }) => {
+    return (
+      <ErrorMessage
+        name={name}
+        render={message => <p className={styles.error}>{message}</p>}
+      />
+    );
   };
 
   const handleChange = ({ target: { name, value } }, setFieldValue) => {
@@ -123,32 +129,39 @@ export const EditTaskCard = ({ task }) => {
             validationSchema={registerSchema}
             onSubmit={onSubmit}
           >
-            {({ setFieldValue }) => (
+            {({ errors, setFieldValue }) => (
               <Form autoComplete="off">
                 <p className={styles.title}>Edit card</p>
-                <Field
-                  className={
-                    theme === 'violet' ? styles.inputViolet : styles.input
-                  }
-                  type="text"
-                  name="title"
-                  placeholder="Title"
-                  value={title}
-                  required
-                  onChange={e => handleChange(e, setFieldValue)}
-                />
+                <div className={styles.wrapError}>
+                  <Field
+                    className={
+                      theme === 'violet' ? styles.inputViolet : styles.input
+                    }
+                    type="text"
+                    name="title"
+                    placeholder="Title"
+                    value={title}
+                    onChange={e => handleChange(e, setFieldValue)}
+                  />
+                  {errors.title && <FormError name="title" />}
+                </div>
 
-                <Field
-                  as="textarea"
-                  className={
-                    theme === 'violet' ? styles.textareaViolet : styles.textarea
-                  }
-                  name="description"
-                  placeholder="Description"
-                  value={description}
-                  required
-                  onChange={e => handleChange(e, setFieldValue)}
-                />
+                <div className={styles.wrapError}>
+                  <Field
+                    as="textarea"
+                    className={
+                      theme === 'violet'
+                        ? styles.textareaViolet
+                        : styles.textarea
+                    }
+                    name="description"
+                    placeholder="Description"
+                    value={description}
+                    onChange={e => handleChange(e, setFieldValue)}
+                  />
+                  {errors.description && <FormError name="description" />}
+                </div>
+
                 <div className="wrap">
                   <span className={styles.label}>Label color</span>
                   <div className={styles.priorityIcons}>

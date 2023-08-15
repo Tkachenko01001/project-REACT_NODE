@@ -127,6 +127,7 @@
   /* background-color: var(--color-icon-dark);  */
   border: none;
   padding: 2px;
+  transition: transform 250ms linear, stroke 250ms linear;
 }
 
 .cardButtonLight,
@@ -138,6 +139,7 @@
   stroke: rgba(22, 22, 22, 0.5);
   border: none;
   padding: 2px;
+  transition: transform 250ms linear, stroke 250ms linear;
 }
 
 .cardButtonDark:hover,
@@ -155,9 +157,9 @@
   height: 20px;
   width: 20px;
   stroke: inherit;
-  /* stroke: var(--color-icon-grey); */
+
   background-color: transparent;
-  /* background-color: var(--color-icon-dark); */
+
   border: none;
   padding: 2px;
   pointer-events: none;
