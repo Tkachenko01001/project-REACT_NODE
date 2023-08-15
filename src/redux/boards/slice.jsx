@@ -42,6 +42,9 @@ const boardsSlice = createSlice({
     setFilter(state, action) {
       state.filter = action.payload;
     },
+    dellActive(state, action) {
+      state.activeBoard = action.payload;
+    }
   },
   extraReducers: builder => {
     builder
@@ -118,6 +121,6 @@ const boardsSlice = createSlice({
   },
 });
 
-export const { clearError, setFilter } = boardsSlice.actions;
+export const { clearError, setFilter, dellActive } = boardsSlice.actions;
 
 export default boardsSlice.reducer;

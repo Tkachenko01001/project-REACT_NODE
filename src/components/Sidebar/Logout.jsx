@@ -5,7 +5,7 @@ import { logOut } from 'redux/auth/operations';
 import { selectIsLoggedIn } from 'redux/auth/selectors';
 import css from './Sidebar.module.css';
 import { selectTheme } from 'redux/auth/selectors';
-
+import { dellActive } from 'redux/boards/slice';
 import sprite from '../../images/sprite.svg';
 import ModalPortal from '../Modal/ModalPortal';
 import styles from '../ModalBoard/ModalBoard.module.css';
@@ -22,6 +22,7 @@ const Logout = () => {
 
   const handleAgreement = () => {
     setStartLoading(true);
+    dispatch(dellActive({}));
     dispatch(logOut()).then(() => {
       !isLoading && toggleModal();
     });
