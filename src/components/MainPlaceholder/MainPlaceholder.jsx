@@ -4,14 +4,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addBoard } from 'redux/boards/operations';
 import { selectIsBoardsLoading } from 'redux/boards/selectors';
 import styles from './MainPlaceholder.module.css';
+import { selectTheme } from 'redux/auth/selectors';
 
 const MainPlaceholder = () => {
+  const theme = useSelector(selectTheme);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
   const required = true;
   const [icon, setIcon] = useState('icon-project');
-  const [background, setBackground] = useState('null');
+  const [background, setBackground] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -27,7 +29,7 @@ const MainPlaceholder = () => {
       if (!isBoardsLoading) {
         toggleModal();
         setIcon('icon-project');
-        setBackground('null');
+        setBackground(null);
       }
     });
   };
@@ -56,7 +58,9 @@ const MainPlaceholder = () => {
         Before starting your project, it is essential
         <button
           type="button"
-          className={styles.createBoard}
+          className={
+            theme === 'violet' ? styles.createBoardViolet : styles.createBoard
+          }
           onClick={toggleModal}
         >
           to create a board

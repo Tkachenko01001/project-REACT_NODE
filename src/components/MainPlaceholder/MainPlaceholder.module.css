@@ -30,3 +30,9 @@
   background: none;
   color: var(--color-green);
 }
+
+.createBoardViolet {
+  border: none;
+  background: none;
+  color: var(--color-violet);
+}
