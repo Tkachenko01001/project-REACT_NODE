@@ -1,4 +1,4 @@
-.dark {
+dark {
   background-color: var(--bg-color-form);
   color: var(--color-white);
   stroke: var(--color-white);
@@ -118,6 +118,7 @@
 
 .svg {
   stroke: inherit;
+  fill: none;
   stroke-opacity: 0.5;
   /* stroke: inherit;  */
   /* stroke: #ffffff80; */
