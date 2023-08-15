@@ -25,6 +25,7 @@
 
   transition: opacity 250ms linear;
 }
+
 .inputViolet {
   width: 100%;
   border-radius: 8px;
@@ -148,18 +149,6 @@
   letter-spacing: -0.24px;
 }
 
-.radio {
-  width: 14px;
-  height: 14px;
-  margin-right: 8px;
-  background-color: blueviolet;
-}
-
-[type='radio']:checked + .radio {
-  background-color: red;
-  color: white;
-}
-
 .btn {
   display: flex;
   justify-content: center;
@@ -228,9 +217,10 @@
 
   border-radius: 8px;
   fill: var(--color-dark);
-  stroke: #fff;
+  stroke: var(--color-white);
   margin-right: 8px;
 }
+
 .btnIconViolet {
   width: 28px;
   height: 28px;
@@ -240,11 +230,13 @@
   stroke: var(--color-violet);
   margin-right: 8px;
 }
+
 .priorityIcons {
   display: flex;
   gap: 8px;
   margin-bottom: 14px;
 }
+
 .radioLabel {
   align-items: center;
   margin-bottom: 10px;
@@ -261,7 +253,6 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  margin-right: 8px;
 
   position: relative;
 }
@@ -278,7 +269,7 @@
   border: 2px solid var(--color-icon-dark);
 
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s linear;
 }
 .radioButton::before {
   content: '';
@@ -292,10 +283,22 @@
   border: 2px solid var(--color-white);
 
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s linear;
 }
 
 .radioInput:checked + .radioButton::before,
 .radioInput:checked + .radioButtonDark::before {
   opacity: 1;
+}
+.wrapError {
+  position: relative;
+}
+
+.error {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-family: var(--font-regular);
+  font-size: 10px;
+  color: var(--color-red);
 }

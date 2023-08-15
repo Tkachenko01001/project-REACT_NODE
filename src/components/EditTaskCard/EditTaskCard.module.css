@@ -328,3 +328,16 @@
   stroke: var(--color-violet);
   transform: scale(1.2);
 }
+
+.wrapError {
+  position: relative;
+}
+
+.error {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-family: var(--font-regular);
+  font-size: 10px;
+  color: var(--color-red);
+}
