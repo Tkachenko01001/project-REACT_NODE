@@ -151,7 +151,7 @@
 .input_png:checked + label > img {
   stroke-opacity: 1;
   border-radius: 6px;
-  border: 1.5px solid white;
+  border: 2px solid gray;
 }
 
 .label_png {
