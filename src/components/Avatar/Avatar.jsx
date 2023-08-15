@@ -63,7 +63,7 @@ const Avatar = ({ size, onClick, preload }) => {
             style={{
               borderRadius: '5px',
               cursor: 'pointer',
-              border: '1px solid #9dc888',
+              border: '1px solid #808080',
             }}
           />
         </button>

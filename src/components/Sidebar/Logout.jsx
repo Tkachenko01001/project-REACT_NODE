@@ -56,7 +56,7 @@ const Logout = () => {
           </h3>
 
           <button
-            className={styles.btn}
+            className={theme === 'violet' ? styles.btnViolet : styles.btn}
             type="button"
             onClick={handleAgreement}
           >
@@ -65,7 +65,11 @@ const Logout = () => {
             )}
             Yes
           </button>
-          <button className={styles.btn} type="button" onClick={toggleModal}>
+          <button
+            className={theme === 'violet' ? styles.btnViolet : styles.btn}
+            type="button"
+            onClick={toggleModal}
+          >
             No
           </button>
         </ModalPortal>
