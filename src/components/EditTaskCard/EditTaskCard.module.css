@@ -302,7 +302,6 @@
   fill: none;
   stroke: var(--color-icon-grey);
   background-color: transparent;
-  /* background-color: var(--color-icon-dark);  */
   border: none;
   padding: 2px;
 }
@@ -339,5 +338,5 @@
   right: 8px;
   font-family: var(--font-regular);
   font-size: 10px;
-  color: var(--color-red);
+  color: var(--color-hover-green);
 }
