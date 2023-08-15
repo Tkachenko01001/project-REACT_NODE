@@ -46,7 +46,10 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
     <div>
       <div ref={popperRef}>
         <button
-          className={css.calendarButton}
+          // className={css.calendarButton}
+          className={
+            theme === 'violet' ? css.calendarButtonViolet : css.calendarButton
+          }
           ref={buttonRef}
           type="button"
           aria-label="Pick a date"

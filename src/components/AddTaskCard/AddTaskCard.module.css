@@ -146,9 +146,16 @@
   font-size: 12px;
   line-height: normal;
   letter-spacing: -0.24px;
+  color: #16161680;
+}
+.labelDark {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-regular);
+  font-size: 12px;
+  line-height: normal;
+  letter-spacing: -0.24px;
   color: #ffffff80;
-  /* #FFFFFF80 - for dark theme*/
-  /* #16161680 - for others*/
 }
 
 .btn {
@@ -236,6 +243,7 @@
 .priorityIcons {
   display: flex;
   margin-bottom: 14px;
+  gap: 8px;
 }
 
 .radioLabel {

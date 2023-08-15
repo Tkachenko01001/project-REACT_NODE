@@ -1,15 +1,15 @@
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Field, Form, Formik, ErrorMessage } from 'formik';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { selectIsBoardsLoading } from 'redux/boards/selectors';
 
+import { selectTheme } from 'redux/auth/selectors';
 import { updateTask } from 'redux/boards/operations';
 import { object, string } from 'yup';
 import sprite from '../../images/sprite.svg';
 import Modal from '../Modal/Modal';
 import styles from './EditTaskCard.module.css';
-import { selectTheme } from 'redux/auth/selectors';
 
 import CustomMonthLayout from 'components/Calendar/Calendar';
 import { format } from 'date-fns';
@@ -163,7 +163,13 @@ export const EditTaskCard = ({ task }) => {
                 </div>
 
                 <div className="wrap">
-                  <span className={styles.label}>Label color</span>
+                  <span
+                    className={
+                      theme === 'dark' ? styles.labelDark : styles.label
+                    }
+                  >
+                    Label color
+                  </span>
                   <div className={styles.priorityIcons}>
                     {radioOptions.map((option, index) => (
                       <label key={index} className={styles.radioLabel}>
@@ -186,7 +192,11 @@ export const EditTaskCard = ({ task }) => {
                     ))}
                   </div>
                 </div>
-
+                <span
+                  className={theme === 'dark' ? styles.labelDark : styles.label}
+                >
+                  Deadline
+                </span>
                 <CustomMonthLayout
                   daySelected={newDaySelected}
                   setDaySelected={setNewDaySelected}
