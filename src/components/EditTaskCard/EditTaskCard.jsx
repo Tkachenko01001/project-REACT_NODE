@@ -97,7 +97,7 @@ export const EditTaskCard = ({ task }) => {
   ];
 
   return (
-    <div>
+    <>
       <button
         className={
           (theme === 'dark' && styles.cardButtonDark) ||
@@ -207,6 +207,6 @@ export const EditTaskCard = ({ task }) => {
           </Formik>
         </Modal>
       )}
-    </div>
+    </>
   );
 };

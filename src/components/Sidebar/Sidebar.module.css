@@ -46,7 +46,7 @@
 }
 
 .sectionBoards:hover::-webkit-scrollbar-thumb {
-  background-color: #4a6040; /* Колір бару скролу при наведенні */
+  background-color: rgba(22, 22, 22, 0.3); /* Колір бару скролу при наведенні */
 }
 
 .partTop {

@@ -110,17 +110,17 @@
 }
 
 .cardList::-webkit-scrollbar {
-  width: 8px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  width: 4px;
+  background-color: transparent;   
+  border-radius: 4px;
 }
 
 .cardList::-webkit-scrollbar-thumb {
   background-color: transparent;
   outline: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .cardList:hover::-webkit-scrollbar-thumb {
-  background-color: #121212;
+  background-color:  rgba(22, 22, 22, 0.3);
 }

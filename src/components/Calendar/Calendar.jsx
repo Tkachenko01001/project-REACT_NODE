@@ -57,7 +57,8 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
       </div>
       {isPopperOpen && (
         <FocusTrap
-          active                
+          active 
+          className={css.calendarWrapper}               
           // focusTrapOptions={{
           //   initialFocus: true,
           //   allowOutsideClick: true,
