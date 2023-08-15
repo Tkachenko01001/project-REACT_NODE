@@ -16,6 +16,7 @@
     "clsx": "^2.0.0",
     "formik": "^2.4.3",
     "react": "^18.1.0",
+    "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18.1.0",
     "react-loader-spinner": "^5.3.4",
     "react-router-dom": "^6.14.2",
