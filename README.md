@@ -1,43 +1,46 @@
 **Читати іншою мовою: [Українська](README.ua.md).**
 
-# project-REACT_NODE
+# Project Task Pro
 
 ![project-REACT_NODE](./src/images/readmeScreens/wellcome.png)
+![project-REACT_NODE](./src/images/readmeScreens/22.png)
 
-**[project-REACT_NODE](https://tkachenko01001.github.io/project-REACT_NODE/home)** -
+**[Project Task Pro](https://tkachenko01001.github.io/project-REACT_NODE/home)** -
 an online tool for managing your projects by creating boards, lists, and cards
 that help organize tasks and projects in a visual board format.
 
-**Boards** - are the primary organizational element in project-REACT_NODE,
-helping you structure your tasks and projects. A project-REACT_NODE board
-consists of lists and cards, aiding in tracking progress, task distribution, and
+**Boards** - are the primary organizational element in project Task Pro, helping
+you structure your tasks and projects. A project Task Pro board consists of
+lists and cards, aiding in tracking progress, task distribution, and
 collaboration with teams.
 
-![project-REACT_NODE](./src/images/) ![project-REACT_NODE](./src/images/)
+![project-REACT_NODE](./src/images/readmeScreens/23.png)
+![project-REACT_NODE](./src/images/readmeScreens/30.png)
 
 **Lists** - serve as the core component of a board, assisting in organizing
-tasks and other elements. Each project-REACT_NODE board contains one or more
+tasks and other elements. Each project Task Pro board contains one or more
 lists, and within each list, there can be various cards.
 
-![project-REACT_NODE](./src/images/)
+![project-REACT_NODE](./src/images/readmeScreens/24.png)
 
 **Cards** - represent individual items such as tasks, assignments, or other work
-units. They constitute the fundamental units of organization on the
-project-REACT_NODE board. Each "card" has its own title, description, due date,
-labels, comments, and other attributes that aid in task description and
-management. You can move cards between lists on your board to indicate their
-current status. Cards are highly flexible and can be used for any type of tasks
-or projects, from personal to collaborative. They aid in organizing work,
-storing information, and tracking progress.
+units. They constitute the fundamental units of organization on the project Task
+Pro board. Each "card" has its own title, description, due date, labels,
+comments, and other attributes that aid in task description and management. You
+can move cards between lists on your board to indicate their current status.
+Cards are highly flexible and can be used for any type of tasks or projects,
+from personal to collaborative. They aid in organizing work, storing
+information, and tracking progress.
 
-![project-REACT_NODE](./src/images/)
+![project-REACT_NODE](./src/images/readmeScreens/25.png)
+![project-REACT_NODE](./src/images/readmeScreens/28.png)
 
 **Due Dates and Notifications:** You can assign due dates (deadlines) to each
 card on your board. This allows you to track when specific tasks need to be
-completed. As a deadline approaches, project-REACT_NODE can send you
+completed. As a deadline approaches, project Task Pro can send you
 notifications.
 
-![project-REACT_NODE](./src/images/)
+![project-REACT_NODE](./src/images/readmeScreens/27.png)
 
 **Labels and Colors** - are useful features that help you better organize and
 highlight various elements on your board. Here's how these functions work:
@@ -47,36 +50,40 @@ you can use labels to denote task priorities, task types, or any other
 categories relevant to your project. Colors: You can add colored labels to lists
 on your board. This visually distinguishes different parts of your work. For
 example, you can use different colors for different task types or project
-stages. To use labels and colors in Trello, you need to open the "card" or
-"list" to which you want to add labels or colors and select the appropriate
-markers or colors from the respective menus. This helps you easily track and
-recognize different elements on your board.
+stages. To use labels and colors in project Task Pro, you need to open the
+"card" or "list" to which you want to add labels or colors and select the
+appropriate markers or colors from the respective menus. This helps you easily
+track and recognize different elements on your board.
 
-![project-REACT_NODE](./src/images/)
+![project-REACT_NODE](./src/images/readmeScreens/25.png)
 
 **Theme Customization:** By changing the theme to one that suits you, you can
 emphasize your personal style or preference. Choosing colors, fonts, and other
 visual elements helps create a comfortable working environment for you.
 
-![project-REACT_NODE](./src/images/)
+![project-REACT_NODE](./src/images/readmeScreens/28.png)
+![project-REACT_NODE](./src/images/readmeScreens/29.png)
+![project-REACT_NODE](./src/images/readmeScreens/30.png)
 
 **Board Background Changes:** Altering the board's background can help visually
 differentiate between various projects or task categories. This is particularly
 useful if you have multiple boards for different purposes.
 
-![project-REACT_NODE](./src/images/)
+![project-REACT_NODE](./src/images/readmeScreens/31.png)
 
-**Responsive Design and Mobile Support:** project-REACT_NODE is designed to
+**Responsive Design and Mobile Support:** project Task Pro is designed to
 properly display and function on different devices with varying screen sizes,
 including computers, tablets, and smartphones.і
 
-![project-REACT_NODE](./src/images/)
+![project-REACT_NODE](./src/images/readmeScreens/32.png)
+![project-REACT_NODE](./src/images/readmeScreens/33.png)
+![project-REACT_NODE](./src/images/readmeScreens/34.png)
 
 **User Profile Editing:** Allows users to update their personal information and
 settings to maintain current information and personalize their experience when
-using project-REACT_NODE.
+using project Task Pro.
 
-![project-REACT_NODE](./src/images/)
+![project-REACT_NODE](./src/images/readmeScreens/35.png)
 
 ## For Users
 
@@ -107,23 +114,19 @@ using project-REACT_NODE.
 - ![MUI](https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white)
 - ![Axios](https://img.shields.io/badge/Axios-blue?style=for-the-badge&logo=Axios&logoColor=61DAFB)
 - ![Formik](https://img.shields.io/badge/Formik-blue?style=for-the-badge&logo=Formik&logoColor=white)
-- ![e.t.c.](https://img.shields.io/badge/e.t.c.-blue?style=for-the-badge&logo=e.t.c.&logoColor=white)
 
 ### Back-End
 
 - ![Node.js](https://img.shields.io/badge/Node.js-green?style=for-the-badge&logo=Node.js&logoColor=61DAFB)
 - ![MongoDB](https://img.shields.io/badge/MongoDB-green?style=for-the-badge&logo=MongoDB&logoColor=61DAFB)
 - ![Swagger](https://img.shields.io/badge/Swagger-green?style=for-the-badge&logo=Swagger&logoColor=61DAFB)
-- ![e.t.c.](https://img.shields.io/badge/e.t.c.-blue?style=for-the-badge&logo=e.t.c.&logoColor=white)
 
 ### Utilites:
 
 - ![VSCode](https://img.shields.io/badge/VSCode-blue?style=for-the-badge&logo=VSCode&logoColor=61DAFB)
 - ![Webpack](https://img.shields.io/badge/Webpack-blue?style=for-the-badge&logo=Webpack&logoColor=61DAFB)
-- ![Parcel](https://img.shields.io/badge/Parcel-green?style=for-the-badge&logo=Parcel&logoColor=61DAFB)
 - ![Figma](https://img.shields.io/badge/Figma-red?style=for-the-badge&logo=Figma&logoColor=61DAFB)
 - ![GitHub](https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=GitHub&logoColor=61DAFB)
-- ![e.t.c.](https://img.shields.io/badge/e.t.c.-blue?style=for-the-badge&logo=e.t.c.&logoColor=white)
 
 **Project Authors:**
 
