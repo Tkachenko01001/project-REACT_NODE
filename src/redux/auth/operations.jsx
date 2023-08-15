@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 axios.defaults.baseURL = 'https://project-react-node-back.onrender.com';
 
@@ -21,12 +21,14 @@ export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post('/api/users/register', credentials);
-      // After successful registration, add the token to the HTTP header
-      setAuthHeader(res.data.accessToken);
-      return res.data;
+      await axios.post('/api/users/register', credentials);
+      // After successful registration, perform login.
+      thunkAPI.dispatch(
+        logIn({ email: credentials.email, password: credentials.password })
+      );
+      return;
     } catch (error) {
-      Swal.fire(error.response.data.message)
+      Swal.fire(error.response.data.message);
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
@@ -44,42 +46,18 @@ export const logIn = createAsyncThunk(
       // After successful login, add the token to the HTTP header
       setAuthHeader(res.data.accessToken);
       return res.data;
-    } catch (error) {         
-      Swal.fire('Uups, you entered incorrect email or password!')
-      return thunkAPI.rejectWithValue(error.response.data.message);
-      
-    }
-  }
-);
-
-export const logInWithGoogle = createAsyncThunk(
-  'auth/google',
-  (credentials) => {
-    setAuthHeader(credentials.accessToken);
-    return credentials;
-  }
-);
-
-/*
- * PATCH @ /user/theme
- * headers: Authorization: Bearer token
- */
-
-export const changeTheme = createAsyncThunk(
-  'auth/changeTheme',
-  async (theme, thunkAPI) => {
-    try {
-      const { data } = await axios.patch('/api/users/theme', {
-        theme,
-      });
-
-      console.log(data);
-      return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      Swal.fire('Uups, you entered incorrect email or password!');
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
+
+export const logInWithGoogle = createAsyncThunk('auth/google', credentials => {
+  setAuthHeader(credentials.accessToken);
+  return credentials;
+});
+
 /*
  * POST @ /users/logout
  * headers: Authorization: Bearer token
@@ -90,7 +68,7 @@ export const logOut = createAsyncThunk('/auth/logout', async (_, thunkAPI) => {
     // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
   } catch (error) {
-    Swal.fire(error.response.data.message)
+    Swal.fire(error.response.data.message);
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -99,7 +77,6 @@ export const logOut = createAsyncThunk('/auth/logout', async (_, thunkAPI) => {
  * GET @ /users/current
  * headers: Authorization: Bearer token
  */
-
 export const refreshUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
@@ -119,7 +96,7 @@ export const refreshUser = createAsyncThunk(
 
       return res.data;
     } catch (error) {
-      Swal.fire(error.response.data.message)
+      Swal.fire(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

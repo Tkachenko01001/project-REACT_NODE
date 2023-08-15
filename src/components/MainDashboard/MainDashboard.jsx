@@ -1,4 +1,7 @@
-// import sprite from '../../images/sprite.svg';
+import sprite from '../../images/sprite.svg';
+import { useState } from 'react';
+import Column from 'components/Column/Column';
+import MainPlaceholder from 'components/MainPlaceholder/MainPlaceholder';
 import styles from './MainDashboard.module.css';
 import { useSelector } from 'react-redux';
 import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';

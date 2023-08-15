@@ -13,10 +13,51 @@ import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import HomePage from 'pages/HomePage/HomePage';
 
 const App = () => {
-  return (
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
+  const allBoards = useSelector(selectBoardsList);
+  const activeBoard = useSelector(selectActiveBoard);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (
+      isLoggedIn &&
+      allBoards.length > 0 &&
+      Object.keys(activeBoard).length === 0
+    ) {
+      navigate(`/home/${allBoards[0]._id}`);
+    }
+
+    if (isLoggedIn && allBoards.length === 0) {
+      navigate('/home');
+    }
+  }, [navigate, allBoards, activeBoard, isLoggedIn]);
+
+  return isRefreshing ? (
+    <Loader />
+  ) : (
     <Routes>
-      <Route path="/" element={<Navigate to="/welcome" />} />
-      <Route path="/welcome" element={<WelcomePage />} />
+      <Route
+        path="/"
+        element={
+          <RestrictedRoute
+            redirectTo="/home"
+            component={<Navigate to="/welcome" />}
+          />
+        }
+      />
+      <Route
+        path="/welcome"
+        element={
+          <RestrictedRoute redirectTo="/home" component={<WelcomePage />} />
+        }
+      />
 
       <Route path="/auth" element={<Navigate to="/auth/login" />} />
       <Route
@@ -31,7 +72,10 @@ const App = () => {
         element={<PrivateRoute redirectTo="/auth" component={<HomePage />} />}
       />
 
-      <Route path="/home/:boardName" element={<HomePage />} />
+      <Route
+        path="/home/:boardName"
+        element={<PrivateRoute redirectTo="/auth" component={<HomePage />} />}
+      />
 
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>

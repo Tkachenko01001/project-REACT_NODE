@@ -4,28 +4,15 @@
 
 .homeWrap {
   position: relative;
+  z-index: 99;
   display: flex;
   flex-direction: column;
-  height: 100vh;
   width: 100%;
+  overflow: hidden;
 }
 
-<<<<<<< HEAD
-.headerBox {
-  background-color: var(--color-dark);
-  height: 68px;
-  border: 0;
-}
-
-@media screen and (max-width: 768px) {
-  .headerBox {
-    height: 60px;
-  }
-}
-=======
 .homeWrapOverlay {
   pointer-events: none;
   opacity: 0.7;
   width: 100%;
 }
->>>>>>> 43caf30cb8f8939f1c808657f8d340b61b0c1f91

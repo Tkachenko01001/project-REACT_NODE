@@ -1,26 +1,10 @@
-import css from '../HomePage/HomePage.module.css';
-
-import { useSelector } from 'react-redux';
-import { selectUser } from 'redux/auth/selectors';
 import Header from 'components/Header/Header';
-import Sidebar from 'components/Sidebar/Sidebar';
 import ScreensPage from 'components/ScreensPage/ScreensPage';
-import { PopupProvider } from 'hooks/usePopup';
+import Sidebar from 'components/Sidebar/Sidebar';
+import { useEffect, useState } from 'react';
+import css from './HomePage.module.css';
 
 export default function HomePage() {
-<<<<<<< HEAD
-  const user = useSelector(selectUser);
-
-  return (
-    <div className={css.home} data-theme={user.theme}>
-      <Sidebar />
-      <div className={css.homeWrap}>
-        <PopupProvider>
-          <div className={css.headerBox}>
-            <Header />
-          </div>
-        </PopupProvider>
-=======
   const [menuActive, setMenuActive] = useState(false);
 
   const handleClick = () => {
@@ -52,7 +36,6 @@ export default function HomePage() {
 
       <div className={menuActive ? css.homeWrapOverlay : css.homeWrap}>
         <Header click={handleClick} />
->>>>>>> 43caf30cb8f8939f1c808657f8d340b61b0c1f91
         <ScreensPage />
       </div>
     </div>

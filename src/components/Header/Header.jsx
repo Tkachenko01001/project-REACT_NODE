@@ -1,26 +1,34 @@
 import css from './Header.module.css';
-
-import { useSelector } from 'react-redux';
-import { selectUser } from 'redux/auth/selectors';
-
-import { usePopup } from 'hooks/usePopup';
-import ThemeSelector from 'components/ThemeSelector/ThemeSelector';
-import Avatar from 'components/Avatar/Avatar';
 import Icon from 'components/Icon/Icon';
+import { ThemeMenu } from 'components/ThemeMenu/ThemeMenu';
+import { EditUserProfile } from 'components/EditUserProfile/EditUserProfile';
+import { selectUser } from 'redux/auth/selectors';
+import { selectTheme } from 'redux/auth/selectors';
+import { useSelector } from 'react-redux';
 
-const Header = () => {
+const Header = ({ click }) => {
   const user = useSelector(selectUser);
-
-  const { getPopup, closePopup } = usePopup();
+  const theme = useSelector(selectTheme);
 
   return (
-    
+    <div
+      className={
+        (theme === 'dark' && css.dark) ||
+        (theme === 'light' && css.light) ||
+        (theme === 'violet' && css.violet)
+      }
+    >
       <div className={css.header}>
         <div className={css.burgerMenu}>
-          <button className={css.burgerStyle}>
+          <button
+            onClick={click}
+            className={
+              theme === 'violet' ? css.burgerStyleViolet : css.burgerStyle
+            }
+          >
             <Icon
               className={css.burgerIcon}
-              name="#menu-icon"
+              name="#icon-menu"
               width="32px"
               height="32px"
             />
@@ -28,25 +36,16 @@ const Header = () => {
         </div>
 
         <div className={css.headerSelect}>
-          <div
-            className={css.selectorTheme}
-            onClick={() => getPopup(<ThemeSelector onClose={closePopup} />)}
-          >
-            <button className={css.styleTheme}>
-              <span>Theme</span>
-              <Icon name="#icon-chevron-down" width="16px" height="16px" />
-            </button>
-          </div>
-
+          <ThemeMenu />
           <ul className={css.userInfo}>
             <li className={css.styleName}>{user.name}</li>
             <li>
-              <Avatar size={32} />
+              <EditUserProfile />
             </li>
           </ul>
         </div>
       </div>
-    
+    </div>
   );
 };
 
