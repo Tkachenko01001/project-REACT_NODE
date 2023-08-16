@@ -14,7 +14,25 @@ export default function HomePage() {
   const handleOverlayClick = event => {
     if (event.target.localName === 'svg' || event.target.localName === 'use')
       return;
-    if (event.target) {
+    const tags = [
+      'section',
+      'picture',
+      'p',
+      'h1',
+      'h2',
+      'img',
+      'button',
+      'input',
+      'textarea',
+    ];
+
+    if (tags.includes(event.target.localName)) return;
+    if (
+      event.target.getAttribute('aria-label') === 'Open Help Modal for TaskPro'
+    )
+      return;
+
+    if (event) {
       setMenuActive(false);
     }
   };
