@@ -143,7 +143,16 @@
   font-size: 12px;
   line-height: normal;
   letter-spacing: -0.24px;
-  color: rgba(22, 22, 22, 0.5);
+  color: #16161680;
+}
+.labelDark {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-regular);
+  font-size: 12px;
+  line-height: normal;
+  letter-spacing: -0.24px;
+  color: #ffffff80;
 }
 
 .radio {

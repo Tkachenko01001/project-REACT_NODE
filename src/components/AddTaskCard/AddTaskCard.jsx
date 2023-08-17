@@ -139,7 +139,13 @@ export const AddTaskCard = ({ columnId }) => {
                 </div>
 
                 <div className="wrap">
-                  <span className={styles.label}>Label color</span>
+                  <span
+                    className={
+                      theme === 'dark' ? styles.labelDark : styles.label
+                    }
+                  >
+                    Label color
+                  </span>
                   <div className={styles.priorityIcons}>
                     {radioOptions.map((option, index) => (
                       <label key={index} className={styles.radioLabel}>
@@ -162,7 +168,11 @@ export const AddTaskCard = ({ columnId }) => {
                     ))}
                   </div>
                 </div>
-                <span className={styles.label}>Deadline</span>
+                <span
+                  className={theme === 'dark' ? styles.labelDark : styles.label}
+                >
+                  Deadline
+                </span>
                 <CustomMonthLayout
                   daySelected={daySelected}
                   setDaySelected={setDaySelected}

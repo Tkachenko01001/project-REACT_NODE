@@ -147,6 +147,17 @@
   font-size: 12px;
   line-height: normal;
   letter-spacing: -0.24px;
+  color: #16161680;
+}
+.labelDark {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-regular);
+  font-size: 12px;
+  line-height: normal;
+  letter-spacing: -0.24px;
+  color: #ffffff80;
+
 }
 
 .btn {
@@ -235,6 +246,7 @@
   display: flex;
   gap: 8px;
   margin-bottom: 14px;
+  gap: 8px;
 }
 
 .radioLabel {
