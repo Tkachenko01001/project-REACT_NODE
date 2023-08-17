@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import styles from './Help.module.css';
 import axios from 'axios';
-import css from '../../NeedHelp/NeedHelp.module.css';
-import Modal from '../../Modal/Modal';
+import ModalPortal from 'components/Modal/ModalPortal';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/auth/selectors';
+import css from '../../NeedHelp/NeedHelp.module.css';
+import styles from './Help.module.css';
 
 axios.defaults.baseURL = 'https://project-react-node-back.onrender.com';
 
@@ -64,7 +64,7 @@ export const HelpForm = () => {
   return (
     <>
       <p className={css.sidebarHelpBoxItem}>
-        If you need help with{' '}
+        If you need help with
         <button
           onClick={toggleModal}
           className={
@@ -81,7 +81,7 @@ export const HelpForm = () => {
         team.
       </p>
       {isModalOpen && (
-        <Modal onClose={toggleModal}>
+        <ModalPortal onClose={toggleModal}>
           <form onSubmit={handleSubmit}>
             <h1 className={styles.title}>Need help</h1>
             <input
@@ -113,7 +113,7 @@ export const HelpForm = () => {
               Send
             </button>
           </form>
-        </Modal>
+        </ModalPortal>
       )}
       <ToastContainer position="top-left" autoClose={3000} />
     </>
