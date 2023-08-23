@@ -7,7 +7,7 @@ import MainDashboard from '../MainDashboard/MainDashboard';
 import css from './ScreensPage.module.css';
 
 const ScreensPage = () => {
-  const [activeBg, setActiveBg] = useState('null');
+  const [activeBg, setActiveBg] = useState(null);
 
   const theme = useSelector(selectTheme);
   const activeBoard = useSelector(selectActiveBoard);
@@ -16,7 +16,7 @@ const ScreensPage = () => {
     if (activeBoard && activeBoard.background) {
       setActiveBg(activeBoard.background);
     } else {
-      setActiveBg('null');
+      setActiveBg(null);
     }
   }, [activeBoard]);
 
@@ -32,8 +32,8 @@ const ScreensPage = () => {
         <HeaderDashboard />
         <div
           className={`${css.headerDashboardSection} ${
-            activeBg &&
-            css[`bg${activeBg.charAt(0).toUpperCase() + activeBg.slice(1)}`]
+            activeBg ?
+            css[`bg${activeBg.charAt(0).toUpperCase() + activeBg.slice(1)}`] : css.dark
           }`}
         >
           <MainDashboard />

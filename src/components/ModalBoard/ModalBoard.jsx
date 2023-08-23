@@ -93,7 +93,7 @@ const ModalBoard = ({
                     checked={
                       newBackground
                         ? newBackground === bg.title
-                        : background === bg.title
+                        : background === null
                     }
                     onChange={changeBg}
                   />

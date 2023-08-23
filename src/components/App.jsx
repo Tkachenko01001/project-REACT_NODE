@@ -7,6 +7,7 @@ import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
 import { refreshUser } from 'redux/auth/operations';
 import { selectIsLoggedIn, selectIsRefreshing } from 'redux/auth/selectors';
 import { Loader } from './Loader/Loader';
+import { selectToken } from 'redux/auth/selectors';
 
 import AuthPage from 'pages/AuthPage/AuthPage';
 import WelcomePage from 'pages/WelcomePage/WelcomePage';
@@ -16,14 +17,19 @@ const App = () => {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const token = useSelector(selectToken);
 
   const allBoards = useSelector(selectBoardsList);
   const activeBoard = useSelector(selectActiveBoard);
   const navigate = useNavigate();
 
   useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
+
+    if (token && !isLoggedIn) {
+      dispatch(refreshUser());
+    }
+
+  }, [dispatch, token, isLoggedIn]);
 
   useEffect(() => {
     if (
