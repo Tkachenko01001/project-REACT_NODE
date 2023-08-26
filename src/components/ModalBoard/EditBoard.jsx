@@ -51,7 +51,13 @@ const EditBoard = ({ board, checked }) => {
     setNewIcon(newValue);
   };
   const changeBg = newValue => {
-    setNewBackground(newValue);
+    if (newValue === 'default') {
+      setNewBackground(null);
+    }
+
+    else {
+      setNewBackground(newValue);
+    }
   };
   const changeTitle = event => {
     setNewTitle(event.target.value);

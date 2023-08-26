@@ -32,8 +32,8 @@ const ScreensPage = () => {
         <HeaderDashboard />
         <div
           className={`${css.headerDashboardSection} ${
-            activeBg ?
-            css[`bg${activeBg.charAt(0).toUpperCase() + activeBg.slice(1)}`] : css.dark
+            activeBg &&
+            css[`bg${activeBg.charAt(0).toUpperCase() + activeBg.slice(1)}`]
           }`}
         >
           <MainDashboard />

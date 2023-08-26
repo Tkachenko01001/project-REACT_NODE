@@ -16,7 +16,7 @@ import violetSphere from '../images/smallBg/violetSphere.png';
 import yacht from '../images/smallBg/yacht.png';
 
 export const title = [
-  'null',
+  null,
   'airBalloon',
   'blue',
   'cappadocia',
@@ -35,7 +35,7 @@ export const title = [
 ];
 
 export const backgrounds = [
-  { title: 'null', src: base },
+  { title: 'default', src: base },
   { title: 'flowers', src: flowers },
   { title: 'mountains', src: mountains },
   { title: 'tree', src: tree },

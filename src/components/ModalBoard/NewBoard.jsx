@@ -32,7 +32,6 @@ const NewBoard = () => {
         setIcon('icon-project');
         setBackground(null);
       }
-
     });
   };
 
