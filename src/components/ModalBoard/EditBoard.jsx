@@ -3,15 +3,15 @@ import { icons } from 'constants/icons';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ClipLoader from 'react-spinners/ClipLoader';
+import { selectTheme } from 'redux/auth/selectors';
 import { updateBoard } from 'redux/boards/operations';
 import { selectIsBoardsLoading } from 'redux/boards/selectors';
 import sprite from '../../images/sprite.svg';
 import ModalPortal from '../Modal/ModalPortal';
 import css from '../Sidebar/Sidebar.module.css';
 import styles from './ModalBoard.module.css';
-import { selectTheme } from 'redux/auth/selectors';
 
-const EditBoard = ({ board, checked }) => {
+const EditBoard = ({ board }) => {
   const theme = useSelector(selectTheme);
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
 
@@ -24,6 +24,8 @@ const EditBoard = ({ board, checked }) => {
   const [newIcon, setNewIcon] = useState(icon);
   const [newBackground, setNewBackground] = useState(background);
 
+  if (newBackground === null) setNewBackground('default');
+
   useEffect(() => {
     setNewBackground(background);
     setNewIcon(icon);
@@ -31,6 +33,7 @@ const EditBoard = ({ board, checked }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
+    if (newBackground === 'default') setNewBackground(null);
     dispatch(
       updateBoard({
         id,
@@ -71,7 +74,7 @@ const EditBoard = ({ board, checked }) => {
       {isModalOpen && (
         <ModalPortal onClose={toggleModal}>
           <form onSubmit={handleSubmit}>
-            <h1 className={styles.title}>Edit Board</h1>
+            <h1 className={styles.title}>Edit board</h1>
 
             <input
               className={theme === 'violet' ? styles.fieldViolet : styles.field}
