@@ -7,15 +7,15 @@ export const normalizePriority = priority => {
             short: "without",
         },
         {
-            full: 'Low',
+            full: 'Low priority',
             short: "low",
         },
         {
-            full: 'Medium',
+            full: 'Medium priority',
             short: "medium",
         },
         {
-            full: 'High',
+            full: 'High priority',
             short: "high"
         },
     ];
