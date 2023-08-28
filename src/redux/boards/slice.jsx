@@ -20,7 +20,6 @@ const initialState = {
   activeBoard: {},
   isLoading: false,
   error: null,
-  filter: 'show all'
 };
 
 const handlePending = (state, action) => {
@@ -39,12 +38,9 @@ const boardsSlice = createSlice({
     clearError(state) {
       state.error = null;
     },
-    setFilter(state, action) {
-      state.filter = action.payload;
-    },
     dellActive(state, action) {
       state.activeBoard = action.payload;
-    }
+    },
   },
   extraReducers: builder => {
     builder
@@ -59,7 +55,7 @@ const boardsSlice = createSlice({
         state.error = null;
       })
       .addCase(deleteBoard.fulfilled, (state, action) => {
-        state.activeBoard = {};  
+        state.activeBoard = {};
       })
       .addCase(getAllBoards.pending, handlePending)
       .addCase(getAllBoards.rejected, handleRejected)
@@ -87,18 +83,32 @@ const boardsSlice = createSlice({
       .addCase(transferTask.fulfilled, (state, action) => {
         const columns = [...state.activeBoard.columns];
 
-        const sourceColumnIndex = columns.findIndex((el) => el._id === action.payload.source.droppableId);
-        const destinationColumnIndex = columns.findIndex((el) => el._id === action.payload.destination.droppableId);
+        const sourceColumnIndex = columns.findIndex(
+          el => el._id === action.payload.source.droppableId
+        );
+        const destinationColumnIndex = columns.findIndex(
+          el => el._id === action.payload.destination.droppableId
+        );
 
-        const droppedOrderUser = columns[sourceColumnIndex].taskOrder[action.payload.source.index];
-        const droppedUserIndex = columns[sourceColumnIndex].tasks.findIndex((el) => el._id === droppedOrderUser);
+        const droppedOrderUser =
+          columns[sourceColumnIndex].taskOrder[action.payload.source.index];
+        const droppedUserIndex = columns[sourceColumnIndex].tasks.findIndex(
+          el => el._id === droppedOrderUser
+        );
         const droppedUser = columns[sourceColumnIndex].tasks[droppedUserIndex];
 
         columns[sourceColumnIndex].tasks.splice(droppedUserIndex, 1);
         columns[destinationColumnIndex].tasks.push(droppedUser);
 
-        columns[sourceColumnIndex].taskOrder.splice(action.payload.source.index, 1);
-        columns[destinationColumnIndex].taskOrder.splice(action.payload.destination.index, 0, droppedOrderUser)
+        columns[sourceColumnIndex].taskOrder.splice(
+          action.payload.source.index,
+          1
+        );
+        columns[destinationColumnIndex].taskOrder.splice(
+          action.payload.destination.index,
+          0,
+          droppedOrderUser
+        );
 
         state.activeBoard.columns = columns;
         state.isLoading = false;
