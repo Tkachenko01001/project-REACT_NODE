@@ -33,9 +33,9 @@ const HeaderDashboard = () => {
         theme === 'dark' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(22, 22, 22, 0.3)',
       priority: 'Without priority',
     },
-    { color: '#8FA1D0', priority: 'Low' },
-    { color: '#E09CB5', priority: 'Medium' },
-    { color: '#BEDBB0', priority: 'High' },
+    { color: '#8FA1D0', priority: 'Low priority' },
+    { color: '#E09CB5', priority: 'Medium priority' },
+    { color: '#BEDBB0', priority: 'High priority' },
   ];
 
   const handlePriorityChange = event => {
@@ -67,7 +67,11 @@ const HeaderDashboard = () => {
           <title>Filter Icon</title>
           <use href={sprite + '#icon-filter'} />
         </svg>
-        <span className={styles.filterText}>Filters</span>
+        <span className={styles.filterText}>
+          {selectedFilter === 'show all' || !selectedFilter
+            ? 'Filters'
+            : `Filter: ${selectedFilter}`}
+        </span>
       </button>
       {isOpen && (
         <Modal onClose={toggleModal}>
