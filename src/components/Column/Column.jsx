@@ -11,15 +11,15 @@ import DeleteColumn from './DeleteColumn';
 
 import { StrictModeDroppable } from 'components/StrictModeDroppable/StrictModeDroppable';
 import { Draggable } from 'react-beautiful-dnd';
-import { selectFilter } from 'redux/boards/selectors';
+import { getActiveFilter } from 'redux/filter/selectors';
 import { normalizePriority } from 'helpers/normalizePriority';
 
 const Column = ({ column }) => {
-  const { _id, title, tasks, taskOrder } = column;
+  const { _id, title, tasks, taskOrder, board } = column;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
   const theme = useSelector(selectTheme);
-  const selectedFilter = useSelector(selectFilter);
+  const selectedFilter = useSelector(getActiveFilter(board));
   const normalizedFilter = normalizePriority(selectedFilter);
 
   return (

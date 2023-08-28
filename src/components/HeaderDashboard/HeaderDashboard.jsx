@@ -3,15 +3,12 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getActiveBoard } from 'redux/boards/operations';
-import {
-  selectActiveBoard,
-  selectBoardsList,
-  selectFilter,
-} from 'redux/boards/selectors';
+import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
+import { getActiveFilter } from 'redux/filter/selectors';
 import sprite from '../../images/sprite.svg';
 import styles from './HeaderDashboard.module.css';
 import { selectTheme } from 'redux/auth/selectors';
-import { setFilter } from 'redux/boards/slice';
+import { setFilter } from 'redux/filter/slice';
 
 const HeaderDashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +16,7 @@ const HeaderDashboard = () => {
   const dispatch = useDispatch();
   const theme = useSelector(selectTheme);
 
-  const selectedFilter = useSelector(selectFilter);
+  const selectedFilter = useSelector(getActiveFilter(boardName));
 
   useEffect(() => {
     boardName && dispatch(getActiveBoard(boardName));
@@ -43,7 +40,7 @@ const HeaderDashboard = () => {
 
   const handlePriorityChange = event => {
     if (event.type === 'click') event.target.value = 'show all';
-    dispatch(setFilter(event.target.value));
+    dispatch(setFilter({ [boardName]: event.target.value }));
   };
 
   const titleToShow =

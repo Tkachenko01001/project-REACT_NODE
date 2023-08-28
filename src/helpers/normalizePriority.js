@@ -1,4 +1,5 @@
 export const normalizePriority = priority => {
+    if (!priority) return 'show all';
     if (priority === 'show all') return priority;
     const values = [
         {
@@ -18,7 +19,6 @@ export const normalizePriority = priority => {
             short: "high"
         },
     ];
-
     const selected = values.find(value => value.full === priority);
     return selected.short;
 
