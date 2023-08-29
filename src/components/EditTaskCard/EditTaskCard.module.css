@@ -349,3 +349,12 @@
   font-size: 10px;
   color: var(--color-hover-green);
 }
+
+.errorViolet {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-family: var(--font-regular);
+  font-size: 10px;
+  color: var(--color-violet);
+}

@@ -154,6 +154,7 @@ export const AddTaskCard = ({ columnId }) => {
                           name="priority"
                           value={`${option.priority}`}
                           className={styles.radioInput}
+                          checked={option.priority === 'without'}
                           onChange={e => handleChange(e, setFieldValue)}
                         />
                         <span
