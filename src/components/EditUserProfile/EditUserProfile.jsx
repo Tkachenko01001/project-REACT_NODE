@@ -1,29 +1,30 @@
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import Modal from '../Modal/Modal';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { object, string } from 'yup';
-import { EyeOpen } from '../AuthForm/EyeOpen/EyeOpen';
-import { EyeClose } from '../AuthForm/EyeClose/EyeClose';
-import { Loader } from '../Loader/Loader';
-import styles from './EditUserProfile.module.css';
 import Avatar from 'components/Avatar/Avatar';
 import { Previews } from 'components/AvatarModal/AvatarModal';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateUser } from 'redux/auth/operations';
-import { selectUser } from 'redux/auth/selectors';
-import { selectTheme } from 'redux/auth/selectors';
+import { selectTheme, selectUser } from 'redux/auth/selectors';
+import { object, string } from 'yup';
+import { EyeClose } from '../AuthForm/EyeClose/EyeClose';
+import { EyeOpen } from '../AuthForm/EyeOpen/EyeOpen';
+import { Loader } from '../Loader/Loader';
+import Modal from '../Modal/Modal';
+import styles from './EditUserProfile.module.css';
 
 const updateUserSchema = object({
   name: string()
+    .required('the field cannot be empty')
     .min(2, 'minimum 2 characters')
     .max(32, 'maximum 32 characters')
     .test(
       'only-allowed-chars',
       'Must contain: only Latin, numbers, special characters',
-      value => /^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/.test(value)
+      value => !value || /^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/.test(value)
     )
     .matches(/^[a-zA-Z0-9 !@#$%^&*()_+,.:;’“?/-]+$/, 'Invalid name format'),
   email: string()
+    .required('the field cannot be empty')
     .email()
     .matches(/^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}$/, 'Invalid email format'),
   password: string()
@@ -32,12 +33,12 @@ const updateUserSchema = object({
     .test(
       'no-spaces',
       'Invalid format: without spaces',
-      value => !/\s/.test(value)
+      value => !value || !/\s/.test(value)
     )
     .test(
       'only-allowed-chars',
       'Must contain: only Latin, numbers, special characters',
-      value => /^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/.test(value)
+      value => !value || /^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/.test(value)
     )
     .matches(/^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/, 'Invalid password format'),
 });
@@ -55,18 +56,22 @@ export const EditUserProfile = () => {
   };
 
   const [passwordShown, setPasswordShown] = useState(false);
-  const [passwordIcon, setpasswordIcon] = useState(<EyeClose />);
+  const [passwordIcon, setPasswordIcon] = useState(<EyeClose />);
 
-  const togglPassword = () => {
+  const togglePassword = () => {
     setPasswordShown(!passwordShown);
-    setpasswordIcon(!passwordShown ? <EyeOpen /> : <EyeClose />);
+    setPasswordIcon(!passwordShown ? <EyeOpen /> : <EyeClose />);
   };
 
   const FormError = ({ name }) => {
     return (
       <ErrorMessage
         name={name}
-        render={message => <p className={styles.error}>{message}</p>}
+        render={message => (
+          <p className={theme === 'violet' ? styles.errorViolet : styles.error}>
+            {message}
+          </p>
+        )}
       />
     );
   };
@@ -143,7 +148,7 @@ export const EditUserProfile = () => {
                     name="password"
                     placeholder="Change password"
                   />
-                  <span className={styles.eye_icon} onClick={togglPassword}>
+                  <span className={styles.eye_icon} onClick={togglePassword}>
                     {passwordIcon}
                   </span>
                   {errors.password && <FormError name="password" />}

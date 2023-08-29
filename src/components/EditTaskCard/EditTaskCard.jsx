@@ -15,9 +15,9 @@ import CustomMonthLayout from 'components/Calendar/Calendar';
 import { format } from 'date-fns';
 
 const registerSchema = object({
-  title: string().required(),
+  title: string().required('the field cannot be empty'),
   priority: string().required(),
-  description: string().required(),
+  description: string().required('the field cannot be empty'),
 });
 
 export const EditTaskCard = ({ task }) => {
@@ -28,7 +28,6 @@ export const EditTaskCard = ({ task }) => {
     priority: oldPriority,
     deadline,
   } = task;
-
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -53,7 +52,11 @@ export const EditTaskCard = ({ task }) => {
     return (
       <ErrorMessage
         name={name}
-        render={message => <p className={styles.error}>{message}</p>}
+        render={message => (
+          <p className={theme === 'violet' ? styles.errorViolet : styles.error}>
+            {message}
+          </p>
+        )}
       />
     );
   };
@@ -72,8 +75,7 @@ export const EditTaskCard = ({ task }) => {
     }
   };
 
-  const onSubmit = (values, { setSubmitting }) => {
-    console.log(taskId);
+  const onSubmit = (_, { setSubmitting }) => {
     dispatch(
       updateTask({
         id: taskId,
