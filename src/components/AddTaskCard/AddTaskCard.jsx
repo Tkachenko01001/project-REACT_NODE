@@ -33,6 +33,7 @@ export const AddTaskCard = ({ columnId }) => {
   const dispatch = useDispatch();
   const theme = useSelector(selectTheme);
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
+  const [isFormEmpty, setIsFormEmpty] = useState(true);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [priority, setPriority] = useState('');
@@ -66,17 +67,25 @@ export const AddTaskCard = ({ columnId }) => {
     setFieldValue(name, value);
     switch (name) {
       case 'title':
-        return setTitle(value);
+        setTitle(value);
+        break;
       case 'description':
-        return setDescription(value);
+        setDescription(value);
+        break;
       case 'priority':
-        return setPriority(value);
+        setPriority(value);
+        break;
       default:
-        return;
+        break;
     }
+    const isTitleEmpty =
+      name === 'title' ? value.trim() === '' : title.trim() === '';
+    const isDescriptionEmpty =
+      name === 'description' ? value.trim() === '' : description.trim() === '';
+    setIsFormEmpty(isTitleEmpty || isDescriptionEmpty);
   };
 
-  const onSubmit = (values, { setSubmitting }) => {
+  const onSubmit = (_, { setSubmitting }) => {
     dispatch(
       addTask({
         title: title,
@@ -182,6 +191,7 @@ export const AddTaskCard = ({ columnId }) => {
                 <button
                   className={theme === 'violet' ? styles.btnViolet : styles.btn}
                   type="submit"
+                  disabled={isFormEmpty}
                   onClick={() => {
                     setFieldValue('title', title);
                     setFieldValue('description', description);

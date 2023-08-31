@@ -17,6 +17,7 @@ export default function AddColumn({ toggleModal }) {
   const activeBoard = useSelector(selectActiveBoard);
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
   const theme = useSelector(selectTheme);
+  const [isFormEmpty, setIsFormEmpty] = useState(true);
   const [title, setTitle] = useState('');
 
   const handleSubmit = (_, { setSubmitting }) => {
@@ -35,10 +36,14 @@ export default function AddColumn({ toggleModal }) {
     setFieldValue(name, value);
     switch (name) {
       case 'title':
-        return setTitle(value);
+        setTitle(value);
+        break;
       default:
         return;
     }
+    const isTitleEmpty =
+      name === 'title' ? value.trim() === '' : title.trim() === '';
+    setIsFormEmpty(isTitleEmpty);
   };
 
   return (
@@ -75,7 +80,12 @@ export default function AddColumn({ toggleModal }) {
                 </p>
               )}
             </div>
-            <Button loading={isBoardsLoading} icon="true" text="Add" />
+            <Button
+              disabled={isFormEmpty}
+              loading={isBoardsLoading}
+              icon="true"
+              text="Add"
+            />
           </Form>
         )}
       </Formik>

@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ClipLoader from 'react-spinners/ClipLoader';
+import { selectTheme } from 'redux/auth/selectors';
 import { deleteBoard } from 'redux/boards/operations';
 import {
   selectActiveBoard,
   selectIsBoardsLoading,
 } from 'redux/boards/selectors';
-import { selectTheme } from 'redux/auth/selectors';
 
 import ModalPortal from 'components/Modal/ModalPortal';
 import sprite from '../../images/sprite.svg';
@@ -46,7 +46,7 @@ const DeleteBoard = ({ checked }) => {
       </button>
       {isModalOpen && (
         <ModalPortal onClose={toggleModal}>
-          <h1 className={styles.title}>Delete Board</h1>
+          <h2 className={styles.title}>Delete board</h2>
           {activeBoard && columns && columns.length === 0 ? (
             <h3 className={styles.text}>
               Are you sure you want to delete the board?

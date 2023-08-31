@@ -26,7 +26,6 @@
 .flexMarkup {
   display: flex;
   flex-direction: column;
-  height: 100vh;
 }
 .sectionBoards {
   flex: 1;
@@ -80,6 +79,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+  overflow-y: hidden;
   background-color: inherit;
   width: 225px;
 }

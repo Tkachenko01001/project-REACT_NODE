@@ -15,6 +15,7 @@ import css from '../Sidebar/Sidebar.module.css';
 import styles from './ModalBoard.module.css';
 
 const NewBoard = () => {
+  const [isFormEmpty, setIsFormEmpty] = useState(true);
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
@@ -47,10 +48,14 @@ const NewBoard = () => {
     setFieldValue(name, value);
     switch (name) {
       case 'title':
-        return setTitle(value);
+        setTitle(value);
+        break;
       default:
-        return;
+        break;
     }
+    const isTitleEmpty =
+      name === 'title' ? value.trim() === '' : title.trim() === '';
+    setIsFormEmpty(isTitleEmpty);
   };
 
   return (
@@ -175,6 +180,7 @@ const NewBoard = () => {
                 <button
                   className={theme === 'violet' ? styles.btnViolet : styles.btn}
                   type="submit"
+                  disabled={isFormEmpty}
                 >
                   {isBoardsLoading ? (
                     <ClipLoader color="#1f1f1f" size={30} />
