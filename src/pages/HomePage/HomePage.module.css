@@ -1,5 +1,7 @@
 .home {
   display: flex;
+  height: 100vh;
+  overflow-y: hidden;
 }
 
 .homeWrap {

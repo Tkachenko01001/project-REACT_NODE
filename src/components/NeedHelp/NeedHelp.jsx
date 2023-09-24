@@ -1,11 +1,11 @@
-import sprite from '../../images/sprite.svg';
+import { HelpForm } from 'components/HelpForm/HelpForm';
+import { useSelector } from 'react-redux';
+import { selectTheme } from 'redux/auth/selectors';
 import cactus from '../../images/cactus.png';
 import cactus2x from '../../images/cactus@2x.png';
 import cactus3x from '../../images/cactus@3x.png';
+import sprite from '../../images/sprite.svg';
 import css from './NeedHelp.module.css';
-import { useSelector } from 'react-redux';
-import { selectTheme } from 'redux/auth/selectors';
-import { HelpForm } from 'components/Help/HelpForm/Help';
 
 export const NeedHelp = () => {
   const theme = useSelector(selectTheme);

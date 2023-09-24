@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 import Swal from 'sweetalert2';
 
 axios.defaults.baseURL = 'https://project-react-node-back.onrender.com';

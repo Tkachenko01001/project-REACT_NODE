@@ -4,13 +4,14 @@ import { selectTheme } from 'redux/auth/selectors';
 import sprite from '../../images/sprite.svg';
 import styles from './Button.module.css';
 
-const Button = ({ icon, text, onClick, loading }) => {
+const Button = ({ icon, text, onClick, loading, disabled }) => {
   const theme = useSelector(selectTheme);
   return (
     <button
       className={theme === 'violet' ? styles.buttonViolet : styles.button}
       type="submit"
       onClick={onClick}
+      disabled={disabled}
     >
       {loading ? (
         <ClipLoader color="#1f1f1f" size={30} />

@@ -10,7 +10,6 @@ import { selectTheme } from 'redux/auth/selectors';
 import css from './Calendar.module.css';
 
 export default function CustomMonthLayout({ daySelected, setDaySelected }) {
-  const [firstView, setFirstView] = useState(true);
   const theme = useSelector(selectTheme);
   const DateBefore = { before: new Date() };
 
@@ -30,7 +29,6 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
   };
 
   const handleDaySelect = date => {
-    setFirstView(false);
     setDaySelected(date);
     if (date) {
       closePopper();
@@ -42,11 +40,18 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
     footer = <p>You picked {format(daySelected, 'PP')}</p>;
   }
 
+  const currentDate = new Date();
+
+  const formattedDate = currentDate.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  });
+
   return (
     <div>
       <div ref={popperRef}>
         <button
-          // className={css.calendarButton}
           className={
             theme === 'violet' ? css.calendarButtonViolet : css.calendarButton
           }
@@ -55,10 +60,10 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
           aria-label="Pick a date"
           onClick={handleButtonClick}
         >
-          {firstView ? (
+          {format(daySelected, 'PP') === formattedDate ? (
             <span>Today is {format(daySelected, 'PPPP')}</span>
           ) : (
-            <span>Selected deadline on {format(daySelected, 'PPP')}</span>
+            <span>Selected deadline on {format(daySelected, 'PPPP')}</span>
           )}
 
           <Icon name="#icon-chevron-down" width="16px" height="16px" />

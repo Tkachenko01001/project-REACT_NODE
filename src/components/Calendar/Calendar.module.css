@@ -72,6 +72,7 @@
 }
 
 .calendarButton {
+  text-align: left;
   outline: none;
   border: none;
   background-color: transparent;
@@ -79,7 +80,7 @@
   padding: 0;
   display: flex;
   gap: 4px;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .calendarButtonViolet {

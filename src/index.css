@@ -123,6 +123,10 @@ button {
   font-family: inherit;
 }
 
+button:disabled {
+  cursor: not-allowed;
+}
+
 img {
   display: block;
   max-width: 100%;

@@ -13,6 +13,7 @@ export default function EditColumn({ id, title, onClose }) {
   const isBoardsLoading = useSelector(selectIsBoardsLoading);
   const dispatch = useDispatch();
   const [newTitle, setNewTitle] = useState(title);
+  const [isFormEmpty, setIsFormEmpty] = useState(title);
   const theme = useSelector(selectTheme);
 
   const handleSubmit = (_, { setSubmitting }) => {
@@ -26,10 +27,14 @@ export default function EditColumn({ id, title, onClose }) {
     setFieldValue(name, value);
     switch (name) {
       case 'title':
-        return setNewTitle(value);
+        setNewTitle(value);
+        break;
       default:
         return;
     }
+    const isTitleEmpty =
+      name === 'title' ? value.trim() === '' : title.trim() === '';
+    setIsFormEmpty(isTitleEmpty);
   };
 
   return (
@@ -66,7 +71,12 @@ export default function EditColumn({ id, title, onClose }) {
                 </p>
               )}
             </div>
-            <Button loading={isBoardsLoading} icon="true" text="Add" />
+            <Button
+              disabled={isFormEmpty}
+              loading={isBoardsLoading}
+              icon="true"
+              text="Add"
+            />
           </Form>
         )}
       </Formik>
