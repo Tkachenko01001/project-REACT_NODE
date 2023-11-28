@@ -1,19 +1,19 @@
-import airBalloon from '../images/smallBg/airBalloon.png';
-import blue from '../images/smallBg/blue.png';
-import cappadocia from '../images/smallBg/cappadocia.png';
-import base from '../images/smallBg/default.png';
-import flowers from '../images/smallBg/flowers.png';
-import gorge from '../images/smallBg/gorge.png';
-import greens from '../images/smallBg/greens.png';
-import moon from '../images/smallBg/moon.png';
-import mountains from '../images/smallBg/mountains.png';
-import rocksAndSea from '../images/smallBg/rocksAndSea.png';
-import sea from '../images/smallBg/sea.png';
-import semiMoon from '../images/smallBg/semiMoon.png';
-import trailer from '../images/smallBg/trailer.png';
-import tree from '../images/smallBg/tree.png';
-import violetSphere from '../images/smallBg/violetSphere.png';
-import yacht from '../images/smallBg/yacht.png';
+import airBalloon from '../assets/images/smallBg/airBalloon.png';
+import blue from '../assets/images/smallBg/blue.png';
+import cappadocia from '../assets/images/smallBg/cappadocia.png';
+import base from '../assets/images/smallBg/default.png';
+import flowers from '../assets/images/smallBg/flowers.png';
+import gorge from '../assets/images/smallBg/gorge.png';
+import greens from '../assets/images/smallBg/greens.png';
+import moon from '../assets/images/smallBg/moon.png';
+import mountains from '../assets/images/smallBg/mountains.png';
+import rocksAndSea from '../assets/images/smallBg/rocksAndSea.png';
+import sea from '../assets/images/smallBg/sea.png';
+import semiMoon from '../assets/images/smallBg/semiMoon.png';
+import trailer from '../assets/images/smallBg/trailer.png';
+import tree from '../assets/images/smallBg/tree.png';
+import violetSphere from '../assets/images/smallBg/violetSphere.png';
+import yacht from '../assets/images/smallBg/yacht.png';
 
 export const title = [
   null,

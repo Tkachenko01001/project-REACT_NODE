@@ -4,7 +4,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import { selectTheme } from 'redux/auth/selectors';
 import { deleteColumn } from 'redux/boards/operations';
 import { selectIsBoardsLoading } from 'redux/boards/selectors';
-import sprite from '../../images/sprite.svg';
+import sprite from '../../assets/svg/sprite.svg';
 import style from '../Column/Column.module.css';
 import ModalPortal from '../Modal/ModalPortal';
 import styles from '../ModalBoard/ModalBoard.module.css';

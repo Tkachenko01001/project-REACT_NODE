@@ -2,13 +2,14 @@ import Modal from 'components/Modal/Modal';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { selectTheme } from 'redux/auth/selectors';
 import { getActiveBoard } from 'redux/boards/operations';
 import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
-import { getActiveFilter } from 'redux/filter/selectors';
-import sprite from '../../images/sprite.svg';
-import styles from './HeaderDashboard.module.css';
-import { selectTheme } from 'redux/auth/selectors';
 import { setFilter } from 'redux/filter/slice';
+import sprite from '../../assets/svg/sprite.svg';
+import styles from './HeaderDashboard.module.css';
+import { getActiveFilter } from 'redux/filter/selectors';
+
 
 const HeaderDashboard = () => {
   const [isOpen, setIsOpen] = useState(false);

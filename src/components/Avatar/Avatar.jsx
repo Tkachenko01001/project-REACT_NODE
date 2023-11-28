@@ -1,10 +1,9 @@
 import { useSelector } from 'react-redux';
-import { selectUser } from 'redux/auth/selectors';
-import { selectIsLoading } from 'redux/auth/selectors';
+import { selectIsLoading, selectUser } from 'redux/auth/selectors';
 
-import avaDark from '../../images/user_dark.svg';
-import avaLight from '../../images/user_light.svg';
-import avaViolet from '../../images/user_violet.svg';
+import avaDark from '../../assets/svg/user_dark.svg';
+import avaLight from '../../assets/svg/user_light.svg';
+import avaViolet from '../../assets/svg/user_violet.svg';
 
 import { Puff } from 'react-loader-spinner';
 

@@ -5,7 +5,7 @@
   margin-right: auto;
   height: 100vh;
   background: linear-gradient(#c4c4c400, var(--color-green)),
-    url(../../images/background.png);
+    url(../../assets/images/png/background.png);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   mix-blend-mode: color-burn;
   position: relative;

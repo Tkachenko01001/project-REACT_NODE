@@ -1,11 +1,10 @@
 import { useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { selectUser } from 'redux/auth/selectors';
+import { selectTheme, selectUser } from 'redux/auth/selectors';
+import avaDark from '../../assets/svg/user_dark.svg';
+import avaLight from '../../assets/svg/user_light.svg';
+import avaViolet from '../../assets/svg/user_violet.svg';
 import styles from './AvatarModal.module.css';
-import avaDark from '../../images/user_dark.svg';
-import avaLight from '../../images/user_light.svg';
-import avaViolet from '../../images/user_violet.svg';
-import { selectTheme } from 'redux/auth/selectors';
 
 export function Previews({ onImageSelect }) {
   const user = useSelector(selectUser);

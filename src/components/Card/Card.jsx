@@ -1,9 +1,9 @@
 import { EditTaskCard } from 'components/EditTaskCard/EditTaskCard';
-import sprite from '../../images/sprite.svg';
+import { useSelector } from 'react-redux';
+import { selectTheme } from 'redux/auth/selectors';
+import sprite from '../../assets/svg/sprite.svg';
 import styles from './Card.module.css';
 import DeleteTask from './DeleteCard';
-import { selectTheme } from 'redux/auth/selectors';
-import { useSelector } from 'react-redux';
 
 const Card = ({ task }) => {
   const { _id: id, title, description, priority, deadline } = task;
@@ -93,7 +93,7 @@ const Card = ({ task }) => {
               </button>
             </li> */}
             <li className={styles.cardIcon}>
-                 <EditTaskCard task={task} />
+              <EditTaskCard task={task} />
             </li>
             <li className={styles.cardIcon}>
               <DeleteTask id={id} />

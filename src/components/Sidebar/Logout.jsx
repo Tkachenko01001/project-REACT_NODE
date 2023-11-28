@@ -2,13 +2,12 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { logOut } from 'redux/auth/operations';
-import { selectIsLoggedIn } from 'redux/auth/selectors';
-import css from './Sidebar.module.css';
-import { selectTheme } from 'redux/auth/selectors';
+import { selectIsLoggedIn, selectTheme } from 'redux/auth/selectors';
 import { dellActive } from 'redux/boards/slice';
-import sprite from '../../images/sprite.svg';
+import sprite from '../../assets/svg/sprite.svg';
 import ModalPortal from '../Modal/ModalPortal';
 import styles from '../ModalBoard/ModalBoard.module.css';
+import css from './Sidebar.module.css';
 
 const Logout = () => {
   const isLoading = useSelector(selectIsLoggedIn);

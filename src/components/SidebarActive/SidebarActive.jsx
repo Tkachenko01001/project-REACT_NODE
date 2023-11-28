@@ -1,15 +1,15 @@
-import css from '../SidebarActive/SidebarActive.module.css';
-import sprite from '../../images/sprite.svg';
-import cactus from '../../images/cactus.png';
-import cactus2x from '../../images/cactus@2x.png';
-import cactus3x from '../../images/cactus@3x.png';
-import { logOut } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
+import { logOut } from 'redux/auth/operations';
+import cactus from '../../assets/images/png/cactus.png';
+import cactus2x from '../../assets/images/png/cactus@2x.png';
+import cactus3x from '../../assets/images/png/cactus@3x.png';
+import sprite from '../../assets/svg/sprite.svg';
+import css from '../SidebarActive/SidebarActive.module.css';
 
-import NewBoard from 'components/NewBoard/NewBoard';
 import EditBoard from 'components/EditBoard/EditBoard';
+import NewBoard from 'components/NewBoard/NewBoard';
 
-const SidebarActive = ({ boards}) => {
+const SidebarActive = ({ boards }) => {
   const dispatch = useDispatch();
 
   const handleClickBoard = () => {

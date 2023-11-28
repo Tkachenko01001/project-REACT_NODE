@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { selectTheme } from 'redux/auth/selectors';
-import sprite from '../../images/sprite.svg';
+import sprite from '../../assets/svg/sprite.svg';
 import styles from './Button.module.css';
 
 const Button = ({ icon, text, onClick, loading, disabled }) => {

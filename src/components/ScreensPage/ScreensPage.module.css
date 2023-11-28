@@ -43,372 +43,372 @@
     display: flex;
   }
   .bgAirBalloon {
-    background-image: url(/src/images/airBalloon-mobile-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/airBalloon-mobile-1x.jpg);
   }
 
   .bgBlue {
-    background-image: url(/src/images/blue-mobile-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/blue-mobile-1x.jpg);
   }
 
   .bgCappadocia {
-    background-image: url(/src/images/cappadocia-mobile-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/cappadocia-mobile-1x.jpg);
   }
 
   .bgFlowers {
-    background-image: url(/src/images/flowers-mobile-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/flowers-mobile-1x.jpg);
   }
 
   .bgGorge {
-    background-image: url(/src/images/gorge-mobile-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/gorge-mobile-1x.jpg);
   }
 
   .bgGreens {
-    background-image: url(/src/images/greens-mobile-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/greens-mobile-1x.jpg);
   }
 
   .bgMoon {
-    background-image: url(/src/images/moon-mobile-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/moon-mobile-1x.jpg);
   }
 
   .bgMountains {
-    background-image: url(/src/images/mountains-mobile-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/mountains-mobile-1x.jpg);
   }
 
   .bgRocksAndSea {
-    background-image: url(/src/images/rocksAndSea-mobile-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/rocksAndSea-mobile-1x.jpg);
   }
 
   .bgSea {
-    background-image: url(/src/images/sea-mobile-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/sea-mobile-1x.jpg);
   }
 
   .bgSemiMoon {
-    background-image: url(/src/images/semiMoon-mobile-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/semiMoon-mobile-1x.jpg);
   }
 
   .bgTrailer {
-    background-image: url(/src/images/trailer-mobile-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/trailer-mobile-1x.jpg);
   }
 
   .bgTree {
-    background-image: url(/src/images/tree-mobile-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/tree-mobile-1x.jpg);
   }
 
   .bgVioletSphere {
-    background-image: url(/src/images/violetSphere-mobile-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/violetSphere-mobile-1x.jpg);
   }
 
   .bgYacht {
-    background-image: url(/src/images/yacht-mobile-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/yacht-mobile-1x.jpg);
   }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1440px) {
   .bgAirBalloon {
-    background-image: url(/src/images/airBalloon-tablet-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/airBalloon-tablet-1x.jpg);
   }
 
   .bgBlue {
-    background-image: url(/src/images/blue-tablet-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/blue-tablet-1x.jpg);
   }
 
   .bgCappadocia {
-    background-image: url(/src/images/cappadocia-tablet-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/cappadocia-tablet-1x.jpg);
   }
 
   .bgFlowers {
-    background-image: url(/src/images/flowers-tablet-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/flowers-tablet-1x.jpg);
   }
 
   .bgGorge {
-    background-image: url(/src/images/gorge-tablet-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/gorge-tablet-1x.jpg);
   }
 
   .bgGreens {
-    background-image: url(/src/images/greens-tablet-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/greens-tablet-1x.jpg);
   }
 
   .bgMoon {
-    background-image: url(/src/images/moon-tablet-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/moon-tablet-1x.jpg);
   }
 
   .bgMountains {
-    background-image: url(/src/images/mountains-tablet-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/mountains-tablet-1x.jpg);
   }
 
   .bgRocksAndSea {
-    background-image: url(/src/images/rocksAndSea-tablet-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/rocksAndSea-tablet-1x.jpg);
   }
 
   .bgSea {
-    background-image: url(/src/images/sea-tablet-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/sea-tablet-1x.jpg);
   }
 
   .bgSemiMoon {
-    background-image: url(/src/images/semiMoon-tablet-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/semiMoon-tablet-1x.jpg);
   }
 
   .bgTrailer {
-    background-image: url(/src/images/trailer-tablet-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/trailer-tablet-1x.jpg);
   }
 
   .bgTree {
-    background-image: url(/src/images/tree-tablet-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/tree-tablet-1x.jpg);
   }
 
   .bgVioletSphere {
-    background-image: url(/src/images/violetSphere-tablet-1x.jpg);
+    background-image: url(/src/assets/images/bigBg//tablet/violetSphere-tablet-1x.jpg);
   }
 
   .bgYacht {
-    background-image: url(/src/images/yacht-tablet-1x.jpg);
+    background-image: url(/src/assets/images/bigBg//tablet/yacht-tablet-1x.jpg);
   }
 }
 
 @media screen and (min-width: 1441px) {
   .bgAirBalloon {
-    background-image: url(/src/images/airBalloon-desktop-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/airBalloon-desktop-1x.jpg);
   }
 
   .bgBlue {
-    background-image: url(/src/images/blue-desktop-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/blue-desktop-1x.jpg);
   }
 
   .bgCappadocia {
-    background-image: url(/src/images/cappadocia-desktop-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/cappadocia-desktop-1x.jpg);
   }
 
   .bgFlowers {
-    background-image: url(/src/images/flowers-desktop-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/flowers-desktop-1x.jpg);
   }
 
   .bgGorge {
-    background-image: url(/src/images/gorge-desktop-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/gorge-desktop-1x.jpg);
   }
 
   .bgGreens {
-    background-image: url(/src/images/greens-desktop-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/greens-desktop-1x.jpg);
   }
 
   .bgMoon {
-    background-image: url(/src/images/moon-desktop-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/moon-desktop-1x.jpg);
   }
 
   .bgMountains {
-    background-image: url(/src/images/mountains-desktop-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/mountains-desktop-1x.jpg);
   }
 
   .bgRocksAndSea {
-    background-image: url(/src/images/rocksAndSea-desktop-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/rocksAndSea-desktop-1x.jpg);
   }
 
   .bgSea {
-    background-image: url(/src/images/sea-desktop-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/sea-desktop-1x.jpg);
   }
 
   .bgSemiMoon {
-    background-image: url(/src/images/semiMoon-desktop-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/semiMoon-desktop-1x.jpg);
   }
 
   .bgTrailer {
-    background-image: url(/src/images/trailer-desktop-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/trailer-desktop-1x.jpg);
   }
 
   .bgTree {
-    background-image: url(/src/images/tree-desktop-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/tree-desktop-1x.jpg);
   }
 
   .bgVioletSphere {
-    background-image: url(/src/images/violetSphere-desktop-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/violetSphere-desktop-1x.jpg);
   }
 
   .bgYacht {
-    background-image: url(/src/images/yacht-desktop-1x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/yacht-desktop-1x.jpg);
   }
 }
 
 @media screen and (min-width: 1440px) and (min-resolution: 2dppx) {
   .bgAirBalloon {
-    background-image: url(/src/images/airBalloon-desktop-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/airBalloon-desktop-2x.jpg);
   }
 
   .bgBlue {
-    background-image: url(/src/images/blue-desktop-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/blue-desktop-2x.jpg);
   }
 
   .bgCappadocia {
-    background-image: url(/src/images/cappadocia-desktop-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/cappadocia-desktop-2x.jpg);
   }
 
   .bgFlowers {
-    background-image: url(/src/images/flowers-desktop-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/flowers-desktop-2x.jpg);
   }
 
   .bgGorge {
-    background-image: url(/src/images/gorge-desktop-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/gorge-desktop-2x.jpg);
   }
 
   .bgGreens {
-    background-image: url(/src/images/greens-desktop-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/greens-desktop-2x.jpg);
   }
 
   .bgMoon {
-    background-image: url(/src/images/moon-desktop-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/moon-desktop-2x.jpg);
   }
 
   .bgMountains {
-    background-image: url(/src/images/mountains-desktop-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/mountains-desktop-2x.jpg);
   }
 
   .bgRocksAndSea {
-    background-image: url(/src/images/rocksAndSea-desktop-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/rocksAndSea-desktop-2x.jpg);
   }
 
   .bgSea {
-    background-image: url(/src/images/sea-desktop-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/sea-desktop-2x.jpg);
   }
 
   .bgSemiMoon {
-    background-image: url(/src/images/semiMoon-desktop-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/semiMoon-desktop-2x.jpg);
   }
 
   .bgTrailer {
-    background-image: url(/src/images/trailer-desktop-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/trailer-desktop-2x.jpg);
   }
 
   .bgTree {
-    background-image: url(/src/images/tree-desktop-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/tree-desktop-2x.jpg);
   }
 
   .bgVioletSphere {
-    background-image: url(/src/images/violetSphere-desktop-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/violetSphere-desktop-2x.jpg);
   }
 
   .bgYacht {
-    background-image: url(/src/images/yacht-desktop-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/desktop/yacht-desktop-2x.jpg);
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1439px) and (min-resolution: 2dppx) {
   .bgAirBalloon {
-    background-image: url(/src/images/airBalloon-tablet-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/airBalloon-tablet-2x.jpg);
   }
 
   .bgBlue {
-    background-image: url(/src/images/blue-tablet-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/blue-tablet-2x.jpg);
   }
 
   .bgCappadocia {
-    background-image: url(/src/images/cappadocia-tablet-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/cappadocia-tablet-2x.jpg);
   }
 
   .bgFlowers {
-    background-image: url(/src/images/flowers-tablet-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/flowers-tablet-2x.jpg);
   }
 
   .bgGorge {
-    background-image: url(/src/images/gorge-tablet-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/gorge-tablet-2x.jpg);
   }
 
   .bgGreens {
-    background-image: url(/src/images/greens-tablet-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/greens-tablet-2x.jpg);
   }
 
   .bgMoon {
-    background-image: url(/src/images/moon-tablet-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/moon-tablet-2x.jpg);
   }
 
   .bgMountains {
-    background-image: url(/src/images/mountains-tablet-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/mountains-tablet-2x.jpg);
   }
 
   .bgRocksAndSea {
-    background-image: url(/src/images/rocksAndSea-tablet-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/rocksAndSea-tablet-2x.jpg);
   }
 
   .bgSea {
-    background-image: url(/src/images/sea-tablet-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/sea-tablet-2x.jpg);
   }
 
   .bgSemiMoon {
-    background-image: url(/src/images/semiMoon-tablet-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/semiMoon-tablet-2x.jpg);
   }
 
   .bgTrailer {
-    background-image: url(/src/images/trailer-tablet-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/trailer-tablet-2x.jpg);
   }
 
   .bgTree {
-    background-image: url(/src/images/tree-tablet-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/tree-tablet-2x.jpg);
   }
 
   .bgVioletSphere {
-    background-image: url(/src/images/violetSphere-tablet-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/violetSphere-tablet-2x.jpg);
   }
 
   .bgYacht {
-    background-image: url(/src/images/yacht-tablet-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/tablet/yacht-tablet-2x.jpg);
   }
 }
 
 @media screen and (max-width: 768px) and (min-resolution: 2dppx) {
   .bgAirBalloon {
-    background-image: url(/src/images/airBalloon-mobile-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/airBalloon-mobile-2x.jpg);
   }
 
   .bgBlue {
-    background-image: url(/src/images/blue-mobile-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/blue-mobile-2x.jpg);
   }
 
   .bgCappadocia {
-    background-image: url(/src/images/cappadocia-mobile-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/cappadocia-mobile-2x.jpg);
   }
 
   .bgFlowers {
-    background-image: url(/src/images/flowers-mobile-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/flowers-mobile-2x.jpg);
   }
 
   .bgGorge {
-    background-image: url(/src/images/gorge-mobile-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/gorge-mobile-2x.jpg);
   }
 
   .bgGreens {
-    background-image: url(/src/images/greens-mobile-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/greens-mobile-2x.jpg);
   }
 
   .bgMoon {
-    background-image: url(/src/images/moon-mobile-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/moon-mobile-2x.jpg);
   }
 
   .bgMountains {
-    background-image: url(/src/images/mountains-mobile-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/mountains-mobile-2x.jpg);
   }
 
   .bgRocksAndSea {
-    background-image: url(/src/images/rocksAndSea-mobile-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/rocksAndSea-mobile-2x.jpg);
   }
 
   .bgSea {
-    background-image: url(/src/images/sea-mobile-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/sea-mobile-2x.jpg);
   }
 
   .bgSemiMoon {
-    background-image: url(/src/images/semiMoon-mobile-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/semiMoon-mobile-2x.jpg);
   }
 
   .bgTrailer {
-    background-image: url(/src/images/trailer-mobile-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/trailer-mobile-2x.jpg);
   }
 
   .bgTree {
-    background-image: url(/src/images/tree-mobile-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/tree-mobile-2x.jpg);
   }
 
   .bgVioletSphere {
-    background-image: url(/src/images/violetSphere-mobile-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/violetSphere-mobile-2x.jpg);
   }
 
   .bgYacht {
-    background-image: url(/src/images/yacht-mobile-2x.jpg);
+    background-image: url(/src/assets/images/bigBg/mobile/yacht-mobile-2x.jpg);
   }
 }

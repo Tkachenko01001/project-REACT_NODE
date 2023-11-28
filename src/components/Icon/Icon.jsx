@@ -1,4 +1,4 @@
-import sprite from '../../images/sprite.svg';
+import sprite from '../../assets/svg/sprite.svg';
 import css from './Icon.module.css';
 
 const Icon = ({ name, tip = null, width = '18px', height = '18px' }) => {

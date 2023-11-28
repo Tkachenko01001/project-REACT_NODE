@@ -1,4 +1,4 @@
-import sprite from '../../../images/sprite.svg';
+import sprite from '../../../assets/svg/sprite.svg';
 import styles from './EyeOpen.module.css';
 
 export const EyeOpen = () => {

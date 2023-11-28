@@ -1,18 +1,16 @@
-import sprite from '../../images/sprite.svg';
-import { useState } from 'react';
 import Column from 'components/Column/Column';
 import MainPlaceholder from 'components/MainPlaceholder/MainPlaceholder';
-import styles from './MainDashboard.module.css';
-import { useSelector } from 'react-redux';
-import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
-import AddColumn from 'components/PopUps/AddColumn/AddColumn';
 import Modal from 'components/Modal/Modal';
-import { selectTheme } from 'redux/auth/selectors';
-import { DragDropContext } from "react-beautiful-dnd";
-import { useDispatch } from 'react-redux';
+import AddColumn from 'components/PopUps/AddColumn/AddColumn';
 import { StrictModeDroppable } from 'components/StrictModeDroppable/StrictModeDroppable';
-import { Draggable } from 'react-beautiful-dnd';
-import { transferTask, transferColumn } from 'redux/boards/operations';
+import { useState } from 'react';
+import { DragDropContext, Draggable } from 'react-beautiful-dnd';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectTheme } from 'redux/auth/selectors';
+import { transferColumn, transferTask } from 'redux/boards/operations';
+import { selectActiveBoard, selectBoardsList } from 'redux/boards/selectors';
+import sprite from '../../assets/svg/sprite.svg';
+import styles from './MainDashboard.module.css';
 
 const MainDashboard = () => {
   const dispatch = useDispatch();
@@ -29,25 +27,33 @@ const MainDashboard = () => {
     activeBoard.columns &&
     activeBoard.columns.length > 0 &&
     activeBoard;
-  
-  const onDragEnd = (result) => {
+
+  const onDragEnd = result => {
     const { type, destination, source, reason, draggableId: id } = result;
-    if (!destination || reason === "CANCEL") return;
-    if (destination.droppableId === source.droppableId && destination.index === source.index) return;
-    
+    if (!destination || reason === 'CANCEL') return;
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    )
+      return;
+
     if (type === 'tasks') {
-      dispatch(transferTask({
-        id,
-        data: { destination, source },
-      }));
-    };
+      dispatch(
+        transferTask({
+          id,
+          data: { destination, source },
+        })
+      );
+    }
 
     if (type === 'columns') {
-      dispatch(transferColumn({
-        id,
-        data: { destination, source },
-      }));
-    };
+      dispatch(
+        transferColumn({
+          id,
+          data: { destination, source },
+        })
+      );
+    }
   };
 
   return (
@@ -62,34 +68,44 @@ const MainDashboard = () => {
             )}
             {columns && (
               <DragDropContext onDragEnd={onDragEnd}>
-                  <StrictModeDroppable droppableId={columns._id} direction='horizontal' type='columns'>
-                    {(provided) => (
-                      <ul
-                        className={styles.columnList}
-                        ref={provided.innerRef}
-                        {...provided.droppableProps}
-                      >
-                        {activeBoard.columnOrder.map((columnId, index) => {
-                          const column = activeBoard.columns.find((el) => el._id === columnId);
-                          return (
-                            <Draggable draggableId={column._id} index={index} key={column._id}>
-                              {(provided) => (
-                                <li
-                                  ref={provided.innerRef}
-                                  {...provided.draggableProps}
-                                  {...provided.dragHandleProps}
-                                >
-                                  <Column column={column} />
-                                </li>
-                              )}
+                <StrictModeDroppable
+                  droppableId={columns._id}
+                  direction="horizontal"
+                  type="columns"
+                >
+                  {provided => (
+                    <ul
+                      className={styles.columnList}
+                      ref={provided.innerRef}
+                      {...provided.droppableProps}
+                    >
+                      {activeBoard.columnOrder.map((columnId, index) => {
+                        const column = activeBoard.columns.find(
+                          el => el._id === columnId
+                        );
+                        return (
+                          <Draggable
+                            draggableId={column._id}
+                            index={index}
+                            key={column._id}
+                          >
+                            {provided => (
+                              <li
+                                ref={provided.innerRef}
+                                {...provided.draggableProps}
+                                {...provided.dragHandleProps}
+                              >
+                                <Column column={column} />
+                              </li>
+                            )}
                           </Draggable>
-                          )
-                        })}
-                        {provided.placeholder}
-                      </ul>
-                    )}
-                  </StrictModeDroppable>
-                </DragDropContext>
+                        );
+                      })}
+                      {provided.placeholder}
+                    </ul>
+                  )}
+                </StrictModeDroppable>
+              </DragDropContext>
             )}
             <button
               className={
