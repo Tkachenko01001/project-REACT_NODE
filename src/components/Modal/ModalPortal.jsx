@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/auth/selectors';
-import sprite from '../../images/sprite.svg';
+import sprite from '../../assets/svg/sprite.svg';
 import css from '../Modal/Modal.module.css';
 
 export default function ModalPortal({ onClose, children }) {

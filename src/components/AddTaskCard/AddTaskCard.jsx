@@ -8,7 +8,7 @@ import { selectTheme } from 'redux/auth/selectors';
 import { addTask } from 'redux/boards/operations';
 import { selectIsBoardsLoading } from 'redux/boards/selectors';
 import { object, string } from 'yup';
-import sprite from '../../images/sprite.svg';
+import sprite from '../../assets/svg/sprite.svg';
 import Modal from '../Modal/Modal';
 import styles from './AddTaskCard.module.css';
 

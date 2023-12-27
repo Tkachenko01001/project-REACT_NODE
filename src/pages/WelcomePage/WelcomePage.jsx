@@ -1,7 +1,6 @@
-import React from 'react';
-import styles from './WelcomePage.module.css';
-import sprite from '../../images/sprite.svg';
 import { NavLink } from 'react-router-dom';
+import sprite from '../../assets/svg/sprite.svg';
+import styles from './WelcomePage.module.css';
 
 export default function WelcomePage() {
   return (
@@ -27,4 +26,4 @@ export default function WelcomePage() {
       </div>
     </section>
   );
-};
+}

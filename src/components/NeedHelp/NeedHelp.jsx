@@ -1,10 +1,10 @@
 import { HelpForm } from 'components/HelpForm/HelpForm';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/auth/selectors';
-import cactus from '../../images/cactus.png';
-import cactus2x from '../../images/cactus@2x.png';
-import cactus3x from '../../images/cactus@3x.png';
-import sprite from '../../images/sprite.svg';
+import cactus from '../../assets/images/png/cactus.png';
+import cactus2x from '../../assets/images/png/cactus@2x.png';
+import cactus3x from '../../assets/images/png/cactus@3x.png';
+import sprite from '../../assets/svg/sprite.svg';
 import css from './NeedHelp.module.css';
 
 export const NeedHelp = () => {

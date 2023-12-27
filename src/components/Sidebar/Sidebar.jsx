@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import { selectTheme } from 'redux/auth/selectors';
 import { getAllBoards } from 'redux/boards/operations';
 import { selectBoardsList } from 'redux/boards/selectors';
-import sprite from '../../images/sprite.svg';
+import sprite from '../../assets/svg/sprite.svg';
 import Logout from './Logout';
 import css from './Sidebar.module.css';
 

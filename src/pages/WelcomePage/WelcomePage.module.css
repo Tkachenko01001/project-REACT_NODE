@@ -19,7 +19,7 @@
 .img {
   width: 124px;
   height: 124px;
-  background-image: url(../../images/welcome-mobile.png);
+  background-image: url(../../assets/images/png/welcome-mobile.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -30,7 +30,7 @@
   screen and (min-resolution: 192dpi) and (max-width: 767px),
   screen and (min-resolution: 2dppx) and (max-width: 767px) {
   .img {
-    background-image: url(../../images/welcome-mobile@2x.png);
+    background-image: url(../../assets/images/png/welcome-mobile@2x.png);
   }
 }
 
@@ -38,7 +38,7 @@
   screen and (min-resolution: 288dpi) and (max-width: 767px),
   screen and (min-resolution: 3dppx) and (max-width: 767px) {
   .img {
-    background-image: url(../../images/welcome-mobile@3x.png);
+    background-image: url(../../assets/images/png/welcome-mobile@3x.png);
   }
 }
 
@@ -47,7 +47,7 @@
     width: 162px;
     height: 162px;
     margin-bottom: 24px;
-    background-image: url(../../images/welcome.png);
+    background-image: url(../../assets/images/png/welcome.png);
   }
 }
 
@@ -55,7 +55,7 @@
   screen and (min-resolution: 192dpi) and (min-width: 768px),
   screen and (min-resolution: 2dppx) and (min-width: 768px) {
   .img {
-    background-image: url(../../images/welcome@2x.png);
+    background-image: url(../../assets/images/png/welcome@2x.png);
   }
 }
 
@@ -63,7 +63,7 @@
   screen and (min-resolution: 288dpi) and (min-width: 768px),
   screen and (min-resolution: 3dppx) and (min-width: 768px) {
   .img {
-    background-image: url(../../images/welcome@3x.png);
+    background-image: url(../../assets/images/png/welcome@3x.png);
   }
 }
 
@@ -77,7 +77,7 @@
   screen and (min-resolution: 192dpi) and (min-width: 1440px),
   screen and (min-resolution: 2dppx) and (min-width: 1440px) {
   .img {
-    background-image: url(../../images/welcome@2x.png);
+    background-image: url(../../assets/images/png/welcome@2x.png);
   }
 }
 
@@ -85,7 +85,7 @@
   screen and (min-resolution: 288dpi) and (min-width: 1440px),
   screen and (min-resolution: 3dppx) and (min-width: 1440px) {
   .img {
-    background-image: url(../../images/welcome@3x.png);
+    background-image: url(../../assets/images/png/welcome@3x.png);
   }
 }
 

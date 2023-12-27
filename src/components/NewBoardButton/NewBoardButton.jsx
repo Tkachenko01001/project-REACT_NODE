@@ -1,12 +1,12 @@
-import { useState } from 'react';
 import NewBoard from 'components/NewBoard/NewBoard';
-import sprite from '../../images/sprite.svg';
+import { useState } from 'react';
+import sprite from '../../assets/svg/sprite.svg';
 import css from '../Sidebar/Sidebar.module.css';
 
 const NewBoardButton = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(state => !state);
-   
+
   return (
     <>
       <button
@@ -24,4 +24,3 @@ const NewBoardButton = () => {
 };
 
 export default NewBoardButton;
-

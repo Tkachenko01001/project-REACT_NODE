@@ -5,10 +5,10 @@ import { deleteTask } from 'redux/boards/operations';
 import { selectIsBoardsLoading } from 'redux/boards/selectors';
 import style from './Card.module.css';
 
-import sprite from '../../images/sprite.svg';
+import { selectTheme } from 'redux/auth/selectors';
+import sprite from '../../assets/svg/sprite.svg';
 import ModalPortal from '../Modal/ModalPortal';
 import styles from '../ModalBoard/ModalBoard.module.css';
-import { selectTheme } from 'redux/auth/selectors';
 
 const DeleteTask = ({ id }) => {
   const isBoardsLoading = useSelector(selectIsBoardsLoading);

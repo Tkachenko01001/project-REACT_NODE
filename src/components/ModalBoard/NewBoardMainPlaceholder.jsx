@@ -8,7 +8,7 @@ import { selectTheme } from 'redux/auth/selectors';
 import { addBoard } from 'redux/boards/operations';
 import { selectIsBoardsLoading } from 'redux/boards/selectors';
 import { modalSchema } from 'schemas/modalSchema';
-import sprite from '../../images/sprite.svg';
+import sprite from '../../assets/svg/sprite.svg';
 import style from '../AuthForm/LogInForm/LoginForm.module.css';
 import ModalPortal from '../Modal/ModalPortal';
 import styles from './ModalBoard.module.css';

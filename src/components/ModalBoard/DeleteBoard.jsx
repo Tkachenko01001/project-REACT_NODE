@@ -9,7 +9,7 @@ import {
 } from 'redux/boards/selectors';
 
 import ModalPortal from 'components/Modal/ModalPortal';
-import sprite from '../../images/sprite.svg';
+import sprite from '../../assets/svg/sprite.svg';
 import css from '../Sidebar/Sidebar.module.css';
 import styles from './ModalBoard.module.css';
 

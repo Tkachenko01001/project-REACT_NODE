@@ -2,17 +2,17 @@ import { AddTaskCard } from 'components/AddTaskCard/AddTaskCard';
 import Card from 'components/Card/Card';
 import EditColumn from 'components/PopUps/EditColumn/EditColumn';
 import { useState } from 'react';
-import sprite from '../../images/sprite.svg';
-import Modal from '../Modal/Modal';
-import styles from './Column.module.css';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/auth/selectors';
+import sprite from '../../assets/svg/sprite.svg';
+import Modal from '../Modal/Modal';
+import styles from './Column.module.css';
 import DeleteColumn from './DeleteColumn';
 
 import { StrictModeDroppable } from 'components/StrictModeDroppable/StrictModeDroppable';
+import { normalizePriority } from 'helpers/normalizePriority';
 import { Draggable } from 'react-beautiful-dnd';
 import { getActiveFilter } from 'redux/filter/selectors';
-import { normalizePriority } from 'helpers/normalizePriority';
 
 const Column = ({ column }) => {
   const { _id, title, tasks, taskOrder, board } = column;
