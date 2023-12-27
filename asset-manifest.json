@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/project-REACT_NODE/static/css/main.5fb42677.css",
-    "main.js": "/project-REACT_NODE/static/js/main.89d6c845.js",
+    "main.css": "/project-REACT_NODE/static/css/main.ac950d02.css",
+    "main.js": "/project-REACT_NODE/static/js/main.e6f19061.js",
     "static/media/tree-desktop-2x.jpg": "/project-REACT_NODE/static/media/tree-desktop-2x.b2a04729aeddbd51f4e0.jpg",
     "static/media/tree-tablet-2x.jpg": "/project-REACT_NODE/static/media/tree-tablet-2x.383827de5aff5cba46b2.jpg",
     "static/media/sea-desktop-2x.jpg": "/project-REACT_NODE/static/media/sea-desktop-2x.bf013ff5328e9978d8e8.jpg",
@@ -109,11 +109,11 @@
     "static/media/user_dark.svg": "/project-REACT_NODE/static/media/user_dark.084bccc071bb8dec64e328e7d81ba057.svg",
     "static/media/user_light.svg": "/project-REACT_NODE/static/media/user_light.7744c14c887e56d9dfbd4986541fa655.svg",
     "static/media/user_violet.svg": "/project-REACT_NODE/static/media/user_violet.e425c7a610d0f4e74a5dff581d529894.svg",
-    "main.5fb42677.css.map": "/project-REACT_NODE/static/css/main.5fb42677.css.map",
-    "main.89d6c845.js.map": "/project-REACT_NODE/static/js/main.89d6c845.js.map"
+    "main.ac950d02.css.map": "/project-REACT_NODE/static/css/main.ac950d02.css.map",
+    "main.e6f19061.js.map": "/project-REACT_NODE/static/js/main.e6f19061.js.map"
   },
   "entrypoints": [
-    "static/css/main.5fb42677.css",
-    "static/js/main.89d6c845.js"
+    "static/css/main.ac950d02.css",
+    "static/js/main.e6f19061.js"
   ]
 }
