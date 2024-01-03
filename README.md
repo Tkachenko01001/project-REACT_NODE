@@ -140,4 +140,4 @@ using project Task Pro.
 - https://www.linkedin.com/in/viacheslav-novytskyi-22a26b278
 
 **Layout**
-- ![This is the link](https://www.figma.com/file/fJF13s2UlxPIwTMcPVrSiz/TaskPro?type=design&node-id=107-1084&mode=design&t=mN5W9mQVzYJRLgbw-0)
+[This is the link](https://www.figma.com/file/fJF13s2UlxPIwTMcPVrSiz/TaskPro?type=design&node-id=107-1084&mode=design&t=mN5W9mQVzYJRLgbw-0)
