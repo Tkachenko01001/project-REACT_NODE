@@ -26,18 +26,18 @@
 }
 .container::-webkit-scrollbar {
   width: 6px; /* Ширина скролу (параметр бару) */
-  background-color: transparent; /* Колір фону скролу */
+  background-color: var(--color-light); /* Колір фону скролу */
   border-radius: 6px;
 }
 
 .container::-webkit-scrollbar-thumb {
-  background-color: transparent; /* Колір бару скролу */
-  outline: 1px solid transparent; /* Обводка бару скролу */
+  background-color: var(--color-light); /* Колір бару скролу */
+  outline: 1px solid var(--color-light); /* Обводка бару скролу */
   border-radius: 6px;
 }
 
 .container:hover::-webkit-scrollbar-thumb {
-  background-color: rgba(22, 22, 22, 0.3);
+  background-color: rgb(255, 0, 0);
 }
 
 .buttonDark {

@@ -20,13 +20,13 @@ const updateUserSchema = object({
     .test(
       'only-allowed-chars',
       'Must contain: only Latin, numbers, special characters',
-      value => !value || /^[a-zA-Z0-9\-!@#$%^&*()_+,.:;’“?/]+$/.test(value)
+      value => !value || /^[a-zA-Z0-9 !@#$%^&*()_+,.:;’“?\-\/ ]+$/.test(value)
     )
-    .matches(/^[a-zA-Z0-9 !@#$%^&*()_+,.:;’“?/-]+$/, 'Invalid name format'),
+    .matches(/^[a-zA-Z0-9 !@#$%^&*()_+,.:;’“?\-\/ ]+$/, 'Invalid name format'),
   email: string()
     .required('the field cannot be empty')
     .email()
-    .matches(/^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}$/, 'Invalid email format'),
+    .matches(/^[a-zA-Z0-9 .]+@[a-zA-Z]+\.[a-zA-Z]{2,3}$/, 'Invalid email format'),
   password: string()
     .min(8, 'minimum 8 characters')
     .max(64, 'maximum 64 characters')

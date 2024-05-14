@@ -7,6 +7,8 @@ import 'react-day-picker/dist/style.css';
 import { usePopper } from 'react-popper';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/auth/selectors';
+import sprite from '../../assets/svg/sprite.svg';
+import modalCss from '../Modal/Modal.module.css';
 import css from './Calendar.module.css';
 
 export default function CustomMonthLayout({ daySelected, setDaySelected }) {
@@ -20,12 +22,14 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
   const popper = usePopper(popperRef.current, popperElement, {
     placement: 'top',
   });
+
   const closePopper = () => {
     setIsPopperOpen(false);
     buttonRef?.current?.focus();
   };
+
   const handleButtonClick = e => {
-    setIsPopperOpen(true);
+    setIsPopperOpen(!isPopperOpen);
   };
 
   const handleDaySelect = date => {
@@ -35,10 +39,10 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
     }
   };
 
-  let footer = <p>Please pick a day</p>;
-  if (daySelected) {
-    footer = <p>You picked {format(daySelected, 'PP')}</p>;
-  }
+  // let footer = <p>Please pick a day</p>;
+  // if (daySelected) {
+  //   footer = <p>You picked {format(daySelected, 'PP')}</p>;
+  // }
 
   const currentDate = new Date();
 
@@ -53,7 +57,11 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
       <div ref={popperRef}>
         <button
           className={
-            theme === 'violet' ? css.calendarButtonViolet : css.calendarButton
+            theme === 'violet'
+              ? css.calendarButtonViolet
+              : theme === 'dark'
+              ? css.calendarButtonDark
+              : css.calendarButton
           }
           ref={buttonRef}
           type="button"
@@ -80,6 +88,16 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
             role="dialog"
             aria-label="DayPicker calendar"
           >
+            <button
+              type="button"
+              className={modalCss.close_Button}
+              onClick={closePopper}
+            >
+              <svg width={18} height={18} aria-label="close">
+                <use href={sprite + '#icon-x-close'} />
+              </svg>
+            </button>
+
             <DayPicker
               initialFocus={isPopperOpen}
               mode="single"
@@ -90,7 +108,8 @@ export default function CustomMonthLayout({ daySelected, setDaySelected }) {
               ISOWeek
               required
               disabled={DateBefore}
-              footer={footer}
+              className="customColors"
+              // footer={footer}
             />
           </div>
         </FocusTrap>

@@ -38,7 +38,6 @@ const Sidebar = ({ active }) => {
       }
     >
       <aside className={active ? css.active : css.sidebar}>
-        <div className={css.flexMarkup}>
           <div className={css.partTop}>
             <section className={css.sidebarBox}>
               <svg
@@ -171,7 +170,6 @@ const Sidebar = ({ active }) => {
               <Logout />
             </section>
           </div>
-        </div>
       </aside>
     </div>
   );
