@@ -17,7 +17,7 @@
 .thumb {
   display: inline-flex;
   border-radius: 8px;
-
+  border: 1px solid var(--color-light);
   width: 68px;
   height: 68px;
 
