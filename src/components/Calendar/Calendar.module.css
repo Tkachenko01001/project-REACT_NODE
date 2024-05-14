@@ -1,5 +1,7 @@
-.rdp {
-  opacity: 1;
+.close-button{
+  width: 30px;
+  float: right;
+  cursor: pointer;
 }
 
 .dark {
@@ -41,28 +43,6 @@
   font: var(--font-regular);
 }
 
-.rdp-button:focus-visible:not([disabled]) {
-  color: inherit;
-  background-color: yellowgreen;
-  border: var(--rdp-outline);
-}
-
-.rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
-  background-color: var(--color-hover-green);
-}
-
-.rdp-day_today:not(.rdp-day_outside) {
-  color: red;
-}
-
-.rdp-day_selected,
-.rdp-day_selected:focus-visible,
-.rdp-day_selected:hover {
-  color: white;
-  opacity: 1;
-  background-color: var(--rdp-accent-color);
-}
-
 .rdp-head_cell {
   color: var(--color-icon-grey);
 }
@@ -72,6 +52,18 @@
 }
 
 .calendarButton {
+  text-align: left;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: var(--color-black);
+  padding: 0;
+  display: flex;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.calendarButtonDark{
   text-align: left;
   outline: none;
   border: none;
