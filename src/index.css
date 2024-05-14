@@ -24,6 +24,7 @@
     url(./fonts/Poppins/Poppins-SemiBold.ttf) format('truetype');
 }
 
+
 :root {
   /* Fonts */
   --font-regular: 'PoppinsRegular', sans-serif;
@@ -44,6 +45,7 @@
   --color-bg-light: rgba(255, 255, 255, 0.1);
   --pop-up-bg-color: #151515;
   --secondary-text-color: #ffffff80;
+
 
   /* Colors/label */
   --color-blue: #8fa1d0;
@@ -81,6 +83,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   user-select: none;
+  height: 100vh;
+  overflow: hidden;
 }
 
 code {
@@ -131,4 +135,14 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+.rdp{
+  --rdp-accent-color: #bedbb0;
+
+}
+.rdp-day_selected, .rdp-day_selected:focus-visible,
+.rdp-day_selected:hover,
+.rdp-button:hover:not([disabled]):not(.rdp-day_selected){
+    color: black;
 }

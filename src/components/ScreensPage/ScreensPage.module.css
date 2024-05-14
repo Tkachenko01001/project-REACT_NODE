@@ -35,7 +35,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: calc(100vh - 120px);
+  height: 100%;
 }
 
 @media screen and (max-width: 768px) {
